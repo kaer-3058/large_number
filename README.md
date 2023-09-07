@@ -92,12 +92,13 @@
 
 高精度模式：`set #large_sqrt16.test16 int 1`
 
-对于科学记数法形式的开方，把结果的底数和指数合并 (需要版本1.20.2)：`set #double_sqrt.integrate_sci_math int 1`
-
-
 考虑到科学计数法的double转化与double开方也会处理正常表示的double型。
 
 函数宏仅是节省了命令数，是否节省了开销还需验证
+
+对于科学记数法形式的开方，把结果的底数和指数合并：
+
+`set #double_sqrt.integrate_sci_math int 1`   (需要版本1.20.2)
 
 `
 

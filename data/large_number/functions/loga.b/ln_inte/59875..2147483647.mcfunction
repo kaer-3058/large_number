@@ -1,0 +1,2 @@
+execute if score #loga.b.tempinp int matches 59875..24154952 store result score #loga.b.tempinte int run function large_number:loga.b/ln_inte/59875..24154952
+execute if score #loga.b.tempinp int matches 24154953..2147483647 store result score #loga.b.tempinte int run function large_number:loga.b/ln_inte/24154953..2147483647

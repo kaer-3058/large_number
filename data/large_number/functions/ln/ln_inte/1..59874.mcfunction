@@ -1,0 +1,2 @@
+execute if score #ln(x) int matches 1..403 store result score #ln(x).integer int run function large_number:ln/ln_inte/1..403
+execute if score #ln(x) int matches 404..59874 store result score #ln(x).integer int run function large_number:ln/ln_inte/404..59874

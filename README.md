@@ -1,9 +1,10 @@
 ## 大数运算
 
 相关概念：万进制数组、分段存储、浮点型、double型、前导0、绝对值、常数、精度、科学记数法
+
 如果万进制数组中的元素不足四位，则读数时应向前补0补足四位
 
-
+　
 
 ♦ 六个基本三角函数：math_trifs/_of_entity
 
@@ -37,7 +38,7 @@ data get entity b09e-44-fded-6-efa5ffffef64 Pos[2]
 data get entity b09e-44-fded-6-efa5ffffef64 Pos[0]
 ```
 
-
+　
 
 ♦ 大数加法：addition/start
 
@@ -84,7 +85,7 @@ data get entity 28529-0-3d00-0-2c4200ee8401 transformation.scale
 
 [见附录]
 
-
+　
 
 ♦ 对整数进行任意倍乘：int_mul_by_n/start
 
@@ -96,10 +97,12 @@ data get entity 28529-0-3d00-0-2c4200ee8401 transformation.scale
 输出：storage math int_mul_by_n.output
 ```
 输入的"整数"可以为非整数，但会按照整数来处理，向下取整并把范围钳制在整型范围内
+
 输入的"倍率"可以为任何数值，但计算时会忽略数据单位并转化为浮点型
+
 可选的数据类型："byte"、"float"、"double"、"short"、"int"、"long"
 
-
+　
 
 ♦ 任意整型数字相乘：int_int_multiply
 
@@ -131,7 +134,7 @@ data get entity 28529-0-3d00-0-2c4200ee8401 transformation.scale
 输出：storage math 1we_squ.output
 ```
 
-
+　
 
 ♦ 整型数字拆分为数组：cut_math_to_list
 
@@ -140,23 +143,26 @@ data get entity 28529-0-3d00-0-2c4200ee8401 transformation.scale
 输出：#sign int (符号)，#1st int，#2nd int，#3rd int
 ```
 
-
+　
 
 ♦ 整型数字开方：
 
-取整：int_sqrt_simple
+1.取整：int_sqrt_simple
 
-带结果验证的取整(结果总是会向下取整)：int_sqrt_simple_vali
+2.带结果验证的取整(结果总是会向下取整)：int_sqrt_simple_vali
 
-保留四位小数：int_sqrt
+3.保留四位小数：int_sqrt
 
-保留7~9位小数：test_int_more_dicimal
+4.保留7\~9位小数：test_int_more_dicimal
+
 #开1\~5位，保留9位；开6\~7位，保留8位；开8~10位，保留7位
 
-保留4~8位小数：int_sqrt_expansive
-#开1位，保留8位，开2~3位，保留7位，开4~5位时，保留6位，开6~7位，保留5位，开8~10位，保留4位
+5.保留4\~8位小数：int_sqrt_expansive
+
+#开1位，保留8位，开2\~3位，保留7位，开4\~5位时，保留6位，开6\~7位，保留5位，开8\~10位，保留4位
 
 #有时求得的最后一位小数会有稍许的精度损失
+
 #如果保留小数位数不足期望的位数，则读数时应在数的前面补0补足数位
 
 ```
@@ -168,9 +174,13 @@ data get entity 28529-0-3d00-0-2c4200ee8401 transformation.scale
 ♦ 整型数字开方 - 连分数迭代法：sqrt_continued_fraction/start
 
 适用于万以内的数，精确度可达12位小数。
+
 因分子分母都是以单段计分板存储，并非大数数组格式，因此要小心数值溢出。
+
 连分数迭代法的小数部分是以分式形式输出的。
+
 整合后输出的分式就是整个开根结果的分式形式。
+
 数值溢出的标志：分子分母至少有一个是负数。
 
 ```
@@ -203,9 +213,10 @@ data get entity 28529-0-3d00-0-2c4200ee8401 transformation.scale
 为了避免浪费算力，请按照如下优先级使用：整型范围内选整型数字开方，10~16位数字选16位数字开方，最后再考虑24位数字开方。
 
 高精度模式是16位整数开方算法的特性，为了追求高效率选用了高精度猜测法，代价是最后一位会有稍许的精度损失。仅在处理16位数的时候会有这种特性。
+
 高精度模式就是通过平方根自我平方对比原数来验证大小，自己决定要不要开。
 
-
+　
 
 ♦ 立方体求对角线 (欧几里得范数，三维向量模长)：
 
@@ -231,13 +242,16 @@ storage math vast_3d_vector.input.z [I;0,0]
 高精度模式：set #large_sqrt16.test16 int 1
 ```
 
-
+　
 
 ♦ double转int数组：
 
 普通转化：double_to_int
+
 考虑到科学记数法的转化：double_to_int_sci
+
 函数宏法转化：macro_operation/double_to_int_macro
+
 考虑到科学记数法的函数宏法转化：macro_operation/double_to_int_macro_sci
 
 ```
@@ -246,14 +260,17 @@ storage math vast_3d_vector.input.z [I;0,0]
 ```
 
 参数介绍：math 数值，sign 符号，expon 指数，point 小数点位置，leading_zeros 前导零数量
+
 读数顺序：数值>前导零数量>小数点位置>指数>符号
+
 函数宏仅是节省了命令数，是否节省了开销还需验证。
 
-
+　
 
 ♦ double型开方：
 
 普通开方：double_sqrt
+
 考虑到科学记数法的开方：double_sqrt_sci
 
 ```
@@ -268,9 +285,10 @@ set #double_sqrt.integrate_sci_math int 1
 参数介绍：int 用整型表示的结果，double 小数点还原的结果，expon 小数形式的结果的指数，double_sci 把小数部分和指数部分整合起来的最终结果
 
 考虑到科学计数法的double转化与double开方也会处理正常表示的double型。
+
 double转int、double型开方对float型数值也有效。
 
-
+　
 
 ♦ 整数的自然对数 ln(x)：ln/start
 
@@ -289,7 +307,9 @@ double型输出：storage math ln_output
 ♦ 非整数的自然对数 ln(x)：ln_with_dicimal/start
 
 限取输入值的前九位(整数部分+小数部分一共最多取九位)
+
 若输入值为科学计数法，则取的值是展开后的前九位，若整数部分达到了九位则只取整数部分
+
 数值范围为区间：[1,2147483647]，保留四位小数
 
 ```
@@ -320,12 +340,14 @@ double型输出：storage math ln_with_dicimal.output
 double型输出：storage math "log.a(b).output"
 ```
 
-
+　
 
 ♦ 24位数字显示
 
 有自适应数位：digital_display
+
 没有自适应数位：24_digital_display
+
 区别：后者必须在数组内输入六个数才能正常显示数位，而前者不必
 
 每三位数一组用逗号隔开。若数组中任意一个数为负数，则视为整个数组为负
@@ -337,11 +359,12 @@ double型输出：storage math "log.a(b).output"
 {"nbt":"math_display_json_string","storage":"math","interpret":true}
 ```
 
-
+　
 
 ♦ 单位向量法测距
 
 1.输入任意两点：unit_vector_for_distance
+
 两个点的坐标差的范围：100\*|x|+100\*|y|+100\*|z| ≤2147483
 
 ```
@@ -353,7 +376,9 @@ P2：storage math unit_vector.P2 [0.0,0.0,0.0]
 ```
 
 2.输入两点坐标差的绝对值：unit_vector_for_distance_modu
+
 需要玩家自己作差输入
+
 输入值范围：100x+100y+100z ≤2147483
 
 ```
@@ -362,16 +387,18 @@ P2：storage math unit_vector.P2 [0.0,0.0,0.0]
 输出 (输出值为结果的10倍)：#distance int
 ```
 
-
+　
 
 ♦ 获取当前日期和时间：timestamp/start
 
 【此功能需要联网使用】
 
 使用前需要载入前置库：`function large_number:timestamp/database`
+
 因获取玩家头颅里的Base64需要等待方块更新，所以解码会稍有延迟
 
 已知bug：如果执行后，观察到执行后无输出，则表示头颅皮肤未正确加载，解决方法是延迟1tick或1秒再执行一次本函数
+
 用命令判断就是测试此命令是否能通过，通过就表示解析不正确：`execute unless data storage timestamp output_base64_json.timestamp`
 
 ```
@@ -397,11 +424,13 @@ P2：storage math unit_vector.P2 [0.0,0.0,0.0]
 初始输入的正版玩家ID：ka__er
 ```
 
-因为<u>每个正版玩家名仅能在进入单人存档/服务器时获取两次时间戳，一次是放置成方块，一次是给生物戴头上</u>，然后时间戳就存在了缓存里不再更新，想要更新时间戳只有三个方法：
+因为每个正版玩家名仅能在进入单人存档/服务器时获取两次时间戳，一次是放置成方块，一次是给生物戴头上，然后时间戳就存在了缓存里不再更新，想要更新时间戳只有三个方法：
+
 1.重进存档/重开服务器；2.一个月后头颅缓存自动过期；3.更换一个新的正版玩家ID
+
 所以想要长期开着服务器，建议配合内部打表计时使用，每两小时用命令方块同步一次时间，每24小时更换一个新的正版玩家id来同步一次日期，更换30次后，第一次使用的玩家id的头颅缓存就过期了。
 
-
+　
 
 ♦ Unix时间戳解析 (32位)：timestamp/parse_timestamp/start
 
@@ -423,23 +452,31 @@ P2：storage math unit_vector.P2 [0.0,0.0,0.0]
 {"nbt":"parse_timestamp.tellraw","storage":"math","interpret":true}
 ```
 
-
+　
 
 ♦ 理论参考：
 
 > 小豆数学库：https://github.com/xiaodou8593/math2.0
+> 
 > 知乎.手动开根——牛顿迭代法：https://zhuanlan.zhihu.com/p/497508702
+> 
 > 知乎.手动开根——竖式开方法：https://zhuanlan.zhihu.com/p/517358606
+> 
 > 小豆.用命令做一个简易的开根号：https://www.bilibili.com/read/cv5789989
+> 
 > 天起源.T算法库：https://www.mcbbs.net/thread-1389089-1-1.html
+> 
 > 计算机系统数学原理：http://mathmu.github.io/publications/mathematical-theory-of-computer-algebra-system
+> 
 > 【动画密码学】Base64编码&解码算法：https://www.bilibili.com/video/BV1Hp4y1g7Ex
+> 
 > 卡儿.基于完全平方公式的平方根估值算法 (提取码 sr8j)：https://pan.baidu.com/s/1eoeChhk7xukIIYxexmMwJQ?pwd=sr8j
+> 
 > 知乎.最大公约数GCD算法：https://zhuanlan.zhihu.com/p/38100838
 
 工具：GeoGebra，Desmos
 
-
+　
 
 
 【附】十进制浮点除法用法讲解：
@@ -461,15 +498,23 @@ set #Divisor_float_exp int 1
 ```
 
 第一个计分板是符号位，可选项为-1，0，1
+
 1表示正数，-1表示负数，0表示纯零
+
 这里出现了纯零这个概念。因为计算机表示数的时候，有时候会出现正负0，正负零表示一个很小的数。
+
 正负0是有几何意义的。加减法可以得到纯0，乘除法可能得到正0 负0。
+
 就比如除法得到的0.00000000012，可能就被表示为≈0，这就是一个正0，表示极小的正数。
 
 中间是两个有效数字，最后是指数。
+
 就比如这个示例里设置的被除数的值，它表示1×0.85933538×10^2。
+
 这里的有效数字部分是有限制的，首先int0和int1都是非负数，由符号位决定正负。
+
 如果整个数字不是0，int0的范围是[1000,9999]，int1的范围是[0,9999]。
+
 指数位可以从-2147483648到2147483647，也就是说这种表示方法可能表示的数非常大，但是越大精度越低。
 这个除法的有效精度范围就是八位，整数部分如果用完了八位精度，小数部分就难以保证精度了。
 

@@ -1,0 +1,1 @@
+$data modify storage math temp4 set value "$(temp1)$(temp2)$(temp3)$(temp4)"

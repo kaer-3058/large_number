@@ -325,7 +325,7 @@ double型输出：storage math ln_with_dicimal.output
 
 ♦ 任意正整数的对数：loga.b/start
 
-保留八位小数，若小数部分数位不足四位，则在前面补前导0补足数位
+保留八位小数，若小数部分数位不足八位，则在前面补前导0补足数位
 
 ```
 计算前需要载入初始数据库：function large_number:ln/ln_database
@@ -338,6 +338,21 @@ double型输出：storage math ln_with_dicimal.output
 整数部分：#loga.b.inte int
 小数部分：#loga.b.dicimal int
 double型输出：storage math "log.a(b).output"
+```
+
+♦ 整数的常用对数：lg/start
+
+保留八位小数，若小数部分数位不足八位，则在前面补前导0补足数位
+
+```
+计算前需要载入初始数据库：function large_number:ln/ln_database
+
+输入：#lg(x) int
+
+输出：
+整数部分：#lg(x)_out_inte int#lg(x)_out_dicimal int
+小数部分：#lg(x)_out_dicimal int
+double型输出：storage math lg(x)_output
 ```
 
 　

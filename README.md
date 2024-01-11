@@ -350,7 +350,7 @@ double型输出：storage math "log.a(b).output"
 输入：#lg(x) int
 
 输出：
-整数部分：#lg(x)_out_inte int#lg(x)_out_dicimal int
+整数部分：#lg(x)_out_inte int
 小数部分：#lg(x)_out_dicimal int
 double型输出：storage math lg(x)_output
 ```

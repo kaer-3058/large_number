@@ -489,7 +489,7 @@ P2：storage math unit_vector.P2 [0.0,0.0,0.0]
 > 
 > 知乎.最大公约数GCD算法：https://zhuanlan.zhihu.com/p/38100838
 
-工具：GeoGebra，Desmos
+工具：GeoGebra，Desmos，Excel
 
 　
 

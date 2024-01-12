@@ -469,6 +469,38 @@ P2：storage math unit_vector.P2 [0.0,0.0,0.0]
 
 　
 
+ ♦ 解整系数一元二次方程：quadratic_equation/start
+
+需要把一元二次方程化为一般形式输入，a b c 的绝对值尽量不大于20724
+
+```
+输入：
+#X_squ_equ.a int
+#X_squ_equ.b int
+#X_squ_equ.c int
+
+输出：
+放大一万倍的分数形式：
+#X_squ_equ.x1 int
+#X_squ_equ.x2 int
+
+表达式形式(未化简)：storage math quadratic_equation_out.expression
+double型形式：storage math quadratic_equation_out.double
+
+实数根的数量：#X_squ_equ.roots int
+
+显示解方程的结果：set #X_squ_equ.tellraw int 1
+显示这个JSON文本便可显示结果：
+[{"nbt":"quadratic_equation_out_json_tellraw.json1","storage":"math","interpret":true},{"nbt":"quadratic_equation_out_json_tellraw.json2","storage":"math","interpret":true}]
+```
+
+注：
+1.若方程有两个不相等的实数根，则x1和x2的记分板分数都存在，表达式形式和double型形式都是列表，列表的第一项对应x1，第二项对应x2。
+2.若方程有两个相等的实数根，则x1和x2的记分板分数都存在且相等，表达式形式是一个单独的字符串，double型形式是一个单独的double型数值。
+3.若方程没有实数根，则x1和x2的记分板分数都不存在，表达式形式和double型形式也都不存在，`storage math quadratic_equation_out`会是一个空的复合标签。
+
+　
+
 ♦ 理论参考：
 
 > 小豆数学库：https://github.com/xiaodou8593/math2.0

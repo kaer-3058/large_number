@@ -496,7 +496,9 @@ double型形式：storage math quadratic_equation_out.double
 
 注：
 1.若方程有两个不相等的实数根，则x1和x2的记分板分数都存在，表达式形式和double型形式都是列表，列表的第一项对应x1，第二项对应x2。
+
 2.若方程有两个相等的实数根，则x1和x2的记分板分数都存在且相等，表达式形式是一个单独的字符串，double型形式是一个单独的double型数值。
+
 3.若方程没有实数根，则x1和x2的记分板分数都不存在，表达式形式和double型形式也都不存在，`storage math quadratic_equation_out`会是一个空的复合标签。
 
 　

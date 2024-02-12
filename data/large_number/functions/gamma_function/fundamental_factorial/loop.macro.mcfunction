@@ -1,0 +1,1 @@
+$execute store result storage math temp1 double $(temp1) run scoreboard players get #stemp1 int

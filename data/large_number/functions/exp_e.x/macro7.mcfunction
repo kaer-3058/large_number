@@ -1,0 +1,1 @@
+$data modify storage math exp_e^x.output set value $(temp1)E$(temp9)

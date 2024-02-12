@@ -1,0 +1,1 @@
+$data modify storage math temp10 set value [1.$(temp5)$(temp2)$(temp3)$(temp4)f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,$(temp1)f]

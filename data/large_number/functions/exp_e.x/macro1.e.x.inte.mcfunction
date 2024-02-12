@@ -1,0 +1,1 @@
+$data modify storage math temp_e^x_inte set from storage exp database."e^$(temp1)"

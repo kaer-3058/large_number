@@ -667,9 +667,7 @@ double型形式：storage math quadratic_equation_out.double
 
 1.若方程有两个不相等的实数根，则x1和x2的记分板分数都存在，表达式形式和double型形式都是列表，列表的第一项对应x1，第二项对应x2。
 
-2.若方程有两个相等的实数根，则x1和x2的记分板分数都存在且相等，表达式形式是一个单独的字符串，double型形式是一个单独的
-
-double型数值。
+2.若方程有两个相等的实数根，则x1和x2的记分板分数都存在且相等，表达式形式是一个单独的字符串，double型形式是一个单独的double型数值。
 
 3.若方程没有实数根，则x1和x2的记分板分数都不存在，表达式形式和double型形式也都不存在，`storage math quadratic_equation_out`会是一个空的复合标签。
 
@@ -860,6 +858,8 @@ double型数值。
 > 卡儿.基于完全平方公式的平方根估值算法 (提取码 sr8j)：https://pan.baidu.com/s/1eoeChhk7xukIIYxexmMwJQ?pwd=sr8j
 >
 > 知乎.最大公约数GCD算法：https://zhuanlan.zhihu.com/p/38100838
+>
+> 卡儿.《我的世界》【1.16.5】Java版实用粒子教程：https://www.bilibili.com/read/readlist/rl651851
 
 工具：GeoGebra，Desmos，Excel
 

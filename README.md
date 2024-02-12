@@ -448,7 +448,7 @@ execute in minecraft:overworld run kill @e[type=minecraft:marker,tag=large_numbe
 
 ♦ 指数函数
 
-1. e^x^ ：exp_e.x/start
+1. e^x ：exp_e.x/start
 
 e是自然对数的底，是一个无理数，e ≈2.718281828459045
 
@@ -467,7 +467,7 @@ e是自然对数的底，是一个无理数，e ≈2.718281828459045
 
 2. 任意正数的幂：exp_any/start
 
-例：输入 5.7322^2.1123^，输出 39.976265
+例：输入 5.7322^2.1123，输出 39.976265
 
 ```
 需要载入前置库：function large_number:exp_e.x/database

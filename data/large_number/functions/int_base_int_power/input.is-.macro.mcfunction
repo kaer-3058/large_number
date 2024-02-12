@@ -1,0 +1,1 @@
+$data modify storage math temp1 set value $(temp1)f

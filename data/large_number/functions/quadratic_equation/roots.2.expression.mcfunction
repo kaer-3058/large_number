@@ -1,1 +1,0 @@
-$data modify storage math quadratic_equation_out set value {expression:["($(temp2)+√$(temp1))/$(temp3)","($(temp2)-√$(temp1))/$(temp3)"]}

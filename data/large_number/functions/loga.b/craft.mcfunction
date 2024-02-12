@@ -1,8 +1,0 @@
-$execute if score #temp1 int matches 0..9 run data modify storage math "log.a(b).output" set value 0.0000000$(temp1)E$(temp2)
-$execute if score #temp1 int matches 10..99 run data modify storage math "log.a(b).output" set value 0.000000$(temp1)E$(temp2)
-$execute if score #temp1 int matches 100..999 run data modify storage math "log.a(b).output" set value 0.00000$(temp1)E$(temp2)
-$execute if score #temp1 int matches 1000..9999 run data modify storage math "log.a(b).output" set value 0.0000$(temp1)E$(temp2)
-$execute if score #temp1 int matches 10000..99999 run data modify storage math "log.a(b).output" set value 0.000$(temp1)E$(temp2)
-$execute if score #temp1 int matches 100000..999999 run data modify storage math "log.a(b).output" set value 0.00$(temp1)E$(temp2)
-$execute if score #temp1 int matches 1000000..9999999 run data modify storage math "log.a(b).output" set value 0.0$(temp1)E$(temp2)
-$execute if score #temp1 int matches 10000000..99999999 run data modify storage math "log.a(b).output" set value 0.$(temp1)E$(temp2)

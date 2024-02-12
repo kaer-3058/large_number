@@ -1,1 +1,0 @@
-$data modify storage math temp6 set value 0.$(temp3)$(temp4)E$(temp5)d

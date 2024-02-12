@@ -1,3 +1,0 @@
-execute if score #double_to_int.1 int matches 100..999 store result storage math double_sqrt.output.double double 0.00000001 run scoreboard players get #ds2.1 int
-execute if score #double_to_int.1 int matches 10..99 store result storage math double_sqrt.output.double double 0.00000001 run scoreboard players get #ds2.1 int
-execute if score #double_to_int.1 int matches 1..9 store result storage math double_sqrt.output.double double 0.000000001 run scoreboard players get #ds2.1 int

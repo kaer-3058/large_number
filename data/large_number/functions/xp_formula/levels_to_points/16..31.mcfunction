@@ -1,0 +1,16 @@
+execute if score #xp_formula.levels int matches 16 run return 352
+execute if score #xp_formula.levels int matches 17 run return 394
+execute if score #xp_formula.levels int matches 18 run return 441
+execute if score #xp_formula.levels int matches 19 run return 493
+execute if score #xp_formula.levels int matches 20 run return 550
+execute if score #xp_formula.levels int matches 21 run return 612
+execute if score #xp_formula.levels int matches 22 run return 679
+execute if score #xp_formula.levels int matches 23 run return 751
+execute if score #xp_formula.levels int matches 24 run return 828
+execute if score #xp_formula.levels int matches 25 run return 910
+execute if score #xp_formula.levels int matches 26 run return 997
+execute if score #xp_formula.levels int matches 27 run return 1089
+execute if score #xp_formula.levels int matches 28 run return 1186
+execute if score #xp_formula.levels int matches 29 run return 1288
+execute if score #xp_formula.levels int matches 30 run return 1395
+execute if score #xp_formula.levels int matches 31 run return 1507

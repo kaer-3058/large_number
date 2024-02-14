@@ -839,6 +839,34 @@ double型形式：storage math quadratic_equation_out.double
 
 　
 
+♦ 全息粒子投影 - 16x16x16投影至1x1x1
+
+把染色混凝土投影为dust粒子
+
+扫描一次后，粒子颜色和坐标等信息会存入数据库，就算扫描区清空了也一样可以投影
+
+添加可解析方块：
+
+在函数 "particle/holographic_projection/if" 里的第18行开始添加如下格式的命令：
+
+`execute if block ~ ~ ~ <方块ID|方块标签>[方块状态]{数据标签} run data modify storage math temp_particle set value "<dust粒子的颜色>"`
+
+粒子颜色格式是三个用空格隔开的数。例如纯黑就是"0 0 0"，方块状态和数据标签都是可选的
+
+```
+先扫描：execute positioned x y z run function large_number:particle/holographic_projection/scan.start
+执行位置需要在扫描区域的西北下角
+聊天栏出现"全息粒子投影：扫描完成！"时即为扫描完成。
+
+投影：execute rotated 0.0 0.0 positioned x y z run function large_number:particle/holographic_projection/execute with storage math holographic_projection_database
+需要传入投影点和投影角度，投影的位移和旋转的基点在投影的底面中心
+会触发函数宏的缓存机制，可高频执行
+
+清空数据库：data remove storage math holographic_projection_database
+```
+
+　
+
 ♦ 理论参考：
 
 > 小豆数学库：https://github.com/xiaodou8593/math2.0

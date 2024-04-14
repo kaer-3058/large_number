@@ -1,0 +1,1 @@
+$execute store result storage math int_mul_by_n.output $(temp2) $(temp1) run data get storage math int_mul_by_n.input_int

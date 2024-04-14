@@ -1,0 +1,8 @@
+$scoreboard players set #temp1 int 0$(temp1)
+$scoreboard players set #temp2 int 0$(temp2)
+$scoreboard players set #temp3 int 0$(temp3)
+$scoreboard players set #temp4 int 0$(temp4)
+$scoreboard players set #temp5 int 0$(temp5)
+$scoreboard players set #temp6 int 0$(temp6)
+$scoreboard players set #temp7 int 0$(temp7)
+$scoreboard players set #temp8 int 0$(temp8)

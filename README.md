@@ -1,13 +1,16 @@
 ## 卡儿的数学库
 
+对应MC版本1.20.4
+
 相关概念：万进制数组、分段存储、浮点型、double型、前导0、绝对值、常数、精度、科学记数法
+
 如果万进制数组中的元素不足四位，则读数时应向前补0补足四位
 
 本数据包里的世界实体、展示实体、临时实体等都在主世界
 
 推荐设置：`gamerule maxCommandChainLength 2147483647`
 
-
+　
 
 ♦ 常数
 
@@ -16,7 +19,7 @@
 e：storage const "e"
 ```
 
-
+　
 
 ♦ 六个基本三角函数：math_trifs/_of_entity
 
@@ -56,7 +59,7 @@ data get entity b09e-44-fded-6-efa5ffffef64 Pos[0]
 
 反余弦：math_trifs/arccos
 
-公式：arcsin(x)=atan2(x, √(1-x^2^))，arccos(x)=atan2(√(1-x^2^), x)
+公式：arcsin(x)=atan2(x, √(1-x^2))，arccos(x)=atan2(√(1-x^2), x)
 
 ```
 输入：#arcsin_cos.input int
@@ -65,7 +68,7 @@ data get entity b09e-44-fded-6-efa5ffffef64 Pos[0]
 输出 (角度)：entity b09e-44-fded-6-efa5ffffef64 Rotation[0]
 ```
 
-
+　
 
 ♦ 大数加法：addition/start
 
@@ -83,7 +86,7 @@ data get entity b09e-44-fded-6-efa5ffffef64 Pos[0]
 差：storage math subtraction.output
 ```
 
-
+　
 
 ♦ 展示实体法浮点数除法
 
@@ -225,7 +228,7 @@ storage math loop_more_more_dicimal_base (底数)
 输出：storage math float_reciprocal.output
 ```
 
-
+　
 
 ♦ 对整数进行任意倍乘：int_mul_by_n/start
 
@@ -268,7 +271,7 @@ storage math loop_more_more_dicimal_base (底数)
 积：storage math float_multiply.output
 ```
 
-
+　
 
 ♦ 浮点加减法：`execute in minecraft:overworld run function large_number:float_add_subtra/start`
 
@@ -288,7 +291,7 @@ storage math float_add_subtra.input2 0.0
 输出：storage math float_add_subtra.output
 ```
 
-
+　
 
 ♦ 任意整型数字相乘：int_int_multiply
 
@@ -332,7 +335,7 @@ storage math float_add_subtra.input2 0.0
 输出：storage math Infinite_digit_multiply.output
 ```
 
-
+　
 
 ♦ 整型数字拆分为数组：cut_math_to_list
 
@@ -341,7 +344,7 @@ storage math float_add_subtra.input2 0.0
 输出：#sign int (符号)，#1st int，#2nd int，#3rd int
 ```
 
-
+　
 
 ♦ 整型数字开方：
 
@@ -350,9 +353,11 @@ storage math float_add_subtra.input2 0.0
 保留四位小数 (32条纯记分板命令)：int_sqrt
 
 保留多位小数：test_int_more_dicimal
+
 #开1\~5位，保留9位；开6\~7位，保留8位；开8~10位，保留7位
 
 #有时求得的最后一位小数会有稍许的精度损失
+
 #如果保留小数位数不足期望的位数，则读数时应在数的前面补0补足数位
 
 原理：初值预估+牛顿迭代，详见参考文献
@@ -371,11 +376,17 @@ storage math float_add_subtra.input2 0.0
 ♦ 整型数字开方 - 连分数迭代法：sqrt_continued_fraction/start
 
 适用于万以内的数，精确度可达12位小数。
+
 连分数迭代法的小数部分是以分数形式输出的。
+
 因分子分母都是以单段计分板存储，并非大数数组格式，因此要小心数值溢出。
+
 整合后输出的分数就是整个开根结果的分式形式。
+
 数值溢出可能会造成输出的分数为负数，或分数值与预想的值差距过大。
+
 无论迭代多少次都不会影响单独存起来的整数部分。
+
 使用前建议了解一下什么是连分数。
 
 生成连分数的算法详见参考文献。
@@ -425,13 +436,14 @@ storage math float_add_subtra.input2 0.0
 为了避免浪费算力，请按照如下优先级使用：整型范围内选整型数字开方，10~16位数字选16位数字开方，最后再考虑24位数字开方。
 
 高精度模式是16位整数开方算法的特性，为了追求高效率选用了高精度猜测法，代价是最后一位会有稍许的精度损失。仅在处理16位数的时候会有这种特性。
+
 高精度模式就是通过平方根自我平方对比原数来验证大小，自己决定要不要开。
 
-
+　
 
 ♦ 整型数字求立方根
 
-原理：立方根估值算法。取一个常数x，n是x的立方根整数部分，z是立方根小数部分，则 (x-n\^3)/(3n^2 +3n+1)≈z。整数部分是二分法。
+原理：立方根估值算法。取一个常数x，n是x的立方根整数部分，z是立方根小数部分，则 (x-n\^3)/(3n\^2 +3n+1)≈z。整数部分是二分法。
 
 取整：cube_root/floor
 
@@ -443,7 +455,7 @@ storage math float_add_subtra.input2 0.0
 若保留四位小数则放大一万倍输出
 ```
 
-
+　
 
 ♦ 立方体求对角线 (欧几里得范数，三维向量模长)：
 
@@ -468,7 +480,7 @@ storage math vast_3d_vector.input.z [I;0,0]
 高精度模式：set #large_sqrt16.test16 int 1
 ```
 
-
+　
 
 ♦ double转int数组
 
@@ -477,8 +489,11 @@ storage math vast_3d_vector.input.z [I;0,0]
 原理：字符串形式取数再转为int。逐位拆分法获取数字信息。
 
 普通转化：double_to_int
+
 考虑到科学记数法的转化：double_to_int_sci
+
 函数宏法转化：macro_operation/double_to_int_macro
+
 考虑到科学记数法的函数宏法转化：macro_operation/double_to_int_macro_sci
 
 ```
@@ -487,15 +502,20 @@ storage math vast_3d_vector.input.z [I;0,0]
 ```
 
 参数介绍：math 数值，sign 符号，expon 指数，point 小数点位置，leading_zeros 前导零数量
+
 读数顺序：数值>前导零数量>小数点位置>指数>符号
+
 函数宏仅是节省了命令数，是否节省了开销还需验证。
 
 读数方法：对于每一个数字，必定存在符号和数值。对于MC里的浮点数，指数、小数点位置和前导0数量这三个信息并不会同时变动，若其中一个变了，其他两个参数一定是固定值。也就是说，对于转化后的数字信息：
+
 如果指数不为0，则小数点位置必定为2(在第一个数后面)，前导0必定是0个。
+
 如果小数点位置不为2，则指数必定为0，前导0必定是0个。
+
 如果前导0数量为1到3个(MC浮点数最多存在三个前导0)，则小数点位置必定为2，指数必定为0。
 
-
+　
 
 ♦ double型开方 (高精度浮点数开方)
 
@@ -532,12 +552,14 @@ set #double_sqrt.integrate_sci_math int 1
 输出：storage math double_sqrt.output.double_sci
 ```
 
-
+　
 
 ♦ 24位数字显示
 
 输入几位就显示几位：digital_display
+
 始终保持显示的数字是24位：24_digital_display
+
 区别：后者如果输入的数字不足24位，则会自动在数字前面补0补足24位
 
 每三位数一组用逗号隔开。若数组中任意一个数为负数，则视为整个数组为负
@@ -549,11 +571,12 @@ set #double_sqrt.integrate_sci_math int 1
 [{"nbt":"math_display_json_is-","storage":"math"},{"nbt":"math_display_json[]","storage":"math","separator":{"text":","}}]
 ```
 
-
+　
 
 ♦ 单位向量法测距
 
 1.输入任意两点：unit_vector_for_distance
+
 两个点的坐标差的范围：100\*|x|+100\*|y|+100\*|z| ≤2147483
 
 ```
@@ -565,7 +588,9 @@ P2：storage math unit_vector.P2 [0.0,0.0,0.0]
 ```
 
 2.输入两点坐标差的绝对值：unit_vector_for_distance_modu
+
 需要玩家自己作差输入
+
 输入值范围：100x+100y+100z ≤2147483
 
 ```
@@ -574,7 +599,7 @@ P2：storage math unit_vector.P2 [0.0,0.0,0.0]
 输出 (已放大10倍)：#distance int
 ```
 
-
+　
 
 ♦ 列表算法 - 洗牌：list_operation/shuffle/start
 
@@ -610,7 +635,7 @@ execute in minecraft:overworld run kill @e[type=minecraft:marker,tag=large_numbe
 输出：storage math list_dedup.output
 ```
 
-
+　
 
 ♦ UUID数组转为带连字符的16进制：uuid_list_for_hyphen/start
 
@@ -628,7 +653,9 @@ execute in minecraft:overworld run kill @e[type=minecraft:marker,tag=large_numbe
 实体属性法：`execute in minecraft:overworld run function large_number:uuid_list_for_hyphen/back_for_attribute with storage math uuid_hyphen_back_list`
 
 例如："00000035-ffff-f910-0000-00fffffffffd" 转为：[I; 53, -1776, 255, -3]
+
 必须输入完整的32位UUID，每一段前面的0不能省
+
 16进制UUID一共有32位，每一段的字符数固定为 8,4,4,4,12
 
 ```
@@ -636,13 +663,13 @@ execute in minecraft:overworld run kill @e[type=minecraft:marker,tag=large_numbe
 输出：storage math uuid_hyphen_back_list.output
 ```
 
-
+　
 
 ♦ 概率模拟 - 二项分布
 
 测试1： random/binomial_distribution/test1
 
-测试内容：若输入值里包含2的幂，则有50%概率减去2的幂，从2^30^到2^0^测试31次，返回测试后的输入值
+测试内容：若输入值里包含2的幂，则有50%概率减去2的幂，从2^30到2^0测试31次，返回测试后的输入值
 
 ```
 输入(只接受正值)：set #binomial_distribution.test1.input int
@@ -665,11 +692,11 @@ execute in minecraft:overworld run kill @e[type=minecraft:marker,tag=large_numbe
 
 当n足够大时，结果接近于正态分布。当n越大（至少20）且p不接近0或1时近似效果更好。不同的经验法则可以用来决定n是否足够大,以及p是否距离0或1足够远,其中一个常用的规则是np和n(1 −p)都必须大于 5。
 
-
+　
 
 ♦ 指数函数
 
-1. e^x^ ：exp_e.x/start
+1. e^x ：exp_e.x/start
 
 原理：对于指数的整数部分和前三位小数分别查表计算，四位以及后面的小数用泰勒公式、
 
@@ -690,9 +717,9 @@ e是自然对数的底，是一个无理数，e ≈2.718281828459045
 
 2. 任意正数的幂：exp_any/start
 
-原理：a^b^ = e^(b*ln(a))^
+原理：a^b = e^(b*ln(a))
 
-例：输入 5.7322^2.1123^，输出 39.976265
+例：输入 5.7322^2.1123，输出 39.976265
 
 ```
 e^x的前置库：function large_number:exp_e.x/database
@@ -721,7 +748,7 @@ ln[1,2]的初始数据库：function large_number:ln_high_precision/database
 输出：storage math int_base_int_power_out
 ```
 
-
+　
 
 ♦ 整数的自然对数 ln(x)：ln/start
 
@@ -760,8 +787,11 @@ double型输出：storage math ln_double.output
 换底公式：`log.a(b)=ln(b)/ln(a)`
 
 特殊情况：
+
 以0或1为底的"不为1的数"的对数不存在，故而输出的值也不存在；
+
 任何数为底的1的对数都是0；
+
 非0且非1的底数的0的对数都是负无穷，故而输出的double为负无穷，输出的计分板值是-2147483648。
 
 ```
@@ -802,7 +832,7 @@ double型输出：storage math "log.a(b).output"
 double型输出：storage math lg(x)_output
 ```
 
-
+　
 
 ♦ 自然数的阶乘：gamma_function/fundamental_factorial/start
 
@@ -858,7 +888,7 @@ ln[1,2]的初始数据库：function large_number:ln_high_precision/database
 输出：storage math gamma_function.output
 ```
 
-
+　
 
 ♦ 执行朝向转为四元数四分量xyzw：quaternion/facing/2tostoxyzw
 
@@ -881,7 +911,7 @@ ln[1,2]的初始数据库：function large_number:ln_high_precision/database
 输出：storage math xyzw
 ```
 
-
+　
 
 ♦ 局部坐标转相对坐标：uvw/uvwtoxyz
 
@@ -905,11 +935,12 @@ ln[1,2]的初始数据库：function large_number:ln_high_precision/database
 输出(放大一万倍)：#u int，#v int，#w int
 ```
 
-
+　
 
 ♦ 解整系数一元二次方程：quadratic_equation/start
 
 需要把一元二次方程化为一般形式输入，a b c 的绝对值尽量不大于20724
+
 支持a=0的情况
 
 更精确的：支持的Δ的值的范围为全int，即-2147483648 ≤ b²-4ac ≤ 2147483647
@@ -938,11 +969,14 @@ double型形式：storage math quadratic_equation_out.double
 ```
 
 注：
+
 1.若方程有两个不相等的实数根，则x1和x2的记分板分数都存在，表达式形式和double型形式都是列表，列表的第一项对应x1，第二项对应x2。
+
 2.若方程有两个相等的实数根，则x1和x2的记分板分数都存在且相等，表达式形式是一个单独的字符串，double型形式是一个单独的double型数值。
+
 3.若方程没有实数根，则x1和x2的记分板分数都不存在，表达式形式和double型形式也都不存在，`storage math quadratic_equation_out`会是一个空的复合标签。
 
-
+　
 
 ♦ 获取当前日期和时间：timestamp/start
 
@@ -953,6 +987,7 @@ double型形式：storage math quadratic_equation_out.double
 因获取玩家头颅里的Base64需要等待方块更新，所以解码会稍有延迟
 
 已知bug：如果执行后，观察到执行后无输出，则表示头颅皮肤未正确加载，解决方法是延迟1tick或1秒再执行一次本函数
+
 用命令判断就是测试此命令是否能通过，通过就表示解析不正确：`execute unless data storage timestamp output_base64_json.timestamp`
 
 ```
@@ -982,10 +1017,12 @@ double型形式：storage math quadratic_equation_out.double
 ```
 
 因为<u>每个正版玩家名仅能在进入单人存档/服务器时获取两次时间戳，一次是放置成方块，一次是放置在实体的物品栏里</u>，然后时间戳就存在了缓存里不再更新，想要更新时间戳只有三个方法：
+
 1.重进存档/重开服务器；2.一个月后头颅缓存自动过期；3.更换一个新的正版玩家ID
+
 所以想要长期开着服务器，建议配合内部打表计时使用，每两小时用命令方块同步一次时间，每24小时更换一个新的正版玩家id来同步一次日期，更换30次后，第一次使用的玩家id的头颅缓存就过期了。
 
-
+　
 
 ♦ Unix时间戳解析 (32位)：timestamp/parse_timestamp/start
 
@@ -1007,15 +1044,16 @@ double型形式：storage math quadratic_equation_out.double
 {"nbt":"parse_timestamp.tellraw","storage":"math","interpret":true}
 ```
 
-
+　
 
 ♦ 玩家经验公式 - 根据经验等级和经验数推出经验总数：xp_formula/levels_to_points/start
 
-公式：当玩家经验等级大于等于32级时，经验数 = 4.5\*经验等级^2^ -153.5*经验等级 +2062 + 当前经验数
+公式：当玩家经验等级大于等于32级时，经验数 = 4.5\*经验等级^2 -153.5*经验等级 +2062 + 当前经验数
 
 这是对"当经验等级≥32时，升级到下一级的经验为9n-158"求和后+1507得到的，从n=31开始求和，wiki上的此公式写的不正确。
 
 输出的数值一般情况下不可直接用于逆推玩家已有的经验等级，因为mc内部的一些特殊算法，这个数与玩家此时真正拥有的经验数有些出入。
+
 能差多少呢？举个例子："用xp命令一次性给予1628点经验"和"用xp命令分别给予一次1507点经验和一次121点经验"，玩家得到的经验数会差出1点。 
 
 原因是mc在计算玩家升级到下一级所需的经验数时使用了玩家nbt里的XpP参数，这是一个浮点型存储的百分比数，本用于计算玩家屏幕上显示的经验条进度，却错误的参与到了经验数的整数计算里，XpP的浮点误差导致了玩家实际拥有的经验与理论拥有的经验数不一致 (直至23w51b依然如此)。
@@ -1046,7 +1084,7 @@ double型形式：storage math quadratic_equation_out.double
 若用于给予玩家经验，应先给予经验等级再给予经验余数
 ```
 
-
+　
 
 ♦ 颜色RGB转16进制：rgb_to_hexadecimal/start
 
@@ -1059,11 +1097,12 @@ double型形式：storage math quadratic_equation_out.double
 输出：storage math rgb_to_hexadecimal_output
 ```
 
-
+　
 
 ♦ 调和级数前N项和：harmonic_series/sum1-n
 
 公式法逼近，无递归。
+
 公式：`Σ(1/n,n=1,x)=ψ(x+1)+γ≈ln(x)+0.5772+0.4995078/x`
 
 注：Σ为级数求和，ψ为Diagamma函数，即伽玛函数的自然对数的导数，γ是欧拉-马歇若尼常数，也是调和级数的拉马努金和，约为0.5772156649
@@ -1079,7 +1118,7 @@ double型形式：storage math quadratic_equation_out.double
 输出(放大一万倍)：#Harmonic_series.sum.output int
 ```
 
-
+　
 
 ♦ 三维空间任意方向的粒子圆
 
@@ -1113,7 +1152,7 @@ double型形式：storage math quadratic_equation_out.double
 执行朝向就是五角星的朝向，执行位置就是五角星的位置
 ```
 
-
+　
 
 ♦ 全息粒子投影 - 16x16x16投影至1x1x1
 
@@ -1122,8 +1161,11 @@ double型形式：storage math quadratic_equation_out.double
 扫描一次后，粒子颜色和坐标等信息会存入数据库，就算扫描区清空了也一样可以投影
 
 添加可解析方块：
+
 在函数 "particle/holographic_projection/if" 里的第18行开始添加如下格式的命令：
+
 `execute if block ~ ~ ~ <方块ID|方块标签>[方块状态]{数据标签} run data modify storage math temp_particle set value "<dust粒子的颜色>"`
+
 粒子颜色格式是三个用空格隔开的数。例如纯黑就是"0 0 0"，方块状态和数据标签都是可选的
 
 ```
@@ -1138,7 +1180,7 @@ double型形式：storage math quadratic_equation_out.double
 清空数据库：data remove storage math holographic_projection_database
 ```
 
-
+　
 
 ♦ 抛物线
 
@@ -1184,19 +1226,28 @@ y坐标列表：storage math parabola_expre_y
 抛物线的位移和旋转基点是它的起始点
 ```
 
-
+　
 
 ♦ 参考文献：
 
 > 小豆数学库：https://github.com/xiaodou8593/math2.0
+> 
 > 知乎.手动开根——牛顿迭代法：https://zhuanlan.zhihu.com/p/497508702
+> 
 > 知乎.手动开根——竖式开方法：https://zhuanlan.zhihu.com/p/517358606
+> 
 > 小豆.用命令做一个简易的开根号：https://www.bilibili.com/read/cv5789989
+> 
 > 天起源.T算法库：https://www.mcbbs.net/thread-1389089-1-1.html
+> 
 > 计算机系统数学原理：http://mathmu.github.io/publications/mathematical-theory-of-computer-algebra-system
+> 
 > 【动画密码学】Base64编码&解码算法：https://www.bilibili.com/video/BV1Hp4y1g7Ex
+> 
 > 卡儿.实数平方根的估值与连分数展开 (提取码 sr8j)：https://pan.baidu.com/s/1eoeChhk7xukIIYxexmMwJQ?pwd=sr8j
+> 
 > 知乎.最大公约数GCD算法：https://zhuanlan.zhihu.com/p/38100838
+> 
 > 卡儿.《我的世界》【1.16.5】Java版实用粒子教程：https://www.bilibili.com/read/readlist/rl651851
 
 工具：GeoGebra，Desmos，Excel

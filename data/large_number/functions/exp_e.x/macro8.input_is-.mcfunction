@@ -1,1 +1,0 @@
-$data modify entity 28529-0-3d00-0-2c4200ee8401 transformation set value [1.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,$(temp1)f]

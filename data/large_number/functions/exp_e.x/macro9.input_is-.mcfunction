@@ -1,1 +1,0 @@
-$scoreboard players set #store_expon_3 int $(store_expon_3)

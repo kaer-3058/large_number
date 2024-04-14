@@ -1,1 +1,0 @@
-$data modify storage math exp_e^x.input set value $(temp3)d

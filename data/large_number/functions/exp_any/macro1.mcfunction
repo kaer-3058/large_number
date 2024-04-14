@@ -1,0 +1,1 @@
+$execute store result storage math temp1 double $(expon) run scoreboard players get #loga.b.output int

@@ -1,0 +1,1 @@
+$data modify storage math temp_e^x_dicimal_1-3 set from storage exp database."e^0.$(temp1)"

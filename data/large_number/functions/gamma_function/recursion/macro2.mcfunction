@@ -1,0 +1,1 @@
+$data modify storage math float_multiply.input1 set from storage math gamma_databse."0.$(temp1)"

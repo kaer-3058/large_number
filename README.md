@@ -719,7 +719,7 @@ e是自然对数的底，是一个无理数，e ≈2.718281828459045
 
 原理：a^b = e^(b*ln(a))
 
-例：输入 5.7322^2.1123，输出 39.976265
+例：输入 5.7322^2.1123，输出 39.975828
 
 ```
 e^x的前置库：function large_number:exp_e.x/database
@@ -857,7 +857,7 @@ double型输出：storage math lg(x)_output
 
 斯特林公式：Γ(x+1) ∽ (sqrt(2πx)·(x/e)^x)·(1+0.0845072303119/x)
 
-输入范围为区间：[10.0, 170.6271]
+输入范围为区间：[0.1, 170.6271]
 
 ```
 e^x的前置库：function large_number:exp_e.x/database

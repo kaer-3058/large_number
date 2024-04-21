@@ -1129,9 +1129,11 @@ double型形式：storage math quadratic_equation_out.double
 粒子密度：#3d.circle.angle int
 粒子密度就是每隔"n/10"度度描一个点，范围为1~3600
 
-计算坐标：execute as b09e-44-fded-6-efa5ffffef64 run function large_number:particle/3d_ar_rotation_circle/start
+计算坐标：
+execute as b09e-44-fded-6-efa5ffffef64 run function large_number:particle/3d_ar_rotation_circle/start
 
-显示粒子：execute positioned x y z rotated x y as b09e-44-fded-6-efa5ffffef64 run function large_number:particle/3d_ar_rotation_circle/particle
+显示粒子：
+execute positioned x y z rotated x y run function large_number:particle/3d_ar_rotation_circle/particle
 执行朝向就是圆的朝向，执行位置就是圆的原点
 ```
 
@@ -1146,9 +1148,11 @@ double型形式：storage math quadratic_equation_out.double
 
 五角星的横滚角(100倍输入)：#3d.pentagram.roll.θ int
 
-计算坐标：execute as b09e-44-fded-6-efa5ffffef64 run function large_number:particle/3d_ar_rotation_pentagram/start
+计算坐标：
+execute as b09e-44-fded-6-efa5ffffef64 run function large_number:particle/3d_ar_rotation_pentagram/start
 
-显示粒子：execute positioned x y z rotated x y as b09e-44-fded-6-efa5ffffef64 run function large_number:particle/3d_ar_rotation_pentagram/particle
+显示粒子：
+execute positioned x y z rotated x y run function large_number:particle/3d_ar_rotation_pentagram/particle
 执行朝向就是五角星的朝向，执行位置就是五角星的位置
 ```
 

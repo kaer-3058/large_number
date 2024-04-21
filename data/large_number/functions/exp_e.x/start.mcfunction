@@ -764,14 +764,19 @@ execute if data storage math {temp1:"0"} run data modify storage math temp_float
 scoreboard players set #input1_expon int 0
 scoreboard players set #input2_expon int 0
 
-execute if score #float_mul.high_precision.input1.leading_zeros int matches 1.. run function large_number:float_mul.high_precision/input1_has_leading_zeros
-execute if score #float_mul.high_precision.input2.leading_zeros int matches 1.. run function large_number:float_mul.high_precision/input2_has_leading_zeros
+scoreboard players operation #Store_float_mul.high_precision.input1.leading_zeros int = #float_mul.high_precision.input1.leading_zeros int
+scoreboard players operation #Store_float_mul.high_precision.input2.leading_zeros int = #float_mul.high_precision.input2.leading_zeros int
+scoreboard players operation #Store_float_mul.high_precision.input1.expon int = #float_mul.high_precision.input1.expon int
+scoreboard players operation #Store_float_mul.high_precision.input2.expon int = #float_mul.high_precision.input2.expon int
 
-execute if score #float_mul.high_precision.input1.leading_zeros int matches 0 if score #float_mul.high_precision.input1.expon int matches 0 run function large_number:float_mul.high_precision/expon1_is0
-execute if score #float_mul.high_precision.input2.leading_zeros int matches 0 if score #float_mul.high_precision.input2.expon int matches 0 run function large_number:float_mul.high_precision/expon2_is0
+execute if score #Store_float_mul.high_precision.input1.leading_zeros int matches 1.. run function large_number:float_mul.high_precision/input1_has_leading_zeros
+execute if score #Store_float_mul.high_precision.input2.leading_zeros int matches 1.. run function large_number:float_mul.high_precision/input2_has_leading_zeros
 
-execute if score #float_mul.high_precision.input1.leading_zeros int matches 0 unless score #float_mul.high_precision.input1.expon int matches 0 run function large_number:float_mul.high_precision/unless_expon1_is0
-execute if score #float_mul.high_precision.input2.leading_zeros int matches 0 unless score #float_mul.high_precision.input2.expon int matches 0 run function large_number:float_mul.high_precision/unless_expon2_is0
+execute if score #Store_float_mul.high_precision.input1.leading_zeros int matches 0 if score #Store_float_mul.high_precision.input1.expon int matches 0 run function large_number:float_mul.high_precision/expon1_is0
+execute if score #Store_float_mul.high_precision.input2.leading_zeros int matches 0 if score #Store_float_mul.high_precision.input2.expon int matches 0 run function large_number:float_mul.high_precision/expon2_is0
+
+execute if score #Store_float_mul.high_precision.input1.leading_zeros int matches 0 unless score #Store_float_mul.high_precision.input1.expon int matches 0 run function large_number:float_mul.high_precision/unless_expon1_is0
+execute if score #Store_float_mul.high_precision.input2.leading_zeros int matches 0 unless score #Store_float_mul.high_precision.input2.expon int matches 0 run function large_number:float_mul.high_precision/unless_expon2_is0
 
 ##最终输出
 
@@ -1396,14 +1401,19 @@ execute if data storage math {temp1:"0"} run data modify storage math temp_float
 scoreboard players set #input1_expon int 0
 scoreboard players set #input2_expon int 0
 
-execute if score #float_mul.high_precision.input1.leading_zeros int matches 1.. run function large_number:float_mul.high_precision/input1_has_leading_zeros
-execute if score #float_mul.high_precision.input2.leading_zeros int matches 1.. run function large_number:float_mul.high_precision/input2_has_leading_zeros
+scoreboard players operation #Store_float_mul.high_precision.input1.leading_zeros int = #float_mul.high_precision.input1.leading_zeros int
+scoreboard players operation #Store_float_mul.high_precision.input2.leading_zeros int = #float_mul.high_precision.input2.leading_zeros int
+scoreboard players operation #Store_float_mul.high_precision.input1.expon int = #float_mul.high_precision.input1.expon int
+scoreboard players operation #Store_float_mul.high_precision.input2.expon int = #float_mul.high_precision.input2.expon int
 
-execute if score #float_mul.high_precision.input1.leading_zeros int matches 0 if score #float_mul.high_precision.input1.expon int matches 0 run function large_number:float_mul.high_precision/expon1_is0
-execute if score #float_mul.high_precision.input2.leading_zeros int matches 0 if score #float_mul.high_precision.input2.expon int matches 0 run function large_number:float_mul.high_precision/expon2_is0
+execute if score #Store_float_mul.high_precision.input1.leading_zeros int matches 1.. run function large_number:float_mul.high_precision/input1_has_leading_zeros
+execute if score #Store_float_mul.high_precision.input2.leading_zeros int matches 1.. run function large_number:float_mul.high_precision/input2_has_leading_zeros
 
-execute if score #float_mul.high_precision.input1.leading_zeros int matches 0 unless score #float_mul.high_precision.input1.expon int matches 0 run function large_number:float_mul.high_precision/unless_expon1_is0
-execute if score #float_mul.high_precision.input2.leading_zeros int matches 0 unless score #float_mul.high_precision.input2.expon int matches 0 run function large_number:float_mul.high_precision/unless_expon2_is0
+execute if score #Store_float_mul.high_precision.input1.leading_zeros int matches 0 if score #Store_float_mul.high_precision.input1.expon int matches 0 run function large_number:float_mul.high_precision/expon1_is0
+execute if score #Store_float_mul.high_precision.input2.leading_zeros int matches 0 if score #Store_float_mul.high_precision.input2.expon int matches 0 run function large_number:float_mul.high_precision/expon2_is0
+
+execute if score #Store_float_mul.high_precision.input1.leading_zeros int matches 0 unless score #Store_float_mul.high_precision.input1.expon int matches 0 run function large_number:float_mul.high_precision/unless_expon1_is0
+execute if score #Store_float_mul.high_precision.input2.leading_zeros int matches 0 unless score #Store_float_mul.high_precision.input2.expon int matches 0 run function large_number:float_mul.high_precision/unless_expon2_is0
 
 ##最终输出
 

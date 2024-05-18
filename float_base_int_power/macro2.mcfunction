@@ -1,1 +1,0 @@
-$data modify storage large_number:math float_base_int_power.output set value $(temp3)$(sstemp9)d

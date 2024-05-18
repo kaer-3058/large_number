@@ -1,1 +1,0 @@
-$scoreboard players set #temp_expon2 int $(temp_expon)

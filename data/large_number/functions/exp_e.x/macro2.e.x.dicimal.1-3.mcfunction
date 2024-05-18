@@ -1,0 +1,1 @@
+$data modify storage large_number:math temp_e^x_dicimal_1-3 set from storage large_number:exp database."e^0.$(temp1)"

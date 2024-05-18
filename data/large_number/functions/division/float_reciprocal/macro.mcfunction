@@ -1,1 +1,0 @@
-$data modify storage math float_reciprocal.output set value $(temp1)0.$(temp2)$(temp4)E$(temp3)d

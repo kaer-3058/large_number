@@ -1,1 +1,0 @@
-$execute store result storage math temp1 int 1 run random value 0..$(temp1)

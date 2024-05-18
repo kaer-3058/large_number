@@ -1,1 +1,0 @@
-$data modify storage math temp3 set value $(input)

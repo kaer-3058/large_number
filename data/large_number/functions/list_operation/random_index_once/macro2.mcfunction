@@ -1,0 +1,2 @@
+$data modify storage large_number:math list_ope_random_index_once.output set from storage large_number:math list_ope_random_index_once.input[$(temp1)]
+$execute if score #list_ope_random_index_once.del int matches 1 run data remove storage large_number:math list_ope_random_index_once.input[$(temp1)]

@@ -1,0 +1,1 @@
+$data modify storage large_number:math quadratic_equation_out set value {expression:"$(temp1)/$(temp2)"}

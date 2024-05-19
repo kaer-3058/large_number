@@ -1,0 +1,1 @@
+$execute positioned ^$(stemp1) ^$(stemp2) ^ run function large_number:particle/heart-shaped_line/execute

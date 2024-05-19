@@ -1,0 +1,1 @@
+$execute store result storage large_number:math stemp1 double $(stemp1) run scoreboard players get #b/a int

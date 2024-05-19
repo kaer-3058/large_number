@@ -1,0 +1,1 @@
+$return run scoreboard players set #double_to_int.5 int $(temp7)

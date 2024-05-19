@@ -1,0 +1,1 @@
+$execute positioned ^$(stemp1) ^ ^$(stemp2) summon minecraft:spider run function large_number:matrix_arrangement/summon_execute

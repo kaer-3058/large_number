@@ -1,0 +1,1 @@
+$execute store result storage large_number:math temp1 double $(temp_input1) run scoreboard players get #temp1 int

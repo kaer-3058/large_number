@@ -1,1 +1,1 @@
-$execute positioned 0.0 $(temp_list_div_int_craft1) 0.0 positioned 0.0 ~$(temp_list_div_int_craft2) 0.0 run loot spawn 0.0 ~$(temp_list_div_int_craft3) 0.0 loot large_number:check_pos
+$execute positioned 0.0 $(temp_list_div_int_craft1) 0.0 run loot spawn 0.0 ~$(temp_list_div_int_craft3) 0.0 loot large_number:check_pos

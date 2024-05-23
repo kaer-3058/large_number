@@ -54,7 +54,6 @@ scoreboard players operation #float_int0 int += #float_int2 int
 
 #对齐小数点
 execute if score #float_int0 int matches 100000000.. run scoreboard players add #float_exp int 1
-execute if score #float_int0 int matches 100000000.. run scoreboard players operation #float_int0 int /= 10 const
 
 scoreboard players operation #float_int1 int %= #Divisor_float_int0 int
 scoreboard players operation #float_int1 int *= 10 const
@@ -70,8 +69,10 @@ scoreboard players operation #float_int1 int %= #Divisor_float_int0 int
 scoreboard players operation #float_int1 int *= 10 const
 scoreboard players operation #float_int1 int %= #Divisor_float_int0 int
 scoreboard players operation #float_int1 int *= 10 const
-scoreboard players operation #float_int1 int %= #Divisor_float_int0 int
-scoreboard players operation #float_int1 int *= 10 const
+execute unless score #float_int0 int matches 100000000.. run scoreboard players operation #float_int1 int %= #Divisor_float_int0 int
+execute unless score #float_int0 int matches 100000000.. run scoreboard players operation #float_int1 int *= 10 const
+
+execute if score #float_int0 int matches 100000000.. run scoreboard players operation #float_int0 int /= 10 const
 
 scoreboard players operation #stemp1 int = #float_int1 int
 scoreboard players operation #float_int1 int /= #Divisor_float_int0 int

@@ -1,4 +1,4 @@
-##矩阵排列
+##二维网格排列
 #1000倍输入 行间隔：scoreboard players set #Matrix_arrangement.rsize int 3500
 #1000倍输入 列间隔：scoreboard players set #Matrix_arrangement.csize int 3000
 #1000倍输入 偶数列偏移：scoreboard players set #Matrix_arrangement.tab int 1000

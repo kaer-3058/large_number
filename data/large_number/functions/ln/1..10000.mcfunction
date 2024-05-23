@@ -1,0 +1,1 @@
+$scoreboard players operation #ln(x).output int = #const_ln($(temp)) ln_const

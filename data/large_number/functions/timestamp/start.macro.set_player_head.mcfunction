@@ -1,0 +1,1 @@
+$setblock -29999982 -60 22022222 minecraft:player_head{SkullOwner:{Name:"$(temp1)"}}

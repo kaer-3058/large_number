@@ -1,0 +1,5 @@
+execute store result storage large_number:math double_to_int.output.math[0] int 1.0 run function large_number:macro_operation/double_ope_macro2_sci/1 with storage large_number:math
+execute store result storage large_number:math double_to_int.output.math[1] int 1.0 run function large_number:macro_operation/double_ope_macro2_sci/2 with storage large_number:math
+execute store result storage large_number:math double_to_int.output.math[2] int 1.0 run function large_number:macro_operation/double_ope_macro2_sci/3 with storage large_number:math
+execute store result storage large_number:math double_to_int.output.math[3] int 1.0 run function large_number:macro_operation/double_ope_macro2_sci/4 with storage large_number:math
+execute if score #is_XXEXX int matches 1 store result storage large_number:math double_to_int.output.expon short 1.0 run function large_number:macro_operation/double_ope_macro2_sci/5 with storage large_number:math

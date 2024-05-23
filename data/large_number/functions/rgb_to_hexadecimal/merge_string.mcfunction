@@ -1,1 +1,0 @@
-$data modify storage large_number:math rgb_to_hexadecimal_output set value "#$(stemp0)$(stemp1)$(stemp2)$(stemp3)$(stemp4)$(stemp5)"

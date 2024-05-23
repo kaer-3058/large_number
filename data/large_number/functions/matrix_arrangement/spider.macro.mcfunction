@@ -1,1 +1,0 @@
-$execute positioned as @s run tp @s ^$(temp2) ^ ^

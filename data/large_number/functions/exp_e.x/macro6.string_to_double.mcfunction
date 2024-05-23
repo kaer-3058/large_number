@@ -1,1 +1,0 @@
-$data modify storage large_number:math temp3 set value $(input)

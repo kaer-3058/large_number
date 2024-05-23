@@ -1,1 +1,0 @@
-$tp ^ ^ ^$(3d_hsphere_pos_R)

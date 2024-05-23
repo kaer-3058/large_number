@@ -1,1 +1,0 @@
-$particle minecraft:end_rod ^$(stemp1) ^$(stemp2) ^ 0.0 0.0 0.0 0.0 1 force

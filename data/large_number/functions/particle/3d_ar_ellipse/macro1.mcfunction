@@ -1,1 +1,0 @@
-$data modify storage large_number:math stemp1 set value $(stemp1)E-3d

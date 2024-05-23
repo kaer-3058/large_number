@@ -1,1 +1,0 @@
-$execute positioned ^$(sstemp1) ^$(sstemp2) ^$(sstemp3) run $(3d_block_hsphere_execute)

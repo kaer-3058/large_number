@@ -1287,7 +1287,7 @@ execute positioned x y z rotated x y run function large_number:particle/3d_ar_ro
 例如输入500就是半径5
 
 粒子密度：#3d.pentagram.density int
-粒子密度就是每n次迭代描一个点，范围为1~3600
+粒子密度就是每隔"n/10"度描一个点，范围为1~3600
 
 五角星的横滚角(1000倍输入)：#3d.pentagram.roll.θ int
 
@@ -1311,7 +1311,7 @@ execute positioned x y z rotated x y run function large_number:particle/3d_ar_ro
 1000倍放大后的粒子圆的输入区间为[1,2147483]
 
 粒子密度：#3d.ellipse.density int
-粒子密度就是每n次迭代描一个点，范围为1~3600
+粒子密度就是每隔"n/10"度描一个点，范围为1~3600
 
 横滚角(1000倍输入)：#3d.ellipse.roll.θ int
 

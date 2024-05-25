@@ -1086,8 +1086,11 @@ Displaying this JSON text will show the results：
 ```
 
 Note:
+
 1.If the equation has two distinct real roots, the scoreboard scores for x1 and x2 both exist, and the expression form and double form are both lists, where the first item corresponds to x1 and the second item corresponds to x2.
+
 2.If the equation has two equal real roots, the scoreboard scores for x1 and x2 both exist and are equal, the expression form is a single string, and the double form is a single double value.
+
 3.If the equation has no real roots, the scoreboard scores for x1 and x2 do not exist, and both the expression form and the double form do not exist. `storage large_number:math quadratic_equation_out` will be an empty compound tag.
 
 　

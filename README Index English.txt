@@ -3,8 +3,9 @@ README Index
 Currently there are: 102 algorithms.
 ♦ Const
 ♦ Trigonometric functions
-♦ Trigonometric functions
-♦ atan2d Sub-algorithm [2 Sub-algorithm]
+♦ sin and cos
+♦ atan2d 
+♦ arcsin and arccos [2 Sub-algorithm]
 ♦ Large number addition
 ♦ Large number subtraction
 ♦ Displaying entity law for floating-point division

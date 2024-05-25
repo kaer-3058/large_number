@@ -7,7 +7,7 @@ Currently there are: 102 algorithms.
 ♦ atan2d Sub-algorithm [2 Sub-algorithm]
 ♦ Large number addition
 ♦ Large number subtraction
-♦ Large number subtraction
+♦ Displaying entity law for floating-point division
 ♦ Displaying entity law for large number division
 ♦ Floating-point division - Data from the score [2 Sub-algorithm]
 ♦ Floating-point division - Data from the nbt [2 Sub-algorithm]

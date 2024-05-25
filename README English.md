@@ -12,7 +12,7 @@ Entities in this data packet, such as world entities, display entities, and temp
 
 Recommended settings: `gamerule maxCommandChainLength 2147483647`
 
-
+　
 
 ♦ Const
 
@@ -22,7 +22,7 @@ e：storage large_number:const "e"
 NaN：storage large_number:math buffer_NaN
 ```
 
-
+　
 
 ♦ Trigonometric functions：large_number:math_trifs/_of_entity
 
@@ -71,7 +71,7 @@ Enlarging the input by a factor of 10000, the input range are: [-10000, 10000]
 Output (degrees)：entity b09e-44-fded-6-efa5ffffef64 Rotation[0]
 ```
 
-
+　
 
 ♦ Large number addition：large_number:addition/start
 
@@ -89,7 +89,7 @@ Subtrahend：storage large_number:math subtraction.input2 [I;0,0,0,0]
 Difference：storage large_number:math subtraction.output
 ```
 
-
+　
 
 ♦ Displaying entity law for floating-point division
 
@@ -229,7 +229,7 @@ Input：storage large_number:math float_reciprocal.input 0.0
 output：storage large_number:math float_reciprocal.output
 ```
 
-
+　
 
 ♦ Int division
 
@@ -263,7 +263,7 @@ Divisor：storage large_number:math list_div_int.int 1
 Quotient (double type)：storage large_number:math list_div_int.output
 ```
 
-
+　
 
 ♦ Arbitrary integer multiplication：large_number:int_mul_by_n/start
 
@@ -290,7 +290,7 @@ Input float or double.
 Product：storage large_number:math float_multiply.output
 ```
 
-
+　
 
 ♦ High-precision float multiply：large_number:float_mul.high_precision/start
 
@@ -306,7 +306,7 @@ Input float or double.
 Product：storage large_number:math float_multiply.output
 ```
 
-
+　
 
 ♦ Float addition and subtraction：`execute in minecraft:overworld run function large_number:float_add_subtra/start`
 
@@ -326,7 +326,7 @@ If it is addition, it is the sum of the two numbers. If it is subtraction, it is
 Output：storage large_number:math float_add_subtra.output
 ```
 
-
+　
 
 ♦ Int multiply：large_number:int_int_multiply
 
@@ -370,7 +370,7 @@ Input format: The factor must be a 16-bit BCD array, and all elements of the arr
 output：storage large_number:math Infinite_digit_multiply.output
 ```
 
-
+　
 
 ♦ Splitting an int into an array：large_number:cut_math_to_list
 
@@ -379,7 +379,7 @@ Input：input int
 output：#sign int (Sign)，#1st int，#2nd int，#3rd int
 ```
 
-
+　
 
 ♦ Int sqrt
 
@@ -388,9 +388,11 @@ Floor (16 pure scoreboard commands)：large_number:int_sqrt_simple
 4 dicimals (32 pure scoreboard commands)：large_number:int_sqrt
 
 Retain multiple decimals：large_number:test_int_more_dicimal
+
 #If the input value is 1 to 5 digits, output 9 decimal places; if the input value is 6 to 7 digits, output 8 decimal places; if the input value is 8 to 10 digits, output 7 decimal places.
 
 #Sometimes there may be a slight loss of precision in the last decimal digit obtained.
+
 #If the retained decimal places are not sufficient for the expected number of digits, leading zeros should be added to complete the number when reading.
 
 Principle: Initial estimation + Newton iteration, see reference for details.
@@ -485,7 +487,7 @@ Output：storage large_number:math large_sqrt.output
 
 To avoid wasting computing resources, please use the following priorities: Choose "Int sqrt" for numbers within the integer range, select "Sqrt of a 10 to 16 digit number" for 10 to 16 digit numbers, and consider "Sqrt of a 1 to 24 digit number" as a last resort.
 
-
+　
 
 ♦ Cube root of an int
 
@@ -501,7 +503,7 @@ Output：#cbrt.output int
 If four decimal places are to be retained, the output be multiplied by ten thousand.
 ```
 
-
+　
 
 ♦ Euclidean norm of a double
 
@@ -540,7 +542,7 @@ storage large_number:math double_norm_3d.z 1.0d
 Output：storage large_number:math double_norm_3d.output
 ```
 
-
+　
 
 ♦ Converting double to an int array
 
@@ -549,8 +551,11 @@ Input double or float.
 Principle: Extracting numerical information from the string representation and then converting it to an integer using a digit-by-digit method.
 
 Normal conversion：large_number:double_to_int
+
 Consideration for scientific notation conversion：large_number:double_to_int_sci
+
 Macro function for conversion：large_number:macro_operation/double_to_int_macro
+
 Consideration for scientific notation in macro function conversion：large_number:macro_operation/double_to_int_macro_sci
 
 ```
@@ -572,7 +577,7 @@ If the decimal point position is not 2, then the exponent must be 0, and there m
 
 If the number of leading zeros is between 1 and 3 (MC floating-point numbers can have a maximum of three leading zeros), then the decimal point position must be 2, and the exponent must be 0.
 
-
+　
 
 ♦ double sqrt (high-precision floating-point numbers sqrt)
 
@@ -581,6 +586,7 @@ Input double or float.
 Principle: After converting to an int array, square root is performed using the 16-bit number method.
 
 Normal square root：large_number:double_sqrt
+
 Consideration for square root of numbers in scientific notation：large_number:double_sqrt_sci
 
 ```
@@ -608,12 +614,14 @@ Increase precision by four digits：set #New_double_sqrt.dicimal_add int 1
 Output：storage large_number:math double_sqrt.output.double_sci
 ```
 
-
+　
 
 ♦ Display of a 24-digit number
 
 Display the number of digits entered：large_number:digital_display
+
 Always ensure that the displayed number is 24 digits long：large_number:24_digital_display
+
 Difference: The latter automatically adds leading zeros to make the number 24 digits long if the input number is less than 24 digits.
 
 Separate every three digits with a comma. If any number in the array is negative, consider the entire array as negative.
@@ -625,7 +633,7 @@ Displaying the following JSON text will show the numbers：
 [{"nbt":"math_display_json_is-","storage":"large_number:math"},{"nbt":"math_display_json[]","storage":"large_number:math","separator":{"text":","}}]
 ```
 
-
+　
 
 ♦ Distance measurement using unit vector method
 
@@ -641,7 +649,9 @@ Output (already magnified by 10 times)：#distance int
 ```
 
 2.Enter the absolute difference of the coordinates of the two points：large_number:unit_vector_for_distance_modu
+
 Players need to calculate and enter the difference themselves.
+
 Input value range：100x+100y+100z ≤2147483
 
 ```
@@ -650,7 +660,7 @@ Operation：as b09e-44-fded-6-efa5ffffef64 run func...
 Output (already magnified by 10 times)：#distance int
 ```
 
-
+　
 
 ♦ List Algorithm - Shuffle：large_number:list_operation/shuffle/start
 
@@ -686,7 +696,7 @@ Input：storage large_number:math list_dedup.input []
 Output：storage large_number:math list_dedup.output
 ```
 
-
+　
 
 ♦ Convert UUID array to hyphenated hexadecimal format：large_number:uuid_list_for_hyphen/start
 
@@ -704,6 +714,7 @@ Arithmetic method：large_number:uuid_list_for_hyphen/back
 Entity attribute method：`execute in minecraft:overworld run function large_number:uuid_list_for_hyphen/back_for_attribute with storage large_number:math uuid_hyphen_back_list`
 
 For example："00000035-ffff-f910-0000-00fffffffffd" to [I; 53, -1776, 255, -3]
+
 The complete 32-bit UUID must be entered, and the 0 in front of each section cannot be omitted. The hexadecimal UUID has a total of 32 digits, with the number of characters in each section fixed at 8, 4, 4, 4, and 12.
 
 ```
@@ -711,7 +722,7 @@ Input：storage large_number:math uuid_hyphen_back_list.input ""
 Output：storage large_number:math uuid_hyphen_back_list.output
 ```
 
-
+　
 
 ♦ Probability Simulation - Binomial Distribution
 
@@ -793,7 +804,7 @@ a：#random.sum_to_x.a int
 Output：storage large_number:math random_sum_to_x_out
 ```
 
-
+　
 
 ♦ Exponential Function
 
@@ -857,7 +868,7 @@ Exponent：storage large_number:math float_base_int_power.expon 0
 Output：storage large_number:math float_base_int_power.output
 ```
 
-
+　
 
 ♦ Int natural logarithm  ln(x)：large_number:ln/start
 
@@ -894,8 +905,11 @@ Return the result with the first four decimal places.
 Change of base formula：`log.a(b)=ln(b)/ln(a)`
 
 Special cases: 
+
 The logarithm of a number that is not 1 with a base of 0 or 1 does not exist, therefore the output value is also non-existent. 
+
 The logarithm of 1 with any base is always 0. 
+
 The logarithm of 0 with a base other than 0 or 1 is negative infinity, therefore the output double value is negative infinity, and the scoreboard value is -2147483648.
 
 ```
@@ -936,7 +950,7 @@ Output (Increase by a factor of ten thousand)：#lg(x)_output int
 Double output：storage large_number:math lg(x)_output
 ```
 
-
+　
 
 ♦ Factorial of a natural number：large_number:gamma_function/fundamental_factorial/start
 
@@ -994,7 +1008,7 @@ Input value must be of type double.
 Output：storage large_number:math gamma_function.output
 ```
 
-
+　
 
 ♦ Convert direction to quaternion with four components (xyzw)：large_number:quaternion/facing/2tostoxyzw
 
@@ -1017,7 +1031,7 @@ Input：storage large_number:math euler_angles_input [0.0,0.0,0.0]
 Output：storage large_number:math xyzw
 ```
 
-
+　
 
 ♦ Local coordinate to relative coordinate conversion：large_number:uvw/uvwtoxyz
 
@@ -1041,7 +1055,7 @@ Execute：as b09e-44-fded-6-efa5ffffef64 run func...
 Output (Increase by a factor of ten thousand)：#u int，#v int，#w int
 ```
 
-
+　
 
 ♦ Solve a monic quadratic equation with integer coefficients：large_number:quadratic_equation/start
 
@@ -1076,7 +1090,7 @@ Note:
 2.If the equation has two equal real roots, the scoreboard scores for x1 and x2 both exist and are equal, the expression form is a single string, and the double form is a single double value.
 3.If the equation has no real roots, the scoreboard scores for x1 and x2 do not exist, and both the expression form and the double form do not exist. `storage large_number:math quadratic_equation_out` will be an empty compound tag.
 
-
+　
 
 ♦ Get the current date and time：large_number:timestamp/start
 
@@ -1087,6 +1101,7 @@ Principle: Decoding the Base64 in the head of a genuine player will yield a JSON
 Since obtaining the Base64 in the player head requires waiting for block updates, decoding may have some delay.
 
 Known bug: If no output is observed after execution, it means that the head skin has not been loaded correctly. The solution is to delay one tick or one second and then execute this function again.
+
 If it passes, it means that the parsing is incorrect.：`execute unless data storage large_number:timestamp output_base64_json.timestamp`
 
 ```
@@ -1123,7 +1138,7 @@ Because each genuine player name can only obtain two timestamps when entering a 
 
 Therefore, if you want to keep the server running for a long time, it is recommended to use internal timing with command blocks, synchronize the time once every two hours, and synchronize the date by replacing a new genuine player ID once every 24 hours. After 30 replacements, the head cache of the first used player ID will expire.
 
-
+　
 
 ♦ Unix Timestamp Parser (32-bit)：large_number:timestamp/parse_timestamp/start
 
@@ -1145,7 +1160,7 @@ Display the following JSON text to show the parsing result：
 {"nbt":"parse_timestamp.tellraw","storage":"large_number:math","interpret":true}
 ```
 
-
+　
 
 ♦ Player Experience Formula - Calculate total experience based on experience level and experience points：large_number:xp_formula/levels_to_points/start
 
@@ -1187,7 +1202,7 @@ Points：storage large_number:math xp_points_ope_levels.remaining_points
 If used to give experience to a player, the experience level should be given first, followed by the points remainder.
 ```
 
-
+　
 
 ♦ RGB to hexadecimal conversion：large_number:rgb_to_hexadecimal/start
 
@@ -1200,11 +1215,12 @@ Input (The RGB values range from 0 to 255)：
 Output：storage large_number:math rgb_to_hexadecimal_output
 ```
 
-
+　
 
 ♦ Sum of the first N terms of a harmonic series：large_number:harmonic_series/sum1-n
 
 Approximation by formula, no recursion.
+
 Formula：`Σ(1/n,n=1,x)=ψ(x+1)+γ≈ln(x)+0.5772+0.4995078/x`
 
 Note: Σ denotes the sum of a series, ψ represents the Digamma function, the natural logarithm derivative of the gamma function, γ is the Euler-Mascheroni constant, also known as the sum of Ramanujin of the harmonic series, approximately 0.5772156649.
@@ -1220,7 +1236,7 @@ Input double, float or int, using double or float type inputs can calculate valu
 Output (Increase by a factor of ten thousand)：#Harmonic_series.sum.output int
 ```
 
-
+　
 
 ♦ Int prime factorization：large_number:prime_factorization/start
 
@@ -1231,7 +1247,7 @@ Output：storage large_number:math prime_factorization_output
 If the output list has only one item, then the input value is a prime number.
 ```
 
-
+　
 
 ♦ Particle circle in any direction in three-dimensional space
 
@@ -1332,7 +1348,7 @@ execute positioned x y z rotated x y run function large_number:particle/3d_block
 Pass in the execution position and execution orientation.
 ```
 
-
+　
 
 ♦ Holographic Particle Projection - 16x16x16 projection to 1x1x1
 
@@ -1341,8 +1357,8 @@ Project colored concrete as dust particles.
 After one scan, particle color, coordinates, and other information will be stored in the database, so projection is still possible even if the scan area is cleared.
 
 Adding resolvable blocks：
-In the function "particle/holographic_projection/if" starting from line 18, add commands in the following format：
-`execute if block ~ ~ ~ xxx run data modify storage large_number:math temp_particle set value "<four special parameters of dust particles>"`
+
+In the function "particle/holographic_projection/if" starting from line 18, add commands in the following format：`execute if block ~ ~ ~ xxx run data modify storage large_number:math temp_particle set value "<four special parameters of dust particles>"`
 
 ```
 Scan：execute positioned x y z run function large_number:particle/holographic_projection/scan.start
@@ -1356,7 +1372,7 @@ Will trigger the function macro caching mechanism; can be executed at high frequ
 Clear database：data remove storage large_number:math holographic_projection_database
 ```
 
-
+　
 
 ♦ Parabola
 
@@ -1404,7 +1420,7 @@ In Mode 1, particles originate from the left direction of execution; in Mode 2, 
 The displacement and rotation base point of the parabola is its starting point.
 ```
 
-
+　
 
 ♦ Archimedean Spiral (Constant-Speed Spiral)
 
@@ -1432,7 +1448,7 @@ Pass in the execution position and execution orientation.
 
 A preset: a is 100, b is 8, starting angle is 0, arc length step is 35, angle step size is 1000, use arc length after 30 steps.
 
-
+　
 
 ♦ 2D Grid Arrangement
 
@@ -1452,7 +1468,7 @@ An example using function macros to access the coordinate list：execute positio
 Pass in the execution position and execution orientation.
 ```
 
-
+　
 
 ♦ Second Order Bezier Curve
 
@@ -1487,11 +1503,12 @@ Display particles：execute positioned x y z rotated x y run function large_numb
 Pass in the execution position and execution orientation.
 ```
 
-
+　
 
 ♦ Heart Shape Curve
 
 Heart Shape Curve：
+
 Upper Half：`f(x)=√(r·|x|-x²)`，Lower Half：`g(x)=(r/2)·(arccos(1-|(2x)/r|)-π)`
 
 ```
@@ -1513,7 +1530,7 @@ Display particles：execute positioned x y z rotated x y run function large_numb
 Pass in the execution position and execution orientation.
 ```
 
-
+　
 
 ♦ Color Wheel
 
@@ -1549,7 +1566,7 @@ Output RGB value：
 #color_cube.B int
 ```
 
-
+　
 
 ♦ Reference：
 

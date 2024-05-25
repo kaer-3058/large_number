@@ -4,7 +4,7 @@ For minecraft 1.20.4
 
 Related concepts: 16-bit BCD array, segmented storage, floating-point type, double type, leading zero, absolute value, const, precision, scientific notation. If an element in a 16-bit BCD array has less than four digits, it should be padded with 0s to make up four digits when reading the number. 
 
-Entities in this data packet, such as world entities, display entities, and temporary entities, are all in the overworld. 
+Entities in this datapack, such as world entities, display entities, and temporary entities, are all in the overworld. 
 
 > World entity: Marker with a fixed UUID, This type of entity is usually unique worldwide, so it is called a world entity.
 >

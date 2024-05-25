@@ -1447,7 +1447,7 @@ y：storage large_number:math parabola_expre_y
 100倍输入弧长步长：#archimedean_spiral.arc_size int
 100倍输入角度步长：#archimedean_spiral.θ_size int
 步数：#archimedean_spiral.length int
-n步后使用弧来计算点的间隔：#archimedean_spiral.to_arc int
+n步后使用弧长来计算点的间隔：#archimedean_spiral.to_arc int
 
 计算坐标：function large_number:particle/archimedean_spiral/start
 
@@ -1468,7 +1468,7 @@ y：storage large_number:math archimedean_spiral_out_listY
 ```
 1000倍输入 行间隔：#Matrix_arrangement.rsize int
 1000倍输入 列间隔：#Matrix_arrangement.csize int
-1000倍输入 偶数列偏移：#Matrix_arrangement.tab int
+1000倍输入 偶数行偏移：#Matrix_arrangement.tab int
 行数：#Matrix_arrangement.Rows int
 列数：#Matrix_arrangement.Columns int
 计算坐标：execute as b09e-44-fded-6-efa5ffffef64 run function large_number:matrix_arrangement/start

@@ -62,7 +62,7 @@ arcsin：large_number:math_trifs/arcsin
 
 arccos：large_number:math_trifs/arccos
 
-Formula：arcsin(x)=atan2(x,√(1-x^2^))，arccos(x)=atan2(√(1-x^2^),x)
+Formula：arcsin(x)=atan2(x,√(1-x^2))，arccos(x)=atan2(√(1-x^2),x)
 
 ```
 Input：#arcsin_cos.input int
@@ -808,7 +808,7 @@ Output：storage large_number:math random_sum_to_x_out
 
 ♦ Exponential Function
 
-1. e^x^ ：large_number:exp_e.x/start
+1. e^x ：large_number:exp_e.x/start
 
 Principle: For the integer part of the exponent and the first three decimal places, table lookup is used for calculation, and Taylor series is used for the four decimal places and beyond.
 
@@ -829,9 +829,9 @@ Output：storage large_number:math exp_e^x.output
 
 2. Arbitrary Power of a Positive Number：large_number:exp_any/start
 
-Principle:：a^b^ = e^(b*ln(a))^
+Principle:：a^b = e^(b*ln(a))
 
-Example: Input 5.7322^2.1123^，output 39.976065
+Example: Input 5.7322^2.1123，output 39.976065
 
 ```
 Preload lib for e^x：function large_number:exp_e.x/database
@@ -1574,14 +1574,23 @@ Output RGB value：
 ♦ Reference：
 
 > 小豆数学库：https://github.com/xiaodou8593/math2.0
+> 
 > 知乎.手动开根——牛顿迭代法：https://zhuanlan.zhihu.com/p/497508702
+> 
 > 知乎.手动开根——竖式开方法：https://zhuanlan.zhihu.com/p/517358606
+> 
 > 小豆.用命令做一个简易的开根号：https://www.bilibili.com/read/cv5789989
+> 
 > 天起源.T算法库：https://www.mcmod.cn/class/11569.html
+> 
 > 计算机系统数学原理：http://mathmu.github.io/publications/mathematical-theory-of-computer-algebra-system
+> 
 > 【动画密码学】Base64编码&解码算法：https://www.bilibili.com/video/BV1Hp4y1g7Ex
+> 
 > 卡儿.实数平方根的估值与连分数展开 (提取码 sr8j)：https://pan.baidu.com/s/1eoeChhk7xukIIYxexmMwJQ?pwd=sr8j
+> 
 > 知乎.最大公约数GCD算法：https://zhuanlan.zhihu.com/p/38100838
+> 
 > 卡儿.《我的世界》【1.16.5】Java版实用粒子教程：https://www.bilibili.com/read/readlist/rl651851
 
 Tool：GeoGebra，Desmos，Excel，Python

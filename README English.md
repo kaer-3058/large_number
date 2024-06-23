@@ -1473,6 +1473,8 @@ A preset: a is 100, b is 8, starting angle is 0, arc length step is 35, angle st
 Formula: `θ=a*ln(b*r)`
 
 ```
+Loading initial database: function large_number:ln/ln_database
+
 a: #equiangular_spiral.a int
 b: #equiangular_spiral.b int
 Input initial radius multiplied by one thousand: #equiangular_spiral.start_r int
@@ -1550,8 +1552,6 @@ Pass in the execution position and execution orientation.
 　
 
 ♦ Heart Shape Curve
-
-Heart Shape Curve：
 
 Upper Half：`f(x)=√(r·|x|-x²)`，Lower Half：`g(x)=(r/2)·(arccos(1-|(2x)/r|)-π)`
 

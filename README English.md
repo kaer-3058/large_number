@@ -1273,6 +1273,21 @@ execute positioned x y z rotated x y run function large_number:particle/3d_ar_ro
 The execution orientation corresponds to the direction of the circle, and the execution position corresponds to the center of the circle.
 ```
 
+```
+Dye the circle into a color ring: function large_number:particle/rainbow_circle/start
+
+Output the list of colors: storage large_number:math rainbow_circle_color
+
+Display the circle after dyeing: 
+execute positioned x y z rotated x y run function large_number:particle/rainbow_circle/particle.macro1
+
+You can achieve a rotating blinking effect like a neon light by rotating the color list. Here's an example: 
+Initialize: 
+data modify storage large_number:math rainbow_circle_color_list_rotate set from storage large_number:math rainbow_circle_color
+Display particles: 
+execute positioned x y z rotated x y run function large_number:particle/rainbow_circle/particle_list_rotate
+```
+
 ♦ Five-pointed star in any direction in three-dimensional space
 
 ```
@@ -1450,6 +1465,32 @@ Pass in the execution position and execution orientation.
 ```
 
 A preset: a is 100, b is 8, starting angle is 0, arc length step is 35, angle step size is 1000, use arc length after 30 steps.
+
+　
+
+♦ Equiangular Spiral (Logarithmic Spiral)
+
+Formula: `θ=a*ln(b*r)`
+
+```
+a: #equiangular_spiral.a int
+b: #equiangular_spiral.b int
+Input initial radius multiplied by one thousand: #equiangular_spiral.start_r int
+Input radius step multiplied by one thousand: #equiangular_spiral.r_size int
+Number of steps: #equiangular_spiral.length int
+
+Calculate coordinates: function large_number:particle/equiangular_spiral/start
+
+Output relative coordinate list: 
+x: storage large_number:math equiangular_spiral_out_listX
+y: storage large_number:math equiangular_spiral_out_listY
+
+Display particles: 
+execute positioned x y z rotated x y run function large_number:particle/equiangular_spiral/particle
+Pass in the execution position and execution orientation.
+```
+
+A preset: the "a" is 5000, the "b" is 560, the "initial radius" is 0, the "radius step" is 50, and the "number of steps" is 250.
 
 　
 

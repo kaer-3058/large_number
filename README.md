@@ -1483,6 +1483,8 @@ y：storage large_number:math archimedean_spiral_out_listY
 公式：`θ=a*ln(b*r)`
 
 ```
+载入初始数据库：function large_number:ln/ln_database
+
 a：#equiangular_spiral.a int
 b：#equiangular_spiral.b int
 1000倍输入起始半径：#equiangular_spiral.start_r int

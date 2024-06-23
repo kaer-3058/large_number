@@ -2,6 +2,8 @@
 #scoreboard players set #color_cube.u int 3333
 #scoreboard players set #color_cube.v int 6666
 
+#公式：R=floor(((255-R)u+R)(1-v))
+
 scoreboard players set #color_cube.R int 255
 scoreboard players set #color_cube.G int 255
 scoreboard players set #color_cube.B int 255

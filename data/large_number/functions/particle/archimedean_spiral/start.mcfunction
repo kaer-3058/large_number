@@ -18,3 +18,5 @@ scoreboard players operation #store_startθ int = #archimedean_spiral.startθ in
 scoreboard players operation #store_loops int = #archimedean_spiral.length int
 
 execute if score #store_loops int matches 1.. run function large_number:particle/archimedean_spiral/loop
+
+execute in minecraft:overworld run tp b09e-44-fded-6-efa5ffffef64 .0 .0 .0 .0 .0

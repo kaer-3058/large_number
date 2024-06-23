@@ -1,6 +1,5 @@
 scoreboard players operation #store_float_int0 int %= #Divisor_float_int0 int
-scoreboard players operation #store_float_int0 int *= 10 const
-scoreboard players operation #stemp1 int = #store_float_int0 int
+execute store result score #stemp1 int run scoreboard players operation #store_float_int0 int *= 10 const
 execute store result storage large_number:math temp1 int 1 run scoreboard players operation #stemp1 int /= #Divisor_float_int0 int
 data modify storage large_number:math loop_more_more_dicimal_base append from storage large_number:math temp1
 

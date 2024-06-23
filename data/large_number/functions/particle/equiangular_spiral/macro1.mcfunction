@@ -1,0 +1,1 @@
+$execute store result storage large_number:math sstemp2 double $(output) run scoreboard players get #equiangular_spiral.a int

@@ -5,15 +5,13 @@ execute store result score #stemp1 int run scoreboard players operation #temp.b 
 
 #防溢出检查，#temp.e int的分数为1就是溢出了
 scoreboard players set #temp.e int 0
-scoreboard players set #temp.f int 2147483647
+execute store result score #temp.d int store result score #temp.c int run scoreboard players set #temp.f int 2147483647
 scoreboard players operation #temp.f int /= #stemp1 int
 execute if score #temp.f int < #store.#conti_frac.sqrt.N int run scoreboard players set #temp.e int 1
 
 execute if score #temp.e int matches 0 run scoreboard players operation #stemp1 int *= #store.#conti_frac.sqrt.N int
 
 #防溢出检查
-scoreboard players set #temp.c int 2147483647
-scoreboard players set #temp.d int 2147483647
 scoreboard players operation #temp.c int -= #temp.a int
 scoreboard players operation #temp.d int /= #temp.b int
 execute if score #temp.c int < #stemp1 int run scoreboard players set #temp.e int 1

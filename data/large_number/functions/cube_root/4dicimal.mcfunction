@@ -12,7 +12,7 @@ execute if score #temp2 int matches 1000..99999 run scoreboard players operation
 execute if score #temp2 int matches 100000..9999999 run scoreboard players operation #inp int *= 100 const
 
 execute if score #inp int matches 2..217081800 store result score #cbrt.output int run function large_number:cube_root/inte/1..20
-execute if score #inp int matches 217081801..2147483647 store result score #cbrt.output int run function large_number:cube_root/inte/21..43
+execute if score #inp int matches 217081801.. store result score #cbrt.output int run function large_number:cube_root/inte/21..43
 
 #立方根估值算法
 #常数x，n是x的立方根整数部分，z是立方根小数部分

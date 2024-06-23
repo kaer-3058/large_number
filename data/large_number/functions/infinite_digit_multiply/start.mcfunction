@@ -18,4 +18,5 @@ execute if data storage large_number:math temp_addi_list[0] unless data storage 
 execute store result score #temp1 int run data get storage large_number:math sstempd[0]
 execute if score #temp1 int matches 0 run function large_number:infinite_digit_multiply/del_leading_zeros
 
-data modify storage large_number:math Infinite_digit_multiply.output set from storage large_number:math sstempd
+data modify storage large_number:math Infinite_digit_multiply.output set value [I;]
+data modify storage large_number:math Infinite_digit_multiply.output append from storage large_number:math sstempd[]

@@ -1,0 +1,1 @@
+$particle dust $(stemp3) $(stemp4) $(stemp5) 1 ^$(stemp1) ^$(stemp2) ^

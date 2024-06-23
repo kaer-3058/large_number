@@ -47,5 +47,7 @@ function large_number:float_mul.high_precision/start
 data modify storage large_number:math gamma_function.output set from storage large_number:math float_multiply.output
 
 
-execute if data storage large_number:math gamma_function{input:1.0} run data modify storage large_number:math gamma_function.output set value 1.0
-execute if data storage large_number:math gamma_function{input:0.0} run data modify storage large_number:math gamma_function.output set value 1.0
+data modify storage large_number:math temp1 set from storage large_number:math gamma_function.input
+execute if data storage large_number:math {temp1:0.0} run data modify storage large_number:math gamma_function.output set value 1.0
+execute if data storage large_number:math {temp1:1.0} run data modify storage large_number:math gamma_function.output set value 1.0
+execute if data storage large_number:math {temp1:2.0} run data modify storage large_number:math gamma_function.output set value 2.0

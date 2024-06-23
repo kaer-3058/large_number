@@ -1,1 +1,1 @@
-$execute positioned ^$(stemp1) ^$(stemp2) ^ run function large_number:particle/heart-shaped_line/execute
+$particle dust .918 .047 .047 1 ^$(stemp1) ^$(stemp2) ^ .0 .0 .0 .0 1 force

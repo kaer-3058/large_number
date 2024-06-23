@@ -48,6 +48,7 @@ scoreboard players set 400 const 400
 scoreboard players set 405 const 405
 scoreboard players set 425 const 425
 scoreboard players set 559 const 559
+scoreboard players set 600 const 600
 scoreboard players set 1535 const 1535
 scoreboard players set 1625 const 1625
 scoreboard players set 2500 const 2500

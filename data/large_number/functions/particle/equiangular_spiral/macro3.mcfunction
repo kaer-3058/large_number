@@ -1,0 +1,1 @@
+$execute store result storage large_number:math sstemp2 double $(sstemp2) run scoreboard players set #temp int 572957795

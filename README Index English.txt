@@ -1,6 +1,6 @@
 README Index
 
-Currently there are: 102 algorithms.
+Currently there are: 103 algorithms.
 ♦ Const
 ♦ Trigonometric functions
 ♦ sin and cos
@@ -80,6 +80,7 @@ Currently there are: 102 algorithms.
 ♦ Holographic Particle Projection - 16x16x16 projection to 1x1x1
 ♦ Parabola [2 Sub-algorithm]
 ♦ Archimedean Spiral (Constant-Speed Spiral)
+♦ Equiangular Spiral (Logarithmic Spiral)
 ♦ 2D Grid Arrangement
 ♦ Second Order Bezier Curve
 ♦ Heart Shape Curve

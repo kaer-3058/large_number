@@ -1280,6 +1280,21 @@ execute positioned x y z rotated x y run function large_number:particle/3d_ar_ro
 执行朝向就是圆的朝向，执行位置就是圆的原点
 ```
 
+```
+把圆染色成色环：function large_number:particle/rainbow_circle/start
+
+输出颜色列表：storage large_number:math rainbow_circle_color
+
+显示染色后的圆：
+execute positioned x y z rotated x y run function large_number:particle/rainbow_circle/particle.macro1
+
+通过旋转颜色列表可以实现霓虹灯那样的轮转闪烁效果，这是一个例子：
+初始化：
+data modify storage large_number:math rainbow_circle_color_list_rotate set from storage large_number:math rainbow_circle_color
+显示粒子：
+execute positioned x y z rotated x y run function large_number:particle/rainbow_circle/particle_list_rotate
+```
+
 ♦ 三维空间任意方向的五角星
 
 ```
@@ -1460,6 +1475,31 @@ y：storage large_number:math archimedean_spiral_out_listY
 ```
 
 一个较好的预设：a为100，b为8，起始角度为0，弧度步长35，角度步长1000，30步后使用弧长
+
+　
+
+ ♦ 等角螺线 (对数螺线)
+
+公式：`θ=a*ln(b*r)`
+
+```
+a：#equiangular_spiral.a int
+b：#equiangular_spiral.b int
+1000倍输入起始半径：#equiangular_spiral.start_r int
+1000倍输入半径步长：#equiangular_spiral.r_size int
+步数：#equiangular_spiral.length int
+
+计算坐标：function large_number:particle/equiangular_spiral/start
+
+输出相对坐标列表：
+x：storage large_number:math equiangular_spiral_out_listX
+y：storage large_number:math equiangular_spiral_out_listY
+
+显示粒子：execute positioned x y z rotated x y run function large_number:particle/equiangular_spiral/particle
+需要传入执行位置和执行朝向
+```
+
+一个范例：a为5000，b为560，起始半径是0，步长是50，步数是250
 
 　
 

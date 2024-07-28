@@ -12,20 +12,16 @@ execute store result score #list_div_int.b int run data get storage large_number
 ###############################################################
 ##整数除法 - 12位有效数字
 
-execute store result score #float_int0 int run data get storage large_number:math list_div_int.list[0]
-execute store result score #temp1 int run data get storage large_number:math list_div_int.list[1]
+execute store result score #float_int0 int run data get storage large_number:math list_div_int.list[-3]
+execute store result score #temp1 int run data get storage large_number:math list_div_int.list[-2]
 scoreboard players operation #float_int0 int *= 10000 const
 scoreboard players operation #float_int0 int += #temp1 int
 scoreboard players operation #Divisor_float_int0 int = #list_div_int.b int
 
 #载入被除数
-scoreboard players set #float_sign int 1
-execute if score #float_int0 int matches ..-1 run scoreboard players set #float_sign int -1
-execute if score #float_int0 int matches ..-1 run scoreboard players operation #float_int0 int *= -1 const
-
 scoreboard players set #float_exp int 4
 scoreboard players operation #temp1 int = #float_int0 int
-execute if score #temp1 int matches 1..9 run scoreboard players operation #float_int0 in *= 100000000 const
+execute if score #temp1 int matches 1..9 run scoreboard players operation #float_int0 int *= 100000000 const
 execute if score #temp1 int matches 1..9 run scoreboard players add #float_exp int 1
 execute if score #temp1 int matches 10..99 run scoreboard players operation #float_int0 int *= 10000000 const
 execute if score #temp1 int matches 10..99 run scoreboard players add #float_exp int 2
@@ -41,15 +37,8 @@ execute if score #temp1 int matches 1000000..9999999 run scoreboard players oper
 execute if score #temp1 int matches 1000000..9999999 run scoreboard players add #float_exp int 7
 execute if score #temp1 int matches 10000000..99999999 run scoreboard players operation #float_int0 int *= 10 const
 execute if score #temp1 int matches 10000000..99999999 run scoreboard players add #float_exp int 8
-execute if score #temp1 int matches 100000000..999999999 run scoreboard players add #float_exp int 9
-execute if score #temp1 int matches 1000000000..2147483647 run scoreboard players operation #float_int0 int /= 10 const
-execute if score #temp1 int matches 1000000000..2147483647 run scoreboard players add #float_exp int 10
 
 #载入除数
-scoreboard players set #Divisor_float_sign int 1
-execute if score #Divisor_float_int0 int matches ..-1 run scoreboard players set #Divisor_float_sign int -1
-execute if score #Divisor_float_int0 int matches ..-1 run scoreboard players operation #Divisor_float_int0 int *= -1 const
-
 scoreboard players set #Divisor_float_exp int 0
 scoreboard players operation #temp1 int = #Divisor_float_int0 int
 execute if score #temp1 int matches 1..9 run scoreboard players operation #Divisor_float_int0 int *= 10000000 const
@@ -155,12 +144,12 @@ function large_number:division/list_div_int/macro.craft1 with storage large_numb
 ###############################################################
 ##整数除法 - 12位有效数字
 
-execute store result score #float_int0 int run data get storage large_number:math list_div_int.list[2]
+execute store result score #float_int0 int run data get storage large_number:math list_div_int.list[-1]
 
 #载入被除数
 scoreboard players set #float_exp int 0
 scoreboard players operation #temp1 int = #float_int0 int
-execute if score #temp1 int matches 1..9 run scoreboard players operation #float_int0 in *= 100000000 const
+execute if score #temp1 int matches 1..9 run scoreboard players operation #float_int0 int *= 100000000 const
 execute if score #temp1 int matches 1..9 run scoreboard players add #float_exp int 1
 execute if score #temp1 int matches 10..99 run scoreboard players operation #float_int0 int *= 10000000 const
 execute if score #temp1 int matches 10..99 run scoreboard players add #float_exp int 2

@@ -27,14 +27,18 @@ scoreboard players set 1000000 const 1000000
 scoreboard players set 10000000 const 10000000
 scoreboard players set 100000000 const 100000000
 scoreboard players set 1000000000 const 1000000000
+scoreboard players set -2 const -2
 scoreboard players set -10000 const -10000
+scoreboard players set -2147483648 const -2147483648
 
 scoreboard players set 16 const 16
 scoreboard players set 17 const 17
 scoreboard players set 18 const 18
 scoreboard players set 20 const 20
+scoreboard players set 22 const 22
 scoreboard players set 24 const 24
 scoreboard players set 25 const 25
+scoreboard players set 30 const 30
 scoreboard players set 40 const 40
 scoreboard players set 45 const 45
 scoreboard players set 60 const 60
@@ -68,7 +72,9 @@ scoreboard players set 50436 const 50436
 scoreboard players set 62831 const 62831
 scoreboard players set 65536 const 65536
 scoreboard players set 79249 const 79249
+scoreboard players set 90000 const 90000
 scoreboard players set 400000 const 400000
+scoreboard players set 520000 const 520000
 scoreboard players set 1048576 const 1048576
 scoreboard players set 16777216 const 16777216
 scoreboard players set 268435456 const 268435456
@@ -92,7 +98,10 @@ data modify storage large_number:math buffer_digital_display_list set value [0,0
 data modify storage large_number:math buffer_digital_display_json set value ["","","","","","","",""]
 
 #四元数
-execute unless data storage large_number:math xyzw[3] run data modify storage large_number:math xyzw set value [0.0f,0.0f,0.0f,0.0f]
+execute unless data storage large_number:math xyzw[3] run data modify storage large_number:math xyzw set value [0f,0f,0f,0f]
 
 #int质因数分解
 function large_number:prime_factorization/database
+
+#单位向量
+execute unless data storage large_number:math unit_vector[2] run data modify storage large_number:math unit_vector set value [0f,0f,0f]

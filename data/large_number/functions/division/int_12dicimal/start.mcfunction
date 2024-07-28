@@ -13,7 +13,7 @@ execute if score #float_int0 int matches ..-1 run scoreboard players operation #
 
 scoreboard players set #float_exp int 0
 scoreboard players operation #temp1 int = #float_int0 int
-execute if score #temp1 int matches 1..9 run scoreboard players operation #float_int0 in *= 100000000 const
+execute if score #temp1 int matches 1..9 run scoreboard players operation #float_int0 int *= 100000000 const
 execute if score #temp1 int matches 1..9 run scoreboard players add #float_exp int 1
 execute if score #temp1 int matches 10..99 run scoreboard players operation #float_int0 int *= 10000000 const
 execute if score #temp1 int matches 10..99 run scoreboard players add #float_exp int 2

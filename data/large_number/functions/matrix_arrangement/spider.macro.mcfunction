@@ -1,1 +1,1 @@
-$execute positioned as @s run tp @s ^$(temp2) ^ ^
+$execute positioned as @s run tp ^$(temp2) ^ ^

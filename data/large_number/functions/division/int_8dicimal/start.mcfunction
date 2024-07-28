@@ -1,4 +1,4 @@
-##整数除法 - 12位有效数字
+##整数除法 - 8位有效数字
 
 #被除数：scoreboard players set #int_+dicimal.input1 int 7458
 #除数：scoreboard players set #int_+dicimal.input2 int 617
@@ -13,7 +13,7 @@ execute if score #float_int0 int matches ..-1 run scoreboard players operation #
 
 scoreboard players set #float_exp int 0
 scoreboard players operation #temp1 int = #float_int0 int
-execute if score #temp1 int matches 1..9 run scoreboard players operation #float_int0 in *= 100000000 const
+execute if score #temp1 int matches 1..9 run scoreboard players operation #float_int0 int *= 100000000 const
 execute if score #temp1 int matches 1..9 run scoreboard players add #float_exp int 1
 execute if score #temp1 int matches 10..99 run scoreboard players operation #float_int0 int *= 10000000 const
 execute if score #temp1 int matches 10..99 run scoreboard players add #float_exp int 2
@@ -60,7 +60,6 @@ execute if score #temp1 int matches 100000000..999999999 run scoreboard players 
 execute if score #temp1 int matches 1000000000..2147483647 run scoreboard players operation #Divisor_float_int0 int /= 100 const
 execute if score #temp1 int matches 1000000000..2147483647 run scoreboard players add #Divisor_float_exp int 10
 
-scoreboard players operation #float_int1 int = #float_int0 int
 scoreboard players operation #sstempd int = #Divisor_float_int0 int
 
 scoreboard players operation #sstemp0 int = #sstempd int

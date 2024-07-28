@@ -191,7 +191,6 @@ scoreboard players operation #float_int0 int /= #sstempd int
 scoreboard players operation #float_int0 int *= 40 const
 scoreboard players operation #sstemp1 int %= #sstempd int
 scoreboard players operation #sstemp1 int *= 40 const
-scoreboard players operation #float_int1 int = #sstemp1 int
 scoreboard players operation #sstemp1 int /= #sstempd int
 scoreboard players operation #float_int0 int += #sstemp1 int
 

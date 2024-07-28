@@ -1,0 +1,1 @@
+$execute store result storage large_number:math temp3 int $(temp1) run scoreboard players get #sstemp3 int

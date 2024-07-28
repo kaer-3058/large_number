@@ -1,0 +1,1 @@
+$data modify storage large_number:math float_multiply.output set value $(stemp1)0.$(temp1)$(temp2)$(temp3)$(temp4)E$(stemp2)d

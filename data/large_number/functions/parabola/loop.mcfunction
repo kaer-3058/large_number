@@ -6,9 +6,6 @@ data modify storage large_number:math parabola_expre_x append from storage large
 ###########################################
 #整型对整型的大数相乘
 
-#scoreboard players set #coef.a int 2147483647
-#scoreboard players set #store_parabola_expre_x.start int 2147483647
-
 execute store success score #input_-1 int if score #coef.a int matches ..-1
 execute store success score #input.2_-1 int if score #store_parabola_expre_x.start int matches ..-1
 

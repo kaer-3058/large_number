@@ -1,1 +1,1 @@
-$particle end_rod ^$(stemp1) ^$(stemp2) ^$(stemp3) .0 .0 .0 .0 1 force
+$particle end_rod ^$(stemp1) ^$(stemp2) ^$(stemp3)

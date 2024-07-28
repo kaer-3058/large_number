@@ -1,4 +1,4 @@
-## 卡儿的数学库
+## 卡儿的数学库 v.1.13
 
 对应MC版本1.20.4
 
@@ -248,7 +248,7 @@ storage large_number:math loop_more_more_dicimal_base (底数)
 
 ♦ 数组除以整数 (多位有效数字)：division/list_div_int/start
 
-被除数必须为万进制int数组，被除数的数组元素和除数必须全都是正数
+被除数必须为万进制int数组，被除数的数组元素和除数必须全都是正数。有自适应数位，被除数数组不必输入满三个数。
 
 只取除数的前八位
 
@@ -280,9 +280,17 @@ storage large_number:math loop_more_more_dicimal_base (底数)
 输入的"倍率"可以为任何数值，但计算时会忽略数据单位并转化为double型
 可选的数据类型："byte"、"float"、"double"、"short"、"int"、"long"
 
-♦ 浮点乘法：float_multiply/start
+　
+
+♦ 浮点乘法
+
+算法1：float_multiply/start
 
 原理：execute store + data get，可实现用倍率存储整数，用函数宏导入动态倍率
+
+算法2：float_multiply/of_score/start
+
+原理：浮点转化为记分板格式后取前八位进行大数乘法
 
 ```
 因数1：storage large_number:math float_multiply.input1 0.0
@@ -324,6 +332,21 @@ storage large_number:math float_add_subtra.input2 0.0
 若是加法，则为两数相加，若为减法，则是input1减input2
 
 输出：storage large_number:math float_add_subtra.output
+```
+
+　
+
+♦ 浮点数比大小：float_comparison_sizes/start
+
+把输入值代入浮点减法，判断输出值的符号
+
+```
+输入：
+storage large_number:math float_comparison_sizes.A 0.0
+storage large_number:math float_comparison_sizes.B 0.0
+
+输出比较结果：storage large_number:math float_comparison_sizes.output
+"A"比较"B"，"+"为更大，"-"为更小，"="为相等
 ```
 
 　
@@ -399,8 +422,8 @@ storage large_number:math float_add_subtra.input2 0.0
 
 ```
 输入：input.sqrt int
-取整输出：output.sqrt int
 
+取整输出：output.sqrt int
 保留四位小数输出(放大一万倍)：output.sqrt int
 
 保留多位小数的输出：
@@ -544,7 +567,7 @@ storage large_number:math double_norm_3d.z 1.0d
 
 　
 
-♦ double转int数组
+♦ double转int - 数组格式，精度为16位有效数字
 
 对float型数值也有效
 
@@ -576,6 +599,27 @@ storage large_number:math double_norm_3d.z 1.0d
 如果小数点位置不为2，则指数必定为0，前导0必定是0个。
 
 如果前导0数量为1到3个(MC浮点数最多存在三个前导0)，则小数点位置必定为2，指数必定为0。
+
+　
+
+♦ double转int - 记分板格式，精度为8位有效数字：float_nbt_to_score
+
+```
+输入：storage large_number:math float_nbt_to_score_input 0.0
+
+输出：
+符号：#float_sign int
+尾数：#float_int0 int
+指数：#float_exp int
+
+示例：
+#float_sign int 1
+#float_int0 int 44553375
+#float_exp int 23
+则表示的数为: 1*0.44553375*10^23
+
+转换后的尾数始终是八位
+```
 
 　
 
@@ -961,6 +1005,8 @@ double型输出：storage large_number:math lg(x)_output
 
 输入范围为区间：[0,170]
 
+区间[0,12]的自然数的阶乘以int型输出，区间[13,170]的自然数的阶乘以double型输出。
+
 ```
 输入：#natural_num.factorial.input int
 输出：storage large_number:math natural_num_factorial
@@ -969,6 +1015,8 @@ double型输出：storage large_number:math lg(x)_output
 ♦ 自然数的双阶乘：gamma_function/fundamental_factorial/double_factorial
 
 输入范围为区间：[0,300]
+
+区间[0,19]的自然数的双阶乘以int型输出，区间[20,300]的自然数的双阶乘以double型输出。
 
 这里的双阶乘是原始的无穷乘积形式定义的
 
@@ -1016,6 +1064,70 @@ ln[1,2]的初始数据库：function large_number:ln_high_precision/database
 
 　
 
+♦ LambertW函数
+
+LambertW(x)：lambertw/start
+
+LambertW.(-1) (x)：lambertw/-1/start
+
+LambertW(x)是x\*e\^x的反函数
+
+公式1：`LambertW(x) ~ ln(x)-ln(ln(x))+ln(ln(x))/ln(x) x≥3`
+
+公式2：`LambertW(x) ~ ln(x+1)/1.3 0≤x≤3`
+
+公式3：`LambertW(x) ~ tan(3.365x)/3.2 (-1/e)≤x≤0`
+
+公式4：`LambertW.(-1) (x) ~ ln(-x)-ln(-ln(-x))+ln(-ln(-x))/ln(-x)`
+
+输入范围：
+
+LambertW(x)：[-1/e, ∞)
+
+LambertW.(-1) (x)：[-1/e, 0]
+
+-1/e≈-0.3678794411714
+
+要求输入值必须为double型
+
+```
+计算前需要载入初始数据库：function large_number:ln/ln_database
+
+输入：storage large_number:math lambertw.input 1.0d
+输出：storage large_number:math lambertw.output
+```
+
+　
+
+♦ 逆伽玛函数 - F.K.Amenyou公式：inverse_gamma_function/start
+
+逆伽玛函数就是已知x的阶乘求x。
+
+伽玛函数的函数值与𝑥并不是单射关系，因此需要限制定义域。
+
+取Γ(x+1)在x≥0的部分，可以发现这一段函数存在一个极小值𝜆，𝜆≈0.8856031944109。
+
+定义一个常数𝜑，满足Γ(𝜑+1)=𝜆，𝜑≈0.4616321449684。
+
+在[𝜑,∞)区间内，Γ(x+1)严格单调，所以在𝑥∈[𝜑,∞)时，Γ(x+1)存在反函数。
+
+定义隐式x=Γ(𝑦+1) (𝑦≥𝜆)，满足此关系式的点集就是正实数的反阶乘函数。称为逆Γ(x+1)，定义域为[𝜆,∞)。
+
+F.K.Amenyou公式：逆Γ(x+1) ~ [ln(x/√(2π))/W(ln(x/√(2π))/e)]-(1/2)+(1/30x)
+
+相关论文：https://ir.lib.uwo.ca/etd/5365/，https://www.ams.org/journals/proc/2012-140-04/S0002-9939-2011-11023-2/
+
+输入范围：x≥1
+
+```
+ln[1,2]的初始数据库：function large_number:ln_high_precision/database
+
+输入：storage large_number:math inverse_gamma_function.input 1.0d
+输出：storage large_number:math inverse_gamma_function.output
+```
+
+
+ 
 ♦ 执行朝向转为四元数四分量xyzw：quaternion/facing/2tostoxyzw
 
 需要传入执行朝向
@@ -1037,28 +1149,66 @@ ln[1,2]的初始数据库：function large_number:ln_high_precision/database
 输出：storage large_number:math xyzw
 ```
 
-　
-
-♦ 局部坐标转相对坐标：uvw/uvwtoxyz
+♦ 执行朝向转单位向量：quaternion/facing/facing_to_unit_vector
 
 需要传入执行朝向
+
+```
+执行：as b09e-44-fded-6-efa5ffffef64 run func...
+输出：storage large_number:math unit_vector
+```
+
+♦ 横滚角转四元数：`execute in minecraft:overworld as b09e-44-fded-6-efa5ffffef64 run function large_number:quaternion/euler_angles_roll`
+
+```
+输入：storage large_number:math euler_angles_roll 0.0
+输出：storage large_number:math xyzw
+```
+
+　
+
+♦ 局部坐标转相对坐标
+
+方法1 (向量点乘)：uvw/uvwtoxyz
+
+需要传入执行朝向，需要以世界实体为执行者
 
 ```
 输入：#u int，#v int，#w int
-执行：as b09e-44-fded-6-efa5ffffef64 run func...
-
 输出(放大一万倍)：#x int，#y int，#z int
 ```
 
-♦ 相对坐标转局部坐标：uvw/xyztouvw
+方法2 (宏)：uvw/uvwtoxyz_2
 
-需要传入执行朝向
+输入执行坐标，执行高度(anchored eyes|feet)，执行朝向
+
+需要以世界实体为执行者
+
+```
+输入：#u int，#v int，#w int
+输出：#vec_x int，#vec_y int，#vec_z int
+```
+
+♦ 相对坐标转局部坐标
+
+方法1 (向量点乘)：uvw/xyztouvw
+
+需要传入执行朝向，需要以世界实体为执行者
 
 ```
 输入：#x int，#y int，#z int
-执行：as b09e-44-fded-6-efa5ffffef64 run func...
-
 输出(放大一万倍)：#u int，#v int，#w int
+```
+
+方法2 (宏)：uvw/xyztouvw_2
+
+输入执行坐标，执行高度(anchored eyes|feet)，执行朝向
+
+需要以世界实体为执行者
+
+```
+输入：#vec_x int，#vec_y int，#vec_z int
+输出：#u int，#v int，#w int
 ```
 
 　
@@ -1112,7 +1262,7 @@ double型形式：storage large_number:math quadratic_equation_out.double
 
 因获取玩家头颅里的Base64需要等待方块更新，所以解码会稍有延迟
 
-已知bug：如果执行后，观察到执行后无输出，则表示头颅皮肤未正确加载，解决方法是延迟1tick或1秒再执行一次本函数
+已知bug：如果执行后，观察到执行后无输出，则表示头颅皮肤未正确加载，解决方法是延迟几tick再执行一次本函数
 
 用命令判断就是测试此命令是否能通过，通过就表示解析不正确：`execute unless data storage large_number:timestamp output_base64_json.timestamp`
 
@@ -1259,6 +1409,69 @@ double型形式：storage large_number:math quadratic_equation_out.double
 
 　
 
+♦ 整数约分：int_simplify/start
+
+只接受正数
+
+```
+输入值1：#int_simplify.input1 int
+输入值2：#int_simplify.input2 int
+
+约分后的输入值1：#int_simplify.output1 int
+约分后的输入值2：#int_simplify.output2 int
+
+两数的最大公约数：#int_simplify.greatest_common_divisor int
+如果最大公约数为1，则两数互质
+```
+
+　
+
+♦ 整数转二进制：convert_decimal_to_binary
+
+65条命令完成，无递归
+
+按照32位有符号整数的存储规则进行转换，输出的列表为固定32个整数，每个整数表示这一位的二进制数，对于负数会进行补码
+
+```
+输入：#convert_decimal_to_binary.input int
+输出：storage large_number:math convert_decimal_to_binary_out
+
+显示以下JSON文本可显示输出结果：
+{"nbt":"convert_decimal_to_binary_out[]","storage":"large_number:math","separator":""}
+```
+
+　
+
+♦ 表达式求值 - 四则运算
+
+符号仅接受 `+－*/().E-` 。为了在转化为逆波兰式的过程中区分减法与负数，`－` 表示减法，`-` 表示负数。数字只能是int或double。double型数值可以是科学记数法且不需要单位，double型数值只能使用浮点数算法计算。
+
+注：不要单独把一个数放在括号里，如有需求，请写成 (a+0) 的形式。此算法的表达式里没有"负数要单独放在括号里"这种规则。
+
+逆波兰式算法：https://blog.csdn.net/zm_miner/article/details/115324206
+
+转换完成与计算完成均有提示
+
+1.表达式转换为逆波兰式：expression_evaluation/to_rev_polish_notation
+
+```
+输入：storage large_number:math expression_evaluation.input "(12+14)*(106－32)"
+输出逆波兰式 (可直接用于解析求值)：storage large_number:math expression_evaluation.rev_polish_notation
+```
+
+2.解析逆波兰式
+
+使用整数算法来求值：expression_evaluation/ope_of_inte
+
+使用浮点数算法来求值：expression_evaluation/ope_of_float
+
+```
+输入逆波兰式：storage large_number:math expression_evaluation.rev_polish_notation ["51E-2","3","+"]
+输出计算结果：storage large_number:math expression_evaluation.output
+```
+
+　
+
 ♦ 三维空间任意方向的粒子圆
 
 ```
@@ -1344,6 +1557,8 @@ execute positioned x y z rotated x y run function large_number:particle/3d_ar_el
 ♦ 粒子球 (斐波那契网格)
 
 密铺方法：若是从球面上取n个点，则是把球横着切成n层，让这些点沿着球面从球底爬到球顶，每爬一层就绕着这一层的圆心转0.618圈。
+
+相关链接：https://zhuanlan.zhihu.com/p/25988652
 
 ```
 球的半径：storage large_number:math 3d_hsphere_pos_R 0.0
@@ -1619,6 +1834,45 @@ execute as b09e-44-fded-6-efa5ffffef64 run function large_number:particle/heart-
 #color_cube.R int
 #color_cube.G int
 #color_cube.B int
+```
+
+　
+
+♦ 直线
+
+```
+1000倍输入 总长度：#3d_straight_line.length int
+1000倍输入 点的间隔：#3d_straight_line.density int
+
+计算坐标：function large_number:particle/3d_straight_line/start
+
+输出相对坐标列表：storage large_number:math 3d_straight_line_Pos
+直线是一维图形，所以只有一个变量
+
+显示粒子：execute positioned x y z rotated x y run function large_number:particle/3d_straight_line/particle
+传入执行位置和执行朝向
+```
+
+　
+
+♦ 粒子正多边形
+
+```
+1000倍输入 图形的横滚角：#regular_polygon.startθ int
+当角度为-90时，图形的第一个顶点是垂直向上的
+1000倍输入 图形的半径：#regular_polygon.r int
+1000倍输入 粒子的间隔：#regular_polygon.size int
+图形的边数：#regular_polygon.n int
+
+计算坐标：
+内接正多边形：execute as b09e-44-fded-6-efa5ffffef64 positioned .0 .0 .0 run function large_number:particle/regular_polygon/start
+外切正多边形：execute as b09e-44-fded-6-efa5ffffef64 positioned .0 .0 .0 run function large_number:particle/regular_polygon/tangent_start
+
+输出相对坐标列表：storage large_number:math regular_polygon_Pos
+其中每一个一级子列表表示多边形的一条边，每个二级子列表的第一项是x，第二项是y
+
+显示粒子：execute positioned x y z rotated x y run function large_number:particle/regular_polygon/particle
+传入执行位置和执行朝向
 ```
 
 　

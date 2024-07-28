@@ -1439,7 +1439,7 @@ Display the following JSON text to show the output:
 
 ♦ Expression evaluation - Arithmetic operations
 
-Symbols accepted: `+－*/().E-`. To distinguish subtraction from negative numbers during the process of converting to Reverse Polish Notation, － represents subtraction and - represents negative numbers. Numbers can only be int or double. Double type numbers can be in scientific notation and do not need units; double type numbers can only use floating-point arithmetic.
+Symbols accepted: `+－*/().E-`. To distinguish subtraction from negative numbers during the process of converting to Reverse Polish Notation, `－` represents subtraction and `-` represents negative numbers. Numbers can only be int or double. Double type numbers can be in scientific notation and do not need units; double type numbers can only use floating-point arithmetic.
 
 Note: Do not place a single number in parentheses. If necessary, write it in the form (a+0). There is no rule in this algorithm that states "negative numbers must be placed in parentheses".
 

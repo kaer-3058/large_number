@@ -280,6 +280,8 @@ storage large_number:math loop_more_more_dicimal_base (底数)
 输入的"倍率"可以为任何数值，但计算时会忽略数据单位并转化为double型
 可选的数据类型："byte"、"float"、"double"、"short"、"int"、"long"
 
+　
+
 ♦ 浮点乘法
 
 算法1：float_multiply/start

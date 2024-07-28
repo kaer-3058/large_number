@@ -278,6 +278,8 @@ output: storage large_number:math int_mul_by_n.output
 ```
 The "integer" input can be a non-integer, but it will be processed as an integer by rounding down and limiting the range to the integer type. The "multiplier" input can be any numerical value, but the unit of data will be ignored during computation and converted into a double type. Optional data types: "byte"、"float"、"double"、"short"、"int"、"long".
 
+　
+
 ♦ Float multiply
 
 Algorithm1: large_number:float_multiply/start

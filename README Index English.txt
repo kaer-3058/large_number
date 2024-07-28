@@ -1,6 +1,6 @@
 README Index
 
-Currently there are: 103 algorithms.
+Current version (v.1.13) includes a total of 121 algorithms.
 ♦ Const
 ♦ Trigonometric functions
 ♦ sin and cos
@@ -18,9 +18,10 @@ Currently there are: 103 algorithms.
 ♦ Int division [2 Sub-algorithm]
 ♦ Array division by an int (multiple significant digits)
 ♦ Arbitrary integer multiplication
-♦ Float multiply
+♦ Float multiply [2 Sub-algorithm]
 ♦ High-precision float multiply
 ♦ Float addition and subtraction
+♦ Floating point number comparison
 ♦ Int multiply
 ♦ Int square
 ♦ 12 digits number multiply
@@ -34,7 +35,8 @@ Currently there are: 103 algorithms.
 ♦ Sqrt of a 1 to 24 digit number (floor)
 ♦ Cube root of an int [2 Sub-algorithm]
 ♦ Euclidean norm of a double [4 Sub-algorithm]
-♦ Converting double to an int array [4 Sub-algorithm]
+♦ Double to int - 16-bit BCD array format, precision of 16 significant digits
+♦ Double to int - scoreboard format, precision of 8 significant digits
 ♦ double sqrt (high-precision floating-point numbers sqrt) [2 Sub-algorithm]
 ♦ Fast floating-point square root
 ♦ Display of a 24-digit number [2 Sub-algorithm]
@@ -61,10 +63,14 @@ Currently there are: 103 algorithms.
 ♦ Double factorial of a natural number
 ♦ Gamma function - Stirling formula
 ♦ Gamma function - recurrence formula
+♦ LambertW function
+♦ Inverse gamma function - F.K.Amenyou formula
 ♦ Convert direction to quaternion with four components (xyzw)
 ♦ Euler angles to quaternion
-♦ Local coordinate to relative coordinate conversion
-♦ Relative coordinate to local coordinate conversion
+♦ Convert execution direction to unit vector
+♦ Convert roll angle to quaternion
+♦ Convert local coordinates to relative coordinates [2 Sub-algorithm]
+♦ Convert relative coordinates to local coordinates [2 Sub-algorithm]
 ♦ Solve a monic quadratic equation with integer coefficients
 ♦ Get the current date and time
 ♦ Unix Timestamp Parser (32-bit)
@@ -73,6 +79,9 @@ Currently there are: 103 algorithms.
 ♦ RGB to hexadecimal conversion
 ♦ Sum of the first N terms of a harmonic series
 ♦ Int prime factorization
+♦ Int simplification
+♦ Integer to binary conversion
+♦ Expression evaluation - Arithmetic operations
 ♦ Particle circle in any direction in three-dimensional space
 ♦ Five-pointed star in any direction in three-dimensional space
 ♦ Ellipse in any direction in three-dimensional space
@@ -85,4 +94,5 @@ Currently there are: 103 algorithms.
 ♦ Second Order Bezier Curve
 ♦ Heart Shape Curve
 ♦ Color Wheel
-♦ Reference
+♦ Straight Line
+♦ Regular Polygonal Particle

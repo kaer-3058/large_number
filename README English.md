@@ -250,7 +250,7 @@ Quotient：storage large_number:math int_more_dicimal_out
 
 The dividend must be a 16-bit BCD array, and all elements of the dividend array as well as the divisor must be positive.
 
-Only the first eight digits of the divisor are considered.
+Only the first eight digits of the divisor are considered. There are adaptive digits, 和 the dividend array does not need to input all three numbers.
 
 Principle: Segment division, (a+b+c)/m = a/m+b/m+c/m
 
@@ -278,9 +278,15 @@ output：storage large_number:math int_mul_by_n.output
 ```
 The "integer" input can be a non-integer, but it will be processed as an integer by rounding down and limiting the range to the integer type. The "multiplier" input can be any numerical value, but the unit of data will be ignored during computation and converted into a double type. Optional data types："byte"、"float"、"double"、"short"、"int"、"long".
 
-♦ Float multiply：large_number:float_multiply/start
+♦ Float multiply
 
-Principle：execute store + data get，It can be used to store integers using a multiplier and import dynamic multipliers using function macros.
+Algorithm1：float_multiply/start
+
+Principle：execute store + data get，It can be used to store integers using a multiplier 和 import dynamic multipliers using function macros.
+
+Algorithm2：float_multiply/of_score/start
+
+Principle：Convert float to scoreboard format 和 take the first eight digits for large number multiplication.
 
 ```
 Factor1：storage large_number:math float_multiply.input1 0.0

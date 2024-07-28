@@ -1124,8 +1124,8 @@ ln[1,2]的初始数据库：function large_number:ln_high_precision/database
 输出：storage large_number:math inverse_gamma_function.output
 ```
 
-　
 
+ 
 ♦ 执行朝向转为四元数四分量xyzw：quaternion/facing/2tostoxyzw
 
 需要传入执行朝向
@@ -1146,7 +1146,7 @@ ln[1,2]的初始数据库：function large_number:ln_high_precision/database
 
 输出：storage large_number:math xyzw
 ```
-　
+
 ♦ 执行朝向转单位向量：quaternion/facing/facing_to_unit_vector
 
 需要传入执行朝向

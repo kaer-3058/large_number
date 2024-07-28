@@ -1402,65 +1402,65 @@ If the output list has only one item, then the input value is a prime number.
 
 　
 
-♦ 整数约分：int_simplify/start
+♦ Int simplification：large_number:int_simplify/start
 
-只接受正数
+Accepts only positive numbers
 
 ```
-输入值1：#int_simplify.input1 int
-输入值2：#int_simplify.input2 int
+Input1：#int_simplify.input1 int
+Input2：#int_simplify.input2 int
 
-约分后的输入值1：#int_simplify.output1 int
-约分后的输入值2：#int_simplify.output2 int
+Input value after simplification 1：#int_simplify.output1 int
+Input value after simplification 2：#int_simplify.output2 int
 
-两数的最大公约数：#int_simplify.greatest_common_divisor int
-如果最大公约数为1，则两数互质
+Greatest common divisor of the two numbers：#int_simplify.greatest_common_divisor int
+If the greatest common divisor is 1, the two numbers are coprime.
 ```
 
 　
 
-♦ 整数转二进制：convert_decimal_to_binary
+♦ Integer to binary conversion：large_number:convert_decimal_to_binary
 
-65条命令完成，无递归
+65 commands completed, non-recursive.
 
-按照32位有符号整数的存储规则进行转换，输出的列表为固定32个整数，每个整数表示这一位的二进制数，对于负数会进行补码
+Conversion according to the storage rules of 32-bit signed integers, output list consists of fixed 32 integers, each integer representing the binary number of that bit position; for negative numbers, two's complement is used.
 
 ```
-输入：#convert_decimal_to_binary.input int
-输出：storage large_number:math convert_decimal_to_binary_out
+Input：#convert_decimal_to_binary.input int
+Output：storage large_number:math convert_decimal_to_binary_out
 
-显示以下JSON文本可显示输出结果：
+Display the following JSON text to show the output:
 {"nbt":"convert_decimal_to_binary_out[]","storage":"large_number:math","separator":""}
 ```
 
 　
 
-♦ 表达式求值 - 四则运算
+♦ Expression evaluation - Arithmetic operations
 
-符号仅接受 `+－*/().E-` 。为了在转化为逆波兰式的过程中区分减法与负数，`－`表示减法，`-`表示负数。数字只能是int或double。double型数值可以是科学记数法且不需要单位，double型数值只能使用浮点数算法计算。
+Symbols accepted: `+－*/().E-`. To distinguish subtraction from negative numbers during the process of converting to Reverse Polish Notation, － represents subtraction and - represents negative numbers. Numbers can only be int or double. Double type numbers can be in scientific notation and do not need units; double type numbers can only use floating-point arithmetic.
 
-注：不要单独把一个数放在括号里，如有需求，请写成 (a+0) 的形式。此算法的表达式里没有"负数要单独放在括号里"这种规则。
+Note: Do not place a single number in parentheses. If necessary, write it in the form (a+0). There is no rule in this algorithm that states "negative numbers must be placed in parentheses".
 
-逆波兰式算法：https://blog.csdn.net/zm_miner/article/details/115324206
+Reverse Polish Notation algorithm：https://blog.csdn.net/zm_miner/article/details/115324206
 
-转换完成与计算完成均有提示
+Conversion and computation completion both have prompts.
 
-1.表达式转换为逆波兰式：expression_evaluation/to_rev_polish_notation
-
-```
-输入：storage large_number:math expression_evaluation.input "(12+14)*(106－32)"
-输出逆波兰式 (可直接用于解析求值)：storage large_number:math expression_evaluation.rev_polish_notation
-```
-
-2.解析逆波兰式
-
-使用整数算法来求值：expression_evaluation/ope_of_inte
-
-使用浮点数算法来求值：expression_evaluation/ope_of_float
+1.Convert the expression to Reverse Polish Notation：large_number:expression_evaluation/to_rev_polish_notation
 
 ```
-输入逆波兰式：storage large_number:math expression_evaluation.rev_polish_notation ["51E-2","3","+"]
-输出计算结果：storage large_number:math expression_evaluation.output
+Input：storage large_number:math expression_evaluation.input "(12+14)*(106－32)"
+Output the converted Reverse Polish Notation (can be directly used for parsing and evaluation)：storage large_number:math expression_evaluation.rev_polish_notation
+```
+
+2.Parse Reverse Polish Notation
+
+Evaluate using integer arithmetic：large_number:expression_evaluation/ope_of_inte
+
+Evaluate using floating-point arithmetic：large_number:expression_evaluation/ope_of_float
+
+```
+Input Reverse Polish Notation：storage large_number:math expression_evaluation.rev_polish_notation ["51E-2","3","+"]
+Output the calculation result：storage large_number:math expression_evaluation.output
 ```
 
 　
@@ -1550,6 +1550,8 @@ The execution orientation corresponds to the direction of the ellipse, and the e
 ♦ Particle sphere (Fibonacci grid)
 
 Tiling method: If n points are taken from the surface of the sphere, it involves slicing the sphere horizontally into n layers. These points then climb from the bottom to the top of the sphere along its surface. Each layer climbed corresponds to rotating 0.618 revolutions around the center of that layer.
+
+Related links：https://zhuanlan.zhihu.com/p/25988652
 
 ```
 Radius: storage large_number:math 3d_hsphere_pos_R 0.0
@@ -1821,6 +1823,45 @@ Output RGB value:
 #color_cube.R int
 #color_cube.G int
 #color_cube.B int
+```
+
+　
+
+♦ Straight Line
+
+```
+1000 times the input total length：#3d_straight_line.length int
+1000 times the input point spacing：#3d_straight_line.density int
+
+Calculate coordinates：function large_number:particle/3d_straight_line/start
+
+Output relative coordinate list：storage large_number:math 3d_straight_line_Pos
+A straight line is a one-dimensional figure, so it has only one variable.
+
+Display particles：execute positioned x y z rotated x y run function large_number:particle/3d_straight_line/particle
+Pass in the execution position and execution orientation.
+```
+
+　
+
+♦ Regular Polygonal Particle
+
+```
+1000 times the input roll angle of the shape：#regular_polygon.startθ int
+When the angle is -90, the first vertex of the shape is vertical upwards.
+1000 times the input radius of the shape：#regular_polygon.r int
+1000 times the input particle spacing：#regular_polygon.size int
+Number of sides of the shape：#regular_polygon.n int
+
+Calculate coordinates：
+Regular Inscribed Polygon：execute as b09e-44-fded-6-efa5ffffef64 positioned .0 .0 .0 run function large_number:particle/regular_polygon/start
+Regular Circumscribed Polygon：execute as b09e-44-fded-6-efa5ffffef64 positioned .0 .0 .0 run function large_number:particle/regular_polygon/tangent_start
+
+Output relative coordinate list：storage large_number:math regular_polygon_Pos
+Each primary sublist represents one side of the polygon, where each secondary sublist's first item is x and the second item is y.
+
+Display particles：execute positioned x y z rotated x y run function large_number:particle/regular_polygon/particle
+Pass in the execution position and execution orientation.
 ```
 
 　

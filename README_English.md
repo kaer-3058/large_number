@@ -2,6 +2,10 @@
 
 ## ka__er's math lib v.1.13
 
+- [English](README_English.md)
+
+- [简体中文](README.md)
+
 For minecraft 1.20.4
 
 Related concepts: 16-bit BCD array, segmented storage, floating-point type, double type, leading zero, absolute value, const, precision, scientific notation. If an element in a 16-bit BCD array has less than four digits, it should be padded with 0s to make up four digits when reading the number. 

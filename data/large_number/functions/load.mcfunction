@@ -2,7 +2,6 @@
 
 scoreboard objectives add const dummy
 scoreboard objectives add int dummy
-scoreboard objectives add if dummy
 scoreboard objectives add ln_const dummy
 
 #常量
@@ -28,6 +27,8 @@ scoreboard players set 10000000 const 10000000
 scoreboard players set 100000000 const 100000000
 scoreboard players set 1000000000 const 1000000000
 scoreboard players set -2 const -2
+scoreboard players set -3 const -3
+scoreboard players set -360 const -360
 scoreboard players set -10000 const -10000
 scoreboard players set -2147483648 const -2147483648
 
@@ -58,6 +59,7 @@ scoreboard players set 1625 const 1625
 scoreboard players set 2500 const 2500
 scoreboard players set 2776 const 2776
 scoreboard players set 3162 const 3162
+scoreboard players set 3125 const 3125
 scoreboard players set 3600 const 3600
 scoreboard players set 4000 const 4000
 scoreboard players set 4096 const 4096
@@ -86,12 +88,14 @@ execute in minecraft:overworld run function large_number:load.in_overworld
 
 data modify storage large_number:const "π" set value 3.14159265358979323846264338327950288419716939937510d
 data modify storage large_number:const "e" set value 2.71828182845904523536028747135266249775724709369995d
+data modify storage large_number:const "γ" set value 0.57721566490153286060651209008240243104215933593992d
+data modify storage large_number:const "φ" set value 1.61803398874989484820458683436563811772030917980576d
 
 
 ##函数初始化
 
 #全局xyz变量
-data modify storage large_number:math buffer_all_xyz set value [0.0,0.0,0.0]
+data modify storage large_number:math buffer_all_xyz set value [0d,0d,0d]
 
 #数位显示
 data modify storage large_number:math buffer_digital_display_list set value [0,0,0,0,0,0,0,0]
@@ -105,3 +109,9 @@ function large_number:prime_factorization/database
 
 #单位向量
 execute unless data storage large_number:math unit_vector[2] run data modify storage large_number:math unit_vector set value [0f,0f,0f]
+
+#三角函数法快速测距
+function large_number:fast_distance_trigonometry/load
+
+#Forth的核心 - 栈
+execute unless data storage large_number:math Forth_s1[0] run data modify storage large_number:math Forth_s1 set value [[]]

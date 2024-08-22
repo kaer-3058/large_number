@@ -12,4 +12,6 @@
 execute store result score #temp_lambertw.input_size int run data get storage large_number:math lambertw.input 10
 execute if score #temp_lambertw.input_size int matches 30.. run function large_number:lambertw/1
 execute if score #temp_lambertw.input_size int matches 0..29 run function large_number:lambertw/2
-execute if score #temp_lambertw.input_size int matches -4..-1 in minecraft:overworld as b09e-44-fded-6-efa5ffffef64 run function large_number:lambertw/3
+execute if score #temp_lambertw.input_size int matches -4..-1 as b09e-44-fded-6-efa5ffffef64 run function large_number:lambertw/3
+
+execute if data storage large_number:math lambertw{input:0.0} run data modify storage large_number:math lambertw.output set value 0.0

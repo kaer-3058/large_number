@@ -1,0 +1,1 @@
+$data modify storage large_number:math exp_e^x.input set value $(temp1)E$(temp_expon)d

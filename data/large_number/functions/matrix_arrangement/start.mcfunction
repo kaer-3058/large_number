@@ -14,4 +14,4 @@ scoreboard players set #sstempm int 0
 scoreboard players operation #sstempa int = #Matrix_arrangement.Rows int
 scoreboard players operation #sstempb int = #Matrix_arrangement.Columns int
 execute if score #sstempb int matches 1.. positioned .0 .0 .0 rotated 0.0 0.0 run function large_number:matrix_arrangement/loop2
-execute in minecraft:overworld run tp @s .0 .0 .0
+tp @s .0 .0 .0

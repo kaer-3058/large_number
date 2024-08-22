@@ -1,4 +1,4 @@
-execute in minecraft:overworld run data modify storage large_number:timestamp timestamp_base64 set from block -29999982 -60 22022222 SkullOwner.Properties.textures[0].Value
+data modify storage large_number:timestamp timestamp_base64 set from block -29999982 -60 22022222 SkullOwner.Properties.textures[0].Value
 execute store result score #temp9 int run data get storage large_number:timestamp timestamp_base64
 
 function large_number:timestamp/loop
@@ -11,6 +11,7 @@ data modify storage large_number:math temp2 set value ""
 function large_number:timestamp/loop.merge_json_string
 
 
+data remove storage large_number:timestamp output_base64_json
 function large_number:timestamp/macro.5.string_to_compound with storage large_number:math
 
 #输出：data get storage large_number:timestamp output_base64_json

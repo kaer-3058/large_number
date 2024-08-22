@@ -1,0 +1,1 @@
+$execute positioned .0 ~$(stemp1) .0 run function large_number:curve_length/univariate_function/loop3

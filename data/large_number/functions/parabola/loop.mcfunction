@@ -74,7 +74,7 @@ data modify storage large_number:math stemp6 set string storage large_number:mat
 function large_number:parabola/macro1 with storage large_number:math
 
 #ax+b
-execute in minecraft:overworld as b09e-44-fded-6-efa5ffffef64 run function large_number:parabola/macro2 with storage large_number:math
+execute as b09e-44-fded-6-efa5ffffef64 run function large_number:parabola/macro2 with storage large_number:math
 
 #(ax+b)*x
 function large_number:parabola/macro3 with storage large_number:math
@@ -96,7 +96,7 @@ execute store result storage large_number:math temp_expon int 1 run scoreboard p
 function large_number:parabola/macro8 with storage large_number:math
 
 #(ax+b)*x+c
-execute in minecraft:overworld as b09e-44-fded-6-efa5ffffef64 run function large_number:parabola/macro4 with storage large_number:math
+execute as b09e-44-fded-6-efa5ffffef64 run function large_number:parabola/macro4 with storage large_number:math
 
 execute unless score #store_parabola_expre_y int matches ..2147483647 store result score #store_parabola_expre_y int run data get storage large_number:math parabola_expre_y[0] 100
 execute store result score #temp2 int run data get storage large_number:math parabola_expre_y[-1] 100

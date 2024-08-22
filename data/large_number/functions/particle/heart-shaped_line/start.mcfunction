@@ -59,4 +59,4 @@ execute store result score #di.pos int run data get entity @s Pos[1] 10000
 scoreboard players operation #store_heart-shaped_line.extra int = #heart-shaped_line.extra int
 execute if score #store_heart-shaped_line.extra int matches 1.. run function large_number:particle/heart-shaped_line/loop4
 
-execute in minecraft:overworld run tp @s .0 .0 .0 .0 .0
+tp @s .0 .0 .0 .0 .0

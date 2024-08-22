@@ -7,7 +7,7 @@ forceload add -29999982 22022220
 
 
 #世界实体 UUID：b09e-44-fded-6-efa5ffffef64
-summon minecraft:marker 0.0 0.0 0.0 {UUID:[I;45214,4521453,454565,-4252],CustomName:'{"text":"large_number.world_entity"}'}
+execute unless entity b09e-44-fded-6-efa5ffffef64 run summon minecraft:marker 0.0 0.0 0.0 {UUID:[I;45214,4521453,454565,-4252],CustomName:'{"text":"large_number.world_entity"}'}
 execute as b09e-44-fded-6-efa5ffffef64 run function ntre:randomize
 
 #利用矩阵进行计算的展示实体 UUID: 28529-0-3d00-0-2c4200ee8401

@@ -1,0 +1,1 @@
+$execute positioned .0 $(sstemp05) .0 run loot spawn .0 ~$(sstemp06) .0 loot large_number:check_pos

@@ -33,4 +33,4 @@ function large_number:particle/3d_ar_ellipse/loop
 execute store result entity @s Rotation[1] float 0.001 run scoreboard players get #3d.ellipse.roll.θ int
 execute positioned 0.0 0.0 0.0 rotated as @s rotated 90.0 ~ run function large_number:particle/3d_ar_ellipse/scan
 
-execute in minecraft:overworld run tp .0 .0 .0
+tp .0 .0 .0

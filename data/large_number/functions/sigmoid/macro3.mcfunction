@@ -1,0 +1,1 @@
+$scoreboard players set #_exp int $(temp_expon)

@@ -1,1 +1,1 @@
-$execute store result storage large_number:math float_reciprocal.input double $(input) run scoreboard players get 30 const
+$execute store result storage large_number:math float_reciprocal.input double $(input) run return 30

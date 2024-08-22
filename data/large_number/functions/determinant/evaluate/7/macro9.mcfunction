@@ -1,0 +1,1 @@
+$execute positioned .0 $(temp_7aA1) .0 positioned .0 ~$(temp_7aA2) .0 positioned .0 ~$(temp_7aA3) .0 positioned .0 ~$(temp_7aA4) .0 positioned .0 ~$(temp_7aA5) .0 positioned .0 ~$(temp_7aA6) .0 run loot spawn .0 ~$(temp_7aA7) .0 loot large_number:check_pos

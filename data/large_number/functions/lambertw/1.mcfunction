@@ -90,4 +90,4 @@ execute store result storage large_number:math temp2 int 1 run scoreboard player
 function large_number:lambertw/macro2 with storage large_number:math
 
 execute store result storage large_number:math temp_ln1 double 0.0001 run scoreboard players operation #int_+dicimal.input2 int -= #int_+dicimal.input1 int
-execute in minecraft:overworld as b09e-44-fded-6-efa5ffffef64 run function large_number:lambertw/as_entity
+execute as b09e-44-fded-6-efa5ffffef64 run function large_number:lambertw/as_entity

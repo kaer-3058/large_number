@@ -1,6 +1,6 @@
 ##浮点除法 - 12位有效数字 - double型取倒数
 
-data modify storage large_number:math float_reciprocal.input set from storage large_number:math temp1
+data modify storage large_number:math float_reciprocal.input set from storage large_number:math float_multiply.output
 
 #载入除数
 scoreboard players set #Divisor_float_sign int 1

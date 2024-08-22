@@ -4,7 +4,7 @@
 #data modify storage large_number:math double_norm_3d.y set value 5013.733
 #data modify storage large_number:math double_norm_3d.z set value 4105.28802
 
-#execute in minecraft:overworld as b09e-44-fded-6-efa5ffffef64 run function large_number:double_norm/unit_vector_3d
+#execute as b09e-44-fded-6-efa5ffffef64 run function large_number:double_norm/unit_vector_3d
 
 data modify storage large_number:math buffer_all_xyz[0] set from storage large_number:math double_norm_3d.x
 data modify storage large_number:math buffer_all_xyz[1] set from storage large_number:math double_norm_3d.y

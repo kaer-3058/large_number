@@ -1,0 +1,1 @@
+$data modify storage large_number:math stemp08 set value $(temp1)d

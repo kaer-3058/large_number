@@ -1,0 +1,1 @@
+$execute store result storage large_number:math temp1 double $(input1) run scoreboard players get #sstemp_last_div int

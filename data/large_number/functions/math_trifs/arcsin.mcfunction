@@ -30,4 +30,4 @@ scoreboard players operation #x int /= 2 const
 
 # OUTPUT: scoreboard players get #x int
 
-execute in minecraft:overworld as b09e-44-fded-6-efa5ffffef64 run function large_number:math_trifs/atan2
+execute as b09e-44-fded-6-efa5ffffef64 run function large_number:math_trifs/atan2

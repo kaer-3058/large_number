@@ -13,8 +13,8 @@ data modify storage large_number:math equiangular_spiral_out_listY set value []
 
 scoreboard players operation #start_r int = #equiangular_spiral.start_r int
 scoreboard players operation #store_loops int = #equiangular_spiral.length int
-execute in minecraft:overworld run tp b09e-44-fded-6-efa5ffffef64 .0 .0 .0 .0 .0
+tp b09e-44-fded-6-efa5ffffef64 .0 .0 .0 .0 .0
 
 execute if score #store_loops int matches 1.. run function large_number:particle/equiangular_spiral/loop
 
-execute in minecraft:overworld run tp b09e-44-fded-6-efa5ffffef64 .0 .0 .0 .0 .0
+tp b09e-44-fded-6-efa5ffffef64 .0 .0 .0 .0 .0

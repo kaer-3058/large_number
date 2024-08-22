@@ -9,5 +9,6 @@
 #输入值的类型可以是：double/float/int，使用double/float型输入可以计算超出int范围的值
 
 execute store result score #temp1 int run data get storage large_number:math Harmonic_series_sum_input
+scoreboard players add #temp1 int 1
 execute if score #temp1 int matches ..2147483646 run function large_number:harmonic_series/sum1-n.1
 execute if score #temp1 int matches 2147483647 run function large_number:harmonic_series/sum1-n.2

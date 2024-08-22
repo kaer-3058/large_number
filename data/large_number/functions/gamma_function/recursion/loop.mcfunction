@@ -6,7 +6,7 @@
 
 #输入值减一，进行递推
 
-execute in minecraft:overworld as b09e-44-fded-6-efa5ffffef64 run function large_number:gamma_function/recursion/input-1
+execute as b09e-44-fded-6-efa5ffffef64 run function large_number:gamma_function/recursion/input-1
 function large_number:float_mul.high_precision/start
 data modify storage large_number:math float_multiply.input2 set from storage large_number:math float_multiply.output
 

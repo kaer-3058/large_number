@@ -1,5 +1,4 @@
 ##对浮点数取ln(x)
-#限取前九位(整数部分+小数部分一共九位)，若整数部分达到了九位则只取整数部分
 #输入：data modify storage large_number:math ln_double.input set value 12.745d
 
 #转化为字符串

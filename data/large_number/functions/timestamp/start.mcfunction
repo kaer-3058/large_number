@@ -8,10 +8,10 @@
 #execute unless data storage large_number:timestamp output_base64_json.timestamp
 #bug产生原因：多种因素造成的网络扰动
 
-execute in minecraft:overworld run setblock -29999982 -60 22022222 minecraft:air
+setblock -29999982 -60 22022222 minecraft:air
 execute unless data storage large_number:math player_head_cache_list[0] run data modify storage large_number:math player_head_cache_list set value ["ka__er"]
 data modify storage large_number:math temp1 set from storage large_number:math player_head_cache_list[0]
-execute in minecraft:overworld run function large_number:timestamp/start.macro.set_player_head with storage large_number:math
+function large_number:timestamp/start.macro.set_player_head with storage large_number:math
 data modify storage large_number:timestamp timestamp_decoded_base64 set value []
 data remove storage large_number:timestamp output_base64_json
 

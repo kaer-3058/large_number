@@ -1,6 +1,8 @@
 #此算法来自小豆的数学库
 #math:hpo/float/_div
 
+#这是目前所有高精度除法的核心，算法著作人：小豆 https://github.com/xiaodou8593
+
 scoreboard players operation #float_int0 int *= 10 const
 scoreboard players operation #sstempd int = #Divisor_float_int0 int
 

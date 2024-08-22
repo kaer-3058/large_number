@@ -8,7 +8,7 @@
 
 scoreboard players set #temp9 int 0
 data modify storage large_number:math temp_random_list set value []
-execute in minecraft:overworld as b09e-44-fded-6-efa5ffffef64 run function large_number:random/normal_distribution/test1/pcg_random
+execute as b09e-44-fded-6-efa5ffffef64 run function large_number:random/normal_distribution/test1/pcg_random
 scoreboard players operation #temp1 int = #normal_distribution.input int
 execute if score #temp1 int matches 1.. run function large_number:random/normal_distribution/test1/loop1
 

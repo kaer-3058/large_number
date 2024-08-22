@@ -31,7 +31,7 @@ execute if score #is_leap_year int matches 1 run function large_number:timestamp
 execute store result score #timestamp_day int run scoreboard players add #temp1 int 1
 
 #用命令方块获取时分秒
-execute in minecraft:overworld run data modify storage large_number:math temp1 set string block -29999984 -60 22022222 LastOutput 10 18
+data modify storage large_number:math temp1 set string block -29999984 -60 22022222 LastOutput 10 18
 data modify storage large_number:timestamp output_day_Second set string storage large_number:math temp1 6 8
 data modify storage large_number:timestamp output_day_Minute set string storage large_number:math temp1 3 5
 data modify storage large_number:timestamp output_day_Hour set string storage large_number:math temp1 0 2

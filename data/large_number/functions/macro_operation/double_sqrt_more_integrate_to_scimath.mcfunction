@@ -1,0 +1,1 @@
+$data modify storage large_number:math double_sqrt.output set value $(temp1).$(temp2)E$(temp3)d

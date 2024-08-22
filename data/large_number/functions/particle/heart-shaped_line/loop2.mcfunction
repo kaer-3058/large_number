@@ -31,7 +31,7 @@ scoreboard players operation #y int /= 2 const
 execute store result storage large_number:math buffer_all_xyz[0] double -0.0001 run scoreboard players get #y int
 execute store result storage large_number:math buffer_all_xyz[2] double 0.0001 run scoreboard players get #x int
 data modify entity @s Pos set from storage large_number:math buffer_all_xyz
-execute in minecraft:overworld positioned .0 .0 .0 facing entity @s feet rotated ~ .0 run tp @s .0 .0 .0 ~ ~
+execute positioned .0 .0 .0 facing entity @s feet rotated ~ .0 run tp @s .0 .0 .0 ~ ~
 
 
 execute store result storage large_number:math temp2 int 0.174532925199432957692369 run data get entity @s Rotation[0] 10000000

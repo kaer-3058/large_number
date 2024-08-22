@@ -18,4 +18,4 @@ execute store result score #n int run scoreboard players operation #loop int = #
 
 function large_number:particle/3d_hsphere/loop
 
-execute in minecraft:overworld run tp @s .0 .0 .0 .0 .0
+tp @s .0 .0 .0 .0 .0

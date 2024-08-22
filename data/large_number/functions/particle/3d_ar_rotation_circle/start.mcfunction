@@ -16,4 +16,4 @@ data modify storage large_number:math 3d_ar_rotation_circle_posY set value []
 execute store result entity @s Rotation[1] float -.1 run scoreboard players set #loop int 3600
 function large_number:particle/3d_ar_rotation_circle/loop
 
-execute in minecraft:overworld run tp @s .0 .0 .0
+tp @s .0 .0 .0

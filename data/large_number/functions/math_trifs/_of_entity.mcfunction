@@ -4,7 +4,7 @@
 #data modify entity b09e-44-fded-6-efa5ffffef64 Rotation[0] set value 17.65f
 
 #三角函数-角度制 (都是10000倍)
-execute in minecraft:overworld as b09e-44-fded-6-efa5ffffef64 rotated as @s rotated ~ 0.0 positioned .0 .0 .0 run tp @s ^ ^ ^-1.0 ~ ~
+execute as b09e-44-fded-6-efa5ffffef64 rotated as @s rotated ~ 0.0 positioned .0 .0 .0 run tp @s ^ ^ ^-1.0 ~ ~
 
 #sin
 execute store result score #tan int store result score #sin int run data get entity b09e-44-fded-6-efa5ffffef64 Pos[0] 10000

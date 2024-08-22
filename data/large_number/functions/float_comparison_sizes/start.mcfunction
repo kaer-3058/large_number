@@ -18,8 +18,9 @@ execute if score #input+- int matches 0 run data modify storage large_number:mat
 
 function large_number:float_add_subtra/macro2.ope with storage large_number:math
 data modify storage large_number:math float_comparison_sizes.output set value ""
-execute in minecraft:overworld as @e[type=minecraft:item] if data entity @s Item{id:"minecraft:stone"} if data entity @s Item.tag{large_number_loot_spawn1:1b} run function large_number:float_comparison_sizes/ope_out
+execute as @e[type=minecraft:item] if data entity @s Item{id:"minecraft:stone"} if data entity @s Item.tag{large_number_loot_spawn1:1b} run function large_number:float_comparison_sizes/ope_out
 
+#给出结果
 execute unless data storage large_number:math float_comparison_sizes{output:"-"} run data modify storage large_number:math float_comparison_sizes.output set value "+"
 data modify storage large_number:math temp1 set from storage large_number:math float_comparison_sizes.A
 execute store success score #temp int run data modify storage large_number:math temp1 set from storage large_number:math float_comparison_sizes.B

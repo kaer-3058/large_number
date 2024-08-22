@@ -1,28 +1,28 @@
 ##单位向量法测距离 - 任意两点
 
 #输入
-#data modify storage large_number:math unit_vector.P1 set value [0.0,0.0,0.0]
-#data modify storage large_number:math unit_vector.P2 set value [0.0,0.0,0.0]
+#data modify storage large_number:math unit_vector2.P1 set value [0.0,0.0,0.0]
+#data modify storage large_number:math unit_vector2.P2 set value [0.0,0.0,0.0]
 
 #执行
 #execute as b09e-44-fded-6-efa5ffffef64 run function large_number:unit_vector_for_distance
 
 #两个点的坐标差的范围：100*|x|+100*|y|+100*|z| ≤2147483
 
-execute store result score #v1.x int run data get storage large_number:math unit_vector.P1[0] 100.0
-execute store result score #v1.y int run data get storage large_number:math unit_vector.P1[1] 100.0
-execute store result score #v1.z int run data get storage large_number:math unit_vector.P1[2] 100.0
+execute store result score #v1.x int run data get storage large_number:math unit_vector2.P1[0] 100.0
+execute store result score #v1.y int run data get storage large_number:math unit_vector2.P1[1] 100.0
+execute store result score #v1.z int run data get storage large_number:math unit_vector2.P1[2] 100.0
 
-execute store result score #v2.x int run data get storage large_number:math unit_vector.P2[0] 100.0
-execute store result score #v2.y int run data get storage large_number:math unit_vector.P2[1] 100.0
-execute store result score #v2.z int run data get storage large_number:math unit_vector.P2[2] 100.0
+execute store result score #v2.x int run data get storage large_number:math unit_vector2.P2[0] 100.0
+execute store result score #v2.y int run data get storage large_number:math unit_vector2.P2[1] 100.0
+execute store result score #v2.z int run data get storage large_number:math unit_vector2.P2[2] 100.0
 
 execute store result storage large_number:math buffer_all_xyz[0] double 0.0001 run scoreboard players operation #v2.x int -= #v1.x int
 execute store result storage large_number:math buffer_all_xyz[1] double 0.0001 run scoreboard players operation #v2.y int -= #v1.y int
 execute store result storage large_number:math buffer_all_xyz[2] double 0.0001 run scoreboard players operation #v2.z int -= #v1.z int
 
 data modify entity @s Pos set from storage large_number:math buffer_all_xyz
-execute in minecraft:overworld positioned .0 .0 .0 facing entity @s feet run tp @s ^ ^ ^1.0
+execute positioned .0 .0 .0 facing entity @s feet run tp @s ^ ^ ^1.0
 data modify storage large_number:math buffer_all_xyz set from entity @s Pos
 
 execute store result score #i.x int run data get storage large_number:math buffer_all_xyz[0] 10000.0
@@ -48,9 +48,6 @@ scoreboard players operation #temp1 int %= #i.x int
 scoreboard players operation #temp1 int *= 1000 const
 scoreboard players operation #temp1 int /= #i.x int
 execute store result score #distance int run scoreboard players operation #v2.x int += #temp1 int
-
-#初始化时设置一个固定缓冲位置
-#减少storage的路径深度
 
 
 #最后的除法应该这么算

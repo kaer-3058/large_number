@@ -10,7 +10,7 @@ function large_number:particle/bezier_curve_2/macro1 with storage large_number:m
 data modify storage large_number:math buffer_all_xyz[0] set from storage large_number:math sstemp11
 data modify storage large_number:math buffer_all_xyz[1] set from storage large_number:math sstemp21
 data modify storage large_number:math buffer_all_xyz[2] set from storage large_number:math sstemp31
-execute in minecraft:overworld as b09e-44-fded-6-efa5ffffef64 run function large_number:particle/bezier_curve_2/as_entity
+execute as b09e-44-fded-6-efa5ffffef64 run function large_number:particle/bezier_curve_2/as_entity
 
 data modify storage large_number:math bezier_curve_II_list append from storage large_number:math buffer_all_xyz
 

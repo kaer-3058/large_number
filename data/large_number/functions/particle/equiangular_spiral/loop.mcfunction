@@ -25,7 +25,7 @@ execute if score #is_XXEXX int matches 1 run function large_number:double_sqrt.i
 function large_number:particle/equiangular_spiral/macro2 with storage large_number:math
 execute store result storage large_number:math temp2 int 1 run scoreboard players remove #temp1 int 10
 execute store result storage large_number:math temp3 double 0.001 run scoreboard players get #start_r int
-execute in minecraft:overworld positioned .0 .0 .0 as b09e-44-fded-6-efa5ffffef64 run function large_number:particle/equiangular_spiral/macro.float_multiply_out with storage large_number:math
+execute positioned .0 .0 .0 as b09e-44-fded-6-efa5ffffef64 run function large_number:particle/equiangular_spiral/macro.float_multiply_out with storage large_number:math
 
 scoreboard players operation #start_r int += #equiangular_spiral.r_size int
 scoreboard players remove #store_loops int 1

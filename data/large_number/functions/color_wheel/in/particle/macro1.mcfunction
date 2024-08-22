@@ -1,2 +1,1 @@
-$execute rotated ~ $(marker_rotate) run particle dust 0 0 0 .5 ^ ^ ^.8
-$execute rotated ~ $(marker_rotate) run particle dust 0 0 0 .5 ^ ^ ^1.1
+$execute rotated ~ $(marker_rotate) run function large_number:color_wheel/in/particle/marker

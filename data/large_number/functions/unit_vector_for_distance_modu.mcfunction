@@ -9,12 +9,12 @@
 
 #输入值范围：100x+100y+100z ≤2147483
 
-execute store result storage large_number:math buffer_all_xyz[0] double 0.0001 store result score #distance int run data get storage large_number:math unit_vector_modu.input[0] 100.0
-execute store result storage large_number:math buffer_all_xyz[1] double 0.0001 store result score #v.y int run data get storage large_number:math unit_vector_modu.input[1] 100.0
-execute store result storage large_number:math buffer_all_xyz[2] double 0.0001 store result score #v.z int run data get storage large_number:math unit_vector_modu.input[2] 100.0
+execute store result storage large_number:math buffer_all_xyz[0] double .0001 store result score #distance int run data get storage large_number:math unit_vector_modu.input[0] 100.0
+execute store result storage large_number:math buffer_all_xyz[1] double .0001 store result score #v.y int run data get storage large_number:math unit_vector_modu.input[1] 100.0
+execute store result storage large_number:math buffer_all_xyz[2] double .0001 store result score #v.z int run data get storage large_number:math unit_vector_modu.input[2] 100.0
 
 data modify entity @s Pos set from storage large_number:math buffer_all_xyz
-execute in minecraft:overworld positioned .0 .0 .0 facing entity @s feet run tp @s ^ ^ ^1.0
+execute positioned .0 .0 .0 facing entity @s feet run tp @s ^ ^ ^1.0
 data modify storage large_number:math buffer_all_xyz set from entity @s Pos
 
 execute store result score #i.x int run data get storage large_number:math buffer_all_xyz[0] 10000.0

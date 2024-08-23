@@ -1258,12 +1258,15 @@ In the interval [φ, ∞), Γ(x+1) is strictly monotonic, so there exists an inv
 Define the implicit x=Γ(y+1) (y≥λ), satisfying this relationship which is the positive real number inverse factorial function. It is called the inverse of Γ(x+1), with its domain being [λ, ∞).
 
 F.K.Amenyou formula：
+
 $$
 \mathrm{Inverse}\ \Gamma\left ( {x+1} \right )\sim \frac {\ln {\left ( {\frac {x} {\sqrt {2π}}} \right )}} {\mathrm{LambertW}\left ( {\frac {\ln {\left ( {\frac {x} {\sqrt {2π}}} \right )}} {\mathrm{e}}} \right )}-\frac {1} {2}+\frac {1} {30x}
 $$
+
 Related papers：https://ir.lib.uwo.ca/etd/5365/，https://www.ams.org/journals/proc/2012-140-04/S0002-9939-2011-11023-2/
 
 Approximation of "Inverse of Γ(x+1)" in the interval (𝜆, 1.13):
+
 $$
 \mathrm{Inverse}\ \Gamma\left ( {x+1} \right )\sim\arcsin\left ( 1.23099326x-2.08932555 \right ) +\frac{\pi }{2} +\varphi
 $$
@@ -1374,6 +1377,7 @@ The equation must be input in general form, where "a", "b", "c" have absolute va
 More accurate: the range of values for Δ (b²-4ac) is the entire integer range, that is, -2147483648 ≤ b²-4ac ≤ 2147483647.
 
 Solve using formula method:
+
 $$
 x={-b\pm\sqrt{b^2-4ac}\over2a}
 $$
@@ -1506,9 +1510,11 @@ Output: storage large_number:math xp.output
 ♦ Player Experience Formula - Reverse calculation of experience level and experience remainder from total experience: large_number:xp_formula/points_ope_levels/start
 
 Reverse Experience Formula: 
+
 $$
 g(x)={\sqrt{72x-45503}+325\over18}
 $$
+
 The experience formula is a quadratic equation. By using the quadratic formula to reverse it, and keeping only the roots where x ≥ 0, we obtain this reverse experience formula.
 
 Theoretically, the input value should not exceed 2.07526 * 10^19.
@@ -1544,9 +1550,11 @@ Output: storage large_number:math rgb_to_hexadecimal_output
 Approximation by formula, no recursion.
 
 Formula: 
+
 $$
 H_{x}=\sum ^{x}_{n=1} {\frac {1} {n}}=\psi\left ( {x+1} \right )+\gamma\approx \ln {\left ( {x} \right )}+0.5772+\frac {0.4995078} {x}
 $$
+
 Note: Σ denotes the sum of a series, ψ represents the Digamma function, the natural logarithm derivative of the gamma function, γ is the Euler-Mascheroni constant, also known as the sum of Ramanujin of the harmonic series, approximately 0.5772156649.
 
 When the input value is negative, the output is 5772, which is the sum of Ramanujin of the harmonic series.
@@ -1825,6 +1833,7 @@ Only single integrals can be computed. The integrand must be "Riemann integrable
 The integrand is taken directly from the Reverse Polish Notation parsed by "Expression Evaluation - Scientific Computing," with the integration variable as x*x*.
 
 Formula (Trapezoidal Rule):
+
 $$
 \int ^b_a {f(x)\ \mathrm{d}x\ \approx}\ \frac {b-a} {k}\left ( {\frac {f\left (a \right )+f\left (b \right )} {2}+\sum ^{k-1}_{n=1} {f\left ( {a+\frac {b-a} {k}n} \right )}} \right )
 $$
@@ -1873,6 +1882,7 @@ Output：storage large_number:math expression_evaluation.univariate_function_len
 Uses the finite difference method.
 
 First Derivative Midpoint Formula:
+
 $$
 f'\left ( x_i \right )\approx\frac{f\left ( x_i+\Delta x \right )-f\left ( x_i-\Delta x \right )}{2\Delta x} 
 $$
@@ -2195,6 +2205,7 @@ Pass in the execution position and execution orientation.
 ♦ Second Order Bezier Curve
 
 Formula: 
+
 $$
 B\left ( t \right )=\left ( 1-t \right )^2P_0+2t\left ( 1-t \right )P_1+t^2P_2,\ t\in \left [ 0,1 \right ]
 $$
@@ -2233,6 +2244,7 @@ Pass in the execution position and execution orientation.
 ♦ Heart Shape Curve
 
 Formula: 
+
 $$
 \begin{aligned}
 & \mathrm{Upper\ Half:\ }\sqrt {r\left | {x} \right |-{x}^{2}} \\

@@ -1627,8 +1627,6 @@ ln的初始数据库：function large_number:ln/ln_database
 
 ♦ 整数转二进制：large_number:convert_decimal_to_binary
 
-条命令完成，无递归
-
 按照32位有符号整数的存储规则进行转换，输出的列表为固定32个整数，每个整数表示这一位的二进制数，对于负数会进行补码
 
 ```

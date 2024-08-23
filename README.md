@@ -714,7 +714,7 @@ Input double or float
 
 Using a 24-bit "16-bit BCD array" for root extraction, 12 significant digits of the square root of a double were obtained.
 
-The number of commands for "8~9 significant digits" is approximately 180, while for "12~14 significant digits," it is about 1430, which is roughly 8 times the consumption of the former.
+The number of commands for "8\~9 significant digits" is approximately 180, while for "12\~14 significant digits," it is about 1430, which is roughly 8 times the consumption of the former.
 
 ```
 Input：storage large_number:math double_sqrt.input 0.0d

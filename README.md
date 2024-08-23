@@ -1895,7 +1895,7 @@ $$
 
 一阶导数值：large_number:differential/difference_quotient_method/1/start
 
-二阶导数值：large_number:differential/difference_quotient_method/1/start
+二阶导数值：large_number:differential/difference_quotient_method/2/start
 
 ```
 求导点的x值：storage large_number:math expression_evaluation.differential.input 1.0

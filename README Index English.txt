@@ -1,11 +1,12 @@
 README Index
 
-Current version (v.1.13) includes a total of 121 algorithms.
+Current version (v.1.14) includes a total of 142 algorithms.
 ♦ Const
 ♦ Trigonometric functions
 ♦ sin and cos
-♦ atan2d 
+♦ atan2d [2 Sub-algorithm]
 ♦ arcsin and arccos [2 Sub-algorithm]
+♦ arccos
 ♦ Large number addition
 ♦ Large number subtraction
 ♦ Displaying entity law for floating-point division
@@ -15,13 +16,16 @@ Current version (v.1.13) includes a total of 121 algorithms.
 ♦ Divide a 12-digit array by a const (with 4 decimal)
 ♦ Division with an infinite number of significant digits
 ♦ Taking the reciprocal of a floating-point number
-♦ Int division [2 Sub-algorithm]
+♦ Int division [3 Sub-algorithm]
 ♦ Array division by an int (multiple significant digits)
 ♦ Arbitrary integer multiplication
 ♦ Float multiply [2 Sub-algorithm]
 ♦ High-precision float multiply
+♦ High Precision Floating-Point Squaring
 ♦ Float addition and subtraction
 ♦ Floating point number comparison
+♦ Rounding Floating-Point Numbers
+♦ Decimal Shifting of Floating-Point Numbers
 ♦ Int multiply
 ♦ Int square
 ♦ 12 digits number multiply
@@ -41,6 +45,7 @@ Current version (v.1.13) includes a total of 121 algorithms.
 ♦ Fast floating-point square root
 ♦ Display of a 24-digit number [2 Sub-algorithm]
 ♦ Distance measurement using unit vector method [2 Sub-algorithm]
+♦ Triangular Function Method for Fast Distance Measurement
 ♦ List Algorithm - Shuffle
 ♦ List Algorithm - Draw a Card
 ♦ List Algorithm - Deduplicate Elements (Return Value Method)
@@ -54,11 +59,13 @@ Current version (v.1.13) includes a total of 121 algorithms.
 ♦ Exponential Function [2 Sub-algorithm]
 ♦ Int Exponentiation
 ♦ Exponentiation of Floating-Point Numbers
+♦ Integer Power of Floating-Point Numbers - Fast Exponentiation
 ♦ Int natural logarithm  ln(x)
 ♦ Double natural logarithm  ln(x)
 ♦ Int logarithm  log.a(b)
 ♦ Double logarithm  log.a(b)
 ♦ Int common logarithm  lg(x)
+♦ High Precision Natural Logarithm (Full Double Precision)
 ♦ Factorial of a natural number
 ♦ Double factorial of a natural number
 ♦ Gamma function - Stirling formula
@@ -78,12 +85,19 @@ Current version (v.1.13) includes a total of 121 algorithms.
 ♦ Player Experience Formula - Reverse calculation of experience level and experience remainder from total experience
 ♦ RGB to hexadecimal conversion
 ♦ Sum of the first N terms of a harmonic series
+♦ Sigmoid(x)
+♦ Digamma(x)
 ♦ Int prime factorization
 ♦ Int simplification
 ♦ Integer to binary conversion
+♦ Base Conversion of Integers [2 Sub-algorithms]
 ♦ Expression evaluation - Arithmetic operations
+♦ Expression Evaluation - Scientific Computation [2 Sub-algorithms]
+♦ Definite Integral [2 Sub-algorithms]
+♦ Curve Length - Length of the Graph of a Univariate Function on [a, b]
+♦ Numerical Derivatives [2 Sub-algorithms]
 ♦ Particle circle in any direction in three-dimensional space
-♦ Five-pointed star in any direction in three-dimensional space
+♦ Five-pointed star in any direction in three-dimensional space [2 Sub-algorithm]
 ♦ Ellipse in any direction in three-dimensional space
 ♦ Particle sphere (Fibonacci grid)
 ♦ Holographic Particle Projection - 16x16x16 projection to 1x1x1
@@ -96,3 +110,4 @@ Current version (v.1.13) includes a total of 121 algorithms.
 ♦ Color Wheel
 ♦ Straight Line
 ♦ Regular Polygonal Particle
+♦ Determinant [3 Sub-algorithms]

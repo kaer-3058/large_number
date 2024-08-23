@@ -46,7 +46,7 @@ Output: #sin int，#cos int，#tan int，#cot int，#sec int，#csc int
 ```
 input: entity b09e-44-fded-6-efa5ffffef64 Rotation[0] 0.0f
 
-operation: execute in overworld as b09e-44-fded-6-efa5ffffef64 rotated as @s rotated \~ 0.0 positioned .0 .0 .0 run tp @s ^1.0 ^ ^ \~ \~
+operation: execute in overworld as b09e-44-fded-6-efa5ffffef64 rotated as @s rotated ~ 0.0 positioned .0 .0 .0 run tp @s ^1.0 ^ ^ ~ ~
 
 sin: entity b09e-44-fded-6-efa5ffffef64 Pos[2]
 
@@ -194,7 +194,7 @@ Divisor
 
 Quotient
 #float_sign int (Sign)
-#float_int0 int(First 8 digits) + #float_int1 int(9\~12 digits)
+#float_int0 int(First 8 digits) + #float_int1 int(9~12 digits)
 #float_exp int (Exponent)
 
 If the fractional part of #float_int1 int is less than four digits, zeros should be added at the beginning of the number to make it a four-digit number when reading it.
@@ -708,9 +708,9 @@ The converted fraction is always eight digits.
 
 Input double or float
 
-8\\~9 length number：large_number:double_sqrt
+8\~9 length number：large_number:double_sqrt
 
-12\\~14length number：large_number:double_sqrt_more_dicimal
+12\~14length number：large_number:double_sqrt_more_dicimal
 
 Using a 24-bit "16-bit BCD array" for root extraction, 12 significant digits of the square root of a double were obtained.
 
@@ -1216,13 +1216,13 @@ LambertW.(-1)(x)：large_number:lambertw/-1/start
 
 LambertW(x) is the inverse function of x\*e\^x.
 
-Formula1：`LambertW(x) \~ ln(x)-ln(ln(x))+ln(ln(x))/ln(x) x≥3`
+Formula1：`LambertW(x) ~ ln(x)-ln(ln(x))+ln(ln(x))/ln(x) x≥3`
 
-Formula2：`LambertW(x) \~ ln(x+1)/1.3 0≤x≤3`
+Formula2：`LambertW(x) ~ ln(x+1)/1.3 0≤x≤3`
 
-Formula3：`LambertW(x) \~ tan(3.365x)/3.2 (-1/e)≤x≤0`
+Formula3：`LambertW(x) ~ tan(3.365x)/3.2 (-1/e)≤x≤0`
 
-Formula4：`LambertW.(-1)(x) \~ ln(-x)-ln(-ln(-x))+ln(-ln(-x))/ln(-x)`
+Formula4：`LambertW.(-1)(x) ~ ln(-x)-ln(-ln(-x))+ln(-ln(-x))/ln(-x)`
 
 Input range：
 
@@ -1258,12 +1258,15 @@ In the interval [φ, ∞), Γ(x+1) is strictly monotonic, so there exists an inv
 Define the implicit x=Γ(y+1) (y≥λ), satisfying this relationship which is the positive real number inverse factorial function. It is called the inverse of Γ(x+1), with its domain being [λ, ∞).
 
 F.K.Amenyou formula：
+
 $$
 \mathrm{Inverse}\ \Gamma\left ( {x+1} \right )\sim \frac {\ln {\left ( {\frac {x} {\sqrt {2π}}} \right )}} {\mathrm{LambertW}\left ( {\frac {\ln {\left ( {\frac {x} {\sqrt {2π}}} \right )}} {\mathrm{e}}} \right )}-\frac {1} {2}+\frac {1} {30x}
 $$
+
 Related papers：https://ir.lib.uwo.ca/etd/5365/，https://www.ams.org/journals/proc/2012-140-04/S0002-9939-2011-11023-2/
 
 Approximation of "Inverse of Γ(x+1)" in the interval (𝜆, 1.13):
+
 $$
 \mathrm{Inverse}\ \Gamma\left ( {x+1} \right )\sim\arcsin\left ( 1.23099326x-2.08932555 \right ) +\frac{\pi }{2} +\varphi
 $$
@@ -1374,6 +1377,7 @@ The equation must be input in general form, where "a", "b", "c" have absolute va
 More accurate: the range of values for Δ (b²-4ac) is the entire integer range, that is, -2147483648 ≤ b²-4ac ≤ 2147483647.
 
 Solve using formula method:
+
 $$
 x={-b\pm\sqrt{b^2-4ac}\over2a}
 $$
@@ -1506,9 +1510,11 @@ Output: storage large_number:math xp.output
 ♦ Player Experience Formula - Reverse calculation of experience level and experience remainder from total experience: large_number:xp_formula/points_ope_levels/start
 
 Reverse Experience Formula: 
+
 $$
 g(x)={\sqrt{72x-45503}+325\over18}
 $$
+
 The experience formula is a quadratic equation. By using the quadratic formula to reverse it, and keeping only the roots where x ≥ 0, we obtain this reverse experience formula.
 
 Theoretically, the input value should not exceed 2.07526 * 10^19.
@@ -1544,9 +1550,11 @@ Output: storage large_number:math rgb_to_hexadecimal_output
 Approximation by formula, no recursion.
 
 Formula: 
+
 $$
 H_{x}=\sum ^{x}_{n=1} {\frac {1} {n}}=\psi\left ( {x+1} \right )+\gamma\approx \ln {\left ( {x} \right )}+0.5772+\frac {0.4995078} {x}
 $$
+
 Note: Σ denotes the sum of a series, ψ represents the Digamma function, the natural logarithm derivative of the gamma function, γ is the Euler-Mascheroni constant, also known as the sum of Ramanujin of the harmonic series, approximately 0.5772156649.
 
 When the input value is negative, the output is 5772, which is the sum of Ramanujin of the harmonic series.
@@ -1588,7 +1596,7 @@ Output：storage large_number:math sigmoid.output
 
 ♦ Digamma(x)：large_number:digamma_function/start
 
-Formula：`ψ(x)\~ln(x)-1/(2x)`
+Formula：`ψ(x)~ln(x)-1/(2x)`
 
 if input value "1", output "-γ".
 
@@ -1825,6 +1833,7 @@ Only single integrals can be computed. The integrand must be "Riemann integrable
 The integrand is taken directly from the Reverse Polish Notation parsed by "Expression Evaluation - Scientific Computing," with the integration variable as x*x*.
 
 Formula (Trapezoidal Rule):
+
 $$
 \int ^b_a {f(x)\ \mathrm{d}x\ \approx}\ \frac {b-a} {k}\left ( {\frac {f\left (a \right )+f\left (b \right )} {2}+\sum ^{k-1}_{n=1} {f\left ( {a+\frac {b-a} {k}n} \right )}} \right )
 $$
@@ -1873,6 +1882,7 @@ Output：storage large_number:math expression_evaluation.univariate_function_len
 Uses the finite difference method.
 
 First Derivative Midpoint Formula:
+
 $$
 f'\left ( x_i \right )\approx\frac{f\left ( x_i+\Delta x \right )-f\left ( x_i-\Delta x \right )}{2\Delta x} 
 $$
@@ -2035,7 +2045,7 @@ Additional commands can be executed on the points on the sphere's surface:
 
 ```
 Commands to be executed on the points on the sphere's surface: 
-storage large_number:math 3d_block_hsphere_execute "setblock \~ \~ \~ glass"
+storage large_number:math 3d_block_hsphere_execute "setblock ~ ~ ~ glass"
 
 Execute command: 
 execute positioned x y z rotated x y run function large_number:particle/3d_block_hsphere/set/start
@@ -2052,7 +2062,7 @@ After one scan, particle color, coordinates, and other information will be store
 
 Adding resolvable blocks: 
 
-In the function "particle/holographic_projection/if" starting from line 18, add commands in the following format: `execute if block \~ \~ \~ xxx run data modify storage large_number:math temp_particle set value "<four special parameters of dust particles>"`
+In the function "particle/holographic_projection/if" starting from line 18, add commands in the following format: `execute if block ~ ~ ~ xxx run data modify storage large_number:math temp_particle set value "<four special parameters of dust particles>"`
 
 ```
 Scan: execute positioned x y z run function large_number:particle/holographic_projection/scan.start
@@ -2195,6 +2205,7 @@ Pass in the execution position and execution orientation.
 ♦ Second Order Bezier Curve
 
 Formula: 
+
 $$
 B\left ( t \right )=\left ( 1-t \right )^2P_0+2t\left ( 1-t \right )P_1+t^2P_2,\ t\in \left [ 0,1 \right ]
 $$
@@ -2233,6 +2244,7 @@ Pass in the execution position and execution orientation.
 ♦ Heart Shape Curve
 
 Formula: 
+
 $$
 \begin{aligned}
 & \mathrm{Upper\ Half:\ }\sqrt {r\left | {x} \right |-{x}^{2}} \\

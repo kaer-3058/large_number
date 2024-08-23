@@ -46,7 +46,7 @@ Output: #sin int，#cos int，#tan int，#cot int，#sec int，#csc int
 ```
 input: entity b09e-44-fded-6-efa5ffffef64 Rotation[0] 0.0f
 
-operation: execute in overworld as b09e-44-fded-6-efa5ffffef64 rotated as @s rotated ~ 0.0 positioned .0 .0 .0 run tp @s ^1.0 ^ ^ ~ ~
+operation: execute in overworld as b09e-44-fded-6-efa5ffffef64 rotated as @s rotated \~ 0.0 positioned .0 .0 .0 run tp @s ^1.0 ^ ^ \~ \~
 
 sin: entity b09e-44-fded-6-efa5ffffef64 Pos[2]
 
@@ -194,7 +194,7 @@ Divisor
 
 Quotient
 #float_sign int (Sign)
-#float_int0 int(First 8 digits) + #float_int1 int(9~12 digits)
+#float_int0 int(First 8 digits) + #float_int1 int(9\~12 digits)
 #float_exp int (Exponent)
 
 If the fractional part of #float_int1 int is less than four digits, zeros should be added at the beginning of the number to make it a four-digit number when reading it.
@@ -708,13 +708,13 @@ The converted fraction is always eight digits.
 
 Input double or float
 
-8\~9 length number：large_number:double_sqrt
+8\\~9 length number：large_number:double_sqrt
 
-12\~14length number：large_number:double_sqrt_more_dicimal
+12\\~14length number：large_number:double_sqrt_more_dicimal
 
 Using a 24-bit "16-bit BCD array" for root extraction, 12 significant digits of the square root of a double were obtained.
 
-The number of commands for "8~9 significant digits" is approximately 180, while for "12~14 significant digits," it is about 1430, which is roughly 8 times the consumption of the former.
+The number of commands for "8\~9 significant digits" is approximately 180, while for "12\~14 significant digits," it is about 1430, which is roughly 8 times the consumption of the former.
 
 ```
 Input：storage large_number:math double_sqrt.input 0.0d
@@ -1216,13 +1216,13 @@ LambertW.(-1)(x)：large_number:lambertw/-1/start
 
 LambertW(x) is the inverse function of x\*e\^x.
 
-Formula1：`LambertW(x) ~ ln(x)-ln(ln(x))+ln(ln(x))/ln(x) x≥3`
+Formula1：`LambertW(x) \~ ln(x)-ln(ln(x))+ln(ln(x))/ln(x) x≥3`
 
-Formula2：`LambertW(x) ~ ln(x+1)/1.3 0≤x≤3`
+Formula2：`LambertW(x) \~ ln(x+1)/1.3 0≤x≤3`
 
-Formula3：`LambertW(x) ~ tan(3.365x)/3.2 (-1/e)≤x≤0`
+Formula3：`LambertW(x) \~ tan(3.365x)/3.2 (-1/e)≤x≤0`
 
-Formula4：`LambertW.(-1)(x) ~ ln(-x)-ln(-ln(-x))+ln(-ln(-x))/ln(-x)`
+Formula4：`LambertW.(-1)(x) \~ ln(-x)-ln(-ln(-x))+ln(-ln(-x))/ln(-x)`
 
 Input range：
 
@@ -1588,7 +1588,7 @@ Output：storage large_number:math sigmoid.output
 
 ♦ Digamma(x)：large_number:digamma_function/start
 
-Formula：`ψ(x)~ln(x)-1/(2x)`
+Formula：`ψ(x)\~ln(x)-1/(2x)`
 
 if input value "1", output "-γ".
 
@@ -2035,7 +2035,7 @@ Additional commands can be executed on the points on the sphere's surface:
 
 ```
 Commands to be executed on the points on the sphere's surface: 
-storage large_number:math 3d_block_hsphere_execute "setblock ~ ~ ~ glass"
+storage large_number:math 3d_block_hsphere_execute "setblock \~ \~ \~ glass"
 
 Execute command: 
 execute positioned x y z rotated x y run function large_number:particle/3d_block_hsphere/set/start
@@ -2052,7 +2052,7 @@ After one scan, particle color, coordinates, and other information will be store
 
 Adding resolvable blocks: 
 
-In the function "particle/holographic_projection/if" starting from line 18, add commands in the following format: `execute if block ~ ~ ~ xxx run data modify storage large_number:math temp_particle set value "<four special parameters of dust particles>"`
+In the function "particle/holographic_projection/if" starting from line 18, add commands in the following format: `execute if block \~ \~ \~ xxx run data modify storage large_number:math temp_particle set value "<four special parameters of dust particles>"`
 
 ```
 Scan: execute positioned x y z run function large_number:particle/holographic_projection/scan.start

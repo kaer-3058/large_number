@@ -1,23 +1,12 @@
-scoreboard players set #timestamp_month int 1
-execute if score #temp1 int matches 335.. run scoreboard players set #timestamp_month int 12
-execute if score #temp1 int matches 335.. run scoreboard players remove #temp1 int 335
-execute if score #temp1 int matches 305.. run scoreboard players set #timestamp_month int 11
-execute if score #temp1 int matches 305.. run scoreboard players remove #temp1 int 305
-execute if score #temp1 int matches 274.. run scoreboard players set #timestamp_month int 10
-execute if score #temp1 int matches 274.. run scoreboard players remove #temp1 int 274
-execute if score #temp1 int matches 244.. run scoreboard players set #timestamp_month int 9
-execute if score #temp1 int matches 244.. run scoreboard players remove #temp1 int 244
-execute if score #temp1 int matches 213.. run scoreboard players set #timestamp_month int 8
-execute if score #temp1 int matches 213.. run scoreboard players remove #temp1 int 213
-execute if score #temp1 int matches 182.. run scoreboard players set #timestamp_month int 7
-execute if score #temp1 int matches 182.. run scoreboard players remove #temp1 int 182
-execute if score #temp1 int matches 152.. run scoreboard players set #timestamp_month int 6
-execute if score #temp1 int matches 152.. run scoreboard players remove #temp1 int 152
-execute if score #temp1 int matches 121.. run scoreboard players set #timestamp_month int 5
-execute if score #temp1 int matches 121.. run scoreboard players remove #temp1 int 121
-execute if score #temp1 int matches 91.. run scoreboard players set #timestamp_month int 4
-execute if score #temp1 int matches 91.. run scoreboard players remove #temp1 int 91
-execute if score #temp1 int matches 60.. run scoreboard players set #timestamp_month int 3
-execute if score #temp1 int matches 60.. run scoreboard players remove #temp1 int 60
-execute if score #temp1 int matches 31.. run scoreboard players set #timestamp_month int 2
-execute if score #temp1 int matches 31.. run scoreboard players remove #temp1 int 31
+data modify storage large_number:math temp1 set value 1
+execute if score #temp1 int matches 32.. store success storage large_number:math temp1 int 2 run scoreboard players remove #temp1 int 31
+execute if score #temp1 int matches 30.. store success storage large_number:math temp1 int 3 run scoreboard players remove #temp1 int 29
+execute if score #temp1 int matches 32.. store success storage large_number:math temp1 int 4 run scoreboard players remove #temp1 int 31
+execute if score #temp1 int matches 31.. store success storage large_number:math temp1 int 5 run scoreboard players remove #temp1 int 30
+execute if score #temp1 int matches 32.. store success storage large_number:math temp1 int 6 run scoreboard players remove #temp1 int 31
+execute if score #temp1 int matches 31.. store success storage large_number:math temp1 int 7 run scoreboard players remove #temp1 int 30
+execute if score #temp1 int matches 32.. store success storage large_number:math temp1 int 8 run scoreboard players remove #temp1 int 31
+execute if score #temp1 int matches 32.. store success storage large_number:math temp1 int 9 run scoreboard players remove #temp1 int 31
+execute if score #temp1 int matches 31.. store success storage large_number:math temp1 int 10 run scoreboard players remove #temp1 int 30
+execute if score #temp1 int matches 32.. store success storage large_number:math temp1 int 11 run scoreboard players remove #temp1 int 31
+execute if score #temp1 int matches 31.. store success storage large_number:math temp1 int 12 run scoreboard players remove #temp1 int 30

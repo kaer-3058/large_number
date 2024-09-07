@@ -5,22 +5,19 @@
 #若玩家在单人存档使用本功能，则需要联网
 
 #已知bug：如果执行后，下面这条命令测试成功，则表示玩家头颅加载不正确，解决方法是延迟1tick或1秒再执行一次本函数
-#execute unless data storage large_number:timestamp output_base64_json.timestamp
+#execute unless data storage large_number:timestamp timestamp_base64
 #bug产生原因：多种因素造成的网络扰动
 
 setblock -29999982 -60 22022222 minecraft:air
+setblock -29999982 -60 22022222 minecraft:player_head
 execute unless data storage large_number:math player_head_cache_list[0] run data modify storage large_number:math player_head_cache_list set value ["ka__er"]
-data modify storage large_number:math temp1 set from storage large_number:math player_head_cache_list[0]
-function large_number:timestamp/start.macro.set_player_head with storage large_number:math
+data modify block -29999982 -60 22022222 SkullOwner.Name set from storage large_number:math player_head_cache_list[0]
 data modify storage large_number:timestamp timestamp_decoded_base64 set value []
-data remove storage large_number:timestamp output_base64_json
+data remove storage large_number:timestamp timestamp_base64
 
 scoreboard players set #timestamp_year int 1970
 scoreboard players set #timestamp_month int 1
 scoreboard players set #timestamp_day int 1
-scoreboard players set #timestamp_Hour int 0
-scoreboard players set #timestamp_Minute int 0
-scoreboard players set #timestamp_Second int 0
 
 #带前导0的时分秒
 data modify storage large_number:timestamp output_day_Second set value "00"
@@ -32,4 +29,3 @@ scoreboard players set #cb_run_func:"timestamp/cb_start" int 1
 
 
 #原理：https://www.bilibili.com/video/BV1Hp4y1g7Ex
-

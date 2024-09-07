@@ -1,1 +1,1 @@
-$data modify storage large_number:math temp4 set value "$(temp1)$(temp2)$(temp3)$(temp4)"
+$data modify storage large_number:math y4 set value "$(temp1)$(temp2)$(temp3)$(temp4)"

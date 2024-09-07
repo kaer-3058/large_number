@@ -1419,21 +1419,19 @@ double型形式：storage large_number:math quadratic_equation_out.double
 
 已知bug：如果执行后，观察到执行后无输出，则表示头颅皮肤未正确加载，解决方法是延迟几tick再执行一次本函数
 
-用命令判断就是测试此命令是否能通过，通过就表示解析不正确：`execute unless data storage large_number:timestamp output_base64_json.timestamp`
+用命令判断就是测试此命令是否能通过，通过就表示解析不正确：`execute unless data storage large_number:timestamp timestamp_base64`
 
 ```
 使用前需要载入前置库：function large_number:timestamp/database
 卸载前置库：function large_number:timestamp/uninstall_database
 
+输入GMT时区 (仅用于时区校准)：set #GMT-time_zone int 8
+例如北京时间是GMT+8，所以输入8，默认为8
+
 输出
 年：#timestamp_year int
 月：#timestamp_month int
 日：#timestamp_day int
-时：#timestamp_Hour int
-分：#timestamp_Minute int
-秒：#timestamp_Second int
-
-数位始终为两位的时分秒
 时：storage large_number:timestamp output_day_Hour
 分：storage large_number:timestamp output_day_Minute
 秒：storage large_number:timestamp output_day_Second
@@ -1457,10 +1455,10 @@ double型形式：storage large_number:math quadratic_equation_out.double
 
 　
 
-♦ Unix时间戳解析 (32位)：large_number:timestamp/parse_timestamp/start
+♦ Unix时间戳解析 (32位)：large_number:timestamp/parse_timestamp
 
 ```
-输入 (可为整型或字符串)：storage large_number:math parse_timestamp.input
+输入(必须是int)：storage large_number:math parse_timestamp.input
 
 输入GMT时区：set #GMT-time_zone int 8
 例如北京时间是GMT+8，所以输入8，默认为8
@@ -1469,9 +1467,9 @@ double型形式：storage large_number:math quadratic_equation_out.double
 年：#parse_timestamp.year int
 月：#parse_timestamp.month int
 日：#parse_timestamp.day int
-时：#parse_timestamp.Hour int
-分：#parse_timestamp.Minute int
-秒：#parse_timestamp.Second int
+时：storage large_number:math parse_timestamp.hour
+分：storage large_number:math parse_timestamp.minute
+秒：storage large_number:math parse_timestamp.second
 
 显示以下JSON文本便可显示解析结果：
 {"nbt":"parse_timestamp.tellraw","storage":"large_number:math","interpret":true}

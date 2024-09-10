@@ -1,1 +1,1 @@
-$execute store result storage large_number:math temp1 double $(temp3) run scoreboard players get #store_parabola_expre_x.start int
+$execute store result storage large_number:math temp1 double $(temp3) run scoreboard players get #temp int

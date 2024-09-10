@@ -28,6 +28,7 @@ scoreboard players add #expression_evaluation.definite_integral.dx_times int 1
 
 scoreboard players set #sstemp1 int 1000000000
 scoreboard players operation #sstemp1 int /= #expression_evaluation.definite_integral.dx_times int
+execute store result storage large_number:math temp2 int 1 run scoreboard players get #sstemp1 int
 function large_number:curve_length/univariate_function/macro1 with storage large_number:math
 
 #double10进制位移
@@ -40,7 +41,7 @@ data modify storage large_number:math temp2[3].a set string storage large_number
 execute store success score #is_XXEXX int if data storage large_number:math temp2[{a:"E"}]
 data modify storage large_number:math temp_expon set value "0"
 execute if score #is_XXEXX int matches 1 run function large_number:double_sqrt.if/the_scientific_notation
-function large_number:sigmoid/macro3 with storage large_number:math
+execute store result score #_exp int run function large_number:sigmoid/macro3 with storage large_number:math
 execute store result storage large_number:math temp_expon int 1 run scoreboard players remove #_exp int 9
 function large_number:gamma_function/stirling/macro1 with storage large_number:math
 data modify storage large_number:math sstemp05 set from storage large_number:math expression_evaluation.definite_integral.a
@@ -54,5 +55,6 @@ data modify storage large_number:math sstemps set value []
 execute if data storage large_number:math sstempr[1] run function large_number:curve_length/univariate_function/loop2
 
 execute if data storage large_number:math sstemps[0] positioned .0 .0 .0 run function large_number:curve_length/univariate_function/loop3
+data modify storage large_number:math expression_evaluation.univariate_function_length set from storage large_number:math stemp9040cs99
 
 tellraw @a {"text":"\u00A77\u00A7o曲线长度计算完成"}

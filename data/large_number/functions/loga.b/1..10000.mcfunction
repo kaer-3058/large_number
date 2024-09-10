@@ -1,1 +1,1 @@
-$scoreboard players operation #loga.b.output int = #const_ln($(temp)) ln_const
+$return run scoreboard players get #const_ln($(temp)) ln_const

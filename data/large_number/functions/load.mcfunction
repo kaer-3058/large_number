@@ -40,6 +40,7 @@ scoreboard players set 22 const 22
 scoreboard players set 24 const 24
 scoreboard players set 25 const 25
 scoreboard players set 30 const 30
+scoreboard players set 36 const 36
 scoreboard players set 40 const 40
 scoreboard players set 45 const 45
 scoreboard players set 60 const 60
@@ -91,6 +92,10 @@ data modify storage large_number:const "e" set value 2.7182818284590452353602874
 data modify storage large_number:const "γ" set value 0.57721566490153286060651209008240243104215933593992d
 data modify storage large_number:const "φ" set value 1.61803398874989484820458683436563811772030917980576d
 
+data modify storage large_number:const version set value "large_number v.1.15"
+
+scoreboard players set #k.la.version const 1015
+
 
 ##函数初始化
 
@@ -115,3 +120,6 @@ function large_number:fast_distance_trigonometry/load
 
 #Forth的核心 - 栈
 execute unless data storage large_number:math Forth_s1[0] run data modify storage large_number:math Forth_s1 set value [[]]
+
+#base64解析
+scoreboard players set #cb_run_func:"timestamp/cb_start" int 0

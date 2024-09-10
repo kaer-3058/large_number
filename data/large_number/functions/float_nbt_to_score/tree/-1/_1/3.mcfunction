@@ -1,0 +1,10 @@
+execute if score #_exp int matches -20 store success storage large_number:math temp_expon int 28 run return run data get storage large_number:math float_nbt_to_score_input -100000000000000000000
+execute if score #_exp int matches -21 store success storage large_number:math temp_expon int 29 run return run data get storage large_number:math float_nbt_to_score_input -1000000000000000000000
+execute if score #_exp int matches -22 store success storage large_number:math temp_expon int 30 run return run data get storage large_number:math float_nbt_to_score_input -10000000000000000000000
+execute if score #_exp int matches -23 store success storage large_number:math temp_expon int 31 run return run data get storage large_number:math float_nbt_to_score_input -100000000000000000000000
+execute if score #_exp int matches -24 store success storage large_number:math temp_expon int 32 run return run data get storage large_number:math float_nbt_to_score_input -1000000000000000000000000
+execute if score #_exp int matches -25 store success storage large_number:math temp_expon int 33 run return run data get storage large_number:math float_nbt_to_score_input -10000000000000000000000000
+execute if score #_exp int matches -26 store success storage large_number:math temp_expon int 34 run return run data get storage large_number:math float_nbt_to_score_input -100000000000000000000000000
+execute if score #_exp int matches -27 store success storage large_number:math temp_expon int 35 run return run data get storage large_number:math float_nbt_to_score_input -1000000000000000000000000000
+execute if score #_exp int matches -28 store success storage large_number:math temp_expon int 36 run return run data get storage large_number:math float_nbt_to_score_input -10000000000000000000000000000
+execute if score #_exp int matches -29 store success storage large_number:math temp_expon int 37 run return run data get storage large_number:math float_nbt_to_score_input -100000000000000000000000000000

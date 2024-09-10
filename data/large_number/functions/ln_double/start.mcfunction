@@ -15,7 +15,7 @@ execute store success score #is_XXEXX int if data storage large_number:math temp
 #如果为科学计数法则拆出指数位
 data modify storage large_number:math temp_expon set value "0"
 execute if score #is_XXEXX int matches 1 run function large_number:double_sqrt.if/the_scientific_notation
-function large_number:ln_double/craft.1 with storage large_number:math
+execute store result score #ln_double.expon int run function large_number:ln_double/craft.1 with storage large_number:math
 execute store result storage large_number:math ln_la_temp5 double 2.30258509299404568401799145 run scoreboard players get #ln_double.expon int
 
 execute store result score #temp1 int run data get storage large_number:math ln_la_temp3
@@ -63,7 +63,7 @@ execute if score #temp1 int matches 10001.. store result storage large_number:ma
 execute store result score #temp1 int run data get storage large_number:math temp
 execute if score #temp1 int matches 10001.. store result storage large_number:math temp int 0.00000226032940698 run scoreboard players get #loga.b.tempinp int
 
-function large_number:loga.b/1..10000 with storage large_number:math
+execute store result score #loga.b.output int run function large_number:loga.b/1..10000 with storage large_number:math
 scoreboard players operation #loga.b.output int %= 10000 const
 scoreboard players operation #loga.b.tempinte int *= 10000 const
 scoreboard players operation #loga.b.output int += #loga.b.tempinte int

@@ -150,7 +150,14 @@ data modify storage large_number:math temp6 set string storage large_number:math
 data modify storage large_number:math temp7 set string storage large_number:math temp_uu4 0 -8
 data modify storage large_number:math temp8 set string storage large_number:math temp_uu4 -8
 
-function large_number:uuid_list_for_hyphen/back.macro1 with storage large_number:math
+execute store result score #temp1 int run function large_number:uuid_list_for_hyphen/back.macro1/1 with storage large_number:math
+execute store result score #temp2 int run function large_number:uuid_list_for_hyphen/back.macro1/2 with storage large_number:math
+execute store result score #temp3 int run function large_number:uuid_list_for_hyphen/back.macro1/3 with storage large_number:math
+execute store result score #temp4 int run function large_number:uuid_list_for_hyphen/back.macro1/4 with storage large_number:math
+execute store result score #temp5 int run function large_number:uuid_list_for_hyphen/back.macro1/5 with storage large_number:math
+execute store result score #temp6 int run function large_number:uuid_list_for_hyphen/back.macro1/6 with storage large_number:math
+execute store result score #temp7 int run function large_number:uuid_list_for_hyphen/back.macro1/7 with storage large_number:math
+execute store result score #temp8 int run function large_number:uuid_list_for_hyphen/back.macro1/8 with storage large_number:math
 
 scoreboard players operation #uuid_list.1A int /= 100000000 const
 scoreboard players operation #uuid_list.1B int %= 100000000 const

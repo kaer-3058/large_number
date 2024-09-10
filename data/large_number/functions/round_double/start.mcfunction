@@ -16,7 +16,7 @@ execute store success score #is_XXEXX int if data storage large_number:math temp
 #如果为科学计数法则拆出指数位
 data modify storage large_number:math temp_expon set value "0"
 execute if score #is_XXEXX int matches 1 run function large_number:double_sqrt.if/the_scientific_notation
-function large_number:sigmoid/macro3 with storage large_number:math
+execute store result score #_exp int run function large_number:sigmoid/macro3 with storage large_number:math
 
 execute if score #_exp int matches 16.. run data modify storage large_number:math round_double.output set from storage large_number:math round_double.input
 execute if score #_exp int matches ..-16 run data modify storage large_number:math round_double.output set value 0.0

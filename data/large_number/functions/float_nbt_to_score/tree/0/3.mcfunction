@@ -1,0 +1,5 @@
+execute unless score #float_int0 int matches 10000000..99999999 store success storage large_number:math temp_expon int 7 store result score #float_int0 int run data get storage large_number:math float_nbt_to_score_input -10
+execute unless score #float_int0 int matches 10000000..99999999 store success storage large_number:math temp_expon int 6 store result score #float_int0 int run data get storage large_number:math float_nbt_to_score_input -100
+execute unless score #float_int0 int matches 10000000..99999999 store success storage large_number:math temp_expon int 5 store result score #float_int0 int run data get storage large_number:math float_nbt_to_score_input -1000
+execute unless score #float_int0 int matches 10000000..99999999 store success storage large_number:math temp_expon int 4 store result score #float_int0 int run data get storage large_number:math float_nbt_to_score_input -10000
+execute unless score #float_int0 int matches 10000000..99999999 store success storage large_number:math temp_expon int 3 store result score #float_int0 int run data get storage large_number:math float_nbt_to_score_input -100000

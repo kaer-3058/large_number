@@ -73,6 +73,10 @@ execute if data storage large_number:math {stemp1:">="} run scoreboard players s
 execute if data storage large_number:math {stemp1:"<="} run scoreboard players set #sstemp1 int 1
 execute if data storage large_number:math {stemp1:"=="} run scoreboard players set #sstemp1 int 1
 execute if data storage large_number:math {stemp1:"≈≈"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:">>"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"<<"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"≥≥"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"≤≤"} run scoreboard players set #sstemp1 int 1
 execute if score #sstemp1 int matches 0 run data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 3
 execute if data storage large_number:math {stemp1:"exp"} run scoreboard players set #sstemp1 int 1
 execute if data storage large_number:math {stemp1:"log"} run scoreboard players set #sstemp1 int 1

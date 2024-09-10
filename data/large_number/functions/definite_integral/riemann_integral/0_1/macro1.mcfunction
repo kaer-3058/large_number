@@ -1,1 +1,1 @@
-$execute store result storage large_number:math expression_evaluation_variables."ｘ" double $(sstemp_a_b_divx) run scoreboard players get #Store_expression_evaluation.definite_integral.loop int
+$execute store result storage large_number:math temp4 double $(sstemp_a_b_divx) run scoreboard players get #temp int

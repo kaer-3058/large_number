@@ -1,6 +1,6 @@
 ![](https://s21.ax1x.com/2024/08/04/pkjXmcQ.png)
 
-## 卡儿的数学库 v.1.14
+## 卡儿的数学库 v.1.15
 
 - [English](README_English.md)
 
@@ -17,6 +17,18 @@
 存档文件夹下<u>data</u>文件夹里的<u>command_storage_large_number.dat</u>文件便是本数据包产生的所有storage数据存储的位置。
 
 推荐设置：`gamerule maxCommandChainLength 2147483647`
+
+　
+
+♦ 本数据包唯一标识符
+
+```
+storage large_number:const version
+当前内容是："large_number v.1.15"
+
+协议版本：#k.la.version const
+当前为：1015
+```
 
 　
 
@@ -360,6 +372,15 @@ storage large_number:math loop_more_more_dicimal_base (底数)
 输出：storage large_number:math float_multiply.output
 ```
 
+♦ 高精度浮点数立方：large_number:float_mul.high_precision/cube/start
+
+```
+输入：storage large_number:math float_multiply.input1 0.0
+可以为float或double型
+
+输出：storage large_number:math float_multiply.output
+```
+
 　
 
 ♦ 浮点加减法：large_number:float_add_subtra/start
@@ -662,26 +683,31 @@ storage large_number:math double_norm_3d.z 1.0d
 
 　
 
-附：SNBT的浮点数规律
+♦ 附：SNBT的浮点数规律
 
 对于每一个数字，必定存在符号和数值。对于MC里的浮点数，指数、小数点位置和前导0数量这三个信息并不会同时变动，若其中一个变了，其他两个参数一定是固定值。也就是说，对于转化后的数字信息：
 
-如果指数不为0，则小数点位置必定为2(在第一个数后面)，前导0必定是0个。
+- 如果指数不为0，则小数点位置必定为2(在第一个数后面)，前导0必定是0个。
+- SNBT的浮点数整数部分达到8位或小数的前导0数量多于3个就会以科学记数法形式显示。
 
-SNBT的浮点数整数部分达到8位或小数的前导0数量多于3个就会以科学记数法形式显示。
+- 如果小数点位置不为2，则指数必定为0，前导0必定是0个。
 
-如果小数点位置不为2，则指数必定为0，前导0必定是0个。
+- 如果前导0数量为1到3个(MC浮点数最多存在三个前导0)，则小数点位置必定为2，指数必定为0。
 
-如果前导0数量为1到3个(MC浮点数最多存在三个前导0)，则小数点位置必定为2，指数必定为0。
 
 此外，SNBT的浮点数也可以以科学记数法的形式输入，比如1.2E3d，以科学记数法形式输入时必须带数据单位。
 
 　
 
-♦ double转int - 记分板格式，精度为8位有效数字：large_number:float_nbt_to_score
+♦ double转int - 记分板格式，精度为8位有效数字
+
+宏命令取数法：large_number:float_nbt_to_score
+
+四叉树取数法：large_number:float_nbt_to_score/start
 
 ```
 输入：storage large_number:math float_nbt_to_score_input 0.0
+"四分树取数法"输入范围：[1.797693134862315807E308, 1.797693134862315807E-301]
 
 输出：
 符号：#float_sign int
@@ -858,7 +884,7 @@ kill @e[type=minecraft:marker,tag=large_number.list_operation]
 
 　
 
-♦ 概率模拟 - 二项分布
+♦ 随机数生成 - 二项分布
 
 测试1：large_number:random/binomial_distribution/test1
 
@@ -889,7 +915,7 @@ kill @e[type=minecraft:marker,tag=large_number.list_operation]
 
 当n足够大时，结果接近于正态分布。当n越大（至少20）且p不接近0或1时近似效果更好。不同的经验法则可以用来决定n是否足够大,以及p是否距离0或1足够远,其中一个常用的规则是np和n(1 −p)都必须大于 5。
 
-♦ 概率模拟 - 正态分布：large_number:random/normal_distribution/test1/start
+♦ 随机数生成 - 正态分布：large_number:random/normal_distribution/test1/start
 
 测试内容：输入上限值n，先生成一个int32的随机数，然后不断判断正负并x2，如果x2次数达到32次就再生成一个随机数继续这个操作，直到判断次数达到n次。然后把判断正负的结果(0或1)加起来，结果就趋近于0到n的正态分布。
 
@@ -898,7 +924,7 @@ kill @e[type=minecraft:marker,tag=large_number.list_operation]
 输出：#normal_distribution.output int
 ```
 
-♦ 概率模拟 - 均匀分布
+♦ 随机数生成 - 均匀分布 (PCG算法)
 
 此模块取自xwjcool写的NTRE数据包。
 
@@ -916,7 +942,7 @@ kill @e[type=minecraft:marker,tag=large_number.list_operation]
 结果输出在实体A的ntre_output记分板
 ```
 
-♦ 概率模拟 - 超几何分布：large_number:random/hypergeometric_distribution/start
+♦ 随机数生成 - 超几何分布：large_number:random/hypergeometric_distribution/start
 
 测试内容：从有限N个物件（其中包含M个指定种类的物件）中抽出n个物件，成功抽出该指定种类的物件的次数（不放回）。
 
@@ -932,14 +958,10 @@ kill @e[type=minecraft:marker,tag=large_number.list_operation]
 kill @e[type=minecraft:marker,tag=large_number.list_operation]
 ```
 
-♦ 生成总和为n的a个随机数：large_number:random/sum_to_x/start
-
-这里的总和求法是用的记分板的自带向上/向下溢出的加法
+♦ 生成一个[0,1]区间的随机数 (PCG算法)：`execute as b09e-44-fded-6-efa5ffffef64 run function large_number:random/number_0_1/start`
 
 ```
-n：#random.sum_to_x.n int
-a：#random.sum_to_x.a int
-输出：storage large_number:math random_sum_to_x_out
+输出：storage large_number:math random_number_0_1
 ```
 
 　
@@ -966,7 +988,8 @@ e是自然对数的底，是一个无理数，e ≈2.718281828459045
 
 2. 任意正数的幂：large_number:exp_any/start
 
-原理：把指数拆为整数部分和小数部分，整数部分用快速幂，小数部分套公式，a^b = e^(b*ln(a)) 。
+
+公式：`a^b = e^(b*ln(a))` 。
 
 例：输入 5.7322^2.1123，输出 39.97625953186048
 
@@ -979,6 +1002,21 @@ e^x的前置库：function large_number:exp_e.x/database
 底数：storage large_number:math exp_any.input.base 2.0d
 指数：storage large_number:math exp_any.input.expon 3.0d
 输入值必须为double型
+
+输出：storage large_number:math exp_any.output
+```
+
+3. 开n次方：large_number:exp_any/n_root
+
+公式：`a^(1/b) = e^(ln(a)/b)`
+
+```
+e^x的前置库：function large_number:exp_e.x/database
+
+输入：
+底数：storage large_number:math exp_any.input.base 2.0d
+指数：storage large_number:math exp_any.input.expon 3.0d
+输入值必须为double型。底数仅支持正数，指数支持全double。
 
 输出：storage large_number:math exp_any.output
 ```
@@ -1482,7 +1520,7 @@ double型形式：storage large_number:math quadratic_equation_out.double
 当经验等级≥32时，玩家的经验数为：
 
 $$
-f\left ( {x} \right )=1507+\sum ^{x-1}_{n=32} {9n-158}\, =\, 4.5{x}^{2}-162.5x+2099
+f\left ( {x} \right )=1507+\sum ^{x-1}_{n=32} {9n-158}\, =\ 4.5{x}^{2}-162.5x+2099
 $$
 
 输出的数值一般情况下不可直接用于逆推玩家已有的经验等级，因为mc内部的一些特殊算法，这个数与玩家此时真正拥有的经验数有些出入。
@@ -1712,7 +1750,7 @@ ln的初始数据库：function large_number:ln/ln_database
 
 转换完成与计算完成均有提示。
 
-函数列表 (已支持29种函数) ：
+函数列表 (已支持34种函数) ：
 
 > 每个函数和它的参数都必须单独放在一个括号里，支持复合函数。
 >
@@ -1753,6 +1791,10 @@ sgnβ = sgn(β)，符号函数
 α>=β = 逻辑运算，取较大值
 α<=β = 逻辑运算，取较小值
 α==β = 逻辑运算，严格判断是否相等，相等为1，否则为0
+α>>β = 逻辑运算，α是否大于β
+α<<β = 逻辑运算，α是否小于β
+α≥≥β = 逻辑运算，α是否大于等于β
+α≤≤β = 逻辑运算，α是否小于等于β
 α>/<β = 交换除，β除以α
 α>-<β = 交换减，β减α
 
@@ -2032,7 +2074,7 @@ execute positioned x y z rotated x y run function large_number:particle/3d_ar_el
 execute as b09e-44-fded-6-efa5ffffef64 run function large_number:particle/3d_hsphere/start
 
 输出相对坐标列表：storage large_number:math 3d_hsphere_pos
-其中每一个子列表的第一项是x，第二项是y
+其中每一个子列表的第一项是x，第二项是y，第三项是z
 
 显示粒子：
 execute positioned x y z rotated x y run function large_number:particle/3d_hsphere/particle/start
@@ -2231,9 +2273,7 @@ $$
 计算坐标：function large_number:particle/bezier_curve_2/start
 
 输出相对坐标列表：
-x：storage large_number:math bezier_curve_II_list_X
-y：storage large_number:math bezier_curve_II_list_Y
-z：storage large_number:math bezier_curve_II_list_Z
+storage large_number:math bezier_curve_II_list
 
 显示粒子：execute positioned x y z rotated x y run function large_number:particle/bezier_curve_2/particle
 传入执行位置和执行朝向
@@ -2248,7 +2288,7 @@ z：storage large_number:math bezier_curve_II_list_Z
 $$
 \begin{aligned}
 & \mathrm{上半段：}\sqrt {r\left | {x} \right |-{x}^{2}} \\
-& \mathrm{下半段：}\frac {r} {2}\left ( {\arccos {\left ( {1-\left | {\frac {2x} {r}} \right |} \right )}-π} \right )
+& \mathrm{下半段：}\frac {r} {2}\left ( {\arccos {\left ( {1-\left | {\frac {2x} {r}} \right |} \right )}-\pi} \right )
 \end{aligned}
 $$
 
@@ -2341,9 +2381,56 @@ execute as b09e-44-fded-6-efa5ffffef64 run function large_number:particle/heart-
 
 输出相对坐标列表：storage large_number:math regular_polygon_Pos
 其中每一个一级子列表表示多边形的一条边，每个二级子列表的第一项是x，第二项是y
+控制列表内的一级子列表数量可以自由定义要显示哪条边
 
 显示粒子：execute positioned x y z rotated x y run function large_number:particle/regular_polygon/particle
 传入执行位置和执行朝向
+```
+
+　
+
+♦ N阶贝塞尔曲线
+
+公式：
+$$
+B(t)=\sum_{i=0}^{n}P_i
+\begin{pmatrix}
+n \\
+i
+\end{pmatrix}
+(1-t)^{n-i}t^i,\ t\in[0,1]
+$$
+说明：Pi表示点的坐标。Pi是按顺序把控制点的各个坐标轴的信息代入算出曲线在该坐标的信息。也就是说，贝塞尔曲线是以"参数方程"的形式计算的，参变量为t。
+
+也就是说。例如有三个控制点：[[x0, y0, z0],[x1, y1, z1],[x2, y2, z2]]
+
+则先代入x0、x1、x2计算出曲线的x坐标，然后y0、y1、y2计算出曲线的y坐标……以此类推。
+
+n是阶数。(n,i)是二项式系数，也就是从n个物品里取出i个物品的组合数。公式：
+$$
+\begin{pmatrix}
+n \\
+i
+\end{pmatrix}
+=\frac{n!}{i!(n-i)!}
+$$
+
+```
+输入：large_number:math bezier_curve_N_input []
+按顺序输入各个控制点的三维坐标，阶数=点数-1
+支持1~33阶
+
+一万倍输入t的步长：#bezier_curve_N.t.size int
+
+计算坐标：function large_number:particle/bezier_curve_n/start
+解析完成会有提示
+
+输出相对坐标列表：
+storage large_number:math bezier_curve_n_Pos
+阶数：#bezier_curve_N.order int
+
+显示粒子：execute positioned x y z rotated x y run function large_number:particle/bezier_curve_n/particle
+传入执行位置和执行朝向，位移和旋转的基点是曲线的第一个点
 ```
 
 　
@@ -2393,6 +2480,19 @@ $$
 
 输出：#invers_num.output int
 若输入的列表没有重复项，且逆序数=(元素数-1)*元素数/2，则列表元素为从大到小排列。
+```
+
+　
+
+♦ 组合数：large_number:combinations/start
+
+从n个元素中选择k个元素的组合数
+
+```
+n：#combinations.n int  范围：[0,33]
+k：#combinations.k int
+
+输出：函数的返回值
 ```
 
 　

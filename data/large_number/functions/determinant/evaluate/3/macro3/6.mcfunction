@@ -1,0 +1,1 @@
+$loot spawn .0 ~$(temp_6) .0 loot large_number:check_pos

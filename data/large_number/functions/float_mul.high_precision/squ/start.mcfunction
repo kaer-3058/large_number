@@ -163,36 +163,21 @@ execute if data storage large_number:math temp_string_list[{a:"9"}] run data mod
 
 #从前往后逐位读取到计分板，自动靠前对齐
 execute store result score #double_to_int.1 int run data get storage large_number:math temp_string_list[0].a 1000
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.2 int run data get storage large_number:math temp_string_list[0].a 100
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.3 int run data get storage large_number:math temp_string_list[0].a 10
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.4 int run data get storage large_number:math temp_string_list[0].a
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.5 int run data get storage large_number:math temp_string_list[0].a 1000
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.6 int run data get storage large_number:math temp_string_list[0].a 100
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.7 int run data get storage large_number:math temp_string_list[0].a 10
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.8 int run data get storage large_number:math temp_string_list[0].a
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.9 int run data get storage large_number:math temp_string_list[0].a 1000
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.10 int run data get storage large_number:math temp_string_list[0].a 100
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.11 int run data get storage large_number:math temp_string_list[0].a 10
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.12 int run data get storage large_number:math temp_string_list[0].a
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.13 int run data get storage large_number:math temp_string_list[0].a 1000
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.14 int run data get storage large_number:math temp_string_list[0].a 100
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.15 int run data get storage large_number:math temp_string_list[0].a 10
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.16 int run data get storage large_number:math temp_string_list[0].a
+execute store result score #double_to_int.2 int run data get storage large_number:math temp_string_list[1].a 100
+execute store result score #double_to_int.3 int run data get storage large_number:math temp_string_list[2].a 10
+execute store result score #double_to_int.4 int run data get storage large_number:math temp_string_list[3].a
+execute store result score #double_to_int.5 int run data get storage large_number:math temp_string_list[4].a 1000
+execute store result score #double_to_int.6 int run data get storage large_number:math temp_string_list[5].a 100
+execute store result score #double_to_int.7 int run data get storage large_number:math temp_string_list[6].a 10
+execute store result score #double_to_int.8 int run data get storage large_number:math temp_string_list[7].a
+execute store result score #double_to_int.9 int run data get storage large_number:math temp_string_list[8].a 1000
+execute store result score #double_to_int.10 int run data get storage large_number:math temp_string_list[9].a 100
+execute store result score #double_to_int.11 int run data get storage large_number:math temp_string_list[10].a 10
+execute store result score #double_to_int.12 int run data get storage large_number:math temp_string_list[11].a
+execute store result score #double_to_int.13 int run data get storage large_number:math temp_string_list[12].a 1000
+execute store result score #double_to_int.14 int run data get storage large_number:math temp_string_list[13].a 100
+execute store result score #double_to_int.15 int run data get storage large_number:math temp_string_list[14].a 10
+execute store result score #double_to_int.16 int run data get storage large_number:math temp_string_list[15].a
 
 #合并数字成为万进制int数组
 scoreboard players operation #double_to_int.1 int += #double_to_int.2 int
@@ -281,30 +266,21 @@ scoreboard players operation #double_to_int.1 int %= 10000 const
 scoreboard players operation #double_to_int.5 int %= 10000 const
 scoreboard players operation #double_to_int.9 int %= 10000 const
 scoreboard players operation #double_to_int.13 int %= 10000 const
-scoreboard players operation #l int %= 10000 const
-scoreboard players operation #h int %= 10000 const
-scoreboard players operation #d int %= 10000 const
 
 
 ##最终输出
 scoreboard players operation #double_to_int.expon.1 int *= 2 const
-execute store result storage large_number:math sstemp2 int 1 run scoreboard players remove #double_to_int.expon.1 int 32
+execute store result storage large_number:math sstemp2 int 1 run scoreboard players remove #double_to_int.expon.1 int 20
 
 execute store result storage large_number:math temp1 int 1 run scoreboard players get #z int
 execute store result storage large_number:math temp2 int 1 run scoreboard players add #double_to_int.1 int 10000
 execute store result storage large_number:math temp3 int 1 run scoreboard players add #double_to_int.5 int 10000
 execute store result storage large_number:math temp4 int 1 run scoreboard players add #double_to_int.9 int 10000
 execute store result storage large_number:math temp5 int 1 run scoreboard players add #double_to_int.13 int 10000
-execute store result storage large_number:math temp6 int 1 run scoreboard players add #l int 10000
-execute store result storage large_number:math temp7 int 1 run scoreboard players add #h int 10000
-execute store result storage large_number:math temp8 int 1 run scoreboard players add #d int 10000
 
 data modify storage large_number:math temp2 set string storage large_number:math temp2 1
 data modify storage large_number:math temp3 set string storage large_number:math temp3 1
 data modify storage large_number:math temp4 set string storage large_number:math temp4 1
 data modify storage large_number:math temp5 set string storage large_number:math temp5 1
-data modify storage large_number:math temp6 set string storage large_number:math temp6 1
-data modify storage large_number:math temp7 set string storage large_number:math temp7 1
-data modify storage large_number:math temp8 set string storage large_number:math temp8 1
 
 function large_number:float_mul.high_precision/squ/output.macro2 with storage large_number:math

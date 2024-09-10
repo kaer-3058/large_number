@@ -7,14 +7,14 @@
 #ln(b)
 scoreboard players operation #loga.b.tempinp int = #loga.b_b int
 execute if score #loga.b.tempinp int matches 1..10000 store result storage large_number:math temp int 1.0 run scoreboard players get #loga.b.tempinp int
-execute if score #loga.b.tempinp int matches 1..10000 run function large_number:loga.b/1..10000 with storage large_number:math
+execute if score #loga.b.tempinp int matches 1..10000 store result score #loga.b.output int run function large_number:loga.b/1..10000 with storage large_number:math
 execute if score #loga.b.tempinp int matches 10001.. run function large_number:loga.b/10001..
 scoreboard players operation #loga.b.ln(b) int = #loga.b.output int
 
 #ln(a)
 scoreboard players operation #loga.b.tempinp int = #loga.b_a int
 execute if score #loga.b.tempinp int matches 1..10000 store result storage large_number:math temp int 1.0 run scoreboard players get #loga.b.tempinp int
-execute if score #loga.b.tempinp int matches 1..10000 run function large_number:loga.b/1..10000 with storage large_number:math
+execute if score #loga.b.tempinp int matches 1..10000 store result score #loga.b.output int run function large_number:loga.b/1..10000 with storage large_number:math
 execute if score #loga.b.tempinp int matches 10001.. run function large_number:loga.b/10001..
 scoreboard players operation #loga.b.ln(a) int = #loga.b.output int
 

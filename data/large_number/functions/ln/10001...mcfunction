@@ -27,7 +27,7 @@ execute if score #temp1 int matches 10001.. store result storage large_number:ma
 execute store result score #temp1 int run data get storage large_number:math temp
 execute if score #temp1 int matches 10001.. store result storage large_number:math temp int 0.0000022603294 run scoreboard players get #ln(x) int
 
-function large_number:ln/1..10000 with storage large_number:math
+execute store result score #ln(x).output int run function large_number:ln/1..10000 with storage large_number:math
 scoreboard players operation #ln(x).output int %= 10000 const
 scoreboard players operation #ln(x).integer int *= 10000 const
 scoreboard players operation #ln(x).output int += #ln(x).integer int

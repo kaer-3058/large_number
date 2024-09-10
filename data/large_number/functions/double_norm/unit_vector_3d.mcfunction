@@ -16,7 +16,7 @@ data modify storage large_number:math buffer_all_xyz set from entity @s Pos
 data modify storage large_number:math temp1 set from storage large_number:math buffer_all_xyz[0]
 data modify storage large_number:math temp2 set from storage large_number:math buffer_all_xyz[1]
 data modify storage large_number:math temp3 set from storage large_number:math buffer_all_xyz[2]
-function large_number:double_norm/macro2 with storage large_number:math
+function large_number:double_norm/macro2/1 with storage large_number:math
 data modify storage large_number:math float_division.input2 set from entity @s Pos[1]
 
 data modify storage large_number:math float_add_subtra.input1 set from storage large_number:math double_norm_3d.x

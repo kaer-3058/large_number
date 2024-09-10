@@ -496,9 +496,6 @@ scoreboard players operation #m int %= 10000 const
 scoreboard players operation #n int %= 10000 const
 scoreboard players operation #o int %= 10000 const
 scoreboard players operation #p int %= 10000 const
-scoreboard players operation #l int %= 10000 const
-scoreboard players operation #h int %= 10000 const
-scoreboard players operation #d int %= 10000 const
 
 
 ##最终输出
@@ -507,23 +504,17 @@ scoreboard players operation #float_mul.high_precision.input1.sign int *= #float
 data modify storage large_number:math sstemp1 set value ""
 execute if score #float_mul.high_precision.input1.sign int matches -1 run data modify storage large_number:math sstemp1 set value "-"
 scoreboard players operation #float_mul.high_precision.input1.expon int += #float_mul.high_precision.input2.expon int
-execute store result storage large_number:math sstemp2 int 1 run scoreboard players remove #float_mul.high_precision.input1.expon int 32
+execute store result storage large_number:math sstemp2 int 1 run scoreboard players remove #float_mul.high_precision.input1.expon int 20
 
 execute store result storage large_number:math temp1 int 1 run scoreboard players get #z int
 execute store result storage large_number:math temp2 int 1 run scoreboard players add #m int 10000
 execute store result storage large_number:math temp3 int 1 run scoreboard players add #n int 10000
 execute store result storage large_number:math temp4 int 1 run scoreboard players add #o int 10000
 execute store result storage large_number:math temp5 int 1 run scoreboard players add #p int 10000
-execute store result storage large_number:math temp6 int 1 run scoreboard players add #l int 10000
-execute store result storage large_number:math temp7 int 1 run scoreboard players add #h int 10000
-execute store result storage large_number:math temp8 int 1 run scoreboard players add #d int 10000
 
 data modify storage large_number:math temp2 set string storage large_number:math temp2 1
 data modify storage large_number:math temp3 set string storage large_number:math temp3 1
 data modify storage large_number:math temp4 set string storage large_number:math temp4 1
 data modify storage large_number:math temp5 set string storage large_number:math temp5 1
-data modify storage large_number:math temp6 set string storage large_number:math temp6 1
-data modify storage large_number:math temp7 set string storage large_number:math temp7 1
-data modify storage large_number:math temp8 set string storage large_number:math temp8 1
 
 function large_number:float_mul.high_precision/output.macro2 with storage large_number:math

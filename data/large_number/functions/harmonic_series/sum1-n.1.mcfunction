@@ -1,7 +1,7 @@
 #ln(x)
 execute store result score #loga.b.tempinp int store result score #Harmonic_series.sum.input int run data get storage large_number:math Harmonic_series_sum_input
 execute if score #loga.b.tempinp int matches 1..10000 store result storage large_number:math temp int 1.0 run scoreboard players get #loga.b.tempinp int
-execute if score #loga.b.tempinp int matches 1..10000 run function large_number:loga.b/1..10000 with storage large_number:math
+execute if score #loga.b.tempinp int matches 1..10000 store result score #loga.b.output int run function large_number:loga.b/1..10000 with storage large_number:math
 execute if score #loga.b.tempinp int matches 10001.. run function large_number:loga.b/10001..
 
 #0.4995078/x

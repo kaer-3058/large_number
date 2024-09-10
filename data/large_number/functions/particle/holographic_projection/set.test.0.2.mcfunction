@@ -1,0 +1,3 @@
+$data modify storage large_number:math holographic_projection_database.$(sstemp0)x set string storage large_number:math holographic_projection_database.$(sstemp0)x 0 -1
+$data modify storage large_number:math holographic_projection_database.$(sstemp0)y set string storage large_number:math holographic_projection_database.$(sstemp0)y 0 -1
+$data modify storage large_number:math holographic_projection_database.$(sstemp0)z set string storage large_number:math holographic_projection_database.$(sstemp0)z 0 -1

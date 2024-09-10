@@ -26,7 +26,7 @@ execute if score #5.2 int matches 1 run data modify storage large_number:math ln
 execute if score #5.3 int matches 1 run data modify storage large_number:math ln_la_temp1 set string storage large_number:math ln_la_temp1 0 -3
 execute if score #5.4 int matches 1 run data modify storage large_number:math ln_la_temp1 set string storage large_number:math ln_la_temp1 0 -2
 
-function large_number:ln_double/craft.1 with storage large_number:math
+execute store result score #ln_double.expon int run function large_number:ln_double/craft.1 with storage large_number:math
 execute store result storage large_number:math ln_la_temp5 double 2.302585092994 run scoreboard players get #ln_double.expon int
 
 execute store result score #temp1 int run data get storage large_number:math ln_la_temp3
@@ -74,7 +74,7 @@ execute if score #temp1 int matches 10001.. store result storage large_number:ma
 execute store result score #temp1 int run data get storage large_number:math temp
 execute if score #temp1 int matches 10001.. store result storage large_number:math temp int 0.0000022603294 run scoreboard players get #loga.b.tempinp int
 
-function large_number:loga.b/1..10000 with storage large_number:math
+execute store result score #loga.b.output int run function large_number:loga.b/1..10000 with storage large_number:math
 scoreboard players operation #loga.b.output int %= 10000 const
 scoreboard players operation #loga.b.tempinte int *= 10000 const
 scoreboard players operation #loga.b.output int += #loga.b.tempinte int

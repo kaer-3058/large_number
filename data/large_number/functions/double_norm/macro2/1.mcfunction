@@ -1,0 +1,1 @@
+$execute positioned .0 $(temp1) .0 run function large_number:double_norm/macro2/2 with storage large_number:math

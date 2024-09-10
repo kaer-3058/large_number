@@ -1,0 +1,15 @@
+execute if score #combinations.k int matches 2 run return 171
+execute if score #combinations.k int matches 3 run return 969
+execute if score #combinations.k int matches 4 run return 3876
+execute if score #combinations.k int matches 5 run return 11628
+execute if score #combinations.k int matches 6 run return 27132
+execute if score #combinations.k int matches 7 run return 50388
+execute if score #combinations.k int matches 8 run return 75582
+execute if score #combinations.k int matches 9..10 run return 92378
+execute if score #combinations.k int matches 11 run return 75582
+execute if score #combinations.k int matches 12 run return 50388
+execute if score #combinations.k int matches 13 run return 27132
+execute if score #combinations.k int matches 14 run return 11628
+execute if score #combinations.k int matches 15 run return 3876
+execute if score #combinations.k int matches 16 run return 969
+execute if score #combinations.k int matches 17 run return 171

@@ -3,7 +3,7 @@
 
 scoreboard players operation #loga.b.tempinp int = #lg(x) int
 execute if score #loga.b.tempinp int matches 1..10000 store result storage large_number:math temp int 1.0 run scoreboard players get #loga.b.tempinp int
-execute if score #loga.b.tempinp int matches 1..10000 run function large_number:loga.b/1..10000 with storage large_number:math
+execute if score #loga.b.tempinp int matches 1..10000 store result score #loga.b.output int run function large_number:loga.b/1..10000 with storage large_number:math
 execute if score #loga.b.tempinp int matches 10001.. run function large_number:loga.b/10001..
 
 execute store result storage large_number:math lg(x)_output double 0.4342944819033 run scoreboard players get #loga.b.output int

@@ -1,1 +1,1 @@
-$execute store result storage large_number:math temp1 double $(temp1) run scoreboard players get #sstemp1 int
+$execute store result storage large_number:math temp1 double $(temp1) run return $(temp2)

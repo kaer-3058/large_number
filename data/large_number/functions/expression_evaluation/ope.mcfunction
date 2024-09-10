@@ -1,6 +1,7 @@
 data modify storage large_number:math s1 set from storage large_number:math temp_s1[-2]
 data modify storage large_number:math s2 set from storage large_number:math temp_s1[-1]
-function large_number:expression_evaluation/macro2 with storage large_number:math
+execute store result score #temp2 int run function large_number:expression_evaluation/macro2 with storage large_number:math
+execute store result score #temp3 int run function large_number:expression_evaluation/macro2.2 with storage large_number:math
 execute if data storage large_number:math {stemp1:"+"} run scoreboard players operation #temp2 int += #temp3 int
 execute if data storage large_number:math {stemp1:"-"} run scoreboard players operation #temp2 int -= #temp3 int
 execute if data storage large_number:math {stemp1:"*"} run scoreboard players operation #temp2 int *= #temp3 int

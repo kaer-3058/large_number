@@ -82,4 +82,5 @@ function large_number:differential/difference_quotient_method/2/macro2 with stor
 execute store result score #temp1 int run data get storage large_number:math temp2 1000000000
 scoreboard players set #temp2 int 1000000000
 scoreboard players operation #temp2 int /= #temp1 int
-function large_number:differential/difference_quotient_method/2/macro3 with storage large_number:math
+function large_number:differential/difference_quotient_method/1/macro1 with storage large_number:math
+data modify storage large_number:math expression_evaluation.differential.2output set from storage large_number:math temp4

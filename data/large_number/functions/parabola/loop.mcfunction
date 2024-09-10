@@ -77,6 +77,7 @@ function large_number:parabola/macro1 with storage large_number:math
 execute as b09e-44-fded-6-efa5ffffef64 run function large_number:parabola/macro2 with storage large_number:math
 
 #(ax+b)*x
+scoreboard players operation #temp int = #store_parabola_expre_x.start int
 function large_number:parabola/macro3 with storage large_number:math
 data modify storage large_number:math temp1 set string storage large_number:math temp1 0 -1
 
@@ -91,7 +92,7 @@ execute store success score #is_XXEXX int if data storage large_number:math temp
 #如果为科学计数法则拆出指数位
 data modify storage large_number:math temp_expon set value "0"
 execute if score #is_XXEXX int matches 1 run function large_number:double_sqrt.if/the_scientific_notation
-function large_number:parabola/macro7 with storage large_number:math
+execute store result score #temp_expon int run function large_number:parabola/macro7 with storage large_number:math
 execute store result storage large_number:math temp_expon int 1 run scoreboard players remove #temp_expon int 2
 function large_number:parabola/macro8 with storage large_number:math
 

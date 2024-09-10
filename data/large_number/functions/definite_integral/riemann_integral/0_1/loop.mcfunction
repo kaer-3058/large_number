@@ -1,5 +1,7 @@
 #loop
+scoreboard players operation #temp int = #Store_expression_evaluation.definite_integral.loop int
 function large_number:definite_integral/riemann_integral/0_1/macro1 with storage large_number:math
+data modify storage large_number:math expression_evaluation_variables."ｘ" set from storage large_number:math temp4
 
 #解析逆波兰式
 data modify storage large_number:math temp_expression_s1 set value []

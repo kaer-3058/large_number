@@ -54,6 +54,10 @@ execute if data storage large_number:math {stemp_expression1:"=="} run function 
 execute if data storage large_number:math {stemp_expression1:"≈≈"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_33
 execute if data storage large_number:math {stemp_expression1:">/<"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_34
 execute if data storage large_number:math {stemp_expression1:">-<"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_35
+execute if data storage large_number:math {stemp_expression1:">>"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_36
+execute if data storage large_number:math {stemp_expression1:"<<"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_37
+execute if data storage large_number:math {stemp_expression1:"≥≥"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_38
+execute if data storage large_number:math {stemp_expression1:"≤≤"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_39
 
 
 execute if score #expression_evaluation_test2 int matches 1.. run data remove storage large_number:math temp_expression_s1[-1]

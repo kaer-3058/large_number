@@ -26,6 +26,9 @@ scoreboard players operation #color_cube.B int += #temp3 int
 
 scoreboard players set #store_color_cube.v int 10000
 execute store result storage large_number:math temp1 double 0.0001 run scoreboard players operation #store_color_cube.v int -= #color_cube.v int
+execute store result storage large_number:math temp4 int 1 run scoreboard players get #color_cube.R int
+execute store result storage large_number:math temp5 int 1 run scoreboard players get #color_cube.G int
+execute store result storage large_number:math temp6 int 1 run scoreboard players get #color_cube.B int
 function large_number:color_wheel/in/ope_uv_color/macro1 with storage large_number:math
 
 execute store result score #color_cube.R int run data get storage large_number:math temp1 0.0001

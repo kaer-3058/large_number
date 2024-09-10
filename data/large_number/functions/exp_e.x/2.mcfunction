@@ -59,7 +59,8 @@ data modify storage large_number:math temp2 set string storage large_number:math
 data modify storage large_number:math temp1 set string storage large_number:math temp1
 execute store result score #temp3 int run data get storage large_number:math temp2
 execute store result score #temp4 int run data get storage large_number:math temp1
-function large_number:exp_e.x/macro3.dicimal4--_div2 with storage large_number:math
+execute store result score #1.1 int run function large_number:exp_e.x/macro3.dicimal4--_div2 with storage large_number:math
+execute store result score #1.3 int run function large_number:exp_e.x/macro3.dicimal4--_div3 with storage large_number:math
 execute if score #temp3 int matches 1 run scoreboard players operation #1.1 int *= 10000 const
 execute if score #temp3 int matches 2 run scoreboard players operation #1.1 int *= 1000 const
 execute if score #temp3 int matches 3 run scoreboard players operation #1.1 int *= 100 const

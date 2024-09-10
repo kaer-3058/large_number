@@ -21,7 +21,7 @@ execute store success score #is_XXEXX int if data storage large_number:math temp
 #仅取前16位，如果为科学计数法则拆出指数位
 data modify storage large_number:math temp_expon set value "0"
 execute if score #is_XXEXX int matches 1 run function large_number:double_sqrt.if/the_scientific_notation
-function large_number:division/float/macro1 with storage large_number:math
+execute store result score #_exp int run function large_number:division/float/macro1 with storage large_number:math
 scoreboard players operation #float_exp int = #_exp int
 execute store result score #float_int0 int run data get storage large_number:math temp1
 scoreboard players operation #temp1 int = #float_int0 int
@@ -71,7 +71,7 @@ execute store success score #is_XXEXX int if data storage large_number:math temp
 #仅取前16位，如果为科学计数法则拆出指数位
 data modify storage large_number:math temp_expon set value "0"
 execute if score #is_XXEXX int matches 1 run function large_number:double_sqrt.if/the_scientific_notation
-function large_number:division/float/macro1 with storage large_number:math
+execute store result score #_exp int run function large_number:division/float/macro1 with storage large_number:math
 scoreboard players operation #Divisor_float_exp int = #_exp int
 execute store result score #sstempd int run data get storage large_number:math temp1
 scoreboard players operation #temp1 int = #sstempd int

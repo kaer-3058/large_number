@@ -1,1 +1,1 @@
-$particle dust .918 .047 .047 1 ^$(stemp1) ^$(stemp2) ^ .0 .0 .0 .0 1 force
+$particle dust .918 .047 .047 1 ^$(stemp1) ^$(stemp2) ^

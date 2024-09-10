@@ -5,5 +5,6 @@
 
 execute store result score #temp1 int if data storage large_number:math list_ope_random_index_once.input[]
 execute store result storage large_number:math temp1 int 1 run scoreboard players remove #temp1 int 1
-function large_number:list_operation/random_index_once/macro1 with storage large_number:math
+execute store result storage large_number:math temp1 int 1 run function large_number:list_operation/random_index_once/macro1 with storage large_number:math
 function large_number:list_operation/random_index_once/macro2 with storage large_number:math
+execute if score #list_ope_random_index_once.del int matches 1 run function large_number:list_operation/random_index_once/macro3 with storage large_number:math

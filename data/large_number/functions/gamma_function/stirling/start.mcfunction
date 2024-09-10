@@ -9,3 +9,4 @@ execute if score #gamma_function.stirling.temp1 int matches ..2215 run function 
 execute if data storage large_number:math gamma_function{input:0.0} run data modify storage large_number:math gamma_function.output set value 1.0
 execute if data storage large_number:math gamma_function{input:1.0} run data modify storage large_number:math gamma_function.output set value 1.0
 execute if data storage large_number:math gamma_function{input:2.0} run data modify storage large_number:math gamma_function.output set value 2.0
+execute if data storage large_number:math gamma_function{input:-0.5} run data modify storage large_number:math gamma_function.output set value 1.772453850905516027298167483341145

@@ -1,6 +1,6 @@
 # {NoAI:1b,Tags:["matrix_arrangement.test1"],Passengers:[],PersistenceRequired:1b,NoGravity:1b}
 tp @s ~ ~ ~
-execute if score #sstemp1 int matches 0 run function large_number:matrix_arrangement/spider.macro with storage large_number:math
+execute if score #sstemp1 int matches 0 positioned as @s run function large_number:matrix_arrangement/spider.macro with storage large_number:math
 data modify storage large_number:math matrix_arrangement_X append from entity @s Pos[0]
 data modify storage large_number:math matrix_arrangement_Z append from entity @s Pos[2]
 

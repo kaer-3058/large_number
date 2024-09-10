@@ -22,10 +22,10 @@ execute store success score #is_XXEXX int if data storage large_number:math temp
 data modify storage large_number:math temp_expon set value "0"
 execute if score #is_XXEXX int matches 1 run function large_number:double_sqrt.if/the_scientific_notation
 
-function large_number:particle/equiangular_spiral/macro2 with storage large_number:math
+execute store result score #temp1 int run function large_number:particle/equiangular_spiral/macro2 with storage large_number:math
 execute store result storage large_number:math temp2 int 1 run scoreboard players remove #temp1 int 10
 execute store result storage large_number:math temp3 double 0.001 run scoreboard players get #start_r int
-execute positioned .0 .0 .0 as b09e-44-fded-6-efa5ffffef64 run function large_number:particle/equiangular_spiral/macro.float_multiply_out with storage large_number:math
+execute positioned .0 .0 .0 as b09e-44-fded-6-efa5ffffef64 run function large_number:particle/equiangular_spiral/macro.float_multiply_out/0 with storage large_number:math
 
 scoreboard players operation #start_r int += #equiangular_spiral.r_size int
 scoreboard players remove #store_loops int 1

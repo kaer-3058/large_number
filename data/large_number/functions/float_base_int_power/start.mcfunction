@@ -15,6 +15,7 @@ execute if score #temp_float_base_int_power_temp1 int matches 2.. run function l
 data modify storage large_number:math float_base_int_power.output set from storage large_number:math sstemp1
 
 execute if score #float_base_int_power.expon int matches 0 run data modify storage large_number:math float_base_int_power.output set value 1.0d
+execute if score #float_base_int_power.expon int matches 1 run data modify storage large_number:math float_base_int_power.output set from storage large_number:math float_base_int_power.base
 
 execute store result score #float_base_int_power.base int run data get storage large_number:math float_base_int_power.base
 execute if score #float_base_int_power.expon int matches ..-1 unless score #float_base_int_power.base int matches 0 run function large_number:float_base_int_power/input.is-

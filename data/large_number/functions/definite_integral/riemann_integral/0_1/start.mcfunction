@@ -60,7 +60,7 @@ data modify storage large_number:math temp2[3].a set string storage large_number
 execute store success score #is_XXEXX int if data storage large_number:math temp2[{a:"E"}]
 data modify storage large_number:math temp_expon set value "0"
 execute if score #is_XXEXX int matches 1 run function large_number:double_sqrt.if/the_scientific_notation
-function large_number:sigmoid/macro3 with storage large_number:math
+execute store result score #_exp int run function large_number:sigmoid/macro3 with storage large_number:math
 execute store result storage large_number:math temp_expon int 1 run scoreboard players remove #_exp int 1
 function large_number:definite_integral/riemann_integral/fa_addi_fb_div2/macro5 with storage large_number:math
 
@@ -77,8 +77,9 @@ data modify storage large_number:math temp2[3].a set string storage large_number
 execute store success score #is_XXEXX int if data storage large_number:math temp2[{a:"E"}]
 data modify storage large_number:math temp_expon set value "0"
 execute if score #is_XXEXX int matches 1 run function large_number:double_sqrt.if/the_scientific_notation
-function large_number:sigmoid/macro3 with storage large_number:math
+execute store result score #_exp int run function large_number:sigmoid/macro3 with storage large_number:math
 execute store result storage large_number:math temp_expon int 1 run scoreboard players remove #_exp int 9
 function large_number:definite_integral/riemann_integral/0_1/macro2 with storage large_number:math
+data modify storage large_number:math expression_evaluation.definite_integral.output set from storage large_number:math temp4
 
 tellraw @a {"text":"\u00A77\u00A7o定积分求解完成"}

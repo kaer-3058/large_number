@@ -1,6 +1,6 @@
 README Index
 
-Current version (v.1.14) includes a total of 142 algorithms.
+Current version (v.1.15) includes a total of 147 algorithms.
 ♦ Const
 ♦ Trigonometric functions
 ♦ sin and cos
@@ -21,7 +21,8 @@ Current version (v.1.14) includes a total of 142 algorithms.
 ♦ Arbitrary integer multiplication
 ♦ Float multiply [2 Sub-algorithm]
 ♦ High-precision float multiply
-♦ High Precision Floating-Point Squaring
+♦ High-precision float square
+♦ High-precision float cube
 ♦ Float addition and subtraction
 ♦ Floating point number comparison
 ♦ Rounding Floating-Point Numbers
@@ -40,7 +41,8 @@ Current version (v.1.14) includes a total of 142 algorithms.
 ♦ Cube root of an int [2 Sub-algorithm]
 ♦ Euclidean norm of a double [4 Sub-algorithm]
 ♦ Double to int - 16-bit BCD array format, precision of 16 significant digits
-♦ Double to int - scoreboard format, precision of 8 significant digits
+♦ Note: SNBT Floating-Point Number Rules
+♦ Double to int - scoreboard format, precision of 8 significant digits [2 Sub-algorithm]
 ♦ double sqrt (high-precision floating-point numbers sqrt) [2 Sub-algorithm]
 ♦ Fast floating-point square root
 ♦ Display of a 24-digit number [2 Sub-algorithm]
@@ -51,12 +53,12 @@ Current version (v.1.14) includes a total of 142 algorithms.
 ♦ List Algorithm - Deduplicate Elements (Return Value Method)
 ♦ Convert UUID array to hyphenated hexadecimal format
 ♦ Convert hyphenated hexadecimal UUID to array [2 Sub-algorithm]
-♦ Probability Simulation - Binomial Distribution [2 Sub-algorithm]
-♦ Probability Simulation - Normal Distribution
-♦ Probability Simulation - Uniform Distribution
-♦ Probability Simulation - Hypergeometric Distribution
-♦ Generate "a" random numbers, and sum to "n"
-♦ Exponential Function [2 Sub-algorithm]
+♦ Random Number Generation - Binomial Distribution [2 Sub-algorithm]
+♦ Random Number Generation - Normal Distribution
+♦ Random Number Generation - Uniform Distribution (PCG algorithm)
+♦ Random Number Generation - Hypergeometric Distribution
+♦ Generate a random number in the [0,1] range (PCG algorithm)
+♦ Exponential Function [3 Sub-algorithm]
 ♦ Int Exponentiation
 ♦ Exponentiation of Floating-Point Numbers
 ♦ Integer Power of Floating-Point Numbers - Fast Exponentiation
@@ -110,4 +112,7 @@ Current version (v.1.14) includes a total of 142 algorithms.
 ♦ Color Wheel
 ♦ Straight Line
 ♦ Regular Polygonal Particle
+♦ N-th Order Bezier Curve
 ♦ Determinant [3 Sub-algorithms]
+♦ Combination Number
+

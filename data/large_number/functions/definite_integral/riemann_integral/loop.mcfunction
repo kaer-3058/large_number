@@ -1,4 +1,5 @@
 #loop
+scoreboard players operation #temp int = #Store_expression_evaluation.definite_integral.loop int
 function large_number:definite_integral/riemann_integral/macro1 with storage large_number:math
 data modify storage large_number:math sstempc set from storage large_number:math expression_evaluation.definite_integral.a
 function large_number:definite_integral/riemann_integral/macro2 with storage large_number:math

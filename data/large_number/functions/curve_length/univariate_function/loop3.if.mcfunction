@@ -1,2 +1,0 @@
-loot spawn ~ ~ ~ loot large_number:check_pos
-execute as @e[type=minecraft:item] if data entity @s Item{id:"minecraft:stone"} if data entity @s Item.tag{large_number_loot_spawn1:1b} run function large_number:curve_length/univariate_function/as_entity_4

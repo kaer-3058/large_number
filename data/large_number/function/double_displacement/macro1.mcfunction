@@ -1,0 +1,1 @@
+$data modify storage large_number:math s0 set value $(temp1)E$(temp_expon)d

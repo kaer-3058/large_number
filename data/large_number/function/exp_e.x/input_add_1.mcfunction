@@ -1,0 +1,4 @@
+data modify entity @s Pos[1] set from storage large_number:math store_exp_e_x_input
+execute at @s run tp @s ~ ~1.0 ~
+data modify storage large_number:math store_exp_e_x_input set from entity @s Pos[1]
+tp .0 .0 .0

@@ -1,1 +1,0 @@
-$particle dust .918 .047 .047 1 ^$(stemp1) ^$(stemp2) ^

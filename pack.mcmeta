@@ -1,6 +1,7 @@
 {
     "pack": {
-        "pack_format": 26,
-        "description": {"text":"卡儿的数学库 large_number\nby ka__er"}
+        "description": {"text":"卡儿的数学库 large_number\nby ka__er"},
+        "supported_formats": [48,2147],
+        "pack_format": 48
     }
 }

@@ -1,0 +1,1 @@
+$data modify storage large_number:math s0 set from storage large_number:exp database."e^$(temp1)"

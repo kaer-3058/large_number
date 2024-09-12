@@ -1,12 +1,12 @@
 ![](https://s21.ax1x.com/2024/08/04/pkjXmcQ.png)
 
-## ka__er's math lib v.1.15
+## ka__er's math lib v.1.16
 
 - [English](README_English.md)
 
 - [简体中文](README.md)
 
-For minecraft 1.20.4
+For minecraft 1.21.1
 
 Related concepts: 16-bit BCD array, segmented storage, floating-point type, double type, leading zero, absolute value, const, precision, scientific notation. If an element in a 16-bit BCD array has less than four digits, it should be padded with 0s to make up four digits when reading the number. 
 
@@ -26,10 +26,10 @@ Recommended settings: `gamerule maxCommandChainLength 2147483647`
 
 ```
 storage large_number:const version
-Current Content is："large_number v.1.15"
+Current Content is："large_number v.1.16"
 
 Protocol Version：#k.la.version const
-Currently is：1015
+Currently is：1016
 ```
 
 　
@@ -867,11 +867,7 @@ Input: storage large_number:math uuid_list_for_hyphen.input [I;0,0,0,0]
 Output: storage large_number:math uuid_list_for_hyphen.output
 ```
 
-♦ Convert hyphenated hexadecimal UUID to array
-
-Arithmetic method: large_number:uuid_list_for_hyphen/back
-
-Entity attribute method: `execute in minecraft: overworld run function large_number:uuid_list_for_hyphen/back_for_attribute with storage large_number:math uuid_hyphen_back_list`
+♦ Convert hyphenated hexadecimal UUID to array: large_number:uuid_list_for_hyphen/back
 
 For example: "00000035-ffff-f910-0000-00fffffffffd" to [I; 53, -1776, 255, -3]
 
@@ -897,20 +893,13 @@ Output: #binomial_distribution.test1.output int
 
 Test 2: large_number:random/binomial_distribution/test2
 
-Test Content: Perform n trials of Bernoulli experiments with a success probability of p. Test if a random number between 0 and 10^9 is less than the given value, and output the number of successful trials.
-
-Only positive values are accepted, return the number of successful attempts.
-
-The number of trials should not be too many.
+Test Content: Perform "n" trials of Bernoulli experiments with a success probability of "p", output the number of successful trials.
 
 ```
-Number of Trials: set #binomial_distribution.test2.n int
-Input range is [0,536870911]
+Number of Trials [int]: storage large_number:math binomial_distribution.n
+success probability [float]: storage large_number:math binomial_distribution.p
 
-Given Value: set #binomial_distribution.test2.p int
-The success probability for each trial is p/(10^9)
-
-Output: #binomial_distribution.test2.output int
+Output [int]: storage large_number:math binomial_distribution.output
 ```
 
 When n is large enough, the result approaches a normal distribution. The approximation works better when n is larger (at least 20) and p is not close to 0 or 1. Different empirical rules can be used to determine if n is large enough and if p is sufficiently far from 0 or 1. One commonly used rule is that both np and n(1-p) must be greater than 5.

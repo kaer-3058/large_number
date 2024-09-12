@@ -1,0 +1,1 @@
+$particle dust{color:[$(stemp3)f,$(stemp4)f,$(stemp5)f],scale:1} ^$(stemp1) ^$(stemp2) ^

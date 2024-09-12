@@ -1,6 +1,6 @@
 README Index
 
-Current version (v.1.15) includes a total of 147 algorithms.
+Current version (v.1.16) includes a total of 146 algorithms.
 ♦ Const
 ♦ Trigonometric functions
 ♦ sin and cos
@@ -52,7 +52,7 @@ Current version (v.1.15) includes a total of 147 algorithms.
 ♦ List Algorithm - Draw a Card
 ♦ List Algorithm - Deduplicate Elements (Return Value Method)
 ♦ Convert UUID array to hyphenated hexadecimal format
-♦ Convert hyphenated hexadecimal UUID to array [2 Sub-algorithm]
+♦ Convert hyphenated hexadecimal UUID to array
 ♦ Random Number Generation - Binomial Distribution [2 Sub-algorithm]
 ♦ Random Number Generation - Normal Distribution
 ♦ Random Number Generation - Uniform Distribution (PCG algorithm)

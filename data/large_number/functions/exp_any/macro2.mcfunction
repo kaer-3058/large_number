@@ -1,1 +1,0 @@
-$execute store result storage large_number:math temp1 double $(output) run data get storage large_number:math temp_expon_dicimal 100000000

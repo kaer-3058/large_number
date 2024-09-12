@@ -1,12 +1,12 @@
 ![](https://s21.ax1x.com/2024/08/04/pkjXmcQ.png)
 
-## 卡儿的数学库 v.1.15
+## 卡儿的数学库 v.1.16
 
 - [English](README_English.md)
 
 - [简体中文](README.md)
 
-对应MC版本1.20.4
+对应MC版本1.21.1
 
 相关概念：万进制数组、分段存储、浮点型、double型、前导0、绝对值、常数、精度、科学记数法
 
@@ -24,10 +24,10 @@
 
 ```
 storage large_number:const version
-当前内容是："large_number v.1.15"
+当前内容是："large_number v.1.16"
 
 协议版本：#k.la.version const
-当前为：1015
+当前为：1016
 ```
 
 　
@@ -865,11 +865,7 @@ kill @e[type=minecraft:marker,tag=large_number.list_operation]
 输出：storage large_number:math uuid_list_for_hyphen.output
 ```
 
-♦ 带连字符的16进制UUID转为数组
-
-算术法：large_number:uuid_list_for_hyphen/back
-
-实体属性法：`function large_number:uuid_list_for_hyphen/back_for_attribute with storage large_number:math uuid_hyphen_back_list`
+♦ 带连字符的16进制UUID转为数组：large_number:uuid_list_for_hyphen/back
 
 例如："00000035-ffff-f910-0000-00fffffffffd" 转为：[I; 53, -1776, 255, -3]
 
@@ -897,20 +893,13 @@ kill @e[type=minecraft:marker,tag=large_number.list_operation]
 
 测试2：large_number:random/binomial_distribution/test2
 
-测试内容：做n次成功概率为p的伯努利试验，测试一个[0, 10^9]之间的随机数是否小于给定值，输出成功次数
-
-只接受正值，返回成功次数
-
-试验次数不宜过多
+测试内容：做n次成功概率为p的伯努利试验，输出成功次数
 
 ```
-试验次数：set #binomial_distribution.test2.n int
-输入范围是[0,536870911]
+试验次数[int]：storage large_number:math binomial_distribution.n
+成功概率[float]：storage large_number:math binomial_distribution.p
 
-给定值：set #binomial_distribution.test2.p int
-单次试验的成功概率是p/(10^9)
-
-输出：#binomial_distribution.test2.output int
+输出[int]：storage large_number:math binomial_distribution.output
 ```
 
 当n足够大时，结果接近于正态分布。当n越大（至少20）且p不接近0或1时近似效果更好。不同的经验法则可以用来决定n是否足够大,以及p是否距离0或1足够远,其中一个常用的规则是np和n(1 −p)都必须大于 5。

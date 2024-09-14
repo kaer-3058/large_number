@@ -11,7 +11,7 @@ scoreboard players operation #temp1 int += #temp3 int
 scoreboard players operation #temp1 int += #temp4 int
 scoreboard players operation #temp1 int += #temp5 int
 scoreboard players operation #temp1 int += #temp6 int
-tellraw @a {"score": {"name": "#temp1","objective": "int"}}
+#tellraw @a {"score": {"name": "#temp1","objective": "int"}}
 
 #秒数变成小时数
 scoreboard players operation #temp1 int /= 36 const

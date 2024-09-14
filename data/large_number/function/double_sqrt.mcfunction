@@ -49,16 +49,16 @@ data modify storage large_number:math temp_expon_list append from storage large_
 data remove storage large_number:math temp_expon_list[{a:""}]
 data remove storage large_number:math temp_expon_list[{a:'.'}]
 data remove storage large_number:math temp_expon_list[{a:0}]
-execute if data storage large_number:math temp_expon_list[{a:"0"}] run data modify storage large_number:math temp_expon_list[{a:"0"}].a set value 0
-execute if data storage large_number:math temp_expon_list[{a:"1"}] run data modify storage large_number:math temp_expon_list[{a:"1"}].a set value 1
-execute if data storage large_number:math temp_expon_list[{a:"2"}] run data modify storage large_number:math temp_expon_list[{a:"2"}].a set value 2
-execute if data storage large_number:math temp_expon_list[{a:"3"}] run data modify storage large_number:math temp_expon_list[{a:"3"}].a set value 3
-execute if data storage large_number:math temp_expon_list[{a:"4"}] run data modify storage large_number:math temp_expon_list[{a:"4"}].a set value 4
-execute if data storage large_number:math temp_expon_list[{a:"5"}] run data modify storage large_number:math temp_expon_list[{a:"5"}].a set value 5
-execute if data storage large_number:math temp_expon_list[{a:"6"}] run data modify storage large_number:math temp_expon_list[{a:"6"}].a set value 6
-execute if data storage large_number:math temp_expon_list[{a:"7"}] run data modify storage large_number:math temp_expon_list[{a:"7"}].a set value 7
-execute if data storage large_number:math temp_expon_list[{a:"8"}] run data modify storage large_number:math temp_expon_list[{a:"8"}].a set value 8
-execute if data storage large_number:math temp_expon_list[{a:"9"}] run data modify storage large_number:math temp_expon_list[{a:"9"}].a set value 9
+data modify storage large_number:math temp_expon_list[{a:"0"}] set value {a:0}
+data modify storage large_number:math temp_expon_list[{a:"1"}] set value {a:1}
+data modify storage large_number:math temp_expon_list[{a:"2"}] set value {a:2}
+data modify storage large_number:math temp_expon_list[{a:"3"}] set value {a:3}
+data modify storage large_number:math temp_expon_list[{a:"4"}] set value {a:4}
+data modify storage large_number:math temp_expon_list[{a:"5"}] set value {a:5}
+data modify storage large_number:math temp_expon_list[{a:"6"}] set value {a:6}
+data modify storage large_number:math temp_expon_list[{a:"7"}] set value {a:7}
+data modify storage large_number:math temp_expon_list[{a:"8"}] set value {a:8}
+data modify storage large_number:math temp_expon_list[{a:"9"}] set value {a:9}
 
 execute store result score #double_to_int.expon.3 int run data get storage large_number:math temp_expon_list[-1].a
 execute store result score #double_to_int.expon.2 int run data get storage large_number:math temp_expon_list[-2].a 10
@@ -149,16 +149,16 @@ data modify storage large_number:math temp_string_list append from storage large
 data remove storage large_number:math temp_string_list[{a:""}]
 data remove storage large_number:math temp_string_list[{a:'.'}]
 data remove storage large_number:math temp_string_list[{a:0}]
-execute if data storage large_number:math temp_string_list[{a:"0"}] run data modify storage large_number:math temp_string_list[{a:"0"}].a set value 0
-execute if data storage large_number:math temp_string_list[{a:"1"}] run data modify storage large_number:math temp_string_list[{a:"1"}].a set value 1
-execute if data storage large_number:math temp_string_list[{a:"2"}] run data modify storage large_number:math temp_string_list[{a:"2"}].a set value 2
-execute if data storage large_number:math temp_string_list[{a:"3"}] run data modify storage large_number:math temp_string_list[{a:"3"}].a set value 3
-execute if data storage large_number:math temp_string_list[{a:"4"}] run data modify storage large_number:math temp_string_list[{a:"4"}].a set value 4
-execute if data storage large_number:math temp_string_list[{a:"5"}] run data modify storage large_number:math temp_string_list[{a:"5"}].a set value 5
-execute if data storage large_number:math temp_string_list[{a:"6"}] run data modify storage large_number:math temp_string_list[{a:"6"}].a set value 6
-execute if data storage large_number:math temp_string_list[{a:"7"}] run data modify storage large_number:math temp_string_list[{a:"7"}].a set value 7
-execute if data storage large_number:math temp_string_list[{a:"8"}] run data modify storage large_number:math temp_string_list[{a:"8"}].a set value 8
-execute if data storage large_number:math temp_string_list[{a:"9"}] run data modify storage large_number:math temp_string_list[{a:"9"}].a set value 9
+data modify storage large_number:math temp_string_list[{a:"0"}] set value {a:0}
+data modify storage large_number:math temp_string_list[{a:"1"}] set value {a:1}
+data modify storage large_number:math temp_string_list[{a:"2"}] set value {a:2}
+data modify storage large_number:math temp_string_list[{a:"3"}] set value {a:3}
+data modify storage large_number:math temp_string_list[{a:"4"}] set value {a:4}
+data modify storage large_number:math temp_string_list[{a:"5"}] set value {a:5}
+data modify storage large_number:math temp_string_list[{a:"6"}] set value {a:6}
+data modify storage large_number:math temp_string_list[{a:"7"}] set value {a:7}
+data modify storage large_number:math temp_string_list[{a:"8"}] set value {a:8}
+data modify storage large_number:math temp_string_list[{a:"9"}] set value {a:9}
 
 #从前往后逐位读取到计分板，自动靠前对齐
 execute store result score #double_to_int.1 int run data get storage large_number:math temp_string_list[0].a 1000

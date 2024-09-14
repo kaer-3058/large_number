@@ -13,32 +13,32 @@ execute if score #temp2 int matches 0..9 unless score #conversion.10_to_any.radi
 data modify storage large_number:math stemp1 set value {a:0}
 execute if score #temp1 int >= #conversion.10_to_any.radix int run function large_number:number_base_conversion/loop1
 
-execute if data storage large_number:math temp1[{a:10}] run data modify storage large_number:math temp1[{a:10}].a set value "a"
-execute if data storage large_number:math temp1[{a:11}] run data modify storage large_number:math temp1[{a:11}].a set value "b"
-execute if data storage large_number:math temp1[{a:12}] run data modify storage large_number:math temp1[{a:12}].a set value "c"
-execute if data storage large_number:math temp1[{a:13}] run data modify storage large_number:math temp1[{a:13}].a set value "d"
-execute if data storage large_number:math temp1[{a:14}] run data modify storage large_number:math temp1[{a:14}].a set value "e"
-execute if data storage large_number:math temp1[{a:15}] run data modify storage large_number:math temp1[{a:15}].a set value "f"
-execute if data storage large_number:math temp1[{a:16}] run data modify storage large_number:math temp1[{a:16}].a set value "g"
-execute if data storage large_number:math temp1[{a:17}] run data modify storage large_number:math temp1[{a:17}].a set value "h"
-execute if data storage large_number:math temp1[{a:18}] run data modify storage large_number:math temp1[{a:18}].a set value "i"
-execute if data storage large_number:math temp1[{a:19}] run data modify storage large_number:math temp1[{a:19}].a set value "j"
-execute if data storage large_number:math temp1[{a:20}] run data modify storage large_number:math temp1[{a:20}].a set value "k"
-execute if data storage large_number:math temp1[{a:21}] run data modify storage large_number:math temp1[{a:21}].a set value "l"
-execute if data storage large_number:math temp1[{a:22}] run data modify storage large_number:math temp1[{a:22}].a set value "m"
-execute if data storage large_number:math temp1[{a:23}] run data modify storage large_number:math temp1[{a:23}].a set value "n"
-execute if data storage large_number:math temp1[{a:24}] run data modify storage large_number:math temp1[{a:24}].a set value "o"
-execute if data storage large_number:math temp1[{a:25}] run data modify storage large_number:math temp1[{a:25}].a set value "p"
-execute if data storage large_number:math temp1[{a:26}] run data modify storage large_number:math temp1[{a:26}].a set value "q"
-execute if data storage large_number:math temp1[{a:27}] run data modify storage large_number:math temp1[{a:27}].a set value "r"
-execute if data storage large_number:math temp1[{a:28}] run data modify storage large_number:math temp1[{a:28}].a set value "s"
-execute if data storage large_number:math temp1[{a:29}] run data modify storage large_number:math temp1[{a:29}].a set value "t"
-execute if data storage large_number:math temp1[{a:30}] run data modify storage large_number:math temp1[{a:30}].a set value "u"
-execute if data storage large_number:math temp1[{a:31}] run data modify storage large_number:math temp1[{a:31}].a set value "v"
-execute if data storage large_number:math temp1[{a:32}] run data modify storage large_number:math temp1[{a:32}].a set value "w"
-execute if data storage large_number:math temp1[{a:33}] run data modify storage large_number:math temp1[{a:33}].a set value "x"
-execute if data storage large_number:math temp1[{a:34}] run data modify storage large_number:math temp1[{a:34}].a set value "y"
-execute if data storage large_number:math temp1[{a:35}] run data modify storage large_number:math temp1[{a:35}].a set value "z"
+data modify storage large_number:math temp1[{a:10}] set value {a:"a"}
+data modify storage large_number:math temp1[{a:11}] set value {a:"b"}
+data modify storage large_number:math temp1[{a:12}] set value {a:"c"}
+data modify storage large_number:math temp1[{a:13}] set value {a:"d"}
+data modify storage large_number:math temp1[{a:14}] set value {a:"e"}
+data modify storage large_number:math temp1[{a:15}] set value {a:"f"}
+data modify storage large_number:math temp1[{a:16}] set value {a:"g"}
+data modify storage large_number:math temp1[{a:17}] set value {a:"h"}
+data modify storage large_number:math temp1[{a:18}] set value {a:"i"}
+data modify storage large_number:math temp1[{a:19}] set value {a:"j"}
+data modify storage large_number:math temp1[{a:20}] set value {a:"k"}
+data modify storage large_number:math temp1[{a:21}] set value {a:"l"}
+data modify storage large_number:math temp1[{a:22}] set value {a:"m"}
+data modify storage large_number:math temp1[{a:23}] set value {a:"n"}
+data modify storage large_number:math temp1[{a:24}] set value {a:"o"}
+data modify storage large_number:math temp1[{a:25}] set value {a:"p"}
+data modify storage large_number:math temp1[{a:26}] set value {a:"q"}
+data modify storage large_number:math temp1[{a:27}] set value {a:"r"}
+data modify storage large_number:math temp1[{a:28}] set value {a:"s"}
+data modify storage large_number:math temp1[{a:29}] set value {a:"t"}
+data modify storage large_number:math temp1[{a:30}] set value {a:"u"}
+data modify storage large_number:math temp1[{a:31}] set value {a:"v"}
+data modify storage large_number:math temp1[{a:32}] set value {a:"w"}
+data modify storage large_number:math temp1[{a:33}] set value {a:"x"}
+data modify storage large_number:math temp1[{a:34}] set value {a:"y"}
+data modify storage large_number:math temp1[{a:35}] set value {a:"z"}
 
 data modify storage large_number:math number_base_conversion set value []
 data modify storage large_number:math number_base_conversion append from storage large_number:math temp1[].a

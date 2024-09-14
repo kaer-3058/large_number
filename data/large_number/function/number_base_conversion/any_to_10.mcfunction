@@ -71,42 +71,42 @@ data modify storage large_number:math temp_s2[-29].a set from storage large_numb
 data modify storage large_number:math temp_s2[-30].a set from storage large_number:math number_base_conversion[-30]
 data modify storage large_number:math temp_s2[-31].a set from storage large_number:math number_base_conversion[-31]
 
-execute if data storage large_number:math temp_s2[{a:"0"}] run data modify storage large_number:math temp_s2[{a:"0"}].a set value 0
-execute if data storage large_number:math temp_s2[{a:"1"}] run data modify storage large_number:math temp_s2[{a:"1"}].a set value 1
-execute if data storage large_number:math temp_s2[{a:"2"}] run data modify storage large_number:math temp_s2[{a:"2"}].a set value 2
-execute if data storage large_number:math temp_s2[{a:"3"}] run data modify storage large_number:math temp_s2[{a:"3"}].a set value 3
-execute if data storage large_number:math temp_s2[{a:"4"}] run data modify storage large_number:math temp_s2[{a:"4"}].a set value 4
-execute if data storage large_number:math temp_s2[{a:"5"}] run data modify storage large_number:math temp_s2[{a:"5"}].a set value 5
-execute if data storage large_number:math temp_s2[{a:"6"}] run data modify storage large_number:math temp_s2[{a:"6"}].a set value 6
-execute if data storage large_number:math temp_s2[{a:"7"}] run data modify storage large_number:math temp_s2[{a:"7"}].a set value 7
-execute if data storage large_number:math temp_s2[{a:"8"}] run data modify storage large_number:math temp_s2[{a:"8"}].a set value 8
-execute if data storage large_number:math temp_s2[{a:"9"}] run data modify storage large_number:math temp_s2[{a:"9"}].a set value 9
-execute if data storage large_number:math temp_s2[{a:"a"}] run data modify storage large_number:math temp_s2[{a:"a"}].a set value 10
-execute if data storage large_number:math temp_s2[{a:"b"}] run data modify storage large_number:math temp_s2[{a:"b"}].a set value 11
-execute if data storage large_number:math temp_s2[{a:"c"}] run data modify storage large_number:math temp_s2[{a:"c"}].a set value 12
-execute if data storage large_number:math temp_s2[{a:"d"}] run data modify storage large_number:math temp_s2[{a:"d"}].a set value 13
-execute if data storage large_number:math temp_s2[{a:"e"}] run data modify storage large_number:math temp_s2[{a:"e"}].a set value 14
-execute if data storage large_number:math temp_s2[{a:"f"}] run data modify storage large_number:math temp_s2[{a:"f"}].a set value 15
-execute if data storage large_number:math temp_s2[{a:"g"}] run data modify storage large_number:math temp_s2[{a:"g"}].a set value 16
-execute if data storage large_number:math temp_s2[{a:"h"}] run data modify storage large_number:math temp_s2[{a:"h"}].a set value 17
-execute if data storage large_number:math temp_s2[{a:"i"}] run data modify storage large_number:math temp_s2[{a:"i"}].a set value 18
-execute if data storage large_number:math temp_s2[{a:"j"}] run data modify storage large_number:math temp_s2[{a:"j"}].a set value 19
-execute if data storage large_number:math temp_s2[{a:"k"}] run data modify storage large_number:math temp_s2[{a:"k"}].a set value 20
-execute if data storage large_number:math temp_s2[{a:"l"}] run data modify storage large_number:math temp_s2[{a:"l"}].a set value 21
-execute if data storage large_number:math temp_s2[{a:"m"}] run data modify storage large_number:math temp_s2[{a:"m"}].a set value 22
-execute if data storage large_number:math temp_s2[{a:"n"}] run data modify storage large_number:math temp_s2[{a:"n"}].a set value 23
-execute if data storage large_number:math temp_s2[{a:"o"}] run data modify storage large_number:math temp_s2[{a:"o"}].a set value 24
-execute if data storage large_number:math temp_s2[{a:"p"}] run data modify storage large_number:math temp_s2[{a:"p"}].a set value 25
-execute if data storage large_number:math temp_s2[{a:"q"}] run data modify storage large_number:math temp_s2[{a:"q"}].a set value 26
-execute if data storage large_number:math temp_s2[{a:"r"}] run data modify storage large_number:math temp_s2[{a:"r"}].a set value 27
-execute if data storage large_number:math temp_s2[{a:"s"}] run data modify storage large_number:math temp_s2[{a:"s"}].a set value 28
-execute if data storage large_number:math temp_s2[{a:"t"}] run data modify storage large_number:math temp_s2[{a:"t"}].a set value 29
-execute if data storage large_number:math temp_s2[{a:"u"}] run data modify storage large_number:math temp_s2[{a:"u"}].a set value 30
-execute if data storage large_number:math temp_s2[{a:"v"}] run data modify storage large_number:math temp_s2[{a:"v"}].a set value 31
-execute if data storage large_number:math temp_s2[{a:"w"}] run data modify storage large_number:math temp_s2[{a:"w"}].a set value 32
-execute if data storage large_number:math temp_s2[{a:"x"}] run data modify storage large_number:math temp_s2[{a:"x"}].a set value 33
-execute if data storage large_number:math temp_s2[{a:"y"}] run data modify storage large_number:math temp_s2[{a:"y"}].a set value 34
-execute if data storage large_number:math temp_s2[{a:"z"}] run data modify storage large_number:math temp_s2[{a:"z"}].a set value 35
+data modify storage large_number:math temp_s2[{a:"0"}] set value {a:0}
+data modify storage large_number:math temp_s2[{a:"1"}] set value {a:1}
+data modify storage large_number:math temp_s2[{a:"2"}] set value {a:2}
+data modify storage large_number:math temp_s2[{a:"3"}] set value {a:3}
+data modify storage large_number:math temp_s2[{a:"4"}] set value {a:4}
+data modify storage large_number:math temp_s2[{a:"5"}] set value {a:5}
+data modify storage large_number:math temp_s2[{a:"6"}] set value {a:6}
+data modify storage large_number:math temp_s2[{a:"7"}] set value {a:7}
+data modify storage large_number:math temp_s2[{a:"8"}] set value {a:8}
+data modify storage large_number:math temp_s2[{a:"9"}] set value {a:9}
+data modify storage large_number:math temp_s2[{a:"a"}] set value {a:10}
+data modify storage large_number:math temp_s2[{a:"b"}] set value {a:11}
+data modify storage large_number:math temp_s2[{a:"c"}] set value {a:12}
+data modify storage large_number:math temp_s2[{a:"d"}] set value {a:13}
+data modify storage large_number:math temp_s2[{a:"e"}] set value {a:14}
+data modify storage large_number:math temp_s2[{a:"f"}] set value {a:15}
+data modify storage large_number:math temp_s2[{a:"g"}] set value {a:16}
+data modify storage large_number:math temp_s2[{a:"h"}] set value {a:17}
+data modify storage large_number:math temp_s2[{a:"i"}] set value {a:18}
+data modify storage large_number:math temp_s2[{a:"j"}] set value {a:19}
+data modify storage large_number:math temp_s2[{a:"k"}] set value {a:20}
+data modify storage large_number:math temp_s2[{a:"l"}] set value {a:21}
+data modify storage large_number:math temp_s2[{a:"m"}] set value {a:22}
+data modify storage large_number:math temp_s2[{a:"n"}] set value {a:23}
+data modify storage large_number:math temp_s2[{a:"o"}] set value {a:24}
+data modify storage large_number:math temp_s2[{a:"p"}] set value {a:25}
+data modify storage large_number:math temp_s2[{a:"q"}] set value {a:26}
+data modify storage large_number:math temp_s2[{a:"r"}] set value {a:27}
+data modify storage large_number:math temp_s2[{a:"s"}] set value {a:28}
+data modify storage large_number:math temp_s2[{a:"t"}] set value {a:29}
+data modify storage large_number:math temp_s2[{a:"u"}] set value {a:30}
+data modify storage large_number:math temp_s2[{a:"v"}] set value {a:31}
+data modify storage large_number:math temp_s2[{a:"w"}] set value {a:32}
+data modify storage large_number:math temp_s2[{a:"x"}] set value {a:33}
+data modify storage large_number:math temp_s2[{a:"y"}] set value {a:34}
+data modify storage large_number:math temp_s2[{a:"z"}] set value {a:35}
 
 scoreboard players set #conversion.any_to_10.output int 0
 execute if data storage large_number:math temp_s2[-1] run function large_number:number_base_conversion/loop2

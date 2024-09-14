@@ -2383,6 +2383,7 @@ execute as b09e-44-fded-6-efa5ffffef64 run function large_number:particle/heart-
 ♦ N阶贝塞尔曲线
 
 公式：
+
 $$
 B(t)=\sum_{i=0}^{n}P_i
 \begin{pmatrix}
@@ -2391,6 +2392,7 @@ i
 \end{pmatrix}
 (1-t)^{n-i}t^i,\ t\in[0,1]
 $$
+
 说明：Pi表示点的坐标。Pi是按顺序把控制点的各个坐标轴的信息代入算出曲线在该坐标的信息。也就是说，贝塞尔曲线是以"参数方程"的形式计算的，参变量为t。
 
 也就是说。例如有三个控制点：[[x0, y0, z0],[x1, y1, z1],[x2, y2, z2]]
@@ -2398,6 +2400,7 @@ $$
 则先代入x0、x1、x2计算出曲线的x坐标，然后y0、y1、y2计算出曲线的y坐标……以此类推。
 
 n是阶数。(n,i)是二项式系数，也就是从n个物品里取出i个物品的组合数。公式：
+
 $$
 \begin{pmatrix}
 n \\

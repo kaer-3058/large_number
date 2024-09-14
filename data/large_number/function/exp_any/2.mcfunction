@@ -21,7 +21,7 @@ function large_number:ln_high_precision/start
 
 #b*ln(a)
 data modify storage large_number:math float_multiply.input1 set from storage large_number:math ln_high_precision.output
-data modify storage large_number:math float_multiply.input2 set from storage large_number:math temp_expon_dicimal
+data modify storage large_number:math float_multiply.input2 set from storage large_number:math temp_expon_decimal
 function large_number:float_mul.high_precision/start
 
 #e^(b*ln(a))

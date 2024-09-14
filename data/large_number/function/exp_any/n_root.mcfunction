@@ -14,7 +14,7 @@ function large_number:ln_high_precision/start
 #ln(a)/b
 data modify storage large_number:math float_division.input1 set from storage large_number:math ln_high_precision.output
 data modify storage large_number:math float_division.input2 set from storage large_number:math exp_any.input.expon
-function large_number:division/float_12dicimal/start
+function large_number:division/float_12decimal/start
 
 #e^(ln(a)/b)
 data modify storage large_number:math exp_e^x.input set from storage large_number:math float_division.output

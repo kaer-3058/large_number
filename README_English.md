@@ -218,7 +218,7 @@ If the fractional part of #float_int1 int is less than four digits, zeros should
 
 8 significant digits: large_number:division/float/start
 
-12 significant digits: large_number:division/float_12dicimal/start
+12 significant digits: large_number:division/float_12decimal/start
 
 Input float or double
 
@@ -244,7 +244,7 @@ Quotient: storage large_number:math list_div_const.output
 Quotient sign: storage large_number:math list_div_const.output_sign
 ```
 
-♦ Division with an infinite number of significant digits: large_number:division/loop_more_more_dicimal/start
+♦ Division with an infinite number of significant digits: large_number:division/loop_more_more_decimal/start
 
 ```
 Dividend
@@ -257,17 +257,21 @@ Divisor
 #Divisor_float_int0 int (The first eight significant digits of the input value. Range is from 10000000 to 99999999)
 #Divisor_float_exp int (Exponent, range is a full int)
 
-Number of significant digits: #loop_more_more_dicimal_times int
+Number of significant digits: #loop_more_more_decimal_times int
 
 Quotient
 #float_sign int (Sign)
-storage large_number:math loop_more_more_dicimal_base (Base)
+storage large_number:math loop_more_more_decimal_base (Base)
 #float_exp int (Exponent)
 
 The output base is a array, and the reading method involves writing each element from front to back, with a 0 added at the beginning. For example, if the values of #float_sign int and #float_exp int are 1 and 12 respectively, and the base is [0,0,1,9,0,3,7,0], then they represent the number 1*0.00190370*10^12.
 ```
 
-♦ Taking the reciprocal of a floating-point number: large_number:division/float_reciprocal/start
+♦ Taking the reciprocal of a floating-point number
+
+8 decimal: large_number:division/float_reciprocal_8_dici/start
+
+12 decimal: large_number:division/float_reciprocal/start
 
 Input float or double
 
@@ -280,19 +284,19 @@ output: storage large_number:math float_reciprocal.output
 
 ♦ Int division
 
-4 significant digits: large_number:division/int_4dicimal/start
+4 significant digits: large_number:division/int_4decimal/start
 
-8 significant digits: large_number:division/int_8dicimal/start
+8 significant digits: large_number:division/int_8decimal/start
 
-12 significant digits: large_number:division/int_12dicimal/start
+12 significant digits: large_number:division/int_12decimal/start
 
 As a generalization of float division, although it accepts the entire int value, in practice, only the first eight digits of the dividend and divisor are considered.
 
 ```
-Dividend: #int_+dicimal.input1 int
-Divisor: #int_+dicimal.input2 int
+Dividend: #int_+decimal.input1 int
+Divisor: #int_+decimal.input2 int
 
-Quotient: storage large_number:math int_more_dicimal_out
+Quotient: storage large_number:math int_more_decimal_out
 ```
 
 ♦ Array division by an int (multiple significant digits): large_number:division/list_div_int/start
@@ -501,9 +505,9 @@ output: #sign int (Sign)，#1st int，#2nd int，#3rd int
 
 Floor (16 pure scoreboard commands): large_number:int_sqrt_simple
 
-4 dicimals (32 pure scoreboard commands): large_number:int_sqrt
+4 decimals (32 pure scoreboard commands): large_number:int_sqrt
 
-Retain multiple decimals: large_number:test_int_more_dicimal
+Retain multiple decimals: large_number:test_int_more_decimal
 
 If the input value is 1 to 5 digits, output 9 decimal places; if the input value is 6 to 7 digits, output 8 decimal places; if the input value is 8 to 10 digits, output 7 decimal places.
 
@@ -517,11 +521,11 @@ Principle: Initial estimation + Newton iteration, see reference for details.
 Input: input.sqrt int
 
 Floor output: output.sqrt int
-4 dicimals output (Increase by a factor of ten thousand): output.sqrt int
+4 decimals output (Increase by a factor of ten thousand): output.sqrt int
 
 Retain multiple decimals output: 
 Integer part: output.sqrt int
-Decimal part: output.dicimal int
+Decimal part: output.decimal int
 ```
 
 ♦ Int sqrt - Continued Fraction Iteration Method: large_number:sqrt_continued_fraction/start
@@ -564,7 +568,7 @@ Denominator: #conti_frac.sqrt.N int
 Continued fraction expression: storage large_number:math conti_frac_sqrt_expression
 ```
 
-♦ Int sqrt - Newton iteration (retain 4 decimals): large_number:newton.s_method_sqrt/int_dicimal.4
+♦ Int sqrt - Newton iteration (retain 4 decimals): large_number:newton.s_method_sqrt/int_decimal.4
 
 The idea is to divide by a constant using an array, without trial division, recursion, or binary tree, utilizing 41 pure scoreboard commands.
 
@@ -579,7 +583,7 @@ Principle: High-precision estimation method. Only the first eight digits are con
 
 Floor: large_number:large_sqrt_digit16
 
-Estimation method for decimals: large_number:large_sqrt_digit16_with_dicimal
+Estimation method for decimals: large_number:large_sqrt_digit16_with_decimal
 
 Long division method for decimals: large_number:large_sqrt_digit16_vertical_method
 
@@ -590,8 +594,8 @@ High-precision mode: set #large_sqrt16.test16 int 1
 
 Output: 
 Integer part: storage large_number:math large_sqrt_digit16.output
-Decimal partv: storage large_number:math large_sqrt_digit16.output_dicimal
-Merge the integer and decimal parts: storage large_number:math large_sqrt_digit16.output_with_dicimal
+Decimal partv: storage large_number:math large_sqrt_digit16.output_decimal
+Merge the integer and decimal parts: storage large_number:math large_sqrt_digit16.output_with_decimal
 ```
 
 The high-precision mode is a feature of the 16-digit integer square root algorithm. In order to pursue efficiency, a high-precision estimation method is used, at the cost of a slight loss of precision in the last digit. This characteristic only occurs when dealing with 16-digit numbers.
@@ -619,7 +623,7 @@ Principle: Cube root estimation algorithm. Take a constant x, where n is the int
 
 Floor: large_number:cube_root/floor
 
-Keep 4 decimal places: large_number:cube_root/4dicimal
+Keep 4 decimal places: large_number:cube_root/4decimal
 
 ```
 Input: #cbrt.input int
@@ -704,6 +708,10 @@ For each number, there is always a sign and a value. In MC's floating-point numb
 
 Additionally, SNBT floating-point numbers can also be input in scientific notation, such as `1.2E3d`, and must include a data unit when using scientific notation.
 
+The precise value of the "double" upper and lower limits is ±1.797693134862315807E308
+
+The minimum absolute value of "double" is 4.9E-324
+
 　
 
 ♦ Double to int - scoreboard format, precision of 8 significant digits
@@ -714,7 +722,6 @@ Quadtree Data Retrieval Method：large_number:float_nbt_to_score/start
 
 ```
 Input：storage large_number:math float_nbt_to_score_input 0.0
-"Quadtree Data Retrieval Method" Input range：[1.797693134862315807E308, 1.797693134862315807E-301]
 
 Output：
 Sign：#float_sign int
@@ -738,7 +745,7 @@ Input double or float
 
 8\~9 length number：large_number:double_sqrt
 
-12\~14length number：large_number:double_sqrt_more_dicimal
+12\~14length number：large_number:double_sqrt_more_decimal
 
 Using a 24-bit "16-bit BCD array" for root extraction, 12 significant digits of the square root of a double were obtained.
 
@@ -760,7 +767,7 @@ Principle: Using the magnification storage method to obtain the base of the doub
 ```
 Input: storage large_number:math double_sqrt.input
 Input double or float.
-Increase precision by four digits: set #New_double_sqrt.dicimal_add int 1
+Increase precision by four digits: set #New_double_sqrt.decimal_add int 1
 
 Output: storage large_number:math double_sqrt.output
 ```
@@ -949,7 +956,11 @@ Clean up temp markers generated during testing:
 execute in minecraft: overworld run kill @e[type=minecraft: marker,tag=large_number.list_operation]
 ```
 
-♦ Generate a random number in the [0,1] range (PCG algorithm)：`execute as b09e-44-fded-6-efa5ffffef64 run function large_number:random/number_0_1/start`
+♦ Generate a random number in the [0,1] range
+
+PCG algorithm：`execute as b09e-44-fded-6-efa5ffffef64 run function large_number:random/number_0_1/start`
+
+LCG algorithm：`execute as 3faf-0-3d00-0-61900f4241f run function large_number:random/number_0_1/lcg`
 
 ```
 Output：storage large_number:math random_number_0_1
@@ -1754,12 +1765,11 @@ Function List (34 functions supported):
 > For example, `sin7+2` should be written as "(sin7)+2", and `ln(2+9)·2-3` should be written as "(ln(2+9))·2－3".
 
 ```
-Function names: exp; sin; cos; arcsin; arccos; arctan; ln; √; Γ; ┕; ºLambertW; ¹LambertW; ||; sgn; []; —; ψ; Σ[1/n]n→; log; atan; eunorm₂; eunorm₃; [0]; >=; <=; ==; ≈≈; >/<; >-<
+Function names: exp; sin; cos; arcsin; arccos; arctan; ln; √; Γ; ┕; ºLambertW; ¹LambertW; ||; sgn; []; [0]; —; ψ; Σ[1/n]n→; log; atan; nroot; eunorm₂; eunorm₃; >=; <=; ==; ≈≈; >/<; >-<; >>; <<; ≥≥; ≤≤;
 
 Introduction:
 
 Unary Operations
-
 expβ = e^β, exponential function, integer powers are recursively multiplied, non-integer powers use a table lookup.
 sinβ = sin(β), in radians.
 cosβ = cos(β), in radians.
@@ -1779,24 +1789,27 @@ sgnβ = sgn(β), sign function.
 —β = Half dash, represents the opposite of β. Note: This symbol is not equivalent to a minus sign; it represents the function of "taking the opposite.".
 ψβ = ψ(β), digamma function, the logarithmic derivative of the Gamma function.
 Σ[1/n]n→β = Sum of the first β terms of the harmonic series.
-Binary Operations
 
+Binary Operations
 αlogβ = Logarithm of β base α.
 αatanβ = atan2(α, β), in radians.
+αnrootβ = Taking the α-th root of β
 αeunorm₂β = √(α²+β²), Euclidean norm of the 2D vector (α, β), both must be non-negative. Calculation method is the trigonometric method.
-α>=β = Logical operation, returns the larger value.
-α<=β = Logical operation, returns the smaller value.
-α==β = Logical operation, strictly checks equality, returns 1 if equal, otherwise 0.
-α >> β = Logical operation, whether α is greater than β
-α << β = Logical operation, whether α is less than β
-α ≥ ≥ β = Logical operation, whether α is greater than or equal to β
-α ≤ ≤ β = Logical operation, whether α is less than or equal to β
 α>/<β = Swap division, β divided by α.
 α>-<β = Swap subtraction, β minus α.
-Ternary Operations
 
+Logical operation
+α>=β = returns the larger value.
+α<=β = returns the smaller value.
+α==β = strictly checks equality, returns 1 if equal, otherwise 0.
+α>>β = whether α is greater than β
+α<<β = whether α is less than β
+α≥≥β = whether α is greater than or equal to β
+α≤≤β = whether α is less than or equal to β
+α≈≈β,δ = error checking, determines if the distance between α and β is within the absolute value of δ, returns 1 if true, otherwise 0. Note: Floating-point errors may cause inaccuracies, e.g., 0.02 might become 0.020000000000000018.
+
+Ternary Operations
 αeunorm₃β,δ = √(α²+β²+δ²), Euclidean norm of the 3D vector (α, β, δ), all must be non-negative. The comma here is a placeholder. Calculation method is the unit vector method.
-α≈≈β,δ = Logical operation, error checking, determines if the distance between α and β is within the absolute value of δ, returns 1 if true, otherwise 0. Note: Floating-point errors may cause inaccuracies, e.g., 0.02 might become 0.020000000000000018.
 ```
 
 Required Libraries:

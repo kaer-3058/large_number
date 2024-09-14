@@ -48,8 +48,8 @@ execute if score #xp_2.input[0] int matches ..-1 run scoreboard players add #xp_
 
 ##开根号
 
-execute unless data storage large_number:math large_sqrt_digit16.input[0] run data remove storage large_number:math large_sqrt_digit16
-execute unless data storage large_number:math large_sqrt_digit16.input[0] run data modify storage large_number:math large_sqrt_digit16.input set value [I;0,0,0,0]
+execute unless data storage large_number:math large_sqrt_digit16.input[3] run data remove storage large_number:math large_sqrt_digit16
+execute unless data storage large_number:math large_sqrt_digit16.input[3] run data modify storage large_number:math large_sqrt_digit16.input set value [I;0,0,0,0]
 data modify storage large_number:math store_large_sqrt_digit16 set from storage large_number:math large_sqrt_digit16
 execute store result storage large_number:math large_sqrt_digit16.input[0] int 1 run scoreboard players get #xp_2.input[1] int
 execute store result storage large_number:math large_sqrt_digit16.input[1] int 1 run scoreboard players get #xp_2.input[2] int

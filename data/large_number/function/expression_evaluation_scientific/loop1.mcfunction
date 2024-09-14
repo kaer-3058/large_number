@@ -88,6 +88,8 @@ execute if data storage large_number:math {stemp1:">/<"} run scoreboard players 
 execute if data storage large_number:math {stemp1:">-<"} run scoreboard players set #sstemp1 int 1
 execute if score #sstemp1 int matches 0 run data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 4
 execute if data storage large_number:math {stemp1:"atan"} run scoreboard players set #sstemp1 int 1
+execute if score #sstemp1 int matches 0 run data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 5
+execute if data storage large_number:math {stemp1:"nroot"} run scoreboard players set #sstemp1 int 1
 execute if score #sstemp1 int matches 0 run data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 6
 execute if data storage large_number:math {stemp1:"arcsin"} run scoreboard players set #sstemp1 int 1
 execute if data storage large_number:math {stemp1:"arccos"} run scoreboard players set #sstemp1 int 1
@@ -120,6 +122,7 @@ execute if score #length1 int matches 1 run data modify storage large_number:mat
 execute if score #length1 int matches 2 run data modify storage large_number:math sstemp1 set string storage large_number:math sstemp1 2
 execute if score #length1 int matches 3 run data modify storage large_number:math sstemp1 set string storage large_number:math sstemp1 3
 execute if score #length1 int matches 4 run data modify storage large_number:math sstemp1 set string storage large_number:math sstemp1 4
+execute if score #length1 int matches 5 run data modify storage large_number:math sstemp1 set string storage large_number:math sstemp1 5
 execute if score #length1 int matches 6 run data modify storage large_number:math sstemp1 set string storage large_number:math sstemp1 6
 execute if score #length1 int matches 7 run data modify storage large_number:math sstemp1 set string storage large_number:math sstemp1 7
 execute if score #length1 int matches 8 run data modify storage large_number:math sstemp1 set string storage large_number:math sstemp1 8

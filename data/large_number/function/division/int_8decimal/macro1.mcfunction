@@ -1,0 +1,1 @@
+$data modify storage large_number:math int_more_decimal_out set value $(temp1)0.$(temp2)E$(temp3)d

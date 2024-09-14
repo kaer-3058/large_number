@@ -19,7 +19,7 @@ data modify storage large_number:math temp2[0].a set string storage large_number
 data modify storage large_number:math temp2[1].a set string storage large_number:math temp1 -4 -3
 data modify storage large_number:math temp2[2].a set string storage large_number:math temp1 -3 -2
 data modify storage large_number:math temp2[3].a set string storage large_number:math temp1 -2 -1
-execute store success score #is_XXEXX int if data storage large_number:math temp2[{a:"E"}]
+execute store success score #is_XXEXX int run data get storage large_number:math temp2[{a:"E"}]
 
 #仅取前16位，如果为科学计数法则拆出指数位
 data modify storage large_number:math temp_expon set value "0"
@@ -45,9 +45,9 @@ data modify storage large_number:math temp3.a set string storage large_number:ma
 data modify storage large_number:math temp_expon set string storage large_number:math temp_expon 1
 data modify storage large_number:math temp_expon_list append from storage large_number:math temp3
 
-execute if data storage large_number:math temp_expon_list[{a:""}] run data remove storage large_number:math temp_expon_list[{a:""}]
-execute if data storage large_number:math temp_expon_list[{a:'.'}] run data remove storage large_number:math temp_expon_list[{a:'.'}]
-execute if data storage large_number:math temp_expon_list[{a:0}] run data remove storage large_number:math temp_expon_list[{a:0}]
+data remove storage large_number:math temp_expon_list[{a:""}]
+data remove storage large_number:math temp_expon_list[{a:'.'}]
+data remove storage large_number:math temp_expon_list[{a:0}]
 execute if data storage large_number:math temp_expon_list[{a:"0"}] run data modify storage large_number:math temp_expon_list[{a:"0"}].a set value 0
 execute if data storage large_number:math temp_expon_list[{a:"1"}] run data modify storage large_number:math temp_expon_list[{a:"1"}].a set value 1
 execute if data storage large_number:math temp_expon_list[{a:"2"}] run data modify storage large_number:math temp_expon_list[{a:"2"}].a set value 2
@@ -60,10 +60,8 @@ execute if data storage large_number:math temp_expon_list[{a:"8"}] run data modi
 execute if data storage large_number:math temp_expon_list[{a:"9"}] run data modify storage large_number:math temp_expon_list[{a:"9"}].a set value 9
 
 execute store result score #double_to_int.expon.3 int run data get storage large_number:math temp_expon_list[-1].a
-data remove storage large_number:math temp_expon_list[-1]
-execute store result score #double_to_int.expon.2 int run data get storage large_number:math temp_expon_list[-1].a 10
-data remove storage large_number:math temp_expon_list[-1]
-execute store result score #double_to_int.expon.1 int run data get storage large_number:math temp_expon_list[-1].a 100
+execute store result score #double_to_int.expon.2 int run data get storage large_number:math temp_expon_list[-2].a 10
+execute store result score #double_to_int.expon.1 int run data get storage large_number:math temp_expon_list[-3].a 100
 
 scoreboard players operation #double_to_int.expon.1 int += #double_to_int.expon.2 int
 scoreboard players operation #double_to_int.expon.1 int += #double_to_int.expon.3 int
@@ -149,9 +147,9 @@ data modify storage large_number:math temp3.a set string storage large_number:ma
 data modify storage large_number:math temp_string_list append from storage large_number:math temp3
 
 #列表索引，批量转化，字符串转化为int数值
-execute if data storage large_number:math temp_string_list[{a:""}] run data remove storage large_number:math temp_string_list[{a:""}]
-execute if data storage large_number:math temp_string_list[{a:'.'}] run data remove storage large_number:math temp_string_list[{a:'.'}]
-execute if data storage large_number:math temp_string_list[{a:0}] run data remove storage large_number:math temp_string_list[{a:0}]
+data remove storage large_number:math temp_string_list[{a:""}]
+data remove storage large_number:math temp_string_list[{a:'.'}]
+data remove storage large_number:math temp_string_list[{a:0}]
 execute if data storage large_number:math temp_string_list[{a:"0"}] run data modify storage large_number:math temp_string_list[{a:"0"}].a set value 0
 execute if data storage large_number:math temp_string_list[{a:"1"}] run data modify storage large_number:math temp_string_list[{a:"1"}].a set value 1
 execute if data storage large_number:math temp_string_list[{a:"2"}] run data modify storage large_number:math temp_string_list[{a:"2"}].a set value 2
@@ -165,36 +163,21 @@ execute if data storage large_number:math temp_string_list[{a:"9"}] run data mod
 
 #从前往后逐位读取到计分板，自动靠前对齐
 execute store result score #double_to_int.1 int run data get storage large_number:math temp_string_list[0].a 1000
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.2 int run data get storage large_number:math temp_string_list[0].a 100
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.3 int run data get storage large_number:math temp_string_list[0].a 10
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.4 int run data get storage large_number:math temp_string_list[0].a
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.5 int run data get storage large_number:math temp_string_list[0].a 1000
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.6 int run data get storage large_number:math temp_string_list[0].a 100
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.7 int run data get storage large_number:math temp_string_list[0].a 10
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.8 int run data get storage large_number:math temp_string_list[0].a
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.9 int run data get storage large_number:math temp_string_list[0].a 1000
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.10 int run data get storage large_number:math temp_string_list[0].a 100
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.11 int run data get storage large_number:math temp_string_list[0].a 10
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.12 int run data get storage large_number:math temp_string_list[0].a
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.13 int run data get storage large_number:math temp_string_list[0].a 1000
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.14 int run data get storage large_number:math temp_string_list[0].a 100
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.15 int run data get storage large_number:math temp_string_list[0].a 10
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.16 int run data get storage large_number:math temp_string_list[0].a
+execute store result score #double_to_int.2 int run data get storage large_number:math temp_string_list[1].a 100
+execute store result score #double_to_int.3 int run data get storage large_number:math temp_string_list[2].a 10
+execute store result score #double_to_int.4 int run data get storage large_number:math temp_string_list[3].a
+execute store result score #double_to_int.5 int run data get storage large_number:math temp_string_list[4].a 1000
+execute store result score #double_to_int.6 int run data get storage large_number:math temp_string_list[5].a 100
+execute store result score #double_to_int.7 int run data get storage large_number:math temp_string_list[6].a 10
+execute store result score #double_to_int.8 int run data get storage large_number:math temp_string_list[7].a
+execute store result score #double_to_int.9 int run data get storage large_number:math temp_string_list[8].a 1000
+execute store result score #double_to_int.10 int run data get storage large_number:math temp_string_list[9].a 100
+execute store result score #double_to_int.11 int run data get storage large_number:math temp_string_list[10].a 10
+execute store result score #double_to_int.12 int run data get storage large_number:math temp_string_list[11].a
+execute store result score #double_to_int.13 int run data get storage large_number:math temp_string_list[12].a 1000
+execute store result score #double_to_int.14 int run data get storage large_number:math temp_string_list[13].a 100
+execute store result score #double_to_int.15 int run data get storage large_number:math temp_string_list[14].a 10
+execute store result score #double_to_int.16 int run data get storage large_number:math temp_string_list[15].a
 
 #合并数字成为万进制int数组
 scoreboard players operation #double_to_int.1 int += #double_to_int.2 int
@@ -228,7 +211,7 @@ data modify storage large_number:math temp2[0].a set string storage large_number
 data modify storage large_number:math temp2[1].a set string storage large_number:math temp1 -4 -3
 data modify storage large_number:math temp2[2].a set string storage large_number:math temp1 -3 -2
 data modify storage large_number:math temp2[3].a set string storage large_number:math temp1 -2 -1
-execute store success score #is_XXEXX int if data storage large_number:math temp2[{a:"E"}]
+execute store success score #is_XXEXX int run data get storage large_number:math temp2[{a:"E"}]
 
 #仅取前16位，如果为科学计数法则拆出指数位
 data modify storage large_number:math temp_expon set value "0"
@@ -254,9 +237,9 @@ data modify storage large_number:math temp3.a set string storage large_number:ma
 data modify storage large_number:math temp_expon set string storage large_number:math temp_expon 1
 data modify storage large_number:math temp_expon_list append from storage large_number:math temp3
 
-execute if data storage large_number:math temp_expon_list[{a:""}] run data remove storage large_number:math temp_expon_list[{a:""}]
-execute if data storage large_number:math temp_expon_list[{a:'.'}] run data remove storage large_number:math temp_expon_list[{a:'.'}]
-execute if data storage large_number:math temp_expon_list[{a:0}] run data remove storage large_number:math temp_expon_list[{a:0}]
+data remove storage large_number:math temp_expon_list[{a:""}]
+data remove storage large_number:math temp_expon_list[{a:'.'}]
+data remove storage large_number:math temp_expon_list[{a:0}]
 execute if data storage large_number:math temp_expon_list[{a:"0"}] run data modify storage large_number:math temp_expon_list[{a:"0"}].a set value 0
 execute if data storage large_number:math temp_expon_list[{a:"1"}] run data modify storage large_number:math temp_expon_list[{a:"1"}].a set value 1
 execute if data storage large_number:math temp_expon_list[{a:"2"}] run data modify storage large_number:math temp_expon_list[{a:"2"}].a set value 2
@@ -269,10 +252,8 @@ execute if data storage large_number:math temp_expon_list[{a:"8"}] run data modi
 execute if data storage large_number:math temp_expon_list[{a:"9"}] run data modify storage large_number:math temp_expon_list[{a:"9"}].a set value 9
 
 execute store result score #double_to_int.expon.3 int run data get storage large_number:math temp_expon_list[-1].a
-data remove storage large_number:math temp_expon_list[-1]
-execute store result score #double_to_int.expon.2 int run data get storage large_number:math temp_expon_list[-1].a 10
-data remove storage large_number:math temp_expon_list[-1]
-execute store result score #double_to_int.expon.1 int run data get storage large_number:math temp_expon_list[-1].a 100
+execute store result score #double_to_int.expon.2 int run data get storage large_number:math temp_expon_list[-2].a 10
+execute store result score #double_to_int.expon.1 int run data get storage large_number:math temp_expon_list[-3].a 100
 
 scoreboard players operation #double_to_int.expon.1 int += #double_to_int.expon.2 int
 scoreboard players operation #double_to_int.expon.1 int += #double_to_int.expon.3 int
@@ -358,9 +339,9 @@ data modify storage large_number:math temp3.a set string storage large_number:ma
 data modify storage large_number:math temp_string_list append from storage large_number:math temp3
 
 #列表索引，批量转化，字符串转化为int数值
-execute if data storage large_number:math temp_string_list[{a:""}] run data remove storage large_number:math temp_string_list[{a:""}]
-execute if data storage large_number:math temp_string_list[{a:'.'}] run data remove storage large_number:math temp_string_list[{a:'.'}]
-execute if data storage large_number:math temp_string_list[{a:0}] run data remove storage large_number:math temp_string_list[{a:0}]
+data remove storage large_number:math temp_string_list[{a:""}]
+data remove storage large_number:math temp_string_list[{a:'.'}]
+data remove storage large_number:math temp_string_list[{a:0}]
 execute if data storage large_number:math temp_string_list[{a:"0"}] run data modify storage large_number:math temp_string_list[{a:"0"}].a set value 0
 execute if data storage large_number:math temp_string_list[{a:"1"}] run data modify storage large_number:math temp_string_list[{a:"1"}].a set value 1
 execute if data storage large_number:math temp_string_list[{a:"2"}] run data modify storage large_number:math temp_string_list[{a:"2"}].a set value 2
@@ -374,36 +355,21 @@ execute if data storage large_number:math temp_string_list[{a:"9"}] run data mod
 
 #从前往后逐位读取到计分板，自动靠前对齐
 execute store result score #double_to_int.1 int run data get storage large_number:math temp_string_list[0].a 1000
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.2 int run data get storage large_number:math temp_string_list[0].a 100
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.3 int run data get storage large_number:math temp_string_list[0].a 10
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.4 int run data get storage large_number:math temp_string_list[0].a
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.5 int run data get storage large_number:math temp_string_list[0].a 1000
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.6 int run data get storage large_number:math temp_string_list[0].a 100
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.7 int run data get storage large_number:math temp_string_list[0].a 10
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.8 int run data get storage large_number:math temp_string_list[0].a
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.9 int run data get storage large_number:math temp_string_list[0].a 1000
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.10 int run data get storage large_number:math temp_string_list[0].a 100
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.11 int run data get storage large_number:math temp_string_list[0].a 10
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.12 int run data get storage large_number:math temp_string_list[0].a
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.13 int run data get storage large_number:math temp_string_list[0].a 1000
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.14 int run data get storage large_number:math temp_string_list[0].a 100
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.15 int run data get storage large_number:math temp_string_list[0].a 10
-data remove storage large_number:math temp_string_list[0]
-execute store result score #double_to_int.16 int run data get storage large_number:math temp_string_list[0].a
+execute store result score #double_to_int.2 int run data get storage large_number:math temp_string_list[1].a 100
+execute store result score #double_to_int.3 int run data get storage large_number:math temp_string_list[2].a 10
+execute store result score #double_to_int.4 int run data get storage large_number:math temp_string_list[3].a
+execute store result score #double_to_int.5 int run data get storage large_number:math temp_string_list[4].a 1000
+execute store result score #double_to_int.6 int run data get storage large_number:math temp_string_list[5].a 100
+execute store result score #double_to_int.7 int run data get storage large_number:math temp_string_list[6].a 10
+execute store result score #double_to_int.8 int run data get storage large_number:math temp_string_list[7].a
+execute store result score #double_to_int.9 int run data get storage large_number:math temp_string_list[8].a 1000
+execute store result score #double_to_int.10 int run data get storage large_number:math temp_string_list[9].a 100
+execute store result score #double_to_int.11 int run data get storage large_number:math temp_string_list[10].a 10
+execute store result score #double_to_int.12 int run data get storage large_number:math temp_string_list[11].a
+execute store result score #double_to_int.13 int run data get storage large_number:math temp_string_list[12].a 1000
+execute store result score #double_to_int.14 int run data get storage large_number:math temp_string_list[13].a 100
+execute store result score #double_to_int.15 int run data get storage large_number:math temp_string_list[14].a 10
+execute store result score #double_to_int.16 int run data get storage large_number:math temp_string_list[15].a
 
 #合并数字成为万进制int数组
 scoreboard players operation #double_to_int.1 int += #double_to_int.2 int
@@ -490,7 +456,6 @@ scoreboard players operation #5.4 int /= 10000 const
 execute store result score #5.4 int run scoreboard players operation #n int += #5.4 int
 scoreboard players operation #5.4 int /= 10000 const
 execute store result score #z int run scoreboard players operation #m int += #5.4 int
-scoreboard players operation #z int /= 10000 const
 
 scoreboard players operation #m int %= 10000 const
 scoreboard players operation #n int %= 10000 const
@@ -506,7 +471,7 @@ execute if score #float_mul.high_precision.input1.sign int matches -1 run data m
 scoreboard players operation #float_mul.high_precision.input1.expon int += #float_mul.high_precision.input2.expon int
 execute store result storage large_number:math sstemp2 int 1 run scoreboard players remove #float_mul.high_precision.input1.expon int 20
 
-execute store result storage large_number:math temp1 int 1 run scoreboard players get #z int
+execute store result storage large_number:math temp1 int 1 run scoreboard players operation #z int /= 10000 const
 execute store result storage large_number:math temp2 int 1 run scoreboard players add #m int 10000
 execute store result storage large_number:math temp3 int 1 run scoreboard players add #n int 10000
 execute store result storage large_number:math temp4 int 1 run scoreboard players add #o int 10000

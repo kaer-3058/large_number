@@ -30,7 +30,7 @@ function large_number:lambertw/start
 
 #ln(x/√(2π))/W(ln(x/√(2π))/e)
 data modify storage large_number:math float_division.input2 set from storage large_number:math lambertw.output
-function large_number:division/float_12dicimal/start
+function large_number:division/float_12decimal/start
 
 #30x
 function large_number:inverse_gamma_function/macro1 with storage large_number:math inverse_gamma_function

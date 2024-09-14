@@ -29,7 +29,7 @@ data modify storage large_number:math temp2[0].a set string storage large_number
 data modify storage large_number:math temp2[1].a set string storage large_number:math temp1 -4 -3
 data modify storage large_number:math temp2[2].a set string storage large_number:math temp1 -3 -2
 data modify storage large_number:math temp2[3].a set string storage large_number:math temp1 -2 -1
-execute store success score #is_XXEXX int if data storage large_number:math temp2[{a:"E"}]
+execute store success score #is_XXEXX int run data get storage large_number:math temp2[{a:"E"}]
 
 #如果为科学计数法则拆出指数位
 data modify storage large_number:math temp_expon set value "0"
@@ -77,12 +77,12 @@ execute store result storage large_number:math sstemp_kln2 double .6931471805599
 
 #f=x/(2^[log2(x)])-1
 data modify storage large_number:math float_division.input1 set from storage large_number:math ln_la_temp3
-function large_number:division/float_12dicimal/start
+function large_number:division/float_12decimal/start
 execute as b09e-44-fded-6-efa5ffffef64 run function large_number:ln_high_precision/as_entity_1
 
 #中间变量，s=f(2+f)
 data modify storage large_number:math float_division.input1 set from storage large_number:math sstemp_f
-function large_number:division/float_12dicimal/start
+function large_number:division/float_12decimal/start
 data modify storage large_number:math sstemp_s set from storage large_number:math float_division.output
 
 #ff/2
@@ -99,7 +99,7 @@ data modify storage large_number:math temp2[0].a set string storage large_number
 data modify storage large_number:math temp2[1].a set string storage large_number:math temp1 -4 -3
 data modify storage large_number:math temp2[2].a set string storage large_number:math temp1 -3 -2
 data modify storage large_number:math temp2[3].a set string storage large_number:math temp1 -2 -1
-execute store success score #is_XXEXX int if data storage large_number:math temp2[{a:"E"}]
+execute store success score #is_XXEXX int run data get storage large_number:math temp2[{a:"E"}]
 
 #如果为科学计数法则拆出指数位
 data modify storage large_number:math temp_expon set value "0"

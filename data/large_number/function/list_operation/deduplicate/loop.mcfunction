@@ -1,6 +1,6 @@
 data modify storage large_number:math temp2 set from storage large_number:math temp1[0]
 data remove storage large_number:math temp1[0]
-execute store result score #temp1 int if data storage large_number:math temp1[]
+execute store result score #temp1 int run data get storage large_number:math temp1
 data modify storage large_number:math temp4 set from storage large_number:math temp1
 execute store result score #temp2 int run data modify storage large_number:math temp4[] set from storage large_number:math temp2
 scoreboard players operation #temp2 int *= -1 const

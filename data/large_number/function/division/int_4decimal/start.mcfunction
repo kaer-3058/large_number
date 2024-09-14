@@ -1,10 +1,10 @@
 ##整数除法 - 4位有效数字
 
-#被除数：scoreboard players set #int_+dicimal.input1 int 7458
-#除数：scoreboard players set #int_+dicimal.input2 int 617
+#被除数：scoreboard players set #int_+decimal.input1 int 7458
+#除数：scoreboard players set #int_+decimal.input2 int 617
 
-scoreboard players operation #float_int0 int = #int_+dicimal.input1 int
-scoreboard players operation #Divisor_float_int0 int = #int_+dicimal.input2 int
+scoreboard players operation #float_int0 int = #int_+decimal.input1 int
+scoreboard players operation #Divisor_float_int0 int = #int_+decimal.input2 int
 
 #载入被除数
 scoreboard players set #float_sign int 1
@@ -84,4 +84,4 @@ execute store result storage large_number:math temp3 int 1 run scoreboard player
 data modify storage large_number:math temp1 set value ""
 execute if score #float_sign int matches -1 run data modify storage large_number:math temp1 set value "-"
 execute store result storage large_number:math temp2 int 1 run scoreboard players get #float_int0 int
-function large_number:division/int_8dicimal/macro1 with storage large_number:math
+function large_number:division/int_8decimal/macro1 with storage large_number:math

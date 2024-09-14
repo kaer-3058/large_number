@@ -216,7 +216,7 @@ set #float_exp int 23
 
 8位有效数字：large_number:division/float/start
 
-12位有效数字：large_number:division/float_12dicimal/start
+12位有效数字：large_number:division/float_12decimal/start
 
 皆可输入float或double型
 
@@ -242,7 +242,7 @@ set #float_exp int 23
 商的正负号：storage large_number:math list_div_const.output_sign
 ```
 
-♦ 无穷多位有效数字的除法：large_number:division/loop_more_more_dicimal/start
+♦ 无穷多位有效数字的除法：large_number:division/loop_more_more_decimal/start
 
 ```
 被除数
@@ -255,11 +255,11 @@ set #float_exp int 23
 #Divisor_float_int0 int (输入值的前八位有效数字。取值为10000000~99999999或0)
 #Divisor_float_exp int (指数，范围是全int)
 
-有效数字的位数：#loop_more_more_dicimal_times int
+有效数字的位数：#loop_more_more_decimal_times int
 
 商：
 #float_sign int (符号)
-storage large_number:math loop_more_more_dicimal_base (底数)
+storage large_number:math loop_more_more_decimal_base (底数)
 #float_exp int (指数)
 
 输出的底数是个列表，读数方式是把每个元素从前往后写出来，在最前面加上0.
@@ -267,7 +267,11 @@ storage large_number:math loop_more_more_dicimal_base (底数)
 则它们表示的数字就是1*0.00190370*10^12
 ```
 
-♦ 对浮点数取倒数：large_number:division/float_reciprocal/start
+♦ 对浮点数取倒数
+
+8位小数：large_number:division/float_reciprocal_8_dici/start
+
+12位小数：large_number:division/float_reciprocal/start
 
 可输入float或double型
 
@@ -280,19 +284,19 @@ storage large_number:math loop_more_more_dicimal_base (底数)
 
 ♦ 整数除法 
 
-4位有效数字：large_number:division/int_4dicimal/start
+4位有效数字：large_number:division/int_4decimal/start
 
-8位有效数字：large_number:division/int_8dicimal/start
+8位有效数字：large_number:division/int_8decimal/start
 
-12位有效数字：large_number:division/int_12dicimal/start
+12位有效数字：large_number:division/int_12decimal/start
 
 作为浮点除法的推广，虽然可接受全int，但实际上只取被除数和除数的前八位
 
 ```
-被除数：#int_+dicimal.input1 int
-除数：#int_+dicimal.input2 int
+被除数：#int_+decimal.input1 int
+除数：#int_+decimal.input2 int
 
-商：storage large_number:math int_more_dicimal_out
+商：storage large_number:math int_more_decimal_out
 ```
 
 ♦ 数组除以整数 (多位有效数字)：large_number:division/list_div_int/start
@@ -505,7 +509,7 @@ execute align+实体tp只能处理区间 (-30000000.0, 30000000.0) 的数，而�
 
 保留四位小数 (32条纯记分板命令)：large_number:int_sqrt
 
-保留多位小数：large_number:test_int_more_dicimal
+保留多位小数：large_number:test_int_more_decimal
 
 开1\~5位，保留9位；开6\~7位，保留8位；开8~10位，保留7位
 
@@ -523,7 +527,7 @@ execute align+实体tp只能处理区间 (-30000000.0, 30000000.0) 的数，而�
 
 保留多位小数的输出：
 整数部分：output.sqrt int
-小数部分：output.dicimal int
+小数部分：output.decimal int
 ```
 
 ♦ 整型数字开方 - 连分数迭代法：large_number:sqrt_continued_fraction/start
@@ -564,7 +568,7 @@ $$
 连分数表达式：storage large_number:math conti_frac_sqrt_expression
 ```
 
-♦ 整型数字开方 - 牛顿迭代法 (保留四位小数)：large_number:newton.s_method_sqrt/int_dicimal.4
+♦ 整型数字开方 - 牛顿迭代法 (保留四位小数)：large_number:newton.s_method_sqrt/int_decimal.4
 
 以数组除以常数为思路，无试除，无递归，无二分树，41条纯记分板命令
 
@@ -579,7 +583,7 @@ $$
 
 取整：large_number:large_sqrt_digit16
 
-估值法取小数：large_number:large_sqrt_digit16_with_dicimal
+估值法取小数：large_number:large_sqrt_digit16_with_decimal
 
 竖式法取小数：large_number:large_sqrt_digit16_vertical_method
 
@@ -590,8 +594,8 @@ $$
 
 输出：
 整数部分：storage large_number:math large_sqrt_digit16.output
-小数部分：storage large_number:math large_sqrt_digit16.output_dicimal
-整数和小数两部分合并：storage large_number:math large_sqrt_digit16.output_with_dicimal
+小数部分：storage large_number:math large_sqrt_digit16.output_decimal
+整数和小数两部分合并：storage large_number:math large_sqrt_digit16.output_with_decimal
 ```
 
 高精度模式是16位整数开方算法的特性，为了追求高效率选用了高精度猜测法，代价是最后一位会有稍许的精度损失。仅在处理16位数的时候会有这种特性。
@@ -619,7 +623,7 @@ $$
 
 取整：large_number:cube_root/floor
 
-保留四位小数：large_number:cube_root/4dicimal
+保留四位小数：large_number:cube_root/4decimal
 
 ```
 输入：#cbrt.input int
@@ -696,8 +700,11 @@ storage large_number:math double_norm_3d.z 1.0d
 
 - 如果前导0数量为1到3个(MC浮点数最多存在三个前导0)，则小数点位置必定为2，指数必定为0。
 
-
 此外，SNBT的浮点数也可以以科学记数法的形式输入，比如1.2E3d，以科学记数法形式输入时必须带数据单位。
+
+double上下限的精确值是±1.797693134862315807E308
+
+double的绝对值最小值是4.9E-324
 
 　
 
@@ -709,7 +716,6 @@ storage large_number:math double_norm_3d.z 1.0d
 
 ```
 输入：storage large_number:math float_nbt_to_score_input 0.0
-"四分树取数法"输入范围：[1.797693134862315807E308, 1.797693134862315807E-301]
 
 输出：
 符号：#float_sign int
@@ -733,7 +739,7 @@ storage large_number:math double_norm_3d.z 1.0d
 
 8\~9位有效数字：large_number:double_sqrt
 
-12\~14位有效数字：large_number:double_sqrt_more_dicimal
+12\~14位有效数字：large_number:double_sqrt_more_decimal
 
 用24位数组开根法取出了double开根号的12位有效数字
 
@@ -757,7 +763,7 @@ storage large_number:math double_norm_3d.z 1.0d
 ```
 输入：storage large_number:math double_sqrt.input
 可输入double型/float型
-精度增加四位：set #New_double_sqrt.dicimal_add int 1
+精度增加四位：set #New_double_sqrt.decimal_add int 1
 
 输出：storage large_number:math double_sqrt.output
 ```
@@ -949,7 +955,11 @@ kill @e[type=minecraft:marker,tag=large_number.list_operation]
 kill @e[type=minecraft:marker,tag=large_number.list_operation]
 ```
 
-♦ 生成一个[0,1]区间的随机数 (PCG算法)：`execute as b09e-44-fded-6-efa5ffffef64 run function large_number:random/number_0_1/start`
+♦ 生成一个[0,1]区间的随机数
+
+PCG算法：`execute as b09e-44-fded-6-efa5ffffef64 run function large_number:random/number_0_1/pcg`
+
+LCG算法：`execute as 3faf-0-3d00-0-61900f4241f run function large_number:random/number_0_1/lcg`
 
 ```
 输出：storage large_number:math random_number_0_1
@@ -1750,7 +1760,7 @@ ln的初始数据库：function large_number:ln/ln_database
 > 例如sin7+2应写成"(sin7)+2"，ln(2+9)·2-3应写成"(ln(2+9))·2－3"
 
 ```
-函数名称：exp; sin; cos; arcsin; arccos; arctan; ln; √; Γ; ┕; ºLambertW; ¹LambertW; ||; sgn; []; —; ψ; Σ[1/n]n→; log; atan; eunorm₂; eunorm₃; [0]; >=; <=; ==; ≈≈; >/<; >-< 
+函数名称：exp; sin; cos; arcsin; arccos; arctan; ln; √; Γ; ┕; ºLambertW; ¹LambertW; ||; sgn; []; [0]; —; ψ; Σ[1/n]n→; log; atan; nroot; eunorm₂; eunorm₃; >=; <=; ==; ≈≈; >/<; >-<; >>; <<; ≥≥; ≤≤;
 
 介绍：
 
@@ -1778,21 +1788,24 @@ sgnβ = sgn(β)，符号函数
 二元运算
 αlogβ = 以α为底β的对数
 αatanβ = atan2(α,β) 弧度制
+αnrootβ = 对β开α次根
 αeunorm₂β = √(α²+β²)，二维向量(α,β)的欧氏范数，必须都是非负数，计算方法是三角函数法。
-α>=β = 逻辑运算，取较大值
-α<=β = 逻辑运算，取较小值
-α==β = 逻辑运算，严格判断是否相等，相等为1，否则为0
-α>>β = 逻辑运算，α是否大于β
-α<<β = 逻辑运算，α是否小于β
-α≥≥β = 逻辑运算，α是否大于等于β
-α≤≤β = 逻辑运算，α是否小于等于β
 α>/<β = 交换除，β除以α
 α>-<β = 交换减，β减α
 
-三元运算
-αeunorm₃β,δ = √(α²+β²+δ²)，三维向量(α,β,δ)的欧氏范数，必须都是非负数。此处的逗号仅作为把数字分开的占位符。计算方法是单位向量法。
+逻辑运算
+α>=β = 取较大值
+α<=β = 取较小值
+α==β = 严格判断是否相等，相等为1，否则为0
+α>>β = α是否大于β
+α<<β = α是否小于β
+α≥≥β = α是否大于等于β
+α≤≤β = α是否小于等于β
 α≈≈β,δ = 逻辑运算，误差判断，判断α和β的距离是否在δ的绝对值以内，是为1，否则为0
 注：可能会因浮点误差导致判断失误，例如0.02在计算时变为0.020000000000000018
+
+三元运算
+αeunorm₃β,δ = √(α²+β²+δ²)，三维向量(α,β,δ)的欧氏范数，必须都是非负数。此处的逗号仅作为把数字分开的占位符。计算方法是单位向量法。
 ```
 
 需要的前置库：

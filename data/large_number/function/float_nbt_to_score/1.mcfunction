@@ -17,7 +17,7 @@ data modify storage large_number:math temp2[0].a set string storage large_number
 data modify storage large_number:math temp2[1].a set string storage large_number:math temp1 -4 -3
 data modify storage large_number:math temp2[2].a set string storage large_number:math temp1 -3 -2
 data modify storage large_number:math temp2[3].a set string storage large_number:math temp1 -2 -1
-execute store success score #is_XXEXX int if data storage large_number:math temp2[{a:"E"}]
+execute store success score #is_XXEXX int run data get storage large_number:math temp2[{a:"E"}]
 
 #如果为科学计数法则拆出指数位
 data modify storage large_number:math temp_expon set value "0"
@@ -35,7 +35,8 @@ execute if score #float_int0 int matches 100000000.. if score #_exp int matches 
 execute if score #float_int0 int matches 100000000.. if score #_exp int matches -304..-153 store result score #float_int0 int run function large_number:float_nbt_to_score/tree/17-32
 execute store success score #is- int if score #float_int0 int matches ..9999999
 execute if score #float_int0 int matches ..9999999 if score #_exp int matches -152..-1 store result score #float_int0 int run function large_number:float_nbt_to_score/tree/_1/1-16
-execute if score #float_int0 int matches ..9999999 if score #_exp int matches -304..-153 store result score #float_int0 int run function large_number:float_nbt_to_score/tree/_1/17-33
+execute if score #float_int0 int matches ..9999999 if score #_exp int matches ..-153 store result score #float_int0 int run function large_number:float_nbt_to_score/tree/_1/17-33
+execute if score #float_int0 int matches ..9999999 if score #_exp int matches ..-309 run function large_number:float_nbt_to_score/small_number
 
 execute if score #__exp int matches 0 unless score #float_int0 int matches 10000000..99999999 run function large_number:float_nbt_to_score/tree/0/1
 execute if score #__exp int matches 0 unless score #float_int0 int matches 10000000..99999999 run function large_number:float_nbt_to_score/tree/0/2

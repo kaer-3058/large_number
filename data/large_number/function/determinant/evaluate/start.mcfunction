@@ -7,7 +7,7 @@
 
 #判断行列式阶数
 data modify storage large_number:math temp1 set from storage large_number:math determinant_evaluate.input
-execute store result score #determinant.order int if data storage large_number:math temp1[]
+execute store result score #determinant.order int run data get storage large_number:math temp1
 scoreboard players operation #temp2 int = #determinant.order int
 execute store result score #temp1 int if data storage large_number:math temp1[][]
 scoreboard players operation #temp2 int *= #temp2 int

@@ -1,8 +1,8 @@
-scoreboard players operation #int_+dicimal.input1 int = #loop int
-scoreboard players operation #int_+dicimal.input1 int *= 2 const
-scoreboard players operation #int_+dicimal.input2 int = #heart-shaped_line.r int
-function large_number:division/int_8dicimal/start
-execute store result score #arcsin_cos.input int run data get storage large_number:math int_more_dicimal_out 10000
+scoreboard players operation #int_+decimal.input1 int = #loop int
+scoreboard players operation #int_+decimal.input1 int *= 2 const
+scoreboard players operation #int_+decimal.input2 int = #heart-shaped_line.r int
+function large_number:division/int_8decimal/start
+execute store result score #arcsin_cos.input int run data get storage large_number:math int_more_decimal_out 10000
 execute unless score #arcsin_cos.input int matches ..-1 run scoreboard players operation #arcsin_cos.input int *= -1 const
 execute store result score #x int store result score #sstemp1 int run scoreboard players add #arcsin_cos.input int 10000
 scoreboard players operation #sstemp1 int *= #sstemp1 int

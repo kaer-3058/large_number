@@ -28,7 +28,7 @@ data modify storage large_number:math float_add_subtra.input2 set from storage l
 function large_number:float_add_subtra/start
 
 data modify storage large_number:math float_division.input1 set from storage large_number:math float_add_subtra.output
-function large_number:division/float_12dicimal/start
+function large_number:division/float_12decimal/start
 data modify storage large_number:math double_norm_3d.output set from storage large_number:math float_division.output
 
 tp @s .0 .0 .0 .0 .0

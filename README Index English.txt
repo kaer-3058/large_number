@@ -1,6 +1,6 @@
 README Index
 
-Current version (v.1.16) includes a total of 146 algorithms.
+Current version (v.1.16) includes a total of 148 algorithms.
 ♦ Const
 ♦ Trigonometric functions
 ♦ sin and cos
@@ -15,7 +15,7 @@ Current version (v.1.16) includes a total of 146 algorithms.
 ♦ Floating-point division - Data from the nbt [2 Sub-algorithm]
 ♦ Divide a 12-digit array by a const (with 4 decimal)
 ♦ Division with an infinite number of significant digits
-♦ Taking the reciprocal of a floating-point number
+♦ Taking the reciprocal of a floating-point number [2 Sub-algorithm]
 ♦ Int division [3 Sub-algorithm]
 ♦ Array division by an int (multiple significant digits)
 ♦ Arbitrary integer multiplication
@@ -57,7 +57,7 @@ Current version (v.1.16) includes a total of 146 algorithms.
 ♦ Random Number Generation - Normal Distribution
 ♦ Random Number Generation - Uniform Distribution (PCG algorithm)
 ♦ Random Number Generation - Hypergeometric Distribution
-♦ Generate a random number in the [0,1] range (PCG algorithm)
+♦ Generate a random number in the [0,1] range [2 Sub-algorithm]
 ♦ Exponential Function [3 Sub-algorithm]
 ♦ Int Exponentiation
 ♦ Exponentiation of Floating-Point Numbers

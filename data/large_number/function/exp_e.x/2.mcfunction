@@ -22,7 +22,7 @@ data modify storage large_number:math temp2[0].a set string storage large_number
 data modify storage large_number:math temp2[1].a set string storage large_number:math temp1 -4 -3
 data modify storage large_number:math temp2[2].a set string storage large_number:math temp1 -3 -2
 data modify storage large_number:math temp2[3].a set string storage large_number:math temp1 -2 -1
-execute store success score #is_XXEXX int if data storage large_number:math temp2[{a:"E"}]
+execute store success score #is_XXEXX int run data get storage large_number:math temp2[{a:"E"}]
 
 execute store result storage large_number:math temp1 int 1 run data get storage large_number:math store_exp_e_x_input
 
@@ -35,8 +35,8 @@ data modify storage large_number:math temp_e^x_inte set from storage large_numbe
 execute store result score #stemp2 int store result storage large_number:math temp1 int 1 run data get storage large_number:math store_exp_e_x_input 1000
 execute store result storage large_number:math temp1 int 1 run scoreboard players add #stemp2 int 1000
 data modify storage large_number:math temp1 set string storage large_number:math temp1 -3
-function large_number:exp_e.x/macro2.e.x.dicimal.1-3 with storage large_number:math
-data modify storage large_number:math temp_e^x_dicimal_1-3 set from storage large_number:math s0
+function large_number:exp_e.x/macro2.e.x.decimal.1-3 with storage large_number:math
+data modify storage large_number:math temp_e^x_decimal_1-3 set from storage large_number:math s0
 
 #取三位小数及以后的数
 data modify storage large_number:math temp1 set value ""
@@ -61,8 +61,8 @@ data modify storage large_number:math temp2 set string storage large_number:math
 data modify storage large_number:math temp1 set string storage large_number:math temp1
 execute store result score #temp3 int run data get storage large_number:math temp2
 execute store result score #temp4 int run data get storage large_number:math temp1
-execute store result score #1.1 int run function large_number:exp_e.x/macro3.dicimal4--_div2 with storage large_number:math
-execute store result score #1.3 int run function large_number:exp_e.x/macro3.dicimal4--_div3 with storage large_number:math
+execute store result score #1.1 int run function large_number:exp_e.x/macro3.decimal4--_div2 with storage large_number:math
+execute store result score #1.3 int run function large_number:exp_e.x/macro3.decimal4--_div3 with storage large_number:math
 execute if score #temp3 int matches 1 run scoreboard players operation #1.1 int *= 10000 const
 execute if score #temp3 int matches 2 run scoreboard players operation #1.1 int *= 1000 const
 execute if score #temp3 int matches 3 run scoreboard players operation #1.1 int *= 100 const
@@ -167,13 +167,13 @@ function large_number:exp_e.x/macro5.score_for_float with storage large_number:m
 data modify storage large_number:math temp_taylor_remainder set from storage large_number:math q1
 
 #data get storage large_number:math temp_e^x_inte
-#data get storage large_number:math temp_e^x_dicimal_1-3
+#data get storage large_number:math temp_e^x_decimal_1-3
 #data get storage large_number:math temp_taylor_remainder
 
 ##浮点乘法
 
 data modify storage large_number:math float_multiply.input2 set from storage large_number:math temp_e^x_inte
-data modify storage large_number:math float_multiply.input1 set from storage large_number:math temp_e^x_dicimal_1-3
+data modify storage large_number:math float_multiply.input1 set from storage large_number:math temp_e^x_decimal_1-3
 function large_number:float_mul.high_precision/start
 
 data modify storage large_number:math float_multiply.input1 set from storage large_number:math float_multiply.output

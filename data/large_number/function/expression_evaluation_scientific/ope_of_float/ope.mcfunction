@@ -58,6 +58,7 @@ execute if data storage large_number:math {stemp_expression1:">>"} run function 
 execute if data storage large_number:math {stemp_expression1:"<<"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_37
 execute if data storage large_number:math {stemp_expression1:"≥≥"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_38
 execute if data storage large_number:math {stemp_expression1:"≤≤"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_39
+execute if data storage large_number:math {stemp_expression1:"nroot"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_40
 
 
 execute if score #expression_evaluation_test2 int matches 1.. run data remove storage large_number:math temp_expression_s1[-1]

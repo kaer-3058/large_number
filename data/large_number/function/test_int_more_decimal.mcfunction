@@ -126,7 +126,7 @@ execute unless score input.sqrt int matches 1..9999999 run scoreboard players se
 execute if score input.sqrt int matches 1..9 run scoreboard players operation #7.1 int *= 100000 const
 execute if score input.sqrt int matches 10..999 run scoreboard players operation #7.1 int *= 1000000 const
 execute unless score input.sqrt int matches 1..999 run scoreboard players operation #7.1 int *= 10000000 const
-execute store result score output.dicimal int run scoreboard players operation #7.1 int += #10.1 int
+execute store result score output.decimal int run scoreboard players operation #7.1 int += #10.1 int
 
 #被开方数1~5位时，开方结果保留9位小数
 #被开方数6~7位时，开方结果保留8位小数

@@ -20,7 +20,7 @@ execute if data storage large_number:math temp1[0] run function large_number:ran
 data modify storage large_number:math temp1 set from storage large_number:math temp2
 data modify storage large_number:math temp2 set value []
 
-execute store result score #list_length int if data storage large_number:math temp1[]
+execute store result score #list_length int run data get storage large_number:math temp1
 execute store result score #marker_number int if entity @e[type=minecraft:marker]
 scoreboard players operation #temp1 int = #list_length int
 scoreboard players operation #temp1 int -= #marker_number int

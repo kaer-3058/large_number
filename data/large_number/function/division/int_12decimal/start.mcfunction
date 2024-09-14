@@ -1,10 +1,10 @@
-##整数除法 - 8位有效数字
+##整数除法 - 12位有效数字
 
-#被除数：scoreboard players set #int_+dicimal.input1 int 7458
-#除数：scoreboard players set #int_+dicimal.input2 int 617
+#被除数：scoreboard players set #int_+decimal.input1 int 7458
+#除数：scoreboard players set #int_+decimal.input2 int 617
 
-scoreboard players operation #float_int0 int = #int_+dicimal.input1 int
-scoreboard players operation #Divisor_float_int0 int = #int_+dicimal.input2 int
+scoreboard players operation #float_int0 int = #int_+decimal.input1 int
+scoreboard players operation #Divisor_float_int0 int = #int_+decimal.input2 int
 
 #载入被除数
 scoreboard players set #float_sign int 1
@@ -60,6 +60,7 @@ execute if score #temp1 int matches 100000000..999999999 run scoreboard players 
 execute if score #temp1 int matches 1000000000..2147483647 run scoreboard players operation #Divisor_float_int0 int /= 100 const
 execute if score #temp1 int matches 1000000000..2147483647 run scoreboard players add #Divisor_float_exp int 10
 
+scoreboard players operation #float_int1 int = #float_int0 int
 scoreboard players operation #sstempd int = #Divisor_float_int0 int
 
 scoreboard players operation #sstemp0 int = #sstempd int
@@ -92,6 +93,45 @@ scoreboard players operation #float_int0 int += #float_int2 int
 #对齐小数点
 execute if score #float_int0 int matches 100000000.. run scoreboard players add #float_exp int 1
 
+scoreboard players operation #float_int1 int %= #Divisor_float_int0 int
+scoreboard players operation #float_int1 int *= 10 const
+scoreboard players operation #float_int1 int %= #Divisor_float_int0 int
+scoreboard players operation #float_int1 int *= 10 const
+scoreboard players operation #float_int1 int %= #Divisor_float_int0 int
+scoreboard players operation #float_int1 int *= 10 const
+scoreboard players operation #float_int1 int %= #Divisor_float_int0 int
+scoreboard players operation #float_int1 int *= 10 const
+scoreboard players operation #float_int1 int %= #Divisor_float_int0 int
+scoreboard players operation #float_int1 int *= 10 const
+scoreboard players operation #float_int1 int %= #Divisor_float_int0 int
+scoreboard players operation #float_int1 int *= 10 const
+scoreboard players operation #float_int1 int %= #Divisor_float_int0 int
+scoreboard players operation #float_int1 int *= 10 const
+execute unless score #float_int0 int matches 100000000.. run scoreboard players operation #float_int1 int %= #Divisor_float_int0 int
+execute unless score #float_int0 int matches 100000000.. run scoreboard players operation #float_int1 int *= 10 const
+
+execute if score #float_int0 int matches 100000000.. run scoreboard players operation #float_int0 int /= 10 const
+
+scoreboard players operation #stemp1 int = #float_int1 int
+scoreboard players operation #float_int1 int /= #Divisor_float_int0 int
+scoreboard players operation #stemp1 int %= #Divisor_float_int0 int
+scoreboard players operation #stemp1 int *= 10 const
+scoreboard players operation #stemp2 int = #stemp1 int
+scoreboard players operation #stemp1 int /= #Divisor_float_int0 int
+scoreboard players operation #stemp2 int %= #Divisor_float_int0 int
+scoreboard players operation #stemp2 int *= 10 const
+scoreboard players operation #stemp3 int = #stemp2 int
+scoreboard players operation #stemp2 int /= #Divisor_float_int0 int
+scoreboard players operation #stemp3 int %= #Divisor_float_int0 int
+scoreboard players operation #stemp3 int *= 10 const
+scoreboard players operation #stemp3 int /= #Divisor_float_int0 int
+scoreboard players operation #float_int1 int *= 10 const
+scoreboard players operation #float_int1 int += #stemp1 int
+scoreboard players operation #float_int1 int *= 10 const
+scoreboard players operation #float_int1 int += #stemp2 int
+scoreboard players operation #float_int1 int *= 10 const
+scoreboard players operation #float_int1 int += #stemp3 int
+
 #符号位
 scoreboard players operation #float_sign int *= #Divisor_float_sign int
 
@@ -102,4 +142,6 @@ execute store result storage large_number:math temp3 int 1 run scoreboard player
 data modify storage large_number:math temp1 set value ""
 execute if score #float_sign int matches -1 run data modify storage large_number:math temp1 set value "-"
 execute store result storage large_number:math temp2 int 1 run scoreboard players get #float_int0 int
-function large_number:division/int_8dicimal/macro1 with storage large_number:math
+execute store result storage large_number:math temp4 int 1 run scoreboard players add #float_int1 int 10000
+data modify storage large_number:math temp4 set string storage large_number:math temp4 1
+function large_number:division/int_12decimal/macro1 with storage large_number:math

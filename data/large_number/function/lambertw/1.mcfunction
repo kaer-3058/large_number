@@ -1,13 +1,13 @@
 data modify storage large_number:math ln_double.input set from storage large_number:math lambertw.input
 function large_number:ln_double/start
-execute store result score #ln(x) int run scoreboard players operation #int_+dicimal.input2 int = #ln_double.output int
+execute store result score #ln(x) int run scoreboard players operation #int_+decimal.input2 int = #ln_double.output int
 function large_number:ln/start
-execute store result score #int_+dicimal.input1 int run scoreboard players remove #ln(x).output int 92103
+execute store result score #int_+decimal.input1 int run scoreboard players remove #ln(x).output int 92103
 
 ##整数除法 - 8位有效数字
 
-scoreboard players operation #float_int0 int = #int_+dicimal.input1 int
-scoreboard players operation #Divisor_float_int0 int = #int_+dicimal.input2 int
+scoreboard players operation #float_int0 int = #int_+decimal.input1 int
+scoreboard players operation #Divisor_float_int0 int = #int_+decimal.input2 int
 
 #载入被除数
 scoreboard players set #float_exp int -4
@@ -89,5 +89,5 @@ execute store result storage large_number:math temp3 int 1 run scoreboard player
 execute store result storage large_number:math temp2 int 1 run scoreboard players get #float_int0 int
 function large_number:lambertw/macro2 with storage large_number:math
 
-execute store result storage large_number:math temp_ln1 double 0.0001 run scoreboard players operation #int_+dicimal.input2 int -= #int_+dicimal.input1 int
+execute store result storage large_number:math temp_ln1 double 0.0001 run scoreboard players operation #int_+decimal.input2 int -= #int_+decimal.input1 int
 execute as b09e-44-fded-6-efa5ffffef64 run function large_number:lambertw/as_entity

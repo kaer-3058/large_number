@@ -2,7 +2,7 @@
 #基础59条命令，如果输入的是科学记数法则加12条，如果选择精度增加四位则加9条，最多80条命令
 
 #输入：data modify storage large_number:math double_sqrt.input set value 0.0d
-#精度增加四位：scoreboard players set #New_double_sqrt.dicimal_add int 1
+#精度增加四位：scoreboard players set #New_double_sqrt.decimal_add int 1
 
 #新架构的变化：
 #1.取数的数位不再是最多取前16位，而是最多取前10位
@@ -20,7 +20,7 @@ data modify storage large_number:math temp2[0].a set string storage large_number
 data modify storage large_number:math temp2[1].a set string storage large_number:math temp1 -4 -3
 data modify storage large_number:math temp2[2].a set string storage large_number:math temp1 -3 -2
 data modify storage large_number:math temp2[3].a set string storage large_number:math temp1 -2 -1
-execute store success score #is_XXEXX int if data storage large_number:math temp2[{a:"E"}]
+execute store success score #is_XXEXX int run data get storage large_number:math temp2[{a:"E"}]
 
 #如果为科学计数法则拆出指数位
 data modify storage large_number:math temp_expon set value "0"
@@ -58,8 +58,8 @@ scoreboard players operation #double_sqrt.int_output int /= 2 const
 scoreboard players operation #inp int /= #double_sqrt.int_output int
 execute if score #double_sqrt.int_output int > #inp int run scoreboard players remove #double_sqrt.int_output int 1
 
-execute if score #New_double_sqrt.dicimal_add int matches 1 run function large_number:new_double_ope/double_add_4
-execute unless score #New_double_sqrt.dicimal_add int matches 1 run scoreboard players operation #double_sqrt.int_output int *= 10000 const
+execute if score #New_double_sqrt.decimal_add int matches 1 run function large_number:new_double_ope/double_add_4
+execute unless score #New_double_sqrt.decimal_add int matches 1 run scoreboard players operation #double_sqrt.int_output int *= 10000 const
 
 
 #处理开方结果的指数

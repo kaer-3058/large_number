@@ -95,20 +95,20 @@ scoreboard players operation #digit1.2 int -= #x int
 scoreboard players operation #digit1.2 int *= 10000 const
 scoreboard players operation #digit1.2 int += #digit1.3 int
 scoreboard players operation #digit1.2 int *= 10000 const
-execute store result score #int_+dicimal.input1 int run scoreboard players operation #digit1.2 int += #digit1.4 int
+execute store result score #int_+decimal.input1 int run scoreboard players operation #digit1.2 int += #digit1.4 int
 
 #估值算法的分子
-scoreboard players operation #int_+dicimal.input2 int = #large_sqrt_digit16.output int
-scoreboard players operation #int_+dicimal.input2 int *= 2 const
-scoreboard players add #int_+dicimal.input2 int 1
+scoreboard players operation #int_+decimal.input2 int = #large_sqrt_digit16.output int
+scoreboard players operation #int_+decimal.input2 int *= 2 const
+scoreboard players add #int_+decimal.input2 int 1
 
 #除法
-function large_number:division/int_12dicimal/start
-data modify storage large_number:math large_sqrt_digit16.output_dicimal set from storage large_number:math int_more_dicimal_out
+function large_number:division/int_12decimal/start
+data modify storage large_number:math large_sqrt_digit16.output_decimal set from storage large_number:math int_more_decimal_out
 
 #整合
 execute store result storage large_number:math float_add_subtra.input1 double 1 run scoreboard players get #large_sqrt_digit16.output int
-data modify storage large_number:math float_add_subtra.input2 set from storage large_number:math int_more_dicimal_out
+data modify storage large_number:math float_add_subtra.input2 set from storage large_number:math int_more_decimal_out
 scoreboard players set #float_add_subtra_ope_mode int 1
 function large_number:float_add_subtra/start
-data modify storage large_number:math large_sqrt_digit16.output_with_dicimal set from storage large_number:math float_add_subtra.output
+data modify storage large_number:math large_sqrt_digit16.output_with_decimal set from storage large_number:math float_add_subtra.output

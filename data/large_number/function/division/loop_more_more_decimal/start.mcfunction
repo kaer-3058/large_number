@@ -12,10 +12,10 @@
 
 #商：
 #float_sign int (符号)
-#storage large_number:math loop_more_more_dicimal_base (底数)
+#storage large_number:math loop_more_more_decimal_base (底数)
 #float_exp int (指数)
 
-#有效数字的位数：#loop_more_more_dicimal_times int
+#有效数字的位数：#loop_more_more_decimal_times int
 
 #示例：
 #set #float_sign int 1
@@ -34,9 +34,9 @@ scoreboard players operation #float_exp int -= #Divisor_float_exp int
 execute if score #float_sign int matches 0 run scoreboard players set #float_exp int 0
 
 
-data modify storage large_number:math loop_more_more_dicimal_base set value []
+data modify storage large_number:math loop_more_more_decimal_base set value []
 scoreboard players operation #store_float_int0 int = #float_int0 int
 scoreboard players operation #stemp1 int = #store_float_int0 int
 execute store result storage large_number:math temp1 int 1 run scoreboard players operation #stemp1 int /= #Divisor_float_int0 int
-data modify storage large_number:math loop_more_more_dicimal_base append from storage large_number:math temp1
-execute if score #loop_more_more_dicimal_times int matches 2.. run function large_number:division/loop_more_more_dicimal/loop
+data modify storage large_number:math loop_more_more_decimal_base append from storage large_number:math temp1
+execute if score #loop_more_more_decimal_times int matches 2.. run function large_number:division/loop_more_more_decimal/loop

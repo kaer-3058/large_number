@@ -1,6 +1,6 @@
-##生成一个[0,1]区间的随机数
+##生成一个[0,1]区间的随机数 pcg算法
 
-#执行：execute as b09e-44-fded-6-efa5ffffef64 run function large_number:random/number_0_1/start
+#执行：execute as b09e-44-fded-6-efa5ffffef64 run function large_number:random/number_0_1/pcg
 
 function ntre:next
 execute store result entity @s Pos[1] double .00000000023283064370807973754314699 run scoreboard players get @s ntre_output

@@ -2395,8 +2395,8 @@ Pass in the execution position and execution orientation.
 ♦ N-th Order Bezier Curve
 
 Formula：
-$$
 
+$$
 B(t)=\sum_{i=0}^{n}P_i
 \begin{pmatrix}
 n \\

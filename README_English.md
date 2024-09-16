@@ -2396,6 +2396,7 @@ Pass in the execution position and execution orientation.
 
 Formula：
 $$
+
 B(t)=\sum_{i=0}^{n}P_i
 \begin{pmatrix}
 n \\
@@ -2403,11 +2404,13 @@ i
 \end{pmatrix}
 (1-t)^{n-i}t^i,\ t\in[0,1]
 $$
+
 Description: Pi represents the coordinates of a point. Pi is calculated by substituting the coordinates of the control points into the formula to determine the curve’s coordinates. In other words, the Bezier curve is computed using a "parametric equation," with the parameter being `t`. 
 
 For example, with three control points: [[x0, y0, z0], [x1, y1, z1], [x2, y2, z2]], you first calculate the curve’s x-coordinate using x0, x1, and x2, then the y-coordinate using y0, y1, and y2, and so on.
 
 `n` is the order. (n, i) is the binomial coefficient, representing the number of combinations of `i` items from `n` items. Formula:
+
 $$
 \begin{pmatrix}
 n \\

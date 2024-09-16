@@ -846,7 +846,7 @@ kill @e[type=minecraft:marker,tag=large_number.list_operation]
 
 从列表中随机抽取一个元素
 
-原理：set from list[$(random)]
+列表长度不可超过2147483583
 
 ```
 输入：storage large_number:math list_ope_random_index_once.input []

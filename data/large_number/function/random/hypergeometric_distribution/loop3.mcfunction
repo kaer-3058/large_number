@@ -4,8 +4,13 @@
 #把抽到的项从原列表移除：scoreboard players set #list_ope_random_index_once.del int 1
 
 execute store result score #temp1 int run data get storage large_number:math sstemp2
-execute store result storage large_number:math temp1 int 1 run scoreboard players remove #temp1 int 1
-execute store result storage large_number:math temp1 int 1 run function large_number:list_operation/random_index_once/macro1 with storage large_number:math
+execute store result score #uniform_distribution.max int run scoreboard players remove #temp1 int 1
+
+#均匀分布
+item replace entity 3faf-0-3d00-0-61900f4241f weapon.mainhand with minecraft:stone 1 
+item modify entity 3faf-0-3d00-0-61900f4241f weapon.mainhand large_number:uniform_distribution
+data modify storage large_number:math temp1 set from entity 3faf-0-3d00-0-61900f4241f HandItems[0].components."minecraft:custom_model_data"
+
 function large_number:random/hypergeometric_distribution/macro1 with storage large_number:math
 data modify storage large_number:math sstemp4 append from storage large_number:math sstemp3
 

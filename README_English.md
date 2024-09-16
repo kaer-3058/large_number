@@ -849,7 +849,7 @@ execute in minecraft: overworld run kill @e[type=minecraft: marker,tag=large_num
 
 Randomly draw an element from a list.
 
-Principle: set from list[$(random)]
+The length of the list cannot exceed 2147483583.
 
 ```
 Input: storage large_number:math list_ope_random_index_once.input []

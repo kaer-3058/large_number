@@ -1,8 +1,8 @@
 data modify storage large_number:timestamp timestamp_base64 set from block -29999982 -60 22022222
-data modify storage large_number:timestamp timestamp_base64 set string storage large_number:timestamp timestamp_base64.profile.properties[0].value 24 32
+data modify storage large_number:timestamp timestamp_base64 set string storage large_number:timestamp timestamp_base64.profile.properties[0].value 24 38
 
 #只取base64中可解析为时间戳的部分进行解码
-data modify storage large_number:math s1 set value [{a:0},{a:0},{a:0}]
+data modify storage large_number:math s1 set value [{a:0},{a:0},{a:0},{a:0},{a:0},{a:0}]
 data modify storage large_number:math s0 set from storage large_number:timestamp timestamp
 
 ##解码核心
@@ -27,17 +27,6 @@ function large_number:timestamp/macro.2.01string_4_merge_to_1 with storage large
 data modify storage large_number:math s1[0].a set string storage large_number:math y4 0 8
 data modify storage large_number:math s1[1].a set string storage large_number:math y4 8 16
 data modify storage large_number:math s1[2].a set string storage large_number:math y4 16 24
-data modify storage large_number:math s1[{a:"00110000"}] set value {a:0}
-data modify storage large_number:math s1[{a:"00110001"}] set value {a:1}
-data modify storage large_number:math s1[{a:"00110010"}] set value {a:2}
-data modify storage large_number:math s1[{a:"00110011"}] set value {a:3}
-data modify storage large_number:math s1[{a:"00110100"}] set value {a:4}
-data modify storage large_number:math s1[{a:"00110101"}] set value {a:5}
-data modify storage large_number:math s1[{a:"00110110"}] set value {a:6}
-data modify storage large_number:math s1[{a:"00110111"}] set value {a:7}
-data modify storage large_number:math s1[{a:"00111000"}] set value {a:8}
-data modify storage large_number:math s1[{a:"00111001"}] set value {a:9}
-data modify storage large_number:timestamp timestamp_decoded_base64 append from storage large_number:math s1[].a
 
 data modify storage large_number:math temp1 set string storage large_number:timestamp timestamp_base64 4 5
 data modify storage large_number:math temp2 set string storage large_number:timestamp timestamp_base64 5 6
@@ -56,9 +45,10 @@ data modify storage large_number:math temp2 set string storage large_number:math
 data modify storage large_number:math temp3 set string storage large_number:math temp3 1
 data modify storage large_number:math temp4 set string storage large_number:math temp4 1
 function large_number:timestamp/macro.2.01string_4_merge_to_1 with storage large_number:math
-data modify storage large_number:math s1[0].a set string storage large_number:math y4 0 8
-data modify storage large_number:math s1[1].a set string storage large_number:math y4 8 16
-data modify storage large_number:math s1[2].a set string storage large_number:math y4 16 24
+data modify storage large_number:math s1[3].a set string storage large_number:math y4 0 8
+data modify storage large_number:math s1[4].a set string storage large_number:math y4 8 16
+data modify storage large_number:math s1[5].a set string storage large_number:math y4 16 24
+
 data modify storage large_number:math s1[{a:"00110000"}] set value {a:0}
 data modify storage large_number:math s1[{a:"00110001"}] set value {a:1}
 data modify storage large_number:math s1[{a:"00110010"}] set value {a:2}
@@ -73,8 +63,9 @@ data modify storage large_number:timestamp timestamp_decoded_base64 append from 
 
 
 #解码完成了,把时间戳解密为日期
-execute if data storage large_number:timestamp timestamp_base64 run function large_number:timestamp/cb_start.2
+execute if data storage large_number:timestamp timestamp_base64 unless score #timestamp.get_num int matches 2 run function large_number:timestamp/cb_start.2
 
+execute if score #timestamp.get_num int matches 1.. run function large_number:timestamp/get_num
 
 scoreboard players set #cb_run_func:"timestamp/cb_start" int 0
 

@@ -1,1 +1,1 @@
-$data modify storage large_number:math temp2 set value "$(input)"
+$execute store result storage large_number:math q1 long $(input) run return 1

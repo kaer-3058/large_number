@@ -22,6 +22,7 @@ function large_number:gamma_function/stirling/mul_with_const_2
 #(x/e)^x
 data modify storage large_number:math exp_any.input.base set from storage large_number:math float_multiply.output
 data modify storage large_number:math exp_any.input.expon set from storage large_number:math gamma_function.input
+scoreboard players set #exp_any.mode int 1
 function large_number:exp_any/start
 data modify storage large_number:math temp_(x/e)^x set from storage large_number:math exp_any.output
 

@@ -1,2 +1,0 @@
-function large_number:round_double/macro3 with storage large_number:math round_double
-execute as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:round_double/output

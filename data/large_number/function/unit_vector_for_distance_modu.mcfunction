@@ -7,8 +7,6 @@
 #执行
 #execute as b09e-44-fded-6-efa5ffffef64 run function large_number:unit_vector_for_distance_modu
 
-#输入值范围：100x+100y+100z ≤2147483
-
 execute store result storage large_number:math buffer_all_xyz[0] double .0001 store result score #distance int run data get storage large_number:math unit_vector_modu.input[0] 100.0
 execute store result storage large_number:math buffer_all_xyz[1] double .0001 store result score #v.y int run data get storage large_number:math unit_vector_modu.input[1] 100.0
 execute store result storage large_number:math buffer_all_xyz[2] double .0001 store result score #v.z int run data get storage large_number:math unit_vector_modu.input[2] 100.0

@@ -1,1 +1,3 @@
-$data modify storage large_number:math _expressionss3 set value $(temp3)$(temp1)d
+#取相反数
+
+$execute store result storage large_number:math _expressionss3 double $(temp1) run return -1

@@ -14,15 +14,13 @@ scoreboard players set #expression_evaluation_test2 int 3
 #取绝对值
 data modify storage large_number:math temp1 set string storage large_number:math _expressionss4
 data modify storage large_number:math temp2 set string storage large_number:math temp1 0 1
-execute if data storage large_number:math {temp2:"-"} run data modify storage large_number:math temp1 set string storage large_number:math temp1 1
-function large_number:expression_evaluation_scientific/ope_of_float/ope_8/macro1 with storage large_number:math
+execute if data storage large_number:math {temp2:"-"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_21.2 with storage large_number:math
 data modify storage large_number:math temp_store_||s1 set from storage large_number:math _expressionss3
 
 #取绝对值
 data modify storage large_number:math temp1 set string storage large_number:math _expressionss1
 data modify storage large_number:math temp2 set string storage large_number:math temp1 0 1
-execute if data storage large_number:math {temp2:"-"} run data modify storage large_number:math temp1 set string storage large_number:math temp1 1
-function large_number:expression_evaluation_scientific/ope_of_float/ope_8/macro1 with storage large_number:math
+execute if data storage large_number:math {temp2:"-"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_21.2 with storage large_number:math
 data modify storage large_number:math temp_store_||s2 set from storage large_number:math _expressionss3
 
 #浮点减法
@@ -37,15 +35,13 @@ data modify storage large_number:math temp_store_||s3 set from storage large_num
 #取绝对值
 data modify storage large_number:math temp1 set string storage large_number:math temp_store_||s3
 data modify storage large_number:math temp2 set string storage large_number:math temp1 0 1
-execute if data storage large_number:math {temp2:"-"} run data modify storage large_number:math temp1 set string storage large_number:math temp1 1
-function large_number:expression_evaluation_scientific/ope_of_float/ope_8/macro1 with storage large_number:math
+execute if data storage large_number:math {temp2:"-"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_21.2 with storage large_number:math
 data modify storage large_number:math temp_store_||s3 set from storage large_number:math _expressionss3
 
 #取绝对值
 data modify storage large_number:math temp1 set string storage large_number:math _expressionss2
 data modify storage large_number:math temp2 set string storage large_number:math temp1 0 1
-execute if data storage large_number:math {temp2:"-"} run data modify storage large_number:math temp1 set string storage large_number:math temp1 1
-function large_number:expression_evaluation_scientific/ope_of_float/ope_8/macro1 with storage large_number:math
+execute if data storage large_number:math {temp2:"-"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_21.2 with storage large_number:math
 data modify storage large_number:math temp_store_||s4 set from storage large_number:math _expressionss3
 
 ##浮点数比大小

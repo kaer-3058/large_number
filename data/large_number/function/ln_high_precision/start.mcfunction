@@ -15,15 +15,17 @@
 #L6 = 0.1531383769920937332
 #L7 = 0.1479819860511658591
 
-#优先处理前导0
-data modify storage large_number:math temp1 set string storage large_number:math ln_high_precision.input 0 -1
-data modify storage large_number:math stemp1011 set value ""
-data modify storage large_number:math stemp1011 set string storage large_number:math temp1 0 1
-execute if data storage large_number:math {stemp1011:"0"} run function large_number:ln_high_precision/input_is_0
+#对小于1的值取倒数
+data modify storage large_number:math store_ln_high_precision_inp set from storage large_number:math ln_high_precision.input
+execute store result score #temp_input_is0 int run data get storage large_number:math store_ln_high_precision_inp
+execute if score #temp_input_is0 int matches 0 run data modify storage large_number:math float_reciprocal.input set from storage large_number:math store_ln_high_precision_inp
+execute if score #temp_input_is0 int matches 0 run function large_number:division/float_reciprocal/start
+execute if score #temp_input_is0 int matches 0 run data modify storage large_number:math store_ln_high_precision_inp set from storage large_number:math float_reciprocal.output
 
 #拆出科学记数法的指数位
 
 #判断是否为科学计数法
+data modify storage large_number:math temp1 set string storage large_number:math store_ln_high_precision_inp 0 -1
 data modify storage large_number:math temp2 set value [{a:0},{a:0},{a:0},{a:0}]
 data modify storage large_number:math temp2[0].a set string storage large_number:math temp1 -5 -4
 data modify storage large_number:math temp2[1].a set string storage large_number:math temp1 -4 -3
@@ -33,13 +35,13 @@ execute store success score #is_XXEXX int run data get storage large_number:math
 
 #如果为科学计数法则拆出指数位
 data modify storage large_number:math temp_expon set value "0"
-execute unless data storage large_number:math {stemp1011:"0"} if score #is_XXEXX int matches 1 run function large_number:double_sqrt.if/the_scientific_notation
+execute if score #is_XXEXX int matches 1 run function large_number:double_sqrt.if/the_scientific_notation
 
-execute unless data storage large_number:math {stemp1011:"0"} store result storage large_number:math high_precision_stemp4 double 2.30258509299404568401799145 run function large_number:ln_high_precision/craft.1 with storage large_number:math
+execute store result storage large_number:math high_precision_stemp4 double 2.30258509299404568401799145 run function large_number:ln_high_precision/craft.1 with storage large_number:math
 
 #把输入值分解为(2^k)*(1+f)的形式，其中k为整数，0≤f<1
 
-execute store result score #loga.b.tempinp int run data get storage large_number:math ln_la_temp3
+execute store result score #loga.b.tempinp int run data get storage large_number:math store_ln_high_precision_inp
 data modify storage large_number:math float_division.input2 set value 1.0d
 data modify storage large_number:math sstemp2 set value 0
 execute if score #loga.b.tempinp int matches 1073741824..2147483647 store success storage large_number:math sstemp2 int 30 run data modify storage large_number:math float_division.input2 set value 1073741824.0d
@@ -76,7 +78,7 @@ execute if score #loga.b.tempinp int matches 0..1 store success storage large_nu
 execute store result storage large_number:math sstemp_kln2 double .69314718055994530941723212 run data get storage large_number:math sstemp2
 
 #f=x/(2^[log2(x)])-1
-data modify storage large_number:math float_division.input1 set from storage large_number:math ln_la_temp3
+data modify storage large_number:math float_division.input1 set from storage large_number:math store_ln_high_precision_inp
 function large_number:division/float_12decimal/start
 execute as b09e-44-fded-6-efa5ffffef64 run function large_number:ln_high_precision/as_entity_1
 
@@ -150,3 +152,5 @@ data modify storage large_number:math float_multiply.input1 set from storage lar
 function large_number:float_mul.high_precision/start
 data modify storage large_number:math sstempcc set from storage large_number:math float_multiply.output
 execute as b09e-44-fded-6-efa5ffffef64 run function large_number:ln_high_precision/as_entity_3
+
+execute if score #temp_input_is0 int matches 0 run function large_number:ln_high_precision/macro7 with storage large_number:math ln_high_precision

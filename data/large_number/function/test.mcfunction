@@ -22,6 +22,10 @@
 #execute if predicate {"condition":"random_chance","chance":0.5}
 
 
-
+#give @s evoker_spawn_egg[entity_data={id:"illusioner"},custom_model_data=513001]
+#give @s evoker_spawn_egg[entity_data={id:"fox",Type:"snow"},custom_model_data=513002]
+#give @s evoker_spawn_egg[entity_data={id:"rabbit",RabbitType:99},custom_model_data=513003]
+#give @s evoker_spawn_egg[entity_data={id:"mooshroom",Type:"brown"},custom_model_data=513004]
+#give @s evoker_spawn_egg[entity_data={id:"giant"},custom_model_data=513005]
 
 

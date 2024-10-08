@@ -1,0 +1,23 @@
+{
+    "function": "minecraft:set_custom_model_data",
+    "value": {
+        "type": "uniform",
+        "min": {
+            "type": "score",
+            "score": "int",
+            "target": {
+                "type": "fixed",
+                "name": "#uniform_distribution.max"
+            },
+            "scale": -1
+        },
+        "max": {
+            "type": "score",
+            "score": "int",
+            "target": {
+                "type": "fixed",
+                "name": "#uniform_distribution.max"
+            }
+        }
+    }
+}

@@ -4,6 +4,16 @@ scoreboard objectives add const dummy
 scoreboard objectives add int dummy
 scoreboard objectives add ln_const dummy
 
+#运动抛物线
+scoreboard objectives add vx dummy
+scoreboard objectives add vy dummy
+scoreboard objectives add vz dummy
+scoreboard objectives add t dummy
+scoreboard objectives add x dummy
+scoreboard objectives add y dummy
+scoreboard objectives add z dummy
+
+
 #常量
 scoreboard players set -1 const -1
 scoreboard players set 0 const 0
@@ -32,6 +42,7 @@ scoreboard players set -360 const -360
 scoreboard players set -10000 const -10000
 scoreboard players set -2147483648 const -2147483648
 
+scoreboard players set 12 const 12
 scoreboard players set 16 const 16
 scoreboard players set 17 const 17
 scoreboard players set 18 const 18
@@ -78,11 +89,14 @@ scoreboard players set 79249 const 79249
 scoreboard players set 90000 const 90000
 scoreboard players set 400000 const 400000
 scoreboard players set 520000 const 520000
+scoreboard players set 900000 const 900000
 scoreboard players set 1048576 const 1048576
 scoreboard players set 16777216 const 16777216
 scoreboard players set 268435456 const 268435456
 
-#ntre
+#设置重力加速度的一半
+scoreboard players set #g/2 const 122
+
 function ntre:init
 
 execute in minecraft:overworld run function large_number:load.in_overworld
@@ -106,10 +120,6 @@ scoreboard players set #k.la.version const 1016
 
 #全局xyz变量
 data modify storage large_number:math buffer_all_xyz set value [0d,0d,0d]
-
-#数位显示
-data modify storage large_number:math buffer_digital_display_list set value [0,0,0,0,0,0,0,0]
-data modify storage large_number:math buffer_digital_display_json set value ["","","","","","","",""]
 
 #四元数
 execute unless data storage large_number:math xyzw[3] run data modify storage large_number:math xyzw set value [0f,0f,0f,0f]

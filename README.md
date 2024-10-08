@@ -1,6 +1,6 @@
 ![](https://s21.ax1x.com/2024/09/13/pAnhYrt.jpg)
 
-
+　
 
 ## 卡儿的数学库 v.1.16
 
@@ -18,7 +18,7 @@
 
 存档文件夹下<u>data</u>文件夹里的<u>command_storage_large_number.dat</u>文件便是本数据包产生的所有storage数据存储的位置。
 
-推荐设置：`gamerule maxCommandChainLength 2147483647`
+推荐设置：`gamerule maxCommandChainLength 2147483647`，`gamerule maxCommandForkCount 2147483647`
 
 　
 
@@ -343,7 +343,7 @@ storage large_number:math loop_more_more_decimal_base (底数)
 
 原理：execute store + data get，可实现用倍率存储整数，用函数宏导入动态倍率
 
-算法2：large_number:float_multiply/of_score/start
+算法2 (性能最好的浮点乘法)：large_number:float_multiply/of_score/start
 
 原理：浮点转化为记分板格式后取前八位进行大数乘法
 
@@ -359,7 +359,7 @@ storage large_number:math loop_more_more_decimal_base (底数)
 
 原理：采用了全新架构，用double转int数组的算法把输入值全都转化成数组然后进行大数乘法，再根据读出来的输入值的信息计算指数
 
-可精确到浮点数级
+可精确到双精度浮点数级
 
 ```
 因数1：storage large_number:math float_multiply.input1 0.0
@@ -450,14 +450,22 @@ execute align+实体tp只能处理区间 (-30000000.0, 30000000.0) 的数，而�
 
 　
 
-♦ 任意整型数字相乘：large_number:int_int_multiply
+♦ 任意整型数字相乘
 
-原理：数组乘法，竖式相乘
+1.数组相乘法：large_number:int_int_multiply
 
 ```
 因数1：input int
 因数2：input.2 int
-积：storage large_number:math int_int_multiply.output
+积[万进制数组]：storage large_number:math int_int_multiply.output
+```
+
+2.函数宏乘法：large_number:int_mul2/start
+
+```
+因数1：#input1 int
+因数2：#input2 int
+积[long型]：storage large_number:math int_mult2_out
 ```
 
 ♦ 任意整型数字平方：large_number:int_square
@@ -770,21 +778,15 @@ double的绝对值最小值是4.9E-324
 
 　
 
-♦ 24位数字显示
+♦ 数位显示(千位分隔)
 
-输入几位就显示几位：large_number:digital_display
-
-始终保持显示的数字是24位：large_number:24_digital_display
-
-区别：后者如果输入的数字不足24位，则会自动在数字前面补0补足24位
-
-每三位数一组用逗号隔开。若数组中任意一个数为负数，则视为整个数组为负
+int数位显示：large_number:digital_display/digital_display_int
 
 ```
-输入(万进制数组)：storage large_number:math math_display [I;0,0,0,0,0,0]
+输入：#digital_display_int.input int
 
 显示以下JSON文本便可显示数字：
-[{"nbt":"math_display_json_is-","storage":"large_number:math"},{"nbt":"math_display_json[]","storage":"large_number:math","separator":{"text":","}}]
+{"nbt":"digital_display_int[]","storage":"large_number:math","separator":","}
 ```
 
 　
@@ -792,8 +794,6 @@ double的绝对值最小值是4.9E-324
 ♦ 单位向量法测距
 
 1.输入任意两点：large_number:unit_vector_for_distance
-
-两个点的坐标差的范围：100\*|x|+100\*|y|+100\*|z| ≤2147483
 
 ```
 输入
@@ -804,10 +804,6 @@ P2：storage large_number:math unit_vector2.P2 [0.0,0.0,0.0]
 ```
 
 2.输入两点坐标差的绝对值：large_number:unit_vector_for_distance_modu
-
-需要玩家自己作差输入
-
-输入值范围：100x+100y+100z ≤2147483
 
 ```
 输入：storage large_number:math unit_vector_modu.input [0.0,0.0,0.0]
@@ -862,6 +858,26 @@ kill @e[type=minecraft:marker,tag=large_number.list_operation]
 输出：storage large_number:math list_dedup.output
 ```
 
+♦ 列表算法 - 排序
+
+整数排序 - 冒泡排序法 - 正序：large_number:list_operation/sort/int_ascending_order/start
+
+整数排序 - 冒泡排序法 - 逆序：large_number:list_operation/sort/int_descending_order/start
+
+double排序 - 冒泡排序法 - 正序：large_number:list_operation/sort/double_ascending_order/start
+
+double排序 - 冒泡排序法 - 逆序：large_number:list_operation/sort/double_descending_order/start
+
+```
+整数排序
+输入：storage large_number:math sort_int.input
+输出：storage large_number:math sort_int.output
+
+double排序
+输入：storage large_number:math sort_double.input
+输出：storage large_number:math sort_double.output
+```
+
 　
 
 ♦ UUID数组转为带连字符的16进制：large_number:uuid_list_for_hyphen/start
@@ -899,7 +915,7 @@ kill @e[type=minecraft:marker,tag=large_number.list_operation]
 输出：#binomial_distribution.test1.output int
 ```
 
-测试2：large_number:random/binomial_distribution/test2
+测试2：`execute as 3faf-0-3d00-0-61900f4241f run function large_number:random/binomial_distribution/test2`
 
 测试内容：做n次成功概率为p的伯努利试验，输出成功次数
 
@@ -939,6 +955,17 @@ kill @e[type=minecraft:marker,tag=large_number.list_operation]
 结果输出在实体A的ntre_output记分板
 ```
 
+♦ 随机数生成 - 几何分布：large_number:random/geometric_distribution/start
+
+测试内容：做n次成功概率为p的伯努利试验，返回首次成功时的试验次数
+
+```
+单次事件的概率：storage large_number:math geometric_distribution_chance 0.0
+试验次数：#geometric_distribution.times int
+
+输出：#geometric_distribution.output int
+```
+
 ♦ 随机数生成 - 超几何分布：large_number:random/hypergeometric_distribution/start
 
 测试内容：从有限N个物件（其中包含M个指定种类的物件）中抽出n个物件，成功抽出该指定种类的物件的次数（不放回）。
@@ -953,6 +980,18 @@ kill @e[type=minecraft:marker,tag=large_number.list_operation]
 
 清理测试产生的临时marker：
 kill @e[type=minecraft:marker,tag=large_number.list_operation]
+```
+
+♦ 随机数生成 - 帕斯卡分布：large_number:random/pascal_distribution/start
+
+测试内容：测试概率为p的伯努利实验直到出现r次成功，返回实际测试的次数
+
+```
+目标成功次数[int]：storage large_number:math pascal_distribution.r
+单次试验成功概率[float]：storage large_number:math pascal_distribution.p
+最大测试次数[int]：storage large_number:math pascal_distribution.max
+
+输出[int]：storage large_number:math pascal_distribution.output
 ```
 
 ♦ 生成一个[0,1]区间的随机数
@@ -1003,6 +1042,10 @@ e^x的前置库：function large_number:exp_e.x/database
 底数：storage large_number:math exp_any.input.base 2.0d
 指数：storage large_number:math exp_any.input.expon 3.0d
 输入值必须为double型
+
+设置算法模式：
+新算法(整数和小数分开计算)：set #exp_any.mode int 1
+原来的算法(直接套公式)：#exp_any.mode int 分数不为1
 
 输出：storage large_number:math exp_any.output
 ```
@@ -1467,7 +1510,15 @@ double型形式：storage large_number:math quadratic_equation_out.double
 输入GMT时区 (仅用于时区校准)：set #GMT-time_zone int 8
 例如北京时间是GMT+8，所以输入8，默认为8
 
+设置模式
+仅获取时间：#timestamp.get_num int 分数不为1也不为2
+同时输出时间戳：set #timestamp.get_num int 1
+仅获取时间戳：set #timestamp.get_num int 2
+默认是"仅获取时间"
+
 输出
+时间戳：#timestamp.num int
+
 年：#timestamp_year int
 月：#timestamp_month int
 日：#timestamp_day int
@@ -1479,9 +1530,9 @@ double型形式：storage large_number:math quadratic_equation_out.double
 {"nbt":"output_base64_json_tellraw","storage":"large_number:math","interpret":true}
 
 更换正版玩家ID：storage large_number:math player_head_cache_list ["<玩家名>","<玩家名>"]
-注：
-列表里可存多个玩家名，但读取时只读取列表里的第一个
-初始输入的正版玩家ID：ka__er
+注：列表里可存多个玩家名，但读取时只读取列表里的第一个
+初始列表：["MHF_Alex","MHF_Blaze","MHF_CaveSpider","MHF_Chicken","MHF_Cow","MHF_Creeper","MHF_Enderman","MHF_Ghast","MHF_Golem","MHF_Herobrine","MHF_LavaSlime","MHF_MushroomCow","MHF_Ocelot","MHF_Pig","MHF_PigZombie","MHF_Sheep","MHF_Skeleton","MHF_Slime","MHF_Spider","MHF_Squid","MHF_Steve","MHF_Villager","MHF_WSkeleton","MHF_Zombie","MHF_Cactus","MHF_Cake","MHF_Chest","MHF_CoconutB","MHF_CoconutG","MHF_Melon","MHF_OakLog","MHF_Present1","MHF_Present2","MHF_Pumpkin","MHF_TNT","MHF_TNT2","MHF_ArrowUp","MHF_ArrowDown","MHF_ArrowLeft","MHF_ArrowRight","MHF_Exclamation","MHF_Question"]
+当列表为空时会自动设回初始值
 ```
 
 因为<u>每个正版玩家名仅能在进入单人存档/服务器时获取两次时间戳，一次是放置成方块，一次是放置在实体的物品栏里</u>，然后时间戳就
@@ -1521,7 +1572,7 @@ double型形式：storage large_number:math quadratic_equation_out.double
 当经验等级≥32时，玩家的经验数为：
 
 $$
-f\left ( {x} \right )=1507+\sum ^{x-1}_{n=32} {9n-158}\, =\ 4.5{x}^{2}-162.5x+2099
+f\left ( {x} \right )=1507+\sum ^{x-1}_{n=31} {9n-158}\, =\ 4.5{x}^{2}-162.5x+2220
 $$
 
 输出的数值一般情况下不可直接用于逆推玩家已有的经验等级，因为mc内部的一些特殊算法，这个数与玩家此时真正拥有的经验数有些出入。
@@ -1541,10 +1592,10 @@ $$
 
 ♦ 玩家经验公式 - 经验总数逆推经验等级和经验余数：large_number:xp_formula/points_ope_levels/start
 
-当经验数大于等于1758时，逆推经验等级公式：
+当经验数≥1628时，逆推经验等级公式：
 
 $$
-g\left ( {x} \right )=\frac {\sqrt {72x-45503}+325} {18}
+g\left ( {x} \right )=\frac {\sqrt {72x-54215}+325} {18}
 $$
 
 经验公式是个一元二次方程，对其用求根公式反推，然后只保留x≥0的根，得到了这个反向经验公式
@@ -1560,6 +1611,18 @@ $$
 经验余数：storage large_number:math xp_points_ope_levels.remaining_points
 
 若用于给予玩家经验，应先给予经验等级再给予经验余数
+```
+
+♦ 玩家经验公式 - 扣除玩家前N级经验：large_number:xp_formula/subtra_top_n_lvl/start
+
+确保玩家现有的经验等级大于等于你要扣除的前N级经验等级，然后让被扣除经验的玩家执行此函数
+
+先算出玩家现有的经验数，再根据给定的等级算出要扣除的经验数，两者相减获得玩家剩余的经验数，然后换算为经验等级和经验数赋予给玩家。
+
+根据浮点数算不准原理，此算法给出的结果可能和预想中的略有出入
+
+```
+要扣除的经验等级：#xp_formula.top_n_lvl.input int
 ```
 
 　
@@ -1602,11 +1665,15 @@ $$
 
 　
 
-♦ Sigmoid函数 - 线性近似：large_number:sigmoid/start
+♦ Sigmoid函数
 
 Sigmoid(x)=1/(1+e^(-x))
 
-原理参见：https://zhuanlan.zhihu.com/p/318423774
+直接计算法：large_number:sigmoid/direct_calculation/start
+
+线性近似法：large_number:sigmoid/start
+
+线性近似法的原理：https://zhuanlan.zhihu.com/p/318423774
 
 ```
 输入：storage large_number:math sigmoid.input 1.0
@@ -1628,6 +1695,31 @@ ln的初始数据库：function large_number:ln/ln_database
 输入值必须为double型，输入范围：x>0
 
 输出：storage large_number:math digamma_function.output
+```
+
+　
+
+♦ 双曲函数
+
+公式：
+
+$$
+\begin{aligned}
+& \sinh(x)=\frac{\mathrm{e}^x-\mathrm{e}^{-x}}{2} \\
+& \cosh(x)=\frac{\mathrm{e}^x+\mathrm{e}^{-x}}{2} \\
+& \tanh(x)=\frac{\sinh(x)}{\cosh(x)} =\frac{2}{\mathrm{e}^{-2x}+1}-1
+\end{aligned}
+$$
+
+双曲正弦：large_number:hyperbolic_function/sinh
+
+双曲余弦：large_number:hyperbolic_function/cosh
+
+双曲正切：large_number:hyperbolic_function/tanh
+
+```
+输入：storage large_number:math hyperbolic_function.input
+输出：storage large_number:math hyperbolic_function.output
 ```
 
 　
@@ -1801,7 +1893,7 @@ sgnβ = sgn(β)，符号函数
 α<<β = α是否小于β
 α≥≥β = α是否大于等于β
 α≤≤β = α是否小于等于β
-α≈≈β,δ = 逻辑运算，误差判断，判断α和β的距离是否在δ的绝对值以内，是为1，否则为0
+α≈≈β,δ = 误差判断，判断α和β的的绝对值的距离是否在δ的绝对值以内，是为1，否则为0
 注：可能会因浮点误差导致判断失误，例如0.02在计算时变为0.020000000000000018
 
 三元运算
@@ -1829,7 +1921,7 @@ ln的初始数据库：
 
 目前支持的变量名：α; β; δ; ε; η; λ; μ; ξ; τ; ω; ｘ; ｙ; ｚ
 此处的ｘｙｚ是全角字母
-分别对应路径 (目标值只能是浮点数值)：
+分别对应路径 (目标值只能是double)：
 α：storage large_number:math expression_evaluation_variables."α"
 β：storage large_number:math expression_evaluation_variables."β"
 δ：storage large_number:math expression_evaluation_variables."δ"
@@ -1953,7 +2045,7 @@ $$
 
 　
 
-♦ 三维空间任意方向的粒子圆
+♦ 圆
 
 ```
 圆的半径(1000倍输入)：#3d.circle.r int
@@ -1989,7 +2081,7 @@ data modify storage large_number:math rainbow_circle_color_list_rotate set from 
 execute positioned x y z rotated x y run function large_number:particle/rainbow_circle/particle_list_rotate
 ```
 
-♦ 三维空间任意方向的五角星
+♦ 五角星
 
 两个算法均出自：https://www.bilibili.com/read/readlist/rl651851
 
@@ -2037,7 +2129,7 @@ execute positioned x y z rotated x y run function large_number:particle/3d_ar_ro
 执行朝向就是五角星的朝向，执行位置就是五角星的位置
 ```
 
-♦ 三维空间任意方向的椭圆
+♦ 椭圆
 
 ```
 1000倍输入 a：#3d.ellipse.a int
@@ -2126,7 +2218,7 @@ execute positioned x y z rotated x y run function large_number:particle/3d_block
 
 　
 
-♦ 抛物线
+♦ 抛物线 (二次函数)
 
 1.把三点坐标解析为二次函数表达式的abc：large_number:parabola/3point_ope_coef.abc
 
@@ -2370,7 +2462,7 @@ execute as b09e-44-fded-6-efa5ffffef64 run function large_number:particle/heart-
 
 　
 
-♦ 粒子正多边形
+♦ 正多边形
 
 ```
 1000倍输入 图形的横滚角：#regular_polygon.startθ int
@@ -2439,6 +2531,122 @@ storage large_number:math bezier_curve_n_Pos
 显示粒子：execute positioned x y z rotated x y run function large_number:particle/bezier_curve_n/particle
 传入执行位置和执行朝向，位移和旋转的基点是曲线的第一个点
 ```
+
+　
+
+♦ 星形线
+
+第一类：P范数定义
+
+此类星形线的本质是P范数下的等距图形
+
+公式：
+
+$$
+|x| ^ p+|y| ^ p=r ^ p
+$$
+
+参见：https://zhuanlan.zhihu.com/p/702594704，https://zhuanlan.zhihu.com/p/591627726
+
+```
+半径：#star_line.r int
+粒子间距(单位：格)：#star_line.step int
+横滚角：#star_line.roll int
+P：#star_line.p int
+除了横滚角都必须是正数，皆放大一万倍输入
+
+计算坐标：function large_number:particle/star_line/start
+星形线可分成八个相同的部分，因此星形线只有其中1/8是算P范数得到的，其余都是依此部分变换得到
+
+输出相对坐标列表：storage large_number:math star_line_Pos
+
+显示粒子：execute positioned x y z rotated x y run function large_number:particle/star_line/particle
+传入执行位置和执行朝向，位移和旋转的基点是星形的中心
+```
+
+第二类：四圆拼接定义
+
+公式：
+
+$$
+\begin{aligned}
+& (x+r)^2+(y+r)^2=r^2\\
+& (x+r)^2+(y-r)^2=r^2\\
+& (x-r)^2+(y+r)^2=r^2\\
+& (x-r)^2+(y-r)^2=r^2\\
+\end{aligned}
+$$
+
+这四个圆中间的间隙便是第二类星形线
+
+已用算法验证，此类星形线无法用P范数定义，详见：https://www.zhihu.com/question/660564331
+
+比第一类自由度差，但计算消耗更低
+
+```
+半径：#star_line.r int
+粒子间距(单位：度)：#star_line.step.θ int
+横滚角：#star_line.roll int
+除了横滚角都必须是正数，皆放大一万倍输入
+
+计算坐标：execute as b09e-44-fded-6-efa5ffffef64 run function large_number:particle/star_line/2/start
+
+显示粒子：execute positioned x y z rotated x y run function large_number:particle/star_line/particle
+传入执行位置和执行朝向，位移和旋转的基点是星形的中心
+```
+
+　
+
+♦ 模拟闪电
+
+参考自：https://www.bilibili.com/video/BV1BBtVeaEWv
+
+```
+端点间距 (放大一千倍，正数)：#lightning_bolt.length int
+给定单段长度最大值 (放大一百倍，必须为小于等于端点间距的正数)：#lightning_bolt.a_segment int
+k值（放大一万倍）：#lightning_bolt.k int
+k值类似于波动倍率，能直接控制闪电波动的强度，范围是[0,0.5]。当k为0时闪电是一条直线段。推荐设置值为2376。
+
+计算坐标：function large_number:particle/lightning_bolt/start
+
+输出相对坐标列表：
+storage large_number:math lightning_bolt_Pos
+
+显示粒子：execute positioned x y z rotated x y run function large_number:particle/lightning_bolt/particle
+传入执行位置和执行朝向，位移和旋转的基点是曲线的第一个点
+
+另有瞬时闪电：
+execute positioned x y z rotated x y run function large_number:particle/lightning_bolt_instant/start
+直接把计算出来的坐标用于显示粒子。传入执行位置和执行朝向，位移和旋转的基点是曲线的第一个点
+```
+
+　
+
+♦ 发射抛射物使其命中目标点
+
+原理：https://www.bilibili.com/read/cv14512834
+
+```
+抛射方法一：根据dt计算初速度
+设置从起始点到达目标点所需时间(单位：tick)：#dt int
+计算：function large_number:parabola/fire/shoot
+需要传入抛射目标为执行者，传入目标点为执行位置，定义抛射目标在执行时的位置为抛物线的起始点
+同时可计算出抛射角：#para.launch_angle.x int，#para.launch_angle.y int
+
+抛射方法二：根据抛射角计算dt和初速度
+计算：function large_number:parabola/fire/degree_to_dt
+需要传入抛射目标为执行者，传入目标点为执行位置，定义抛射目标在执行时的位置为抛物线的起始点，而且还需传入抛射角为执行朝向
+在计算过程中为保证对应的dt为正整数，会把抛射角进行一定的修正
+输出修正后的抛射角：#para.launch_angle.x int，#para.launch_angle.y int
+
+进行抛射
+计算好初速度的抛射物会被加上tag：missile_shot
+高频执行：execute as @e[tag=missile_shot] unless score @s t >= @s int run function large_number:parabola/fire/motion
+
+判断是否命中目标点：execute as <抛射物> if score @s t >= @s int
+```
+
+已知问题：抛射方法二由于计算过程中会进行小数位数取舍，因此多次计算会导致抛射角不断偏离输入值，因此需要在计算前留存一份输入的抛射角以供校准。
 
 　
 

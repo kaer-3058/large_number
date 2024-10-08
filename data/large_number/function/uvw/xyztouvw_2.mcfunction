@@ -25,3 +25,4 @@ data modify storage large_number:math buffer_all_xyz set from entity @s Pos
 execute store result score #u int run data get storage large_number:math buffer_all_xyz[1] 10000
 execute store result score #v int run data get storage large_number:math buffer_all_xyz[0] 10000
 execute store result score #w int run data get storage large_number:math buffer_all_xyz[2] -10000
+tp .0 .0 .0

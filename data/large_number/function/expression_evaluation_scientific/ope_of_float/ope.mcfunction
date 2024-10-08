@@ -39,7 +39,7 @@ execute if data storage large_number:math {stemp_expression1:"¹LambertW"} run f
 execute if data storage large_number:math {stemp_expression1:"||"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_18
 execute if data storage large_number:math {stemp_expression1:"sgn"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_19
 execute if data storage large_number:math {stemp_expression1:"[]"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_20
-execute if data storage large_number:math {stemp_expression1:"—"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_21
+execute if data storage large_number:math {stemp_expression1:"—"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_21 with storage large_number:math
 execute if data storage large_number:math {stemp_expression1:"atan"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_22
 execute if data storage large_number:math {stemp_expression1:"ψ"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_23
 execute if data storage large_number:math {stemp_expression1:"Σ[1/n]n→"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_24

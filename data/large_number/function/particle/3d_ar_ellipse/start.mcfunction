@@ -13,7 +13,7 @@
 #显示粒子：execute positioned x y z rotated x y run function large_number:particle/3d_ar_ellipse/particle
 #执行朝向就是椭圆的朝向，执行位置就是椭圆的位置
 
-tp @s 0.0 0.0 0.0 90.0 0.0
+tp @s 0.0 0.0 0.0 0.0 0.0
 
 scoreboard players operation #store_3d.ellipse.a int = #3d.ellipse.a int
 scoreboard players operation #store_3d.ellipse.b int = #3d.ellipse.b int
@@ -29,8 +29,5 @@ execute store result storage large_number:math temp_rn double .001 run scoreboar
 data modify storage large_number:math 3d_ar_ellipse_pos set value []
 execute store result entity @s Rotation[1] float -0.1 run scoreboard players set #loop int 3600
 function large_number:particle/3d_ar_ellipse/loop
-
-execute store result entity @s Rotation[1] float 0.001 run scoreboard players get #3d.ellipse.roll.θ int
-execute positioned 0.0 0.0 0.0 rotated as @s rotated 90.0 ~ run function large_number:particle/3d_ar_ellipse/scan
 
 tp .0 .0 .0

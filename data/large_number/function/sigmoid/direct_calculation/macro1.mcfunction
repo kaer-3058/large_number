@@ -1,0 +1,1 @@
+$execute store result storage large_number:math exp_e^x.input double $(input) run return -1

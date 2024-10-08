@@ -7,8 +7,6 @@
 #执行
 #execute as b09e-44-fded-6-efa5ffffef64 run function large_number:unit_vector_for_distance
 
-#两个点的坐标差的范围：100*|x|+100*|y|+100*|z| ≤2147483
-
 execute store result score #v1.x int run data get storage large_number:math unit_vector2.P1[0] 100.0
 execute store result score #v1.y int run data get storage large_number:math unit_vector2.P1[1] 100.0
 execute store result score #v1.z int run data get storage large_number:math unit_vector2.P1[2] 100.0

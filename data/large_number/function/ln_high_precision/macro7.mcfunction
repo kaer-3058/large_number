@@ -1,0 +1,1 @@
+$data modify storage large_number:math ln_high_precision.output set value -$(output)

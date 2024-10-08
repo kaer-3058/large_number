@@ -1,1 +1,0 @@
-$tp ^ ^$(stemp2) ^$(stemp1)

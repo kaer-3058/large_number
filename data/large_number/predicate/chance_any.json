@@ -1,0 +1,8 @@
+{
+    "condition": "minecraft:random_chance",
+    "chance": {
+        "type": "storage",
+        "storage": "large_number:math",
+        "path": "geometric_distribution_chance"
+    }
+}

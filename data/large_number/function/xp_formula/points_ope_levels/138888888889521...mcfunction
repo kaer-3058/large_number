@@ -27,10 +27,10 @@ scoreboard players operation #xp_2.input[3] int %= 10000 const
 scoreboard players operation #xp_2.input[4] int %= 10000 const
 
 
-#减法 -55503
+#减法 -54215
 execute if score #xp_2.input[4] int matches ..4214 run scoreboard players remove #xp_2.input[3] int 1
 execute if score #xp_2.input[4] int matches ..4214 run scoreboard players add #xp_2.input[4] int 10000
-scoreboard players remove #xp_2.input[4] int 5503
+scoreboard players remove #xp_2.input[4] int 4125
 
 execute if score #xp_2.input[3] int matches ..4 run scoreboard players remove #xp_2.input[2] int 1
 execute if score #xp_2.input[3] int matches ..4 run scoreboard players add #xp_2.input[3] int 10000
@@ -638,7 +638,7 @@ execute store result storage large_number:math xp_points_ope_levels.output_level
 
 ##把得到的等级数代入经验公式算经验差
 
-#经验公式：y=4.5x^2 -162.5x +2099
+#经验公式：y=4.5x^2 -162.5x +2220
 #这是对"当经验等级≥32时，升级到下一级的经验为9n-158"求和后+1507得到的，从n=31开始求和
 
 # #4=经验等级的平方
@@ -767,8 +767,8 @@ scoreboard players operation #4.2 int += #5.4 int
 scoreboard players operation #4.1 int /= 10 const
 
 
-#+2099
-execute store result score #5.4 int run scoreboard players add #4.5 int 2099
+#+2220
+execute store result score #5.4 int run scoreboard players add #4.5 int 2220
 scoreboard players operation #5.4 int /= 10000 const
 execute store result score #5.3 int run scoreboard players operation #4.4 int += #5.4 int
 scoreboard players operation #5.3 int /= 10000 const

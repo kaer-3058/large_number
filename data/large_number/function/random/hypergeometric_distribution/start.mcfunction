@@ -1,4 +1,4 @@
-##概率模拟 - 超几何分布
+##超几何分布
 
 #样本池：data modify storage large_number:math hypergeometric_distribution_list set value [7,3,5,11,5,9,6,13,2]
 #必须输入int型正整数列表。输入列表里的元素按照它所在的位置，自从分配ID。比如第1个元素的ID为1，第五个元素ID为5。列表里每一项的数字表示这个ID的元素有几个。
@@ -37,6 +37,7 @@ data modify storage large_number:math sstemp2 set from storage large_number:math
 
 data modify storage large_number:math sstemp4 set value []
 scoreboard players operation #store_hypergeometric_distribution.times int = #hypergeometric_distribution.times int
+item replace entity 3faf-0-3d00-0-61900f4241f weapon.mainhand with minecraft:stone 1
 execute if score #store_hypergeometric_distribution.times int matches 1.. run function large_number:random/hypergeometric_distribution/loop3
 
 

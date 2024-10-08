@@ -1,0 +1,1 @@
+$execute store result storage large_number:math int_mult2_out long $(temp1) run return $(temp2)

@@ -1,1 +1,1 @@
-$data modify storage large_number:math round_double.output set value $(temp2)d
+$data modify storage large_number:math q1 set value $(q1)d

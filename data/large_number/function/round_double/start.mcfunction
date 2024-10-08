@@ -1,7 +1,7 @@
 ##对浮点数向下取整
 
 #data modify storage large_number:math round_double.input set value 38.6625
-#向0取余：scoreboard players set #round_towards_zero int 1
+#向0取整：scoreboard players set #round_towards_zero int 1
 
 data modify storage large_number:math temp1 set string storage large_number:math round_double.input 0 -1
 
@@ -18,6 +18,6 @@ data modify storage large_number:math temp_expon set value "0"
 execute if score #is_XXEXX int matches 1 run function large_number:double_sqrt.if/the_scientific_notation
 execute store result score #_exp int run function large_number:sigmoid/macro3 with storage large_number:math
 
-execute if score #_exp int matches 16.. run data modify storage large_number:math round_double.output set from storage large_number:math round_double.input
-execute if score #_exp int matches ..-16 run data modify storage large_number:math round_double.output set value 0.0
-execute if score #_exp int matches -15..15 run function large_number:round_double/1
+execute if score #_exp int matches 17.. run data modify storage large_number:math round_double.output set from storage large_number:math round_double.input
+execute if score #_exp int matches ..-17 run data modify storage large_number:math round_double.output set value 0.0
+execute if score #_exp int matches -16..16 run function large_number:round_double/1

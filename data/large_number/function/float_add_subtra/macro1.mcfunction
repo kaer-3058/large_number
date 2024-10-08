@@ -1,1 +1,1 @@
-$data modify storage large_number:math temp2 set value $(temp2)
+$execute store result storage large_number:math temp2 double $(temp2) run return -1

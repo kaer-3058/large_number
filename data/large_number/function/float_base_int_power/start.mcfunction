@@ -4,6 +4,8 @@
 #data modify storage large_number:math float_base_int_power.expon set value 12
 
 execute store result score #float_base_int_power.expon int run data get storage large_number:math float_base_int_power.expon
+data modify storage large_number:math float_base_int_power.output set from storage large_number:math float_base_int_power.base
+data remove storage large_number:math temp_convert_deci
 scoreboard players operation #temp_float_base_int_power_temp1 int = #float_base_int_power.expon int
 execute if score #temp_float_base_int_power_temp1 int matches ..-1 run scoreboard players operation #temp_float_base_int_power_temp1 int *= -1 const
 data modify storage large_number:math sstemp1 set from storage large_number:math float_base_int_power.base
@@ -12,7 +14,7 @@ execute if data storage large_number:math {temp1:"-"} run data modify storage la
 execute if data storage large_number:math {temp1:"-"} run function large_number:float_base_int_power/macro1 with storage large_number:math
 data modify storage large_number:math temp_float_base_int_power_mul_2 set from storage large_number:math sstemp1
 execute if score #temp_float_base_int_power_temp1 int matches 2.. run function large_number:float_base_int_power/loop
-data modify storage large_number:math float_base_int_power.output set from storage large_number:math sstemp1
+execute if data storage large_number:math temp_convert_deci run data modify storage large_number:math float_base_int_power.output set from storage large_number:math sstemp1
 
 execute if score #float_base_int_power.expon int matches 0 run data modify storage large_number:math float_base_int_power.output set value 1.0d
 execute if score #float_base_int_power.expon int matches 1 run data modify storage large_number:math float_base_int_power.output set from storage large_number:math float_base_int_power.base

@@ -1852,7 +1852,7 @@ Note: Do not place a single number in parentheses alone; use (a+0) instead if ne
 
 Conversion and computation completion will be indicated.
 
-Function List (34 functions supported):
+Function List (37 functions supported):
 
 > Each function and its parameters must be enclosed in separate parentheses, supporting composite functions.
 >
@@ -1861,7 +1861,7 @@ Function List (34 functions supported):
 > For example, `sin7+2` should be written as "(sin7)+2", and `ln(2+9)·2-3` should be written as "(ln(2+9))·2－3".
 
 ```
-Function names: exp; sin; cos; arcsin; arccos; arctan; ln; √; Γ; ┕; ºLambertW; ¹LambertW; ||; sgn; []; [0]; —; ψ; Σ[1/n]n→; log; atan; nroot; eunorm₂; eunorm₃; >=; <=; ==; ≈≈; >/<; >-<; >>; <<; ≥≥; ≤≤;
+Function names: exp; sin; cos; arcsin; arccos; arctan; ln; √; Γ; ┕; ºLambertW; ¹LambertW; ||; sgn; []; [0]; —; ψ; Σ[1/n]n→; log; atan; nroot; eunorm₂; eunorm₃; >=; <=; ==; ≈≈; >/<; >-<; >>; <<; ≥≥; ≤≤; ºsinh; ºcosh; ºtanh
 
 Introduction:
 
@@ -1885,6 +1885,9 @@ sgnβ = sgn(β), sign function.
 —β = Half dash, represents the opposite of β. Note: This symbol is not equivalent to a minus sign; it represents the function of "taking the opposite.".
 ψβ = ψ(β), digamma function, the logarithmic derivative of the Gamma function.
 Σ[1/n]n→β = Sum of the first β terms of the harmonic series.
+ºsinhβ = sinh(β)
+ºcoshβ = cosh(β)
+ºtanhβ = tanh(β)
 
 Binary Operations
 αlogβ = Logarithm of β base α.

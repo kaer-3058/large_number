@@ -90,6 +90,9 @@ execute if score #sstemp1 int matches 0 run data modify storage large_number:mat
 execute if data storage large_number:math {stemp1:"atan"} run scoreboard players set #sstemp1 int 1
 execute if score #sstemp1 int matches 0 run data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 5
 execute if data storage large_number:math {stemp1:"nroot"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"ºsinh"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"ºcosh"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"ºtanh"} run scoreboard players set #sstemp1 int 1
 execute if score #sstemp1 int matches 0 run data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 6
 execute if data storage large_number:math {stemp1:"arcsin"} run scoreboard players set #sstemp1 int 1
 execute if data storage large_number:math {stemp1:"arccos"} run scoreboard players set #sstemp1 int 1

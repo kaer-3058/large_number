@@ -97,6 +97,7 @@ scoreboard players set 268435456 const 268435456
 #设置重力加速度的一半
 scoreboard players set #g/2 const 122
 
+#NTRE
 function ntre:init
 
 execute in minecraft:overworld run function large_number:load.in_overworld
@@ -107,6 +108,7 @@ data modify storage large_number:const "γ" set value 0.577215664901532860606512
 data modify storage large_number:const "φ" set value 1.61803398874989484820458683436563811772030917980576d
 data modify storage large_number:const double_min set value -1.797693134862315807E308d
 data modify storage large_number:const double_max set value 1.797693134862315807E308d
+data modify storage large_number:const double_abs_min set value 4.9E-324d
 
 
 data modify storage large_number:const version set value "large_number v.1.16"

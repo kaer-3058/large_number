@@ -11,7 +11,7 @@ data modify storage large_number:math temp_store_exp set from storage large_numb
 data modify storage large_number:math _expressionss2 set from storage large_number:math hyperbolic_function.input
 function large_number:expression_evaluation_scientific/ope_of_float/ope_21 with storage large_number:math
 
-#e^-2x
+#e^-x
 data modify storage large_number:math exp_e^x.input set from storage large_number:math _expressionss3
 function large_number:exp_e.x/start
 data modify storage large_number:math temp_store_exp2 set from storage large_number:math exp_e^x.output

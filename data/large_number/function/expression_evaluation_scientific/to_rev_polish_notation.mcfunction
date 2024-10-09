@@ -3,7 +3,7 @@
 #输入：data modify storage large_number:math expression_evaluation.input set value "(12+14)*(106－32)"
 #运算符可接受+－*·/().E-^²。为了在转化为逆波兰式的过程中区分减法与负数，"－"(全角减号)表示减法，"-"(半角减号)表示负数。"·"等价于"*"。数字只能是double，不需要带单位。注意，即使是变量与数字相乘，乘号也必须要写。
 
-#函数列表：log exp sin cos arcsin arccos arctan ln √ Γ ┕ ºLambertW ¹LambertW || sgn [] — atan ψ Σ[1/n]n→ eunorm₂ eunorm₃ [0] >= <= == ≈≈ >/< >-< >> << ≥≥ ≤≤ nroot。
+#函数列表：log exp sin cos arcsin arccos arctan ln √ Γ ┕ ºLambertW ¹LambertW || sgn [] — atan ψ Σ[1/n]n→ eunorm₂ eunorm₃ [0] >= <= == ≈≈ >/< >-< >> << ≥≥ ≤≤ nroot ºsinh ºcosh ºtanh。
 #函数命名规则：不能含有0123456789.E-^²·αβδεηλμξτωｘｙｚ，不能与其他函数名称的前几个字母一样
 #每个函数和它的参数都必须单独放在一个括号里，支持复合函数
 
@@ -13,6 +13,7 @@
 # αatanβ = atan2(α,β) 弧度制
 # αeunorm₂β = √(α²+β²)，二维向量(α,β)的欧氏范数，必须都是非负数
 # αnrootβ = 对β开α次根
+
 # α>=β = 逻辑运算，取较大值
 # α<=β = 逻辑运算，取较小值
 # α==β = 逻辑运算，严格判断是否相等，相等为1，否则为0
@@ -46,6 +47,9 @@
 # —β = 破折号的一半，表示β的相反数
 # ψβ = ψ(β) digamma函数，又叫双伽玛函数，伽玛函数的对数的导数
 # Σ[1/n]n→β = 调和级数前β项和
+# ºsinhβ = sinh(β)
+# ºcoshβ = cosh(β)
+# ºtanhβ = tanh(β)
 
 #拆字符串，把符号和数字拆开，然后转化为逆波兰式
 #逆波兰式算法：https://blog.csdn.net/zm_miner/article/details/115324206

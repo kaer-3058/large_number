@@ -1,4 +1,4 @@
-##列表算法 - 数组元素去重 (返回值法)
+##列表算法 - 数组元素去重 (暴力搜索)
 
 #输入：data modify storage large_number:math list_dedup.input set value []
 

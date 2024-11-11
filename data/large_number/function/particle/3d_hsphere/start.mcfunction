@@ -18,4 +18,4 @@ execute store result score #n int run scoreboard players operation #loop int = #
 
 function large_number:particle/3d_hsphere/loop
 
-tp @s .0 .0 .0 .0 .0
+tp .0 .0 .0

@@ -19,7 +19,7 @@ execute as b09e-44-fded-6-efa5ffffef64 run function large_number:particle/star_l
 
 #r^p
 execute store result storage large_number:math exp_any.input.expon double .0001 run scoreboard players get #star_line.p int
-function large_number:exp_any/3
+function large_number:exp_any/2
 data modify storage large_number:math temp_r_p set from storage large_number:math exp_any.output
 
 #分界点，r/(2^(1/p))

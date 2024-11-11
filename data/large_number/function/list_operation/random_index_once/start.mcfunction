@@ -9,9 +9,8 @@ data modify storage large_number:math s1 set from storage large_number:math list
 execute store result score #uniform_distribution.max int run data get storage large_number:math s1
 
 #均匀分布
-item replace entity 3faf-0-3d00-0-61900f4241f weapon.mainhand with minecraft:stone 1
-item modify entity 3faf-0-3d00-0-61900f4241f weapon.mainhand large_number:uniform_distribution
-data modify storage large_number:math temp1 set from entity 3faf-0-3d00-0-61900f4241f HandItems[0].components."minecraft:custom_model_data"
+item modify block -29999984 -60 22022220 container.0 large_number:uniform_distribution
+data modify storage large_number:math temp1 set from block -29999984 -60 22022220 RecordItem.components."minecraft:custom_model_data"
 
 function large_number:list_operation/random_index_once/macro2 with storage large_number:math
 data modify storage large_number:math list_ope_random_index_once.output set from storage large_number:math q0

@@ -67,6 +67,7 @@ execute if data storage large_number:math {stemp_expression1:"ºtanh"} run funct
 execute if score #expression_evaluation_test2 int matches 1.. run data remove storage large_number:math temp_expression_s1[-1]
 execute if score #expression_evaluation_test2 int matches 2.. run data remove storage large_number:math temp_expression_s1[-1]
 execute if score #expression_evaluation_test2 int matches 3.. run data remove storage large_number:math temp_expression_s1[-1]
+#tellraw @a {"nbt":"_expressionss3","storage": "large_number:math"}
 data modify storage large_number:math _expressionss3 set string storage large_number:math _expressionss3 0 -1
 data modify storage large_number:math temp_expression_s1 append from storage large_number:math _expressionss3
 

@@ -1,3 +1,5 @@
+##新版int对int的大数乘法
+
 #scoreboard players set #input1 int 77441156
 #scoreboard players set #input2 int 22339017
 

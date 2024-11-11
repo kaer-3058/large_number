@@ -1,0 +1,1 @@
+execute facing entity @s feet rotated ~ .0 positioned .0 .0 .0 positioned ^ ^ ^1 run function large_number:geometry/conical_selection_area/fan-shaped/3

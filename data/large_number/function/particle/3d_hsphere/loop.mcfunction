@@ -17,19 +17,9 @@ scoreboard players operation #rn.length int += #t2 int
 scoreboard players operation #rn.length int /= 2 const
 scoreboard players operation #n int /= #rn.length int
 scoreboard players operation #rn.length int += #n int
-scoreboard players operation #rn.length int /= 2 const
+execute store result storage large_number:math temp_r double .0001 run scoreboard players operation #rn.length int /= 2 const
 
-execute store result storage large_number:math temp_r double .0001 run scoreboard players get #rn.length int
-
-data modify storage large_number:math s0 set from entity @s Pos
-data modify storage large_number:math s1 set from entity @s Rotation
-execute at @s run function large_number:particle/3d_hsphere/macro1 with storage large_number:math
-execute positioned .0 .0 .0 facing entity @s feet run function large_number:particle/3d_hsphere/macro2 with storage large_number:math
-data modify storage large_number:math 3d_hsphere_pos append from entity @s Pos
-
-data modify entity @s Pos set from storage large_number:math s0
-data modify entity @s Rotation set from storage large_number:math s1
-execute at @s run tp @s ~ ~ ~ ~222.49223594996214535365126037162 ~
+execute at @s run function large_number:particle/3d_hsphere/2
 
 execute store result score #n int run scoreboard players operation #loop int += #temp_any_fen int
 execute if score #loop int matches ..40000 run function large_number:particle/3d_hsphere/loop

@@ -2,13 +2,13 @@
 
 　
 
-## 卡儿的数学库 v.1.16
+## 卡儿的数学库 v.1.17
 
 - [English](README_English.md)
 
 - [简体中文](README.md)
 
-对应MC版本1.21.1
+对应MC版本1.21.3
 
 相关概念：万进制数组、分段存储、浮点型、double型、前导0、绝对值、常数、精度、科学记数法
 
@@ -22,19 +22,19 @@
 
 　
 
-♦ 本数据包唯一标识符
+#### 本数据包唯一标识符
 
 ```
 storage large_number:const version
-当前内容是："large_number v.1.16"
+当前内容是："large_number v.1.17"
 
 协议版本：#k.la.version const
-当前为：1016
+当前为：1017
 ```
 
 　
 
-♦ 常数
+#### 常数
 
 ```
 圆周率 π：storage large_number:const "π"
@@ -46,17 +46,41 @@ storage large_number:const version
 
 　
 
-♦ 六个基本三角函数：large_number:math_trifs/_of_entity
+#### 需要用户自行载入的表格
+
+单个存档只需载入一次
 
 ```
-输入：entity b09e-44-fded-6-efa5ffffef64 Rotation[0] 0.0f
+e^x的前置库(指数算法的基础)：
+载入：function large_number:exp_e.x/database
+卸载：data remove storage large_number:exp database
+
+ln的初始数据库：
+载入：function large_number:ln/ln_database
+卸载：function large_number:ln/uninstall_ln_database
+
+高精度三角函数的数据库：
+载入：function large_number:math_trifs/sin_cos_high_precision/database
+卸载：function large_number:math_trifs/sin_cos_high_precision/uninstall_databse
+```
+
+　
+
+#### [三角函数] 六个基本三角函数
+
+```
+输入[float]：entity b09e-44-fded-6-efa5ffffef64 Rotation[0]
+计算：function large_number:math_trifs/_of_entity
+
 输出：#sin int，#cos int，#tan int，#cot int，#sec int，#csc int
 ```
 
-♦ 正弦与余弦
+　
+
+#### [三角函数] 正弦与余弦
 
 ```
-输入：entity b09e-44-fded-6-efa5ffffef64 Rotation[0] 0.0f
+输入[float]：entity b09e-44-fded-6-efa5ffffef64 Rotation[0]
 
 计算：execute as b09e-44-fded-6-efa5ffffef64 rotated as @s rotated ~ 0.0 positioned .0 .0 .0 run tp @s ^1.0 ^ ^ ~ ~
 
@@ -65,32 +89,9 @@ sin：entity b09e-44-fded-6-efa5ffffef64 Pos[2]
 cos：entity b09e-44-fded-6-efa5ffffef64 Pos[0]
 ```
 
-♦ 双参数反正切 (atan2d)：
-
-公式：atan2d(y,x)
-
-1.数据来自记分板：large_number:math_trifs/atan2
-
-```
-输入：#y int，#x int
-计算：as b09e-44-fded-6-efa5ffffef64 run func.. 
-输出 (角度)：entity b09e-44-fded-6-efa5ffffef64 Rotation[0]
-```
-
-2.数据来自nbt：`execute as b09e-44-fded-6-efa5ffffef64 positioned .0 .0 .0 run function large_number:math_trifs/atan2_double/start with storage large_number:math atan2_double`
-
-```
-输入：
-y：storage large_number:math atan2_double.y 1.0
-x：storage large_number:math atan2_double.x 1.0
-输入可以是double或float，输出的是float
-
-输出 (角度)：storage large_number:math atan2_double.output
-```
-
 　
 
-♦ 反正弦与反余弦
+#### [三角函数] 反正弦与反余弦
 
 反正弦：large_number:math_trifs/arcsin
 
@@ -102,36 +103,264 @@ x：storage large_number:math atan2_double.x 1.0
 输入：#arcsin_cos.input int
 放大一万倍输入，输入范围：[-10000,10000]
 
-输出 (角度)：entity b09e-44-fded-6-efa5ffffef64 Rotation[0]
+输出 (角度，放大一万倍)：#arcsin_cos.output int
 ```
 
-♦ 反正切：`execute as b09e-44-fded-6-efa5ffffef64 positioned .0 .0 .0 run function large_number:math_trifs/arctan/start with storage large_number:math arctan`
+　
+
+#### [三角函数] 反正切
 
 公式：`arctan(x)=atan2(x,1)`
 
 ```
-输入：storage large_number:math arctan.input 0.0
+输入[浮点数]：storage large_number:math arctan.input
 输入可以是double或float，输出的是float
+
+计算：execute as b09e-44-fded-6-efa5ffffef64 positioned .0 .0 .0 run function large_number:math_trifs/arctan/start with storage large_number:math arctan
 
 输出 (角度)：storage large_number:math arctan.output
 ```
 
 　
 
-♦ 大数加法：large_number:addition/start
+#### [三角函数] 双参数反正切 (atan2d)
+
+公式：atan2d(y,x)
+
+1.数据来自记分板：`execute as b09e-44-fded-6-efa5ffffef64 run function large_number:math_trifs/atan2`
+
+```
+输入：#y int，#x int
+输出 (角度，放大一万倍)：#atan2d int
+```
+
+2.数据来自nbt：`execute as b09e-44-fded-6-efa5ffffef64 positioned .0 .0 .0 run function large_number:math_trifs/atan2_double/start with storage large_number:math atan2_double`
+
+```
+输入[浮点数]：
+y：storage large_number:math atan2_double.y
+x：storage large_number:math atan2_double.x
+输入可以是double或float，输出的是float
+
+输出 (角度)：storage large_number:math atan2_double.output
+```
+
+　
+
+#### [三角函数] 高精度正弦与余弦
+
+查表+三角函数和角公式，因此正弦和余弦是一起计算的
+
+```
+输入[float，角度制]：storage large_number:math sin_cos_high_precision.input 0.0f
+输入范围：[-16777216, 16777216]
+
+输出
+正弦：storage large_number:math sin_cos_high_precision.sin
+余弦：storage large_number:math sin_cos_high_precision.cos
+```
+
+　
+
+#### [整数四则] 整数除法
+
+4位有效数字：large_number:division/int_4decimal/start
+
+8位有效数字：large_number:division/int_8decimal/start
+
+12位有效数字：large_number:division/int_12decimal/start
+
+作为浮点除法的推广，虽然可接受全int，但实际上只取被除数和除数的前八位
+
+```
+被除数：#int_+decimal.input1 int
+除数：#int_+decimal.input2 int
+
+商：storage large_number:math int_more_decimal_out
+```
+
+　
+
+#### [整数四则] 对整数进行任意倍乘
+
+```
+输入整数：storage large_number:math int_mul_by_n.input_int
+输入的"整数"可以为非整数，但会按照整数来处理，向下取整并把范围钳制在整型范围内
+
+输入倍率：storage large_number:math int_mul_by_n.input_n
+输入的"倍率"可以为任何数值，但计算时会忽略数据单位并转化为double型
+
+要输出的数据类型：storage large_number:math int_mul_by_n.data_type "double"
+可选的数据类型："byte"、"float"、"double"、"short"、"int"、"long"
+
+计算：function large_number:int_mul_by_n/start
+
+输出：storage large_number:math int_mul_by_n.output
+```
+
+　
+
+#### [数组四则] 整型数字拆分为数组
+
+```
+输入：input int
+计算：function large_number:cut_math_to_list
+
+输出：#sign int (符号)，#1st int，#2nd int，#3rd int
+```
+
+　
+
+#### [数组四则] 任意整型数字相乘
+
+1.数组相乘法：large_number:int_int_multiply
+
+```
+因数1：input int
+因数2：input.2 int
+积[万进制数组]：storage large_number:math int_int_multiply.output
+```
+
+2.函数宏乘法：large_number:int_mul2/start
+
+```
+因数1：#input1 int
+因数2：#input2 int
+积[long型]：storage large_number:math int_mult2_out
+```
+
+　
+
+#### [数组四则] 任意整型数字平方
+
+```
+输入：input int
+计算：function large_number:int_square
+
+输出：storage large_number:math int_squ
+```
+
+　
+
+#### [数组四则] 大数加法
 
 ```
 加数1：storage large_number:math addition.input1 [I;0,0,0]
 加数2：storage large_number:math addition.input2 [I;0,0,0]
+计算：function large_number:addition/start
+
 和：storage large_number:math addition.output
 ```
 
-♦ 大数减法：large_number:subtraction/start
+　
+
+#### [数组四则] 大数减法
 
 ```
 被减数：storage large_number:math subtraction.input1 [I;0,0,0,0]
 减数：storage large_number:math subtraction.input2 [I;0,0,0,0]
+计算：function large_number:subtraction/start
+
 差：storage large_number:math subtraction.output
+```
+
+　
+
+#### [数组四则] 12位数字相乘
+
+```
+因数1：storage large_number:math 1we_multiply.input1 [I;0,0,0]
+因数2：storage large_number:math 1we_multiply.input2 [I;0,0,0]
+计算：function large_number:1we_multiply
+
+积：storage large_number:math 1we_multiply.output
+```
+
+　
+
+#### [数组四则] 12位数字平方
+
+```
+输入：storage large_number:math 1we_squ.input [I;0,0,0]
+计算：function large_number:1we_square
+
+输出：storage large_number:math 1we_squ.output
+```
+
+　
+
+#### [数组四则] 无穷位数字相乘
+
+```
+因数1：storage large_number:math Infinite_digit_multiply.input1 [I;0,0]
+因数2：storage large_number:math Infinite_digit_multiply.input2 [I;0,0]
+输入格式：因数必须为万进制int数组，且数组元素全都是非负数。因数的数组可以含有很多个数。
+
+计算：function large_number:infinite_digit_multiply/start
+
+输出：storage large_number:math Infinite_digit_multiply.output
+```
+
+　
+
+#### [数组四则] 展示实体法大数除法
+
+仅处理正数，此算法可以一次性算三个被除数
+
+```
+被除数
+storage large_number:math display_div_large.input.dividend1 [I;0,0,0]
+storage large_number:math display_div_large.input.dividend2 [I;0,0,0]
+storage large_number:math display_div_large.input.dividend3 [I;0,0,0]
+
+除数
+storage large_number:math display_div_large.input.divisor [I;0,0,0]
+
+计算
+function large_number:division/display_large_number/start
+
+输出
+entity 28529-0-3d00-0-2c4200ee8401 transformation.scale
+```
+
+　
+
+#### [数组四则] 数组除以一~六位整数 (保留四位小数)
+
+竖式除法，16条命令。
+
+```
+被除数：storage large_number:math list_div_const.dividend [I;0,0,0]
+输入格式：被除数必须是万进制int数组，且数组元素都是非负数。被除数数组支持输入1~3个数。
+
+除数：#list_div_const_divisor int
+除数的允许输入范围：[1,214748]。
+
+计算：function large_number:division/list_div_const
+
+商：storage large_number:math list_div_const.output
+输出的数组的第四个数是小数
+```
+
+　
+
+#### [数组四则] 数组除以八位整数 (多位有效数字)
+
+被除数必须为的万进制int数组，被除数的数组元素和除数必须全都是正数。被除数数组支持输入1~3个数。
+
+分段除法，(a+b+c)/m = a/m+b/m+c/m
+
+无迭代，无试除，无递归，命令数固定
+
+目前无迭代大数除法理论上可以实现除数为任意多位，但除数的输入还是个难题，如能实现超过八位的除数输入即可解决大数除法
+
+```
+被除数：storage large_number:math list_div_int.list [I;0,0,0]
+除数[int]：storage large_number:math list_div_int.int
+
+计算：function large_number:division/list_div_int/start
+
+商[double]：storage large_number:math list_div_int.output
 ```
 
 　
@@ -148,28 +377,13 @@ entity 28529-0-3d00-0-2c4200ee8401 transformation [1.0f,0.0f,0.0f,0.0f,0.0f,1.0f
 entity 28529-0-3d00-0-2c4200ee8401 transformation.scale
 ```
 
-♦ 展示实体法大数除法：large_number:division/display_large_number/start
-
-仅处理正数
-
-```
-被除数
-storage large_number:math display_div_large.input.dividend1 [I;0,0,0]
-storage large_number:math display_div_large.input.dividend2 [I;0,0,0]
-storage large_number:math display_div_large.input.dividend3 [I;0,0,0]
-
-除数
-storage large_number:math display_div_large.input.divisor [I;0,0,0]
-
-输出
-entity 28529-0-3d00-0-2c4200ee8401 transformation.scale
-```
+　
 
 ♦ 浮点除法 - 数据来自记分板
 
 1. 八位有效数字：large_number:division/hpo/_div
 
-  这是目前所有高精度除法的核心，算法著作人：小豆 https://github.com/xiaodou8593
+  这是目前所有的非迭代法的高精度除法的核心，算法著作人：小豆 https://github.com/xiaodou8593
 
 ```
 设置被除数
@@ -221,28 +435,14 @@ set #float_exp int 23
 皆可输入float或double型
 
 ```
-被除数：storage large_number:math float_division.input1 0.0
-除数：storage large_number:math float_division.input2 0.0
+被除数[浮点数]：storage large_number:math float_division.input1
+除数[浮点数]：storage large_number:math float_division.input2
 商：storage large_number:math float_division.output
 ```
 
-♦ 12位数组除以常数 (保留四位小数)：large_number:division/list_div_const
 
-原理：竖式除法
 
-输出的数组的第四个数是小数，常数不能超过五位数。
-
-```
-输入：
-被除数：storage large_number:math list_div_const.dividend [I;0,0,0]
-除数：#list_div_const_divisor int
-
-输出：
-商：storage large_number:math list_div_const.output
-商的正负号：storage large_number:math list_div_const.output_sign
-```
-
-♦ 无穷多位有效数字的除法：large_number:division/loop_more_more_decimal/start
+♦ 无穷多位有效数字的浮点除法：large_number:division/loop_more_more_decimal/start
 
 ```
 被除数
@@ -276,66 +476,46 @@ storage large_number:math loop_more_more_decimal_base (底数)
 可输入float或double型
 
 ```
-输入：storage large_number:math float_reciprocal.input 0.0
+输入[浮点数]：storage large_number:math float_reciprocal.input
 输出：storage large_number:math float_reciprocal.output
 ```
 
-　
 
-♦ 整数除法 
 
-4位有效数字：large_number:division/int_4decimal/start
+♦ 迭代法无穷位大数除法
 
-8位有效数字：large_number:division/int_8decimal/start
+计算完成会有提示
 
-12位有效数字：large_number:division/int_12decimal/start
-
-作为浮点除法的推广，虽然可接受全int，但实际上只取被除数和除数的前八位
+1. 递归相减法：large_number:division/large_division/start
 
 ```
-被除数：#int_+decimal.input1 int
-除数：#int_+decimal.input2 int
+被除数：storage large_number:math large_division.input1 [0,0]
+除数：storage large_number:math large_division.input2 [0,0]
+输入格式：被除数和除数必须都是万进制int数组，且数组元素都是非负数，被除数的位数不能多于除数，需用户自行检查除数是否为0，被除数不能带有前导0。被除数和除数的数组可以含很多个数。
 
-商：storage large_number:math int_more_decimal_out
+商的位数[int]：storage large_number:math large_division.times
+
+去掉商的后缀0：storage large_number:math large_division.del_zeros set value 1
+不想去掉就设为其他值
+
+商：storage large_number:math large_division.output
+输出的数组的每一个数代表一位。数组第一个数是商的整数部分，第二个数是十分位，第三个数是百分位……以此类推。
+例如输出了[0,0,3,1,0,2,7,5,0]，则表示：0.03102750
 ```
 
-♦ 数组除以整数 (多位有效数字)：large_number:division/list_div_int/start
-
-被除数必须为万进制int数组，被除数的数组元素和除数必须全都是正数。有自适应数位，被除数数组不必每次都输入满三个数。
-
-只取除数的前八位
-
-原理：分段除法，(a+b+c)/m = a/m+b/m+c/m
-
-无迭代，无试除，无递归，命令数固定
+2. 无穷位数组整除一~六位整数：large_number:division/large_list_div_const/start
 
 ```
-被除数：storage large_number:math list_div_int.list [I;0,0,0]
-除数：storage large_number:math list_div_int.int 1
+被除数：storage large_number:math large_list_div_const.dividend [0,0]
+输入格式：被除数必须是万进制int数组，且数组元素都是非负数。被除数数组支持输入很多个数。
 
-商 (double型)：storage large_number:math list_div_int.output
+除数：#large_list_div_const.divisor int
+除数的允许输入范围：[1,214748]。
+
+商：storage large_number:math large_list_div_const.output
 ```
 
-　
 
-♦ 对整数进行任意倍乘：large_number:int_mul_by_n/start
-
-原理：execute store + data get，可实现用倍率存储整数，用函数宏导入动态倍率
-
-```
-输入整数：storage large_number:math int_mul_by_n.input_int
-输入倍率：storage large_number:math int_mul_by_n.input_n
-要输出的数据类型：storage large_number:math int_mul_by_n.data_type "double"
-
-输出：storage large_number:math int_mul_by_n.output
-```
-输入的"整数"可以为非整数，但会按照整数来处理，向下取整并把范围钳制在整型范围内
-
-输入的"倍率"可以为任何数值，但计算时会忽略数据单位并转化为double型
-
-可选的数据类型："byte"、"float"、"double"、"short"、"int"、"long"
-
-　
 
 ♦ 浮点乘法
 
@@ -348,8 +528,8 @@ storage large_number:math loop_more_more_decimal_base (底数)
 原理：浮点转化为记分板格式后取前八位进行大数乘法
 
 ```
-因数1：storage large_number:math float_multiply.input1 0.0
-因数2：storage large_number:math float_multiply.input2 0.0
+因数1[浮点数]：storage large_number:math float_multiply.input1
+因数2[浮点数]：storage large_number:math float_multiply.input2
 可以为float或double型
 
 积：storage large_number:math float_multiply.output
@@ -362,8 +542,8 @@ storage large_number:math loop_more_more_decimal_base (底数)
 可精确到双精度浮点数级
 
 ```
-因数1：storage large_number:math float_multiply.input1 0.0
-因数2：storage large_number:math float_multiply.input2 0.0
+因数1[浮点数]：storage large_number:math float_multiply.input1
+因数2[浮点数]：storage large_number:math float_multiply.input2
 可以为float或double型
 
 积：storage large_number:math float_multiply.output
@@ -372,7 +552,7 @@ storage large_number:math loop_more_more_decimal_base (底数)
 ♦ 高精度浮点数平方：large_number:float_mul.high_precision/squ/start
 
 ```
-输入：storage large_number:math float_multiply.input1 0.0
+输入[浮点数]：storage large_number:math float_multiply.input1
 可以为float或double型
 
 输出：storage large_number:math float_multiply.output
@@ -381,7 +561,7 @@ storage large_number:math loop_more_more_decimal_base (底数)
 ♦ 高精度浮点数立方：large_number:float_mul.high_precision/cube/start
 
 ```
-输入：storage large_number:math float_multiply.input1 0.0
+输入[浮点数]：storage large_number:math float_multiply.input1
 可以为float或double型
 
 输出：storage large_number:math float_multiply.output
@@ -389,16 +569,20 @@ storage large_number:math loop_more_more_decimal_base (底数)
 
 　
 
-♦ 浮点加减法：large_number:float_add_subtra/start
+♦ 浮点加减法
+
+1. 实体坐标法：large_number:float_add_subtra/start
 
 输入可以是float或double型，但是输出的一定是double型
 
-原理：execute positioned + loot spawn，用函数宏输入参数。loot spawn无坐标上下限，故此算法可以计算全浮点数的加减法。
+原理：loot spawn无坐标上下限，故此算法可以计算全浮点数的加减法。
+
+2. 记分板算法：large_number:float_add_subtra/new/start
 
 ```
-输入：
-storage large_number:math float_add_subtra.input1 0.0
-storage large_number:math float_add_subtra.input2 0.0
+输入[浮点数]：
+storage large_number:math float_add_subtra.input1
+storage large_number:math float_add_subtra.input2
 
 计算模式：set #float_add_subtra_ope_mode int
 1为加法，2为减法
@@ -414,9 +598,9 @@ storage large_number:math float_add_subtra.input2 0.0
 把输入值代入浮点减法，判断输出值的符号
 
 ```
-输入：
-storage large_number:math float_comparison_sizes.A 0.0
-storage large_number:math float_comparison_sizes.B 0.0
+输入[浮点数]：
+storage large_number:math float_comparison_sizes.A
+storage large_number:math float_comparison_sizes.B
 
 输出比较结果：storage large_number:math float_comparison_sizes.output
 "A"比较"B"，"+"为更大，"-"为更小，"="为相等
@@ -427,7 +611,7 @@ storage large_number:math float_comparison_sizes.B 0.0
 execute align+实体tp只能处理区间 (-30000000.0, 30000000.0) 的数，而此算法采用了函数宏+字符串递归找小数点的方法，可以处理全部浮点数
 
 ```
-输入：storage large_number:math round_double.input 1.0
+输入[浮点数]：storage large_number:math round_double.input
 可以是float或double
 
 向0取整：set #round_towards_zero int 1
@@ -439,7 +623,7 @@ execute align+实体tp只能处理区间 (-30000000.0, 30000000.0) 的数，而�
 ♦ 对浮点数进行10进制位移：large_number:double_displacement/decimal.start
 
 ```
-输入：storage large_number:math double_displacement.input 1.0
+输入[浮点数]：storage large_number:math double_displacement.input
 可以是double或float
 
 位移的次数：storage large_number:math double_displacement.shift 2
@@ -450,72 +634,13 @@ execute align+实体tp只能处理区间 (-30000000.0, 30000000.0) 的数，而�
 
 　
 
-♦ 任意整型数字相乘
-
-1.数组相乘法：large_number:int_int_multiply
-
-```
-因数1：input int
-因数2：input.2 int
-积[万进制数组]：storage large_number:math int_int_multiply.output
-```
-
-2.函数宏乘法：large_number:int_mul2/start
-
-```
-因数1：#input1 int
-因数2：#input2 int
-积[long型]：storage large_number:math int_mult2_out
-```
-
-♦ 任意整型数字平方：large_number:int_square
-
-```
-输入：input int
-输出：storage large_number:math int_squ
-```
-
-♦ 12位数字相乘：large_number:1we_multiply
-
-```
-因数1：storage large_number:math 1we_multiply.input1 [I;0,0,0]
-因数2：storage large_number:math 1we_multiply.input2 [I;0,0,0]
-积：storage large_number:math 1we_multiply.output
-```
-
-♦ 12位数字平方：large_number:1we_square
-
-```
-输入：storage large_number:math 1we_squ.input [I;0,0,0]
-输出：storage large_number:math 1we_squ.output
-```
-
-♦ 无穷位数字相乘：large_number:infinite_digit_multiply/start
-
-```
-因数1：storage large_number:math Infinite_digit_multiply.input1 [I;0,0]
-因数2：storage large_number:math Infinite_digit_multiply.input2 [I;0,0]
-输入格式：因数必须为万进制int数组，且数组元素全都是正数
-
-输出：storage large_number:math Infinite_digit_multiply.output
-```
-
-　
-
-♦ 整型数字拆分为数组：large_number:cut_math_to_list
-
-```
-输入：input int
-输出：#sign int (符号)，#1st int，#2nd int，#3rd int
-```
-
-　
-
-♦ 整型数字开方：
+♦ 整型数字开方
 
 取整 (16条纯记分板命令)：large_number:int_sqrt_simple
 
-保留四位小数 (32条纯记分板命令)：large_number:int_sqrt
+保留四位小数 - 估值法 (32条纯记分板命令)：large_number:int_sqrt
+
+保留四位小数 - 牛顿法 (31条纯记分板命令)：large_number:int_sqrt_newton
 
 保留多位小数：large_number:test_int_more_decimal
 
@@ -525,7 +650,7 @@ execute align+实体tp只能处理区间 (-30000000.0, 30000000.0) 的数，而�
 
 如果保留小数位数不足期望的位数，则读数时应在数的前面补0补足数位
 
-原理：初值预估+牛顿迭代，详见参考文献
+目前开方算法的核心：https://github.com/Triton365/fast_integer_sqrt/blob/main/functions/isqrt_nofunction.mcfunction
 
 ```
 输入：input.sqrt int
@@ -555,7 +680,7 @@ execute align+实体tp只能处理区间 (-30000000.0, 30000000.0) 的数，而�
 连分数开根号公式：
 
 $$
-\sqrt{x}\ =\cfrac{x-\left\lfloor\sqrt{x}\right\rfloor^2}{2\left\lfloor\sqrt{x}\right\rfloor+\cfrac{x-\left\lfloor\sqrt{x}\right\rfloor^2}{2\left\lfloor\sqrt{x}\right\rfloor+\cfrac{x-\left\lfloor\sqrt{x}\right\rfloor^2}{2\left\lfloor\sqrt{x}\right\rfloor+...}}}
+\sqrt{x}\ =\cfrac{x-\left\lfloor\sqrt{x}\right\rfloor^2}{2\left\lfloor\sqrt{x}\right\rfloor+\cfrac{x-\left\lfloor\sqrt{x}\right\rfloor^2}{2\left\lfloor\sqrt{x}\right\rfloor+\cfrac{x-\left\lfloor\sqrt{x}\right\rfloor^2}{2\left\lfloor\sqrt{x}\right\rfloor+...}}}+\left\lfloor\sqrt{x}\right\rfloor
 $$
 
 此为无限连分数，算的层数越多越接近。
@@ -574,15 +699,6 @@ $$
 分母：#conti_frac.sqrt.N int
 
 连分数表达式：storage large_number:math conti_frac_sqrt_expression
-```
-
-♦ 整型数字开方 - 牛顿迭代法 (保留四位小数)：large_number:newton.s_method_sqrt/int_decimal.4
-
-以数组除以常数为思路，无试除，无递归，无二分树，41条纯记分板命令
-
-```
-输入：#Newton's-method_sqrt.input int
-输出(放大一万倍)：#Newton's-method_sqrt.output int
 ```
 
 ♦ 10~16位数字开方
@@ -639,6 +755,13 @@ $$
 若保留四位小数则放大一万倍输出
 ```
 
+♦ 对double开立方根：large_number:cube_root_double/start
+
+```
+输入[double]：storage large_number:math cube_root.input
+输出：storage large_number:math cube_root.output
+```
+
 　
 
 ♦ double的欧氏范数
@@ -654,9 +777,9 @@ $$
 单位向量法：`execute as b09e-44-fded-6-efa5ffffef64 run function large_number:double_norm/unit_vector_2d`
 
 ```
-输入：
-storage large_number:math double_norm_2d.x 1.0d
-storage large_number:math double_norm_2d.y 1.0d
+输入[double]：
+storage large_number:math double_norm_2d.x
+storage large_number:math double_norm_2d.y
 
 输出：storage large_number:math double_norm_2d.output
 ```
@@ -670,10 +793,10 @@ storage large_number:math double_norm_2d.y 1.0d
 单位向量法：`execute as b09e-44-fded-6-efa5ffffef64 run function large_number:double_norm/unit_vector_3d`
 
 ```
-输入：
-storage large_number:math double_norm_3d.x 1.0d
-storage large_number:math double_norm_3d.y 1.0d
-storage large_number:math double_norm_3d.z 1.0d
+输入[double]：
+storage large_number:math double_norm_3d.x
+storage large_number:math double_norm_3d.y
+storage large_number:math double_norm_3d.z
 
 输出：storage large_number:math double_norm_3d.output
 ```
@@ -685,7 +808,7 @@ storage large_number:math double_norm_3d.z 1.0d
 对float型数值也有效
 
 ```
-输入：storage large_number:math double_to_int.input 0.0d
+输入[浮点数]：storage large_number:math double_to_int.input
 输出：storage large_number:math double_to_int.output
 ```
 
@@ -723,7 +846,7 @@ double的绝对值最小值是4.9E-324
 四叉树取数法：large_number:float_nbt_to_score/start
 
 ```
-输入：storage large_number:math float_nbt_to_score_input 0.0
+输入[浮点数]：storage large_number:math float_nbt_to_score_input
 
 输出：
 符号：#float_sign int
@@ -754,7 +877,7 @@ double的绝对值最小值是4.9E-324
 "8\~9位有效数字"的命令数约为180，"12\~14位有效数字"的命令数约为1430，后者的消耗约为前者的8倍。
 
 ```
-输入：storage large_number:math double_sqrt.input 0.0d
+输入：[浮点数]storage large_number:math double_sqrt.input
 输出：storage large_number:math double_sqrt.output
 ```
 
@@ -769,7 +892,7 @@ double的绝对值最小值是4.9E-324
 原理：使用放大倍率存储法来获取double的底数，使用字符串取数法来获取指数。用整型开方法算结果后根据指数来调整输出。
 
 ```
-输入：storage large_number:math double_sqrt.input
+输入[浮点数]：storage large_number:math double_sqrt.input
 可输入double型/float型
 精度增加四位：set #New_double_sqrt.decimal_add int 1
 
@@ -816,8 +939,12 @@ P2：storage large_number:math unit_vector2.P2 [0.0,0.0,0.0]
 算法来源：https://github.com/SuperSwordTW/Distance-Trig-Calc-3d
 
 ```
-输入：#dx int，#dy int，#dz int
-The values of 'dy' and 'dz' must be positive numbers
+初始信息表
+载入：function large_number:fast_distance_trigonometry/load
+清空：data remove storage large_number:const fdtri_sin
+
+输入(放大1000倍)：#dx int，#dy int，#dz int
+'dy'和'dz'都必须是正数
 
 输出 (放大1000倍)：#distance int
 ```
@@ -827,8 +954,6 @@ The values of 'dy' and 'dz' must be positive numbers
 ♦ 列表算法 - 洗牌：large_number:list_operation/shuffle/start
 
 随机打乱列表顺序
-
-原理：@e[sort=random]
 
 ```
 输入：storage large_number:math list_ope_shuffle.input []
@@ -851,14 +976,14 @@ kill @e[type=minecraft:marker,tag=large_number.list_operation]
 输出：storage large_number:math list_ope_random_index_once.output
 ```
 
-♦ 列表算法 - 元素去重 (返回值法)：large_number:list_operation/deduplicate/start
+♦ 列表算法 - 元素去重 (暴力搜索)：large_number:list_operation/deduplicate/start
 
 ```
 输入：storage large_number:math list_dedup.input []
 输出：storage large_number:math list_dedup.output
 ```
 
-♦ 列表算法 - 排序
+♦ 列表算法 - 数值排序
 
 整数排序 - 冒泡排序法 - 正序：large_number:list_operation/sort/int_ascending_order/start
 
@@ -876,6 +1001,33 @@ double排序 - 冒泡排序法 - 逆序：large_number:list_operation/sort/doubl
 double排序
 输入：storage large_number:math sort_double.input
 输出：storage large_number:math sort_double.output
+```
+
+♦ 列表算法 - 字符串排序
+
+基础字符串排序 - 字典序 - 冒泡排序法 - 正序：large_number:list_operation/sort/string_dictionary_order_basic/start
+
+排序方法：仅检查字符串第一个字符。从前往后依次是：0~9、a~z、A~Z、其他字符、空串。
+
+```
+字符顺序表：function large_number:list_operation/sort/string_dictionary_order_basic/datapack
+
+输入：storage large_number:math string_dictionary_order_basic.input
+输出：storage large_number:math string_dictionary_order_basic.output
+```
+
+♦ 列表算法 - 平均数：large_number:list_operation/average_number/start
+
+```
+输入：storage large_number:math average_number.input
+输出：storage large_number:math average_number.output
+```
+
+♦ 列表算法 - 总和：large_number:list_operation/sum/start
+
+```
+输入：storage large_number:math list_sum.input
+输出：storage large_number:math list_sum.output
 ```
 
 　
@@ -904,18 +1056,18 @@ double排序
 
 　
 
-♦ 随机数生成 - 二项分布
+♦ 离散随机数 - 二项分布
 
 测试1：large_number:random/binomial_distribution/test1
 
 测试内容：若输入值里包含2的幂，则有50%概率减去2的幂，从2^30到2^0测试31次，返回测试后的输入值
 
 ```
-输入(只接受正值)：set #binomial_distribution.test1.input int
+输入(只接受正值)：#binomial_distribution.test1.input int
 输出：#binomial_distribution.test1.output int
 ```
 
-测试2：`execute as 3faf-0-3d00-0-61900f4241f run function large_number:random/binomial_distribution/test2`
+测试2：large_number:random/binomial_distribution/test2
 
 测试内容：做n次成功概率为p的伯努利试验，输出成功次数
 
@@ -928,16 +1080,16 @@ double排序
 
 当n足够大时，结果接近于正态分布。当n越大（至少20）且p不接近0或1时近似效果更好。不同的经验法则可以用来决定n是否足够大,以及p是否距离0或1足够远,其中一个常用的规则是np和n(1 −p)都必须大于 5。
 
-♦ 随机数生成 - 正态分布：large_number:random/normal_distribution/test1/start
+♦ 离散随机数 - 正态分布：large_number:random/normal_distribution/test1/start
 
 测试内容：输入上限值n，先生成一个int32的随机数，然后不断判断正负并x2，如果x2次数达到32次就再生成一个随机数继续这个操作，直到判断次数达到n次。然后把判断正负的结果(0或1)加起来，结果就趋近于0到n的正态分布。
 
 ```
-上限值：set #normal_distribution.input int
+上限值：#normal_distribution.input int
 输出：#normal_distribution.output int
 ```
 
-♦ 随机数生成 - 均匀分布 (PCG算法)
+♦ 离散随机数 - 均匀分布 (PCG算法)
 
 此模块取自xwjcool写的NTRE数据包。
 
@@ -955,18 +1107,18 @@ double排序
 结果输出在实体A的ntre_output记分板
 ```
 
-♦ 随机数生成 - 几何分布：large_number:random/geometric_distribution/start
+♦ 离散随机数 - 几何分布：large_number:random/geometric_distribution/start
 
 测试内容：做n次成功概率为p的伯努利试验，返回首次成功时的试验次数
 
 ```
-单次事件的概率：storage large_number:math geometric_distribution_chance 0.0
+单次事件的概率[浮点数]：storage large_number:math geometric_distribution_chance
 试验次数：#geometric_distribution.times int
 
 输出：#geometric_distribution.output int
 ```
 
-♦ 随机数生成 - 超几何分布：large_number:random/hypergeometric_distribution/start
+♦ 离散随机数 - 超几何分布：large_number:random/hypergeometric_distribution/start
 
 测试内容：从有限N个物件（其中包含M个指定种类的物件）中抽出n个物件，成功抽出该指定种类的物件的次数（不放回）。
 
@@ -982,7 +1134,7 @@ double排序
 kill @e[type=minecraft:marker,tag=large_number.list_operation]
 ```
 
-♦ 随机数生成 - 帕斯卡分布：large_number:random/pascal_distribution/start
+♦ 离散随机数 - 帕斯卡分布：large_number:random/pascal_distribution/start
 
 测试内容：测试概率为p的伯努利实验直到出现r次成功，返回实际测试的次数
 
@@ -994,14 +1146,138 @@ kill @e[type=minecraft:marker,tag=large_number.list_operation]
 输出[int]：storage large_number:math pascal_distribution.output
 ```
 
-♦ 生成一个[0,1]区间的随机数
+　
+
+♦ 连续随机数 - [0,1]区间
 
 PCG算法：`execute as b09e-44-fded-6-efa5ffffef64 run function large_number:random/number_0_1/pcg`
 
-LCG算法：`execute as 3faf-0-3d00-0-61900f4241f run function large_number:random/number_0_1/lcg`
+LCG算法：`function large_number:random/number_0_1/lcg`
 
 ```
 输出：storage large_number:math random_number_0_1
+```
+
+♦ 连续随机数 - 标准正态分布：large_number:random/normal_distribution/test2-standard
+
+范围：[-6,6]
+
+概率密度函数：
+
+$$
+f(x)=\frac{1}{\sqrt{2\pi}}\mathrm{e}^{-\frac{x^2}{2\ \ }}
+$$
+
+测试内容：生成12个[0,1]区间的随机数相加然后减6
+
+```
+输出：storage large_number:math random_as_standard_normal_distribution
+```
+
+♦ 连续随机数 - 指数分布：large_number:random/exponential_distribution/start
+
+当λ=1时的范围：[0,20.7232]
+
+概率密度函数：
+
+$$
+f(x;\lambda)=
+\left\{\begin{matrix}
+\lambda\mathrm{e}^{-\lambda x} &,\ x\ge 0\\
+0 &,\ x< 0
+\end{matrix}\right.
+$$
+
+概率分布函数 (用于生成随机数)：
+
+$$
+g(x)=-\frac{\ln(1-x)}{\lambda}
+$$
+
+测试内容：设随机变量U为(0,1)区间的均匀分布随机数，则g(U)服从指数分布
+
+```
+λ(放大一千倍)：#random.λ int
+
+输出：storage large_number:math random_as_exponential_distribution
+```
+
+♦ 连续随机数 - 伽玛分布：large_number:random/gamma_distribution/start
+
+概率密度函数：
+
+$$
+f(x)=
+\left\{\begin{matrix}
+\frac{\lambda^\alpha}{\Gamma(\alpha)}x^{\alpha-1}\mathrm{e}^{-\lambda x} &,\ x\ge 0\\
+0 &,\ x< 0
+\end{matrix}\right.
+$$
+
+测试内容：伽玛分布就是α个指数分布的总和
+
+```
+λ(尺度参数，放大一千倍)：#random.λ int
+α(形状参数)：#random.α int
+
+输出：storage large_number:math random_as_gamma_distribution
+```
+
+♦ 连续随机数 - 偏匀分布：large_number:random/skewed_distribution/start
+
+概率分布函数 (用于生成随机数)：
+
+$$
+f(x)=(1-(1-x)^p)^{\frac{1}{p}}(b-a)+a, x\in [0,1]
+$$
+
+测试内容：设随机变量U为(0,1)区间的均匀分布随机数，则f(U)服从(a,b)区间的偏匀分布。参数p称为"偏峰指标"。
+
+当p>1时，p越大结果越靠近区间上限；当0<p<1时，p越小结果越靠近区间下限。均匀分布是偏匀分布在p=1时的特殊情况。
+
+相关情形：有一些在一定范围内随机位置洒下来的金币，以一定高度同时下落，它们接触了地面就会消失。若我早些上去接住，则有大概率接住更多，若我晚些去接住，则有大概率接不住几个。
+
+则我接住的金币的数量服从偏匀分布，P就是我去接金币的时间。
+
+概率密度函数：
+
+$$
+g(x)=\left\{\begin{matrix}
+\frac{1}{b-a}\left ( 1-\left ( \frac{x-a}{b-a}  \right )^p  \right ) ^{\frac{1}{p}-1 }\left ( \frac{x-a}{b-a}  \right )^{p-1} & ,\ x\in [a,b]\\
+\\
+0& ,\ x\notin [a,b]
+\end{matrix}\right.
+$$
+
+累积分布函数 (值域为[0,1])：
+
+$$
+h(x)=\left\{\begin{matrix}
+0& ,\ x< a\\
+1-\left ( 1-\left ( \frac{x-a}{b-a}  \right )^p  \right )^{\frac{1}{p} }& ,\ x\in [a,b]\\
+1& ,\ x>b
+\end{matrix}\right.
+$$
+
+数学期望：(感谢泰勒猫爱丽丝的解答)
+$$
+\begin{aligned}
+& \mathrm{beta函数形式：}\frac{b-a}{p}\ \mathrm{Β}\left( \frac{1}{p}+1,\frac{1}{p} \right)+a \\
+\\
+& \mathrm{gamma函数形式：}\frac{(b-a)\left ( \Gamma\left( \frac{1}{p} \right) \right )^2 }{2p\Gamma\left( \frac{2}{p} \right)} +a
+\end{aligned}
+$$
+方差：
+$$
+\mathrm{beta函数形式：}\frac{(b-a)^2}{p}\ \mathrm{Β}\left( \frac{2}{p}+1,\frac{1}{p} \right)-\left( \frac{b-a}{p}\ \mathrm{Β}\left( \frac{1}{p}+1,\frac{1}{p} \right)  \right)^2
+$$
+
+> 这个分布是我自己人为构造的，严格来说这个分布并不能叫偏匀分布，应该有一个更好的名词。
+
+```
+区间下限[int]：storage large_number:math skewed_distribution.min
+区间上限[int]：storage large_number:math skewed_distribution.max
+偏峰指标[double]：storage large_number:math skewed_distribution.p
 ```
 
 　
@@ -1017,12 +1293,7 @@ e是自然对数的底，是一个无理数，e ≈2.718281828459045
 输入范围为区间：(-709, 709.7828)
 
 ```
-需要载入前置库：function large_number:exp_e.x/database
-卸载前置库：data remove storage large_number:exp database
-
-输入：storage large_number:math exp_e^x.input 2.0d
-输入值必须为double型
-
+输入[double]：storage large_number:math exp_e^x.input
 输出：storage large_number:math exp_e^x.output
 ```
 
@@ -1033,19 +1304,11 @@ e是自然对数的底，是一个无理数，e ≈2.718281828459045
 
 例：输入 5.7322^2.1123，输出 39.97625953186048
 
-指数范围：[0, 2147483647]
-
 ```
-e^x的前置库：function large_number:exp_e.x/database
-
-输入：
-底数：storage large_number:math exp_any.input.base 2.0d
-指数：storage large_number:math exp_any.input.expon 3.0d
-输入值必须为double型
-
-设置算法模式：
-新算法(整数和小数分开计算)：set #exp_any.mode int 1
-原来的算法(直接套公式)：#exp_any.mode int 分数不为1
+输入[double]：
+底数：storage large_number:math exp_any.input.base
+指数：storage large_number:math exp_any.input.expon
+指数范围：[0,2147483647]
 
 输出：storage large_number:math exp_any.output
 ```
@@ -1055,12 +1318,10 @@ e^x的前置库：function large_number:exp_e.x/database
 公式：`a^(1/b) = e^(ln(a)/b)`
 
 ```
-e^x的前置库：function large_number:exp_e.x/database
-
-输入：
-底数：storage large_number:math exp_any.input.base 2.0d
-指数：storage large_number:math exp_any.input.expon 3.0d
-输入值必须为double型。底数仅支持正数，指数支持全double。
+输入[double]：
+底数：storage large_number:math exp_any.input.base
+指数：storage large_number:math exp_any.input.expon
+底数仅支持正数，指数支持全double。
 
 输出：storage large_number:math exp_any.output
 ```
@@ -1091,8 +1352,8 @@ e^x的前置库：function large_number:exp_e.x/database
 
 ```
 输入：
-底数：storage large_number:math float_base_int_power.base 0.0
-指数：storage large_number:math float_base_int_power.expon 0
+底数[double]：storage large_number:math float_base_int_power.base
+指数[int]：storage large_number:math float_base_int_power.expon
 
 输出：storage large_number:math float_base_int_power.output
 ```
@@ -1105,8 +1366,8 @@ e^x的前置库：function large_number:exp_e.x/database
 
 ```
 输入：
-底数：storage large_number:math float_base_int_power.base 0.0
-指数：storage large_number:math float_base_int_power.expon 0
+底数[double]：storage large_number:math float_base_int_power.base
+指数[int]：storage large_number:math float_base_int_power.expon
 
 输出：storage large_number:math float_base_int_power.output
 ```
@@ -1118,13 +1379,9 @@ e^x的前置库：function large_number:exp_e.x/database
 精度：误差不超过0.0009，保留四位小数
 
 ```
-计算前需要载入初始数据库：function large_number:ln/ln_database
-
 输入：#ln(x) int
 输出(放大一万倍)：#ln(x).output int
 double型输出：storage large_number:math ln_output
-
-卸载初始数据库：function large_number:ln/uninstall_ln_database
 ```
 
 ♦ 对浮点数取自然对数 ln(x)：large_number:ln_double/start
@@ -1134,9 +1391,7 @@ double型输出：storage large_number:math ln_output
 保留四位小数
 
 ```
-计算前需要载入初始数据库：function large_number:ln/ln_database
-
-输入：storage large_number:math ln_double.input 0.0d
+输入[double]：storage large_number:math ln_double.input
 输出(放大一万倍)：#ln_double.output int
 double型输出：storage large_number:math ln_double.output
 ```
@@ -1156,8 +1411,6 @@ double型输出：storage large_number:math ln_double.output
 非0且非1的底数的0的对数都是负无穷，故而输出的double为负无穷，输出的计分板值是-2147483648。
 
 ```
-计算前需要载入初始数据库：function large_number:ln/ln_database
-
 输入：
 底数：#loga.b_a int
 真数：#loga.b_b int
@@ -1169,11 +1422,9 @@ double型输出：storage large_number:math "log.a(b).output"
 ♦ 对浮点数取对数：large_number:loga.b_double/start
 
 ```
-计算前需要载入初始数据库：function large_number:ln/ln_database
-
-输入：
-底数：storage large_number:math log(a,b)_double.a 0.0
-真数：storage large_number:math log(a,b)_double.b 0.0
+输入[double]：
+底数：storage large_number:math log(a,b)_double.a
+真数：storage large_number:math log(a,b)_double.b
 
 输出：storage large_number:math log(a,b)_double.output
 ```
@@ -1185,8 +1436,6 @@ double型输出：storage large_number:math "log.a(b).output"
 公式：`lg(x) = ln(x)/ln(10)`
 
 ```
-计算前需要载入初始数据库：function large_number:ln/ln_database
-
 输入：#lg(x) int
 
 输出(放大一万倍)：#lg(x)_output int
@@ -1199,13 +1448,31 @@ double型输出：storage large_number:math lg(x)_output
 
 此算法参考：https://www.zhihu.com/question/333371020/answer/1686069171
 
+公式：
+$$
+\begin{aligned}
+& k=\lfloor \log_2(x) \rfloor \\
+& f=\frac{x}{2^k} -1 \\
+& s=\frac{f}{f+2} \\
+& L_1=0.6666666666666735130 \\
+& L_2=0.3999999999940941908 \\
+& L_3=0.2857142874366239149 \\
+& L_4=0.2222219843214978396 \\
+& L_5=0.1818357216161805012 \\
+& L_6=0.1531383769920937332 \\
+& L_7=0.1479819860511658591 \\
+\\
+& R(z)≈s^2·(L_1+s^4·(L_3+s^4·(L_5+s^4·L_7 )))+s^4·(L_2+s^4·(L_4+s^4·L_6 )) \\
+\\
+& \ln(x)=k·\ln(2)+f-\frac{f^2}{2}+s·(\frac{f^2}{2}+R(z)) \\
+\end{aligned}
+$$
 雷米兹算法得到的多项式在高精度ln算法里起了最重要的误差修正的作用，理论上误差可低至2^-58.45。
 
 此算法使用了大量的高精度浮点乘法，因此此算法的消耗约为查表法的60倍。
 
 ```
-输入：storage large_number:math ln_high_precision.input 1.0
-输入值必须为double型
+输入[double]：storage large_number:math ln_high_precision.input
 
 输出：storage large_number:math ln_high_precision.output
 ```
@@ -1255,11 +1522,7 @@ $$
 这里计算的是Γ(x+1)，主要用于计算实数的阶乘
 
 ```
-e^x的前置库：function large_number:exp_e.x/database
-
-输入：storage large_number:math gamma_function.input 0.0d
-输入值必须为double型
-
+输入[double]：storage large_number:math gamma_function.input
 输出：storage large_number:math gamma_function.output
 ```
 
@@ -1279,8 +1542,7 @@ $$
 载入前置库：function large_number:gamma_function/recursion/database
 卸载前置库：data remove storage large_number:math gamma_databse
 
-输入：storage large_number:math gamma_function.input 0.0d
-输入值必须为double型
+输入[double]：storage large_number:math gamma_function.input
 
 输出：storage large_number:math gamma_function.output
 ```
@@ -1311,12 +1573,8 @@ LambertW.(-1) (x)：[-1/e, 0]
 
 -1/e≈-0.3678794411714
 
-要求输入值必须为double型
-
 ```
-计算前需要载入初始数据库：function large_number:ln/ln_database
-
-输入：storage large_number:math lambertw.input 1.0d
+输入[double]：storage large_number:math lambertw.input
 输出：storage large_number:math lambertw.output
 ```
 
@@ -1355,7 +1613,7 @@ $$
 输入范围：x≥𝜆
 
 ```
-输入：storage large_number:math inverse_gamma_function.input 1.0d
+输入[double]：storage large_number:math inverse_gamma_function.input
 输出：storage large_number:math inverse_gamma_function.output
 ```
 
@@ -1394,7 +1652,7 @@ $$
 ♦ 横滚角转四元数：`execute as b09e-44-fded-6-efa5ffffef64 run function large_number:quaternion/euler_angles_roll`
 
 ```
-输入：storage large_number:math euler_angles_roll 0.0
+输入[浮点数]：storage large_number:math euler_angles_roll
 输出：storage large_number:math xyzw
 ```
 
@@ -1483,11 +1741,69 @@ double型形式：storage large_number:math quadratic_equation_out.double
 
 注：
 
-1.若方程有两个不相等的实数根，则x1和x2的记分板分数都存在，表达式形式和double型形式都是列表，列表的第一项对应x1，第二项对应x2。
+1. 若方程有两个不相等的实数根，则x1和x2的记分板分数都存在，表达式形式和double型形式都是列表，列表的第一项对应x1，第二项对应x2。
 
-2.若方程有两个相等的实数根，则x1和x2的记分板分数都存在且相等，表达式形式是一个单独的字符串，double型形式是一个单独的double型数值。
+2. 若方程有两个相等的实数根，则x1和x2的记分板分数都存在且相等，表达式形式是一个单独的字符串，double型形式是一个单独的double型数值。
 
-3.若方程没有实数根，则x1和x2的记分板分数都不存在，表达式形式和double型形式也都不存在，`storage large_number:math quadratic_equation_out `会是一个空的复合标签。
+3. 若方程没有实数根，则x1和x2的记分板分数都不存在，表达式形式和double型形式也都不存在，`storage large_number:math quadratic_equation_out `会是一个空的复合标签。
+
+　
+
+♦ 解浮点系数一元二次方程（全double）：large_number:quadratic_equation_double/start
+
+需要把一元二次方程化为一般形式输入，支持a=0的情况。
+
+公式法求解：
+
+$$
+x={-b\pm\sqrt{b^2-4ac}\over2a}
+$$
+
+```
+输入[double列表]：storage large_number:math quadratic_equation_double.input [0.0,0.0,0.0]
+列表三项分别表示一元二次方程系数里的[a,b,c]
+
+输出：
+表达式形式(未化简)：storage large_number:math quadratic_equation_double.expression
+数值形式：storage large_number:math quadratic_equation_double.output
+
+实数根的数量：storage large_number:math quadratic_equation_double.roots
+
+显示解方程的结果：storage large_number:math quadratic_equation_double.tell set value 1
+如果不想显示就设为其他值
+
+显示这个JSON文本便可显示结果：
+[{"nbt":"quadratic_equation_double.tellraw.json","storage":"large_number:math","interpret":true}]
+```
+
+注：
+
+1. 若方程有两个不相等的实数根，则表达式形式和数值形式都是列表，列表的第一项对应x1，第二项对应x2。
+
+2. 若方程有两个相等的实数根，则表达式形式是一个单独的字符串，数值形式是一个单独的值。
+
+3. 若方程没有实数根，则表达式形式和数值形式对应的标签也都不存在。
+
+　
+
+♦ 一元三次方程计算器：large_number:cubic_equation/start
+
+原理：盛金公式。见：https://baike.baidu.com/item/%E7%9B%9B%E9%87%91%E5%85%AC%E5%BC%8F
+
+只给出实数根。
+
+```
+输入[double列表]：storage large_number:math cubic_equation.input [0.0,0.0,0.0,0.0]
+列表四项分别表示一元三次方程系数里的[a,b,c,d]，要求a≠0。
+
+输出：storage large_number:math cubic_equation.output
+一元三次方程会有1~3个不同的实数根，若不同的实数根多于一个则此项为列表。
+
+实数根的数量：storage large_number:math cubic_equation.roots
+
+显示这个JSON文本便可显示结果：
+[{"nbt":"cubic_equation.tellraw.json","storage":"large_number:math","interpret":true}]
+```
 
 　
 
@@ -1504,8 +1820,9 @@ double型形式：storage large_number:math quadratic_equation_out.double
 用命令判断就是测试此命令是否能通过，通过就表示解析不正确：`execute unless data storage large_number:timestamp timestamp_base64`
 
 ```
-使用前需要载入前置库：function large_number:timestamp/database
-卸载前置库：function large_number:timestamp/uninstall_database
+需要的前置库：
+载入：function large_number:timestamp/database
+卸载：function large_number:timestamp/uninstall_database
 
 输入GMT时区 (仅用于时区校准)：set #GMT-time_zone int 8
 例如北京时间是GMT+8，所以输入8，默认为8
@@ -1548,7 +1865,7 @@ double型形式：storage large_number:math quadratic_equation_out.double
 ♦ Unix时间戳解析 (32位)：large_number:timestamp/parse_timestamp
 
 ```
-输入(必须是int)：storage large_number:math parse_timestamp.input
+输入[int]：storage large_number:math parse_timestamp.input
 
 输入GMT时区：set #GMT-time_zone int 8
 例如北京时间是GMT+8，所以输入8，默认为8
@@ -1655,9 +1972,7 @@ $$
 在输入值为负数时，输出5772，即调和级数的拉马努金和
 
 ```
-计算前需要载入初始数据库：function large_number:ln/ln_database
-
-输入：storage large_number:math Harmonic_series_sum_input 3.0
+输入：storage large_number:math Harmonic_series_sum_input
 输入值的类型可以是：double/float/int，使用double/float型输入可以计算超出int范围的值
 
 输出(放大一万倍)：#Harmonic_series.sum.output int
@@ -1676,7 +1991,7 @@ Sigmoid(x)=1/(1+e^(-x))
 线性近似法的原理：https://zhuanlan.zhihu.com/p/318423774
 
 ```
-输入：storage large_number:math sigmoid.input 1.0
+输入[double]：storage large_number:math sigmoid.input
 输出：storage large_number:math sigmoid.output
 ```
 
@@ -1689,10 +2004,8 @@ Sigmoid(x)=1/(1+e^(-x))
 在输入值为1时输出特殊值： -γ
 
 ```
-ln的初始数据库：function large_number:ln/ln_database
-
-输入：storage large_number:math digamma_function.input 0.0
-输入值必须为double型，输入范围：x>0
+输入[double]：storage large_number:math digamma_function.input
+输入范围：x>0
 
 输出：storage large_number:math digamma_function.output
 ```
@@ -1718,7 +2031,7 @@ $$
 双曲正切：large_number:hyperbolic_function/tanh
 
 ```
-输入：storage large_number:math hyperbolic_function.input
+输入[double]：storage large_number:math hyperbolic_function.input
 输出：storage large_number:math hyperbolic_function.output
 ```
 
@@ -1727,6 +2040,10 @@ $$
 ♦ 整数质因数分解：large_number:prime_factorization/start
 
 ```
+初始信息表
+载入：function large_number:prime_factorization/database
+清空：data remove storage large_number:math prime_factorization
+
 输入：#prime_factorization.input int
 输出：storage large_number:math prime_factorization_output
 
@@ -1858,8 +2175,8 @@ $$
 
 一元运算
 expβ = e^β，指数运算，整数幂是递归相乘，非整数幂是查表算法。
-sinβ = sin(β) 弧度制
-cosβ = cos(β) 弧度制
+sinβ = sin(β) 弧度制，输入范围：[-292817.6585183, 292817.6585183]
+cosβ = cos(β) 弧度制，输入范围：[-292817.6585183, 292817.6585183]
 arcsinβ = arcsin(β) 弧度制
 arccosβ = arccos(β) 弧度制
 arctanβ = arctan(β) 弧度制
@@ -1903,19 +2220,7 @@ sgnβ = sgn(β)，符号函数
 αeunorm₃β,δ = √(α²+β²+δ²)，三维向量(α,β,δ)的欧氏范数，必须都是非负数。此处的逗号仅作为把数字分开的占位符。计算方法是单位向量法。
 ```
 
-需要的前置库：
-
-```
-e^x的前置库：
-载入：function large_number:exp_e.x/database
-卸载：data remove storage large_number:exp database
-
-ln的初始数据库：
-载入：function large_number:ln/ln_database
-卸载：function large_number:ln/uninstall_ln_database
-```
-
-1.表达式转换为逆波兰式：large_number:expression_evaluation_scientific/to_rev_polish_notation
+1. 表达式转换为逆波兰式：large_number:expression_evaluation_scientific/to_rev_polish_notation
 
 ```
 输入：storage large_number:math expression_evaluation.input "(12+14)*(106－32)"
@@ -1945,7 +2250,7 @@ ln的初始数据库：
 输出逆波兰式 (可直接用于解析求值)：storage large_number:math expression_evaluation.rev_polish_notation
 ```
 
-2.解析逆波兰式：large_number:expression_evaluation_scientific/ope
+2. 解析逆波兰式：large_number:expression_evaluation_scientific/ope
 
 列表具有取出特定编号的项的功能，因此借助列表可以用逆波兰式定义非二元运算。
 
@@ -1961,13 +2266,15 @@ ln的初始数据库：
 
 ♦ 定积分
 
-"表达式求值 - 科学计算" 的拓展
+"表达式求值 - 科学计算" 的拓展。
 
-采用黎曼积分法，在区间里平均距离取样，把采样得到的值乘上小区间宽度。
-
-只能求一重积分，被积函数在积分区间内必须"黎曼可积"，求出来的结果只能是个数（是数值积分，而且无法处理含参结果）。
+求出来的结果只能是个数（是数值积分，而且无法处理含参结果）。
 
 被积函数直接取 "表达式求值 - 科学计算" 解析出来的逆波兰式，取积分变量为ｘ。
+
+1. 黎曼积分法
+
+在区间里平均距离取样，把采样得到的值乘上小区间宽度。被积函数在积分区间内必须"黎曼可积"。
 
 公式 (梯形法则)：
 
@@ -1977,17 +2284,33 @@ $$
 
 其中k是区间内小矩形的数量。这里的小矩形的高度取的是小区间右端的函数值。
 
-[0,1]区间的积分：large_number:definite_integral/riemann_integral/0_1/start
+> [0,1]区间的积分：large_number:definite_integral/riemann_integral/0_1/start
+>
+> 其他区间的积分：large_number:definite_integral/riemann_integral/start
 
-其他区间的积分：large_number:definite_integral/riemann_integral/start
+2. 蒙特卡洛积分法
+
+在[0,1]区间上对被积函数随机取样，当取样足够多时，取样值的数学期望就是被积函数在[0,1]上的积分。
+
+对于非[0,1]区间的积分，则有变换公式：
+
+$$
+\int_a^bf(x)\mathrm{d}x=(b-a)\int_0^1f(a+(b-a)t)\mathrm{d}t
+$$
+
+详见：https://zhuanlan.zhihu.com/p/659412180
+
+> [0,1]区间的积分：large_number:definite_integral/monte_carlo_method/0_1/start
+>
+> 其他区间的积分：large_number:definite_integral/monte_carlo_method/start
 
 求解完成会有提示。
 
 ```
-积分区域 下限(double)：storage large_number:math expression_evaluation.definite_integral.a 1.0
-积分区域 上限(double)：storage large_number:math expression_evaluation.definite_integral.b 2.0
-积分区间内小矩形的数量(int)：storage large_number:math expression_evaluation.definite_integral.dx_times 200
-取正整数，上限是1000000000，不宜太多，一般取100~500。
+积分区域 下限[double]：storage large_number:math expression_evaluation.definite_integral.a 1.0
+积分区域 上限[double]：storage large_number:math expression_evaluation.definite_integral.b 2.0
+积分区间内小矩形的数量[int]：storage large_number:math expression_evaluation.definite_integral.dx_times 200
+取正整数，上限是1000000000，不宜太多，一般取100~500。如果是蒙特卡洛积分法则此参数为取样次数。
 
 输出：storage large_number:math expression_evaluation.definite_integral.output
 如果算完后此路径不存在，则表明计算量过大，超出了单tick的命令执行量，需要异步计算。
@@ -2301,8 +2624,6 @@ y：storage large_number:math archimedean_spiral_out_listY
 公式：`θ=a*ln(b*r)`
 
 ```
-载入初始数据库：function large_number:ln/ln_database
-
 a：#equiangular_spiral.a int
 b：#equiangular_spiral.b int
 1000倍输入起始半径：#equiangular_spiral.start_r int
@@ -2391,14 +2712,14 @@ $$
 \end{aligned}
 $$
 
+对于上半段，实际计算中并不会开根号，而是直接用局部坐标法画圆。
+
+对于下半段，实际计算中并不会计算arccos，而是用y值代入公式的反函数逆推x，所以实际上计算的是cos。
+
 ```
 半径 (10000倍输入)：#heart-shaped_line.r int
-上半段粒子密度 (单位为角度度数，100倍输入)：#heart-shaped_line.t_d int
+上半段粒子密度 (单位为角度度数，10000倍输入)：#heart-shaped_line.t_d int
 下半段粒子密度 (单位为格，10000倍输入)：#heart-shaped_line.t int
-
-在心形线的断开处描点来把图像连起来 (描点次数)：#heart-shaped_line.extra int
-修复图像的描点宽度 (单位为格，10000倍输入)：#heart-shaped_line.t_x int
-心形线上下两段没连起来是由于计算误差造成的
 
 计算坐标：
 execute as b09e-44-fded-6-efa5ffffef64 run function large_number:particle/heart-shaped_line/start
@@ -2653,6 +2974,141 @@ execute positioned x y z rotated x y run function large_number:particle/lightnin
 
 　
 
+♦ 圆锥选区
+
+1. 动态参数的圆锥选区：large_number:geometry/conical_selection_area/start
+
+传入执行位置、执行高度和执行朝向
+
+```
+圆锥长度：storage large_number:math conical_selection_area.distance
+可以是任意数值类型
+
+圆锥顶角的一半：storage large_number:math conical_selection_area.angle
+可以是任意数值类型
+
+被选中的实体执行的命令：storage large_number:math conical_selection_area.command "effect give @s glowing 1 0 true"
+```
+
+2. 静态参数的圆锥选区
+
+```
+创建一个函数a，内写：
+execute positioned .0 .0 .0 run tp <世界实体> ^ ^ ^1
+execute as @e[distance=..<圆锥长度>] facing entity @s feet positioned .0 .0 .0 positioned ^ ^ ^1 run function b
+
+把以下两条命令放在函数b里
+execute as <世界实体> store success score #temp1 int if entity @s[distance=..<2*|sin(α/2)|>]
+execute if score #temp1 int matches 1 run <被选中的实体执行的命令>
+
+α是圆锥顶角的一半，2*|sin(α/2)|的值域为[0,2]，表示圆锥夹角张开的幅度，其中||表示绝对值
+传入执行位置、执行高度和执行朝向后执行函数a
+```
+
+　
+
+♦ 扇形选区
+
+1. 动态参数的扇形选区：large_number:geometry/conical_selection_area/fan-shaped/start
+
+传入执行位置、执行高度和执行朝向
+
+```
+扇形半径：storage large_number:math conical_selection_area.distance
+可以是任意数值类型
+
+扇形顶角的一半：storage large_number:math conical_selection_area.angle
+可以是任意数值类型
+
+被选中的实体执行的命令：storage large_number:math conical_selection_area.command "effect give @s glowing 1 0 true"
+```
+
+2. 静态参数的扇形选区
+
+```
+创建一个函数a，内写：
+execute rotated ~ .0 positioned .0 .0 .0 run tp <世界实体> ^ ^ ^1
+execute as @e[distance=..<扇形半径>] facing entity @s feet rotated ~ .0 positioned .0 .0 .0 positioned ^ ^ ^1 run function b
+
+把以下两条命令放在函数b里
+execute as <世界实体> store success score #temp1 int if entity @s[distance=..<2*|sin(α/2)|>]
+execute if score #temp1 int matches 1 run <被选中的实体执行的命令>
+
+α是扇形顶角的一半，2*|sin(α/2)|的值域为[0,2]，表示扇形夹角张开的幅度，其中||表示绝对值
+传入执行位置、执行高度和执行朝向后执行函数a
+```
+
+　
+
+♦ 圆柱选区
+
+1. 动态参数的圆柱选区：`execute as b09e-44-fded-6-efa5ffffef64 run function large_number:geometry/cyl_selection/dynamic/start`
+
+传入执行位置
+
+```
+圆柱半径：storage large_number:math cyl_selection.distance 1.0
+被选中的实体执行的命令：storage large_number:math cyl_selection.command "effect give @s glowing 1 0 true"
+```
+
+2. 静态参数的圆柱选区
+
+```
+创建一个函数a，内写：
+tp ~ .0 ~
+execute as @e at @s positioned ~ .0 ~ run function b
+tp .0 .0 .0
+
+把以下两条命令放在函数b里
+execute as <世界实体> store success score #temp1 int if entity @s[distance=..<圆柱半径>]
+execute if score #temp1 int matches 1 run <被选中的实体执行的命令>
+
+传入执行位置后让世界实体执行函数a
+```
+
+
+
+♦ 快速取中点——三维两点的粗略中点：`execute as b09e-44-fded-6-efa5ffffef64 run function large_number:geometry/3d_2point_midpoint/start`
+
+```
+点1：storage large_number:math 3d_2point_midpoint.p1 [0.0, 0.0, 0.0]
+点2：storage large_number:math 3d_2point_midpoint.p2 [0.0, 0.0, 0.0]
+
+输出：storage large_number:math 3d_2point_midpoint.output
+```
+
+　
+
+♦ 快速视线追踪
+
+```
+创建一个函数a，内写：
+tag @s add large_number.fast_raycast
+execute as b09e-44-fded-6-efa5ffffef64 run function b
+tag @s remove large_number.fast_raycast
+
+函数b里写：
+execute positioned ^ ^ ^ run tp @s ^ ^ ^ ~ ~
+execute as @e[tag=!large_number.fast_raycast] at @s positioned ~ ~1 ~ \
+    rotated as b09e-44-fded-6-efa5ffffef64 \
+    positioned ^ ^ ^1000 \
+    facing entity b09e-44-fded-6-efa5ffffef64 feet \
+    positioned ^ ^ ^1000 \
+    facing entity @s feet positioned ^ ^ ^.15 \
+    positioned ~-.2 ~-.15 ~-.2 \
+    as @s[dx=0,dy=0,dz=0] \
+    positioned ~-.6 ~.3 ~-.3 \
+    at @s[dx=0,dy=0,dz=0] \
+    run <视追捕捉到的实体执行的命令>
+tp .0 .0 .0
+```
+
+一个案例：`execute at <实体> anchored eyes run function large_number:fast_ray/start`
+
+视追捕捉到的实体会发光
+
+　
+
 ♦ 行列式
 
 1.判断输入值是否为行列式：large_number:determinant/order
@@ -2714,6 +3170,41 @@ k：#combinations.k int
 ```
 
 　
+
+♦ 计算圆周率π
+
+我们mcf也有自己的计算圆周率的算法了。最高支持10000位。
+
+原理：https://zhuanlan.zhihu.com/p/114320417
+
+1. 单刻计算：large_number:ope_pi/single_use/start
+
+感觉单tick算5000位差不多就是mcf的上限了，我算5000位跑了4分17秒。
+
+2. 分步计算：
+
+适用于大于等于1000位。
+
+需要按tick执行 `large_number:ope_pi/different_steps/block/tick` 函数，然后以命令 `scoreboard players set #pi.different_steps.mode lan.pi_information 1` 为开始信号，结束信号是屏幕播报出 “[圆周率 π]：计算完成！”。
+
+分步计算是把计算任务分配给多个tick来降低单tick的游戏负载。计算产生的信息都存在命令存储 `large_number:pi_information` 和记分板 `lan.pi_information` 里。计算过程中不要动这里面的内容。算一万位大概耗时11分40秒。
+
+```
+位数：set #ope_pi.digit int
+
+输出：storage large_number:pi_information pi
+是一个字符串列表，数位自动靠后对齐。是使用大数格式计算的，所以格式类似万进制数组。
+
+显示以下JSON文本可显示输出：
+[{"text":"[\u00A7e卡儿的数学库\u00A7r]\n圆周率π ["},{"score":{"name":"#ope_pi.digit","objective":"int"}},{"text":"位]：\n"},{"nbt":"pi[]","storage":"large_number:pi_information","separator":""}]
+
+关于输出：
+1.为什么是列表？因为是用万进制数组计算的
+2.为什么是字符串？为了能显示每个万进制数字的前导0
+3.为什么不拼一起？因为拼一起要用递归+宏，那是额外的开销
+```
+
+
 
 ♦ 参考文献：
 

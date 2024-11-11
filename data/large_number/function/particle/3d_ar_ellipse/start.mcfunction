@@ -27,7 +27,7 @@ execute store result storage large_number:math temp_r double .001 run scoreboard
 execute store result storage large_number:math temp_rn double .001 run scoreboard players get #3d.ellipse.roll.θ int
 
 data modify storage large_number:math 3d_ar_ellipse_pos set value []
-execute store result entity @s Rotation[1] float -0.1 run scoreboard players set #loop int 3600
+execute store result entity @s Rotation[0] float -0.1 run scoreboard players set #loop int 3600
 function large_number:particle/3d_ar_ellipse/loop
 
 tp .0 .0 .0

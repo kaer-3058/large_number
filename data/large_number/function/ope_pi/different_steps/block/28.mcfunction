@@ -1,0 +1,14 @@
+#去掉最后8位并转化为字符串
+data remove storage large_number:pi_information sstemp3[-1]
+data remove storage large_number:pi_information sstemp3[-1]
+data modify storage large_number:pi_information pi set value []
+execute if data storage large_number:pi_information sstemp3[1] run function large_number:ope_pi/different_steps/loop_to_string
+data modify storage large_number:pi_information temp1 set string storage large_number:pi_information sstemp3[0]
+data modify storage large_number:pi_information pi prepend from storage large_number:pi_information temp1
+
+
+#tellraw @a [{"text":"[\u00A7e卡儿的数学库\u00A7r]\n圆周率π ["},{"score":{"name":"#ope_pi.digit","objective":"int"}},{"text":"位]：\n"},{"nbt":"pi[]","storage":"large_number:pi_information","separator":""}]
+
+tellraw @a "[圆周率 π]：计算完成！"
+
+scoreboard players add #pi.different_steps.mode lan.pi_information 1

@@ -1,2 +1,2 @@
 loot spawn ~ ~ ~ loot large_number:check_pos
-execute as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:definite_integral/riemann_integral/as_entity_2
+execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run return run function large_number:definite_integral/riemann_integral/as_entity_2

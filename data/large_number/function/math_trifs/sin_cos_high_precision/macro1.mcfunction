@@ -1,0 +1,1 @@
+$return run data get storage large_number:const sin1[$(s1)]

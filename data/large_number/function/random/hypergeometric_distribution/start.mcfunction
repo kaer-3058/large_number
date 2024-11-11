@@ -37,7 +37,6 @@ data modify storage large_number:math sstemp2 set from storage large_number:math
 
 data modify storage large_number:math sstemp4 set value []
 scoreboard players operation #store_hypergeometric_distribution.times int = #hypergeometric_distribution.times int
-item replace entity 3faf-0-3d00-0-61900f4241f weapon.mainhand with minecraft:stone 1
 execute if score #store_hypergeometric_distribution.times int matches 1.. run function large_number:random/hypergeometric_distribution/loop3
 
 

@@ -6,7 +6,7 @@ execute if data storage large_number:math {stemp1:"-"} run function large_number
 data modify storage large_number:math temp3 set value ""
 execute unless data storage large_number:math {stemp1:"-"} run data modify storage large_number:math temp3 set value "-"
 function large_number:float_add_subtra/macro2.ope with storage large_number:math
-execute as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
+execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
 data modify storage large_number:math sstemp030 set string storage large_number:math temp1 0 -1
 
 #浮点减法
@@ -17,7 +17,7 @@ execute if data storage large_number:math {stemp1:"-"} run function large_number
 data modify storage large_number:math temp3 set value ""
 execute unless data storage large_number:math {stemp1:"-"} run data modify storage large_number:math temp3 set value "-"
 function large_number:float_add_subtra/macro2.ope with storage large_number:math
-execute as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
+execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
 data modify storage large_number:math sstemp031 set string storage large_number:math temp1 0 -1
 
 data modify storage large_number:math sstemp038 set string storage large_number:math sstemp030 0 1

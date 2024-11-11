@@ -1,0 +1,1 @@
+$data modify storage large_number:math q0 set value $(temp0)0.$(temp1)E$(temp2)d

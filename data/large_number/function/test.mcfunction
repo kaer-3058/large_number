@@ -29,3 +29,7 @@
 #give @s evoker_spawn_egg[entity_data={id:"giant"},custom_model_data=513005]
 
 
+#输入：scoreboard players set #damage_% int 3
+
+
+

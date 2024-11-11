@@ -10,7 +10,7 @@ data modify storage large_number:math temp1 set from storage large_number:math e
 data modify storage large_number:math temp2 set from storage large_number:math expression_evaluation.differential.dx
 data modify storage large_number:math temp3 set value ""
 function large_number:float_add_subtra/macro2.ope with storage large_number:math
-execute as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
+execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
 
 data modify storage large_number:math expression_evaluation_variables."ｘ" set from storage large_number:math temp1
 
@@ -30,7 +30,7 @@ execute if data storage large_number:math {stemp1:"-"} run function large_number
 data modify storage large_number:math temp3 set value ""
 execute unless data storage large_number:math {stemp1:"-"} run data modify storage large_number:math temp3 set value "-"
 function large_number:float_add_subtra/macro2.ope with storage large_number:math
-execute as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
+execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
 
 data modify storage large_number:math expression_evaluation_variables."ｘ" set from storage large_number:math temp1
 
@@ -49,7 +49,7 @@ execute if data storage large_number:math {stemp1:"-"} run function large_number
 data modify storage large_number:math temp3 set value ""
 execute unless data storage large_number:math {stemp1:"-"} run data modify storage large_number:math temp3 set value "-"
 function large_number:float_add_subtra/macro2.ope with storage large_number:math
-execute as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
+execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
 
 #结果
 execute store result score #temp1 int run data get storage large_number:math expression_evaluation.differential.dx 2000000000

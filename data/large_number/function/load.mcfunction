@@ -3,6 +3,8 @@
 scoreboard objectives add const dummy
 scoreboard objectives add int dummy
 scoreboard objectives add ln_const dummy
+scoreboard objectives add sin_cos_const dummy
+scoreboard objectives add lan.pi_information dummy
 
 #运动抛物线
 scoreboard objectives add vx dummy
@@ -39,6 +41,7 @@ scoreboard players set 1000000000 const 1000000000
 scoreboard players set -2 const -2
 scoreboard players set -3 const -3
 scoreboard players set -360 const -360
+scoreboard players set -1000 const -1000
 scoreboard players set -10000 const -10000
 scoreboard players set -2147483648 const -2147483648
 
@@ -68,6 +71,7 @@ scoreboard players set 559 const 559
 scoreboard players set 600 const 600
 scoreboard players set 1535 const 1535
 scoreboard players set 1625 const 1625
+scoreboard players set 2000 const 2000
 scoreboard players set 2500 const 2500
 scoreboard players set 2776 const 2776
 scoreboard players set 3162 const 3162
@@ -83,6 +87,7 @@ scoreboard players set 24703 const 24703
 scoreboard players set 32768 const 32768
 scoreboard players set 40000 const 40000
 scoreboard players set 50436 const 50436
+scoreboard players set 57121 const 57121
 scoreboard players set 62831 const 62831
 scoreboard players set 65536 const 65536
 scoreboard players set 79249 const 79249
@@ -91,6 +96,8 @@ scoreboard players set 400000 const 400000
 scoreboard players set 520000 const 520000
 scoreboard players set 900000 const 900000
 scoreboard players set 1048576 const 1048576
+scoreboard players set 1800000 const 1800000
+scoreboard players set 3600000 const 3600000
 scoreboard players set 16777216 const 16777216
 scoreboard players set 268435456 const 268435456
 
@@ -111,9 +118,9 @@ data modify storage large_number:const double_max set value 1.797693134862315807
 data modify storage large_number:const double_abs_min set value 4.9E-324d
 
 
-data modify storage large_number:const version set value "large_number v.1.16"
+data modify storage large_number:const version set value "large_number v.1.17"
 
-scoreboard players set #k.la.version const 1016
+scoreboard players set #k.la.version const 1017
 
 #large_number:math q0 系列专门用于优化函数宏
 
@@ -121,22 +128,13 @@ scoreboard players set #k.la.version const 1016
 ##函数初始化
 
 #全局xyz变量
-data modify storage large_number:math buffer_all_xyz set value [0d,0d,0d]
+execute unless data storage large_number:math buffer_all_xyz[2] run data modify storage large_number:math buffer_all_xyz set value [0d,0d,0d]
 
 #四元数
 execute unless data storage large_number:math xyzw[3] run data modify storage large_number:math xyzw set value [0f,0f,0f,0f]
 
-#int质因数分解
-function large_number:prime_factorization/database
-
 #单位向量
 execute unless data storage large_number:math unit_vector[2] run data modify storage large_number:math unit_vector set value [0f,0f,0f]
-
-#三角函数法快速测距
-function large_number:fast_distance_trigonometry/load
-
-#Forth的核心 - 栈
-execute unless data storage large_number:math Forth_s1[0] run data modify storage large_number:math Forth_s1 set value [[]]
 
 #base64解析
 scoreboard players set #cb_run_func:"timestamp/cb_start" int 0

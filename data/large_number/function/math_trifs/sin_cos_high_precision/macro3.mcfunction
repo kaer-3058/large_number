@@ -1,0 +1,1 @@
+$return run data get storage large_number:const cos1[$(s1)]

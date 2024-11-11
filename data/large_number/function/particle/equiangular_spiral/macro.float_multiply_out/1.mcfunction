@@ -1,1 +1,1 @@
-$data modify entity @s Rotation[1] set value $(temp1)E$(temp2)f
+$data modify entity @s Rotation[0] set value $(temp1)E$(temp2)f

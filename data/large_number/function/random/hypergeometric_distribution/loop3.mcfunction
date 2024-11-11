@@ -7,8 +7,8 @@ execute store result score #temp1 int run data get storage large_number:math sst
 execute store result score #uniform_distribution.max int run scoreboard players remove #temp1 int 1
 
 #均匀分布
-item modify entity 3faf-0-3d00-0-61900f4241f weapon.mainhand large_number:uniform_distribution
-data modify storage large_number:math temp1 set from entity 3faf-0-3d00-0-61900f4241f HandItems[0].components."minecraft:custom_model_data"
+item modify block -29999984 -60 22022220 container.0 large_number:uniform_distribution
+data modify storage large_number:math temp1 set from block -29999984 -60 22022220 RecordItem.components."minecraft:custom_model_data"
 
 function large_number:random/hypergeometric_distribution/macro1 with storage large_number:math
 data modify storage large_number:math sstemp4 append from storage large_number:math sstemp3

@@ -12,4 +12,11 @@
 #storage large_number:math atan2_double.output
 
 execute rotated ~ .0 run tp @s .0 .0 .0 ~ ~
-execute store result storage large_number:math atan2_double.output float -.0000001 run data get entity @s Rotation[0] 10000000
+execute store result score #atan2d int run data get entity @s Rotation[0] -10000
+data modify storage large_number:math tx set string storage large_number:math atan2_double.x 0 1
+data modify storage large_number:math ty set string storage large_number:math atan2_double.y 0 1
+execute unless data storage large_number:math {tx:"-"} unless data storage large_number:math {ty:"-"} unless score #atan2d int matches 0..900000 run scoreboard players add #atan2d int 3600000
+execute if data storage large_number:math {tx:"-"} unless data storage large_number:math {ty:"-"} unless score #atan2d int matches 900000..1800000 run scoreboard players add #atan2d int 3600000
+execute if data storage large_number:math {tx:"-"} if data storage large_number:math {ty:"-"} unless score #atan2d int matches -1800000..-900000 run scoreboard players remove #atan2d int 3600000
+execute unless data storage large_number:math {tx:"-"} if data storage large_number:math {ty:"-"} unless score #atan2d int matches -900000..0 run scoreboard players remove #atan2d int 3600000
+execute store result storage large_number:math atan2_double.output double .0001 run scoreboard players get #atan2d int

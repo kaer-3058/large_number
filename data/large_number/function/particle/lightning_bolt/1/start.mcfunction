@@ -29,19 +29,19 @@ scoreboard players operation #uniform_distribution.max*2 int = #uniform_distribu
 scoreboard players operation #uniform_distribution.max*2 int *= 2 const
 
 #随机Δx
-execute store result score #temp9 int run random value 0..2147483646
+execute store result score #temp9 int run random value 0..2000000000
 scoreboard players operation #temp9 int %= #uniform_distribution.max*2 int
 scoreboard players operation #temp9 int -= #uniform_distribution.max int
 execute store result storage large_number:math buffer_all_xyz[0] double .01 run scoreboard players operation #temp_x int += #temp9 int
 
 #随机Δy
-execute store result score #temp9 int run random value 0..2147483646
+execute store result score #temp9 int run random value 0..2000000000
 scoreboard players operation #temp9 int %= #uniform_distribution.max*2 int
 scoreboard players operation #temp9 int -= #uniform_distribution.max int
 execute store result storage large_number:math buffer_all_xyz[1] double .01 run scoreboard players operation #temp_y int += #temp9 int
 
 #随机Δz
-execute store result score #temp9 int run random value 0..2147483646
+execute store result score #temp9 int run random value 0..2000000000
 scoreboard players operation #temp9 int %= #uniform_distribution.max*2 int
 scoreboard players operation #temp9 int -= #uniform_distribution.max int
 execute store result storage large_number:math buffer_all_xyz[2] double .01 run scoreboard players operation #temp_z int += #temp9 int

@@ -1,0 +1,1 @@
+$execute store result storage large_number:math q0 double $(store_cube_root_inp) run return -1

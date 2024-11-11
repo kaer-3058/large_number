@@ -1,0 +1,2 @@
+execute as b09e-44-fded-6-efa5ffffef64 store success score #temp1 int run function large_number:geometry/conical_selection_area/fan-shaped/macro3 with storage large_number:math
+execute if score #temp1 int matches 1 run function large_number:geometry/conical_selection_area/fan-shaped/macro2 with storage large_number:math conical_selection_area

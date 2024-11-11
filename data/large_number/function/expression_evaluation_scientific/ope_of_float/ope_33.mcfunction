@@ -28,7 +28,7 @@ data modify storage large_number:math temp1 set from storage large_number:math t
 data modify storage large_number:math temp2 set from storage large_number:math temp_store_||s2
 data modify storage large_number:math temp3 set value "-"
 function large_number:float_add_subtra/macro2.ope with storage large_number:math
-execute as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
+execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
 
 data modify storage large_number:math temp_store_||s3 set from storage large_number:math temp1
 
@@ -51,7 +51,7 @@ data modify storage large_number:math temp2 set from storage large_number:math t
 data modify storage large_number:math temp3 set value "-"
 function large_number:float_add_subtra/macro2.ope with storage large_number:math
 data modify storage large_number:math float_comparison_sizes.output set value ""
-execute as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:float_comparison_sizes/ope_out
+execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:float_comparison_sizes/ope_out
 
 #给出结果
 execute unless data storage large_number:math float_comparison_sizes{output:"-"} run data modify storage large_number:math float_comparison_sizes.output set value "+"

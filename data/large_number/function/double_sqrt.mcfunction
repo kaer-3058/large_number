@@ -1,4 +1,4 @@
-##高精度double开方，考虑到了科学记数法
+##高精度double开方
 
 #data modify storage large_number:math double_sqrt.input set value 6337.1544375d
 

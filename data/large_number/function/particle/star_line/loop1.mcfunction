@@ -1,6 +1,6 @@
 #x^p
 execute store result storage large_number:math exp_any.input.base double .0001 run scoreboard players get #loop int
-function large_number:exp_any/3
+function large_number:exp_any/2
 
 #浮点减法  r^p-x^p
 data modify storage large_number:math temp1 set from storage large_number:math temp_r_p
@@ -10,7 +10,7 @@ execute if data storage large_number:math {stemp1:"-"} run function large_number
 data modify storage large_number:math temp3 set value ""
 execute unless data storage large_number:math {stemp1:"-"} run data modify storage large_number:math temp3 set value "-"
 function large_number:float_add_subtra/macro2.ope with storage large_number:math
-execute as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
+execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
 
 #n次方根  (r^p-x^p)^(1/p)
 data modify storage large_number:math exp_any.input.base set from storage large_number:math temp1

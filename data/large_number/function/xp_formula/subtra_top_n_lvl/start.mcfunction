@@ -4,6 +4,8 @@
 
 #确保玩家现有的经验等级大于等于你要扣除的前N级经验等级，然后让被扣除经验的玩家执行此函数
 
+#算玩家经验公式就是本数学库诞生的初衷，是我一开始做超级锻造时想要优化扣经验的算法时开始做的。因为玩家经验等级范围是int，所以有了大数乘法。因为逆推的经验公式含有开方，所以有了24位整数开根号方法。
+
 execute store result score #xp_formula.levels int run xp query @s levels
 execute store result score #xp_formula.points int run xp query @s points
 function large_number:xp_formula/levels_to_points/start

@@ -241,4 +241,4 @@ function large_number:division/list_div_int/macro.craft3 with storage large_numb
 ###############################################################
 
 function large_number:division/list_div_int/addition with storage large_number:math
-execute as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:division/list_div_int/output
+execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run return run function large_number:division/list_div_int/output

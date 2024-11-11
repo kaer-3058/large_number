@@ -33,10 +33,12 @@ execute if score #__exp int matches ..-1 run scoreboard players remove #_exp int
 
 execute if score #float_int0 int matches 100000000.. if score #_exp int matches -152..-1 store result score #float_int0 int run function large_number:float_nbt_to_score/tree/-1/1-16
 execute if score #float_int0 int matches 100000000.. if score #_exp int matches -304..-153 store result score #float_int0 int run function large_number:float_nbt_to_score/tree/-1/17-32
+execute if score #float_int0 int matches 100000000.. if score #_exp int matches ..-305 store success storage large_number:math temp_expon int 0 run scoreboard players set #float_int0 int 0
 execute store success score #is- int if score #float_int0 int matches ..9999999
 execute if score #float_int0 int matches ..9999999 if score #_exp int matches -152..-1 store result score #float_int0 int run function large_number:float_nbt_to_score/tree/-1/_1/1-16
-execute if score #float_int0 int matches ..9999999 if score #_exp int matches ..-153 store result score #float_int0 int run function large_number:float_nbt_to_score/tree/-1/_1/17-33
-execute if score #float_int0 int matches ..9999999 if score #_exp int matches ..-309 run function large_number:float_nbt_to_score/small_number
+execute if score #float_int0 int matches ..9999999 if score #_exp int matches -308..-153 store result score #float_int0 int run function large_number:float_nbt_to_score/tree/-1/_1/17-33
+execute if score #float_int0 int matches ..9999999 if score #_exp int matches ..-309 store success storage large_number:math temp_expon int 0 run scoreboard players set #float_int0 int 0
+execute if score #_exp int matches 0 store success storage large_number:math temp_expon int 8 run data get storage large_number:math float_nbt_to_score_input
 
 execute if score #__exp int matches 0 unless score #float_int0 int matches 10000000..99999999 run function large_number:float_nbt_to_score/tree/0/3
 execute if score #__exp int matches 0 unless score #float_int0 int matches 10000000..99999999 run function large_number:float_nbt_to_score/tree/0/4

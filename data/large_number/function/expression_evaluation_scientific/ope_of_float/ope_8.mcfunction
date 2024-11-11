@@ -19,4 +19,6 @@ execute store result score #_exp int run function large_number:sigmoid/macro3 wi
 execute store result storage large_number:math temp_expon int 1 run scoreboard players remove #_exp int 7
 function large_number:sigmoid/macro4_f with storage large_number:math
 
-execute as b09e-44-fded-6-efa5ffffef64 run function large_number:expression_evaluation_scientific/ope_of_float/ope_8/as_entity_1
+data modify storage large_number:math sin_cos_high_precision.input set from storage large_number:math temp2
+function large_number:math_trifs/sin_cos_high_precision/start
+data modify storage large_number:math _expressionss3 set from storage large_number:math sin_cos_high_precision.sin

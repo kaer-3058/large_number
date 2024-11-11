@@ -1,0 +1,1 @@
+$return run scoreboard players get #listdp_string_dictionary_order_$(s0) int

@@ -1,0 +1,1 @@
+$execute positioned .0 $(q2) .0 run loot spawn ~ ~$(q3) ~ loot large_number:check_pos

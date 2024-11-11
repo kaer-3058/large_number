@@ -1,0 +1,16 @@
+{
+    "function": "minecraft:set_attributes",
+    "modifiers": [
+        {
+            "amount": {
+                "type": "minecraft:uniform",
+                "max": 1.0,
+                "min": 0.0
+            },
+            "attribute": "minecraft:max_health",
+            "id": "large_number:uniform_distribution3",
+            "operation": "add_value",
+            "slot": "mainhand"
+        }
+    ]
+}

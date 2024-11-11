@@ -6,6 +6,8 @@
 #1000倍 粒子的间隔：scoreboard players set #regular_polygon.size int 200
 #传入世界实体
 
+#执行：execute as b09e-44-fded-6-efa5ffffef64 run function large_number:particle/regular_polygon/tangent_start
+
 scoreboard players operation #loops int = #regular_polygon.n int
 scoreboard players operation #loops_θ int = #regular_polygon.startθ int
 data modify storage large_number:math regular_polygon_Pos set value []

@@ -20,7 +20,6 @@ execute if data storage large_number:math {temp1:"arctanｘ"} run data modify st
 execute if data storage large_number:math {temp1:"arccotｘ"} run data modify storage large_number:math temp1 set value "-1/(1+ｘ²)"
 execute if data storage large_number:math {temp1:"√ｘ"} run data modify storage large_number:math temp1 set value "1/(2*(√ｘ))"
 execute if data storage large_number:math {temp1:"1/ｘ"} run data modify storage large_number:math temp1 set value "-1/ｘ²"
-execute if data storage large_number:math {temp1:"Γｘ"} run data modify storage large_number:math temp1 set value "(Γｘ)*(ψｘ)"
 execute if data storage large_number:math {temp1:"ºLambertWｘ"} run data modify storage large_number:math temp1 set value "(ºLambertWｘ)/((ºLambertWｘ+1)*ｘ)"
 execute if data storage large_number:math {temp1:"||ｘ"} run data modify storage large_number:math temp1 set value "(||ｘ)/ｘ"
 execute if data storage large_number:math {temp1:"sgnｘ"} run data modify storage large_number:math temp1 set value "0"

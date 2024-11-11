@@ -16,5 +16,3 @@ scoreboard players operation #store_loops int = #equiangular_spiral.length int
 tp b09e-44-fded-6-efa5ffffef64 .0 .0 .0 .0 .0
 
 execute if score #store_loops int matches 1.. run function large_number:particle/equiangular_spiral/loop
-
-tp b09e-44-fded-6-efa5ffffef64 .0 .0 .0 .0 .0

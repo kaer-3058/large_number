@@ -11,4 +11,4 @@ execute if score #float_add_subtra_ope_mode int matches 2 if data storage large_
 data modify storage large_number:math temp3 set value ""
 execute if score #float_add_subtra_ope_mode int matches 2 unless data storage large_number:math {stemp1:"-"} run data modify storage large_number:math temp3 set value "-"
 function large_number:float_add_subtra/macro2.ope with storage large_number:math
-execute as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:float_add_subtra/output
+execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:float_add_subtra/output

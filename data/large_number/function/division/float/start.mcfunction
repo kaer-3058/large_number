@@ -58,3 +58,5 @@ execute if score #float_sign int matches -1 run data modify storage large_number
 execute store result storage large_number:math temp2 int 1 run scoreboard players get #float_int0 int
 function large_number:division/float/macro2 with storage large_number:math
 data modify storage large_number:math float_division.output set from storage large_number:math q0
+
+#execute if score #Divisor_float_int0 int matches 0 run data modify storage large_number:math float_division.output set value 1.79769313486231580793728971405E308d

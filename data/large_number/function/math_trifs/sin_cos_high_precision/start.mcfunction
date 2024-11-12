@@ -1,6 +1,7 @@
 ##高精度正弦和余弦
 
 #查表+三角函数和角公式
+#在x较小时，cos(x)≈1，sin(x)≈x
 
 #需要载入数据库：function large_number:math_trifs/sin_cos_high_precision/database
 
@@ -8,14 +9,14 @@
 
 #借助实体旋转角，把输入值钳制在[0,360)区间
 data modify entity b09e-44-fded-6-efa5ffffef64 Rotation[0] set from storage large_number:math sin_cos_high_precision.input
-execute store result score #sstempx int run data get entity b09e-44-fded-6-efa5ffffef64 Rotation[0] 10000
-execute store result score #sstempz int store result score #sstempy int run scoreboard players operation #sstempx int %= 3600000 const
+execute store result score #sstempx int run data get entity b09e-44-fded-6-efa5ffffef64 Rotation[0] 1000000
+execute store result score #sstempz int store result score #sstempy int run scoreboard players operation #sstempx int %= 360000000 const
 
 #输入值拆成三个部分
-execute store result storage large_number:math s1 int 1 run scoreboard players operation #sstempx int /= 10000 const
-scoreboard players operation #sstempy int %= 10000 const
-execute store result storage large_number:math s2 int 1 run scoreboard players operation #sstempy int /= 100 const
-execute store result storage large_number:math sstempz int 17453292.519943295769236907 run scoreboard players operation #sstempz int %= 100 const
+execute store result storage large_number:math s1 int 1 run scoreboard players operation #sstempx int /= 1000000 const
+scoreboard players operation #sstempy int %= 1000000 const
+execute store result storage large_number:math s2 int 1 run scoreboard players operation #sstempy int /= 10000 const
+execute store result storage large_number:math sstempz int 174532.92519943295769236907 run scoreboard players operation #sstempz int %= 10000 const
 
 #宏索引法查表
 execute store result score #sin_inte int run function large_number:math_trifs/sin_cos_high_precision/macro1 with storage large_number:math

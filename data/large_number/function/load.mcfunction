@@ -100,6 +100,7 @@ scoreboard players set 1800000 const 1800000
 scoreboard players set 3600000 const 3600000
 scoreboard players set 16777216 const 16777216
 scoreboard players set 268435456 const 268435456
+scoreboard players set 360000000 const 360000000
 
 #设置重力加速度的一半
 scoreboard players set #g/2 const 122

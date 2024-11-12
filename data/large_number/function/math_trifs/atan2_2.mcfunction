@@ -23,6 +23,7 @@ execute if score #x int matches 0.. if score #y int matches 0.. unless score #ar
 execute if score #x int matches ..-1 if score #y int matches 0.. unless score #arcsin_cos.output int matches 900000..1800000 run scoreboard players add #arcsin_cos.output int 3600000
 execute if score #x int matches ..-1 if score #y int matches ..-1 unless score #arcsin_cos.output int matches -1800000..-900000 run scoreboard players remove #arcsin_cos.output int 3600000
 execute if score #x int matches 0.. if score #y int matches ..-1 unless score #arcsin_cos.output int matches -900000..0 run scoreboard players remove #arcsin_cos.output int 3600000
+execute if score #arcsin_cos.output int matches -1800000 run scoreboard players set #arcsin_cos.output int 1800000
 
 
 #复现条件：按顺序执行如下命令：

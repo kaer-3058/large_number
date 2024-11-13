@@ -1260,6 +1260,7 @@ h(x)=\left\{\begin{matrix}
 $$
 
 数学期望：(感谢泰勒猫爱丽丝的解答)
+
 $$
 \begin{aligned}
 & \mathrm{beta函数形式：}\frac{b-a}{p}\ \mathrm{Β}\left( \frac{1}{p}+1,\frac{1}{p} \right)+a \\
@@ -1267,7 +1268,9 @@ $$
 & \mathrm{gamma函数形式：}\frac{(b-a)\left ( \Gamma\left( \frac{1}{p} \right) \right )^2 }{2p\Gamma\left( \frac{2}{p} \right)} +a
 \end{aligned}
 $$
+
 方差：
+
 $$
 \mathrm{beta函数形式：}\frac{(b-a)^2}{p}\ \mathrm{Β}\left( \frac{2}{p}+1,\frac{1}{p} \right)-\left( \frac{b-a}{p}\ \mathrm{Β}\left( \frac{1}{p}+1,\frac{1}{p} \right)  \right)^2
 $$
@@ -1278,6 +1281,52 @@ $$
 区间下限[int]：storage large_number:math skewed_distribution.min
 区间上限[int]：storage large_number:math skewed_distribution.max
 偏峰指标[double]：storage large_number:math skewed_distribution.p
+```
+
+　
+
+♦ 标准正态分布的临界值：large_number:random/normal_distribution_critical_value/start
+
+公式：
+
+$$
+f(x)=\sqrt{2\sqrt{\left (\frac{2}{a\pi}+\frac{\ln(1-x^2)}{2}\right)^2-\frac{\ln(1-x^2)}{a}}-\left(\frac{4}{a\pi}+\ln(1-x^2)\right)}
+$$
+
+此公式由逆误差函数的近似公式变形而来，可用于近似计算标准正态分布临界值。
+
+自变量为置信水平。a为常数，取a=0.147时可得到较好的近似。
+
+例如要求置信水平为95%，误差控制在5%内，则临界值f(0.95)≈1.9587
+
+```
+输入置信水平[浮点数]：storage large_number:math normal_distribution_critical_value.input
+输出：storage large_number:math normal_distribution_critical_value.output
+```
+
+♦ 根据概率、误差和置信水平估计试验次数：large_number:random/confidence_interval_basic/start
+
+应用环境：假设某事件的估计概率为p，你希望通过n次实验使估计的结果在实际概率周围有一个误差范围ϵ，且置信水平达到α。
+
+公式：
+
+$$
+n=\frac{z^2\cdot p(1-p)}{\epsilon^2}
+$$
+
+公式里的z是标准正态分布的临界值。
+
+```
+输入概率[浮点数]：storage large_number:math confidence_interval_of_p.p
+范围为区间(0,1)，如不了解，可输入0.5来最大化样本量
+
+输入置信水平[浮点数]：storage large_number:math confidence_interval_of_p.α
+如要求95%是可信的，则输入0.95
+
+输入误差[浮点数]：storage large_number:math confidence_interval_of_p.ϵ
+范围为区间(0,10)
+
+输出(次数)：storage large_number:math confidence_interval_of_p.output
 ```
 
 　
@@ -1449,6 +1498,7 @@ double型输出：storage large_number:math lg(x)_output
 此算法参考：https://www.zhihu.com/question/333371020/answer/1686069171
 
 公式：
+
 $$
 \begin{aligned}
 & k=\lfloor \log_2(x) \rfloor \\
@@ -1467,6 +1517,7 @@ $$
 & \ln(x)=k·\ln(2)+f-\frac{f^2}{2}+s·(\frac{f^2}{2}+R(z)) \\
 \end{aligned}
 $$
+
 雷米兹算法得到的多项式在高精度ln算法里起了最重要的误差修正的作用，理论上误差可低至2^-58.45。
 
 此算法使用了大量的高精度浮点乘法，因此此算法的消耗约为查表法的60倍。
@@ -3204,7 +3255,7 @@ k：#combinations.k int
 3.为什么不拼一起？因为拼一起要用递归+宏，那是额外的开销
 ```
 
-
+　
 
 ♦ 参考文献：
 

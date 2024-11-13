@@ -1,0 +1,1 @@
+$execute store result storage large_number:math q0 long $(temp1) run return $(temp1)

@@ -1,6 +1,7 @@
 ##整数平方
 
 scoreboard players operation #c int = input int
+execute if score #c int matches -2147483648 run scoreboard players set #c int 2147483647
 execute if score #c int matches ..-1 run scoreboard players operation #c int *= -1 const
 execute store result score #a int run scoreboard players operation #b int = #c int
 execute store result score #1.1 int store result score #1.2 int store result score #1.3 int run scoreboard players operation #c int %= 10000 const

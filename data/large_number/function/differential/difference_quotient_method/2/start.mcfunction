@@ -8,8 +8,7 @@
 #浮点加法
 data modify storage large_number:math temp1 set from storage large_number:math expression_evaluation.differential.input
 data modify storage large_number:math temp2 set from storage large_number:math expression_evaluation.differential.dx
-data modify storage large_number:math temp3 set value ""
-function large_number:float_add_subtra/macro2.ope with storage large_number:math
+function large_number:fourier_series_numerical/ope/macro3 with storage large_number:math
 execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
 
 data modify storage large_number:math expression_evaluation_variables."ｘ" set from storage large_number:math temp1
@@ -44,8 +43,7 @@ data modify storage large_number:math temp2 set from storage large_number:math e
 
 #浮点加法
 data modify storage large_number:math temp1 set from storage large_number:math stempu
-data modify storage large_number:math temp3 set value ""
-function large_number:float_add_subtra/macro2.ope with storage large_number:math
+function large_number:fourier_series_numerical/ope/macro3 with storage large_number:math
 execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
 
 data modify storage large_number:math stempv set from storage large_number:math temp1

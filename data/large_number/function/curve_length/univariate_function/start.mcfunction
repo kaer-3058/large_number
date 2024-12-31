@@ -55,4 +55,4 @@ execute if data storage large_number:math sstempr[1] run function large_number:c
 execute if data storage large_number:math sstemps[0] positioned .0 .0 .0 run function large_number:curve_length/univariate_function/loop3
 data modify storage large_number:math expression_evaluation.univariate_function_length set from storage large_number:math stemp9040cs99
 
-tellraw @a {"text":"\u00A77\u00A7o曲线长度计算完成"}
+tellraw @a {"translate":"large_number.curve_length.end","fallback": "\u00A77\u00A7o曲线长度计算完成"}

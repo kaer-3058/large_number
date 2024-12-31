@@ -25,4 +25,4 @@ execute if score #temp1 int matches 0 if data storage large_number:math large_di
 data modify storage large_number:math large_division.output set from storage large_number:math sstempz
 
 
-tellraw @a {"text":"\u00A77\u00A7o大数除法计算完成"}
+tellraw @a {"translate":"large_number.large_division.end","fallback": "\u00A77\u00A7o大数除法计算完成"}

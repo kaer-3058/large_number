@@ -28,3 +28,4 @@ execute if score #temp int matches 16.. run return 4
 execute if score #temp int matches 8.. run return 3
 execute if score #temp int matches 4.. run return 2
 execute if score #temp int matches 2.. run return 1
+return 0

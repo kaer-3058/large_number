@@ -1,0 +1,1 @@
+$data modify storage large_number:math tan_high_precision.output set value $(temp1)0.$(temp2)E$(temp3)d

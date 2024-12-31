@@ -11,7 +11,9 @@ execute store success score #input.2_-1 int if score #store_parabola_expre_x.sta
 
 scoreboard players operation #inp int = #coef.a int
 scoreboard players operation #inp.2 int = #store_parabola_expre_x.start int
+execute if score #inp int matches -2147483648 run scoreboard players set #inp int 2147483647
 execute if score #inp int matches ..-1 run scoreboard players operation #inp int *= -1 const
+execute if score #inp.2 int matches -2147483648 run scoreboard players set #inp.2 int 2147483647
 execute if score #inp.2 int matches ..-1 run scoreboard players operation #inp.2 int *= -1 const
 
 execute store result score #x int store result score #y int run scoreboard players operation #z int = #inp int

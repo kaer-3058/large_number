@@ -16,6 +16,7 @@ scoreboard players operation #Divisor_float_int0 int = #int_+decimal.input2 int
 #载入被除数
 scoreboard players set #float_sign int 1
 execute if score #float_int0 int matches ..-1 run scoreboard players set #float_sign int -1
+execute if score #float_int0 int matches -2147483648 run scoreboard players set #float_int0 int 2147483647
 execute if score #float_int0 int matches ..-1 run scoreboard players operation #float_int0 int *= -1 const
 
 scoreboard players set #float_exp int -4
@@ -38,6 +39,7 @@ execute if score #temp1 int matches 1000000..9999999 run scoreboard players add 
 #载入除数
 scoreboard players set #Divisor_float_sign int 1
 execute if score #Divisor_float_int0 int matches ..-1 run scoreboard players set #Divisor_float_sign int -1
+execute if score #Divisor_float_int0 int matches -2147483648 run scoreboard players set #Divisor_float_int0 int 2147483647
 execute if score #Divisor_float_int0 int matches ..-1 run scoreboard players operation #Divisor_float_int0 int *= -1 const
 
 scoreboard players set #Divisor_float_exp int -4

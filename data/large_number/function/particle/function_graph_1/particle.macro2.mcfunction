@@ -1,0 +1,1 @@
+$particle end_rod ^$(stemp2) ^$(stemp1) ^ .0 .0 .0 .0 1 force

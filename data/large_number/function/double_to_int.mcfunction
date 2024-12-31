@@ -184,13 +184,13 @@ execute store result score #double_to_int.16 int run data get storage large_numb
 #合并数字成为万进制int数组
 scoreboard players operation #double_to_int.1 int += #double_to_int.2 int
 scoreboard players operation #double_to_int.1 int += #double_to_int.3 int
-execute store result storage large_number:math double_to_int.output.math[0] int 1.0 run scoreboard players operation #double_to_int.1 int += #double_to_int.4 int
+execute store result storage large_number:math double_to_int.output.math[0] int 1 run scoreboard players operation #double_to_int.1 int += #double_to_int.4 int
 scoreboard players operation #double_to_int.5 int += #double_to_int.6 int
 scoreboard players operation #double_to_int.5 int += #double_to_int.7 int
-execute store result storage large_number:math double_to_int.output.math[1] int 1.0 run scoreboard players operation #double_to_int.5 int += #double_to_int.8 int
+execute store result storage large_number:math double_to_int.output.math[1] int 1 run scoreboard players operation #double_to_int.5 int += #double_to_int.8 int
 scoreboard players operation #double_to_int.9 int += #double_to_int.10 int
 scoreboard players operation #double_to_int.9 int += #double_to_int.11 int
-execute store result storage large_number:math double_to_int.output.math[2] int 1.0 run scoreboard players operation #double_to_int.9 int += #double_to_int.12 int
+execute store result storage large_number:math double_to_int.output.math[2] int 1 run scoreboard players operation #double_to_int.9 int += #double_to_int.12 int
 scoreboard players operation #double_to_int.13 int += #double_to_int.14 int
 scoreboard players operation #double_to_int.13 int += #double_to_int.15 int
-execute store result storage large_number:math double_to_int.output.math[3] int 1.0 run scoreboard players operation #double_to_int.13 int += #double_to_int.16 int
+execute store result storage large_number:math double_to_int.output.math[3] int 1 run scoreboard players operation #double_to_int.13 int += #double_to_int.16 int

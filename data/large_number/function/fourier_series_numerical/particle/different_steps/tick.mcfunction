@@ -1,0 +1,2 @@
+execute if score #fourier_series_numerical_particle.start int matches 1 run function large_number:fourier_series_numerical/particle/different_steps/1
+execute if score #fourier_series_numerical_particle.start int matches 2 run function large_number:fourier_series_numerical/particle/different_steps/2

@@ -106,9 +106,15 @@ execute if score #temp1 lan.pi_information matches 0 if data storage large_numbe
 data remove storage large_number:pi_information sstemp3[-1]
 data remove storage large_number:pi_information sstemp3[-1]
 data modify storage large_number:pi_information pi set value []
+data modify storage large_number:pi_information pi_iarray set value []
 execute if data storage large_number:pi_information sstemp3[1] run function large_number:ope_pi/single_use/loop_to_string
 data modify storage large_number:pi_information temp1 set string storage large_number:pi_information sstemp3[0]
 data modify storage large_number:pi_information pi prepend from storage large_number:pi_information temp1
+data modify storage large_number:pi_information pi_iarray prepend from storage large_number:pi_information sstemp3[0]
 
 
-tellraw @a [{"text":"[\u00A7e卡儿的数学库\u00A7r]\n圆周率π ["},{"score":{"name":"#ope_pi.digit","objective":"int"}},{"text":"位]：\n"},{"nbt":"pi[]","storage":"large_number:pi_information","separator":""}]
+tellraw @a {"translate":"large_number.ope_pi.tell","fallback":"[\u00A7e卡儿的数学库\u00A7r]\n圆周率π [%1$s位]：\n%2$s","with":[{"score":{"name":"#ope_pi.digit","objective":"int"}},{"nbt":"pi[]","storage":"large_number:pi_information","separator":""}]}
+
+
+#tellraw @a {"nbt":"pi","storage":"large_number:pi_information"}
+#tellraw @a {"nbt":"pi_iarray","storage":"large_number:pi_information"}

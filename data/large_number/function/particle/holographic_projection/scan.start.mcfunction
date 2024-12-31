@@ -35,4 +35,4 @@ execute positioned ~14 ~ ~ run function large_number:particle/holographic_projec
 scoreboard players set #move.x int 4687
 execute positioned ~15 ~ ~ run function large_number:particle/holographic_projection/iterate
 
-tellraw @a {"text":"\u00A77\u00A7o全息粒子投影：扫描完成！"}
+tellraw @a {"translate":"large_number.holographic_projection.end","fallback":"\u00A77\u00A7o全息粒子投影：扫描完成！"}

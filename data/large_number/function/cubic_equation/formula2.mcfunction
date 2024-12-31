@@ -16,8 +16,7 @@ data modify storage large_number:math temp_tab set from storage large_number:mat
 #浮点加法
 data modify storage large_number:math temp1 set from storage large_number:math temp_tb2
 data modify storage large_number:math temp2 set from storage large_number:math double_sqrt.output
-data modify storage large_number:math temp3 set value ""
-function large_number:float_add_subtra/macro2.ope with storage large_number:math
+function large_number:fourier_series_numerical/ope/macro3 with storage large_number:math
 execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
 
 data modify storage large_number:math float_division.input1 set from storage large_number:math temp1
@@ -30,8 +29,7 @@ function large_number:float_mul.high_precision/start
 #浮点加法
 data modify storage large_number:math temp1 set from storage large_number:math float_multiply.output
 data modify storage large_number:math temp2 set from storage large_number:math temp_tab
-data modify storage large_number:math temp3 set value ""
-function large_number:float_add_subtra/macro2.ope with storage large_number:math
+function large_number:fourier_series_numerical/ope/macro3 with storage large_number:math
 execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
 
 data modify storage large_number:math cube_root.input set from storage large_number:math temp1
@@ -61,8 +59,7 @@ function large_number:float_mul.high_precision/start
 #浮点加法
 data modify storage large_number:math temp1 set from storage large_number:math float_multiply.output
 data modify storage large_number:math temp2 set from storage large_number:math temp_tab
-data modify storage large_number:math temp3 set value ""
-function large_number:float_add_subtra/macro2.ope with storage large_number:math
+function large_number:fourier_series_numerical/ope/macro3 with storage large_number:math
 execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
 
 data modify storage large_number:math cube_root.input set from storage large_number:math temp1
@@ -77,8 +74,7 @@ function large_number:cubic_equation/macro6 with storage large_number:math
 #浮点加法
 data modify storage large_number:math temp1 set from storage large_number:math cubic_equation.cr_Y1
 data modify storage large_number:math temp2 set from storage large_number:math cubic_equation.cr_Y2
-data modify storage large_number:math temp3 set value ""
-function large_number:float_add_subtra/macro2.ope with storage large_number:math
+function large_number:fourier_series_numerical/ope/macro3 with storage large_number:math
 execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
 
 #浮点减法

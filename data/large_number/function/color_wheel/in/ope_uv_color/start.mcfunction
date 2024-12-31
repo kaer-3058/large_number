@@ -8,15 +8,15 @@ scoreboard players set #color_cube.R int 255
 scoreboard players set #color_cube.G int 255
 scoreboard players set #color_cube.B int 255
 
-scoreboard players operation #color_cube.R int -= #color_cube.start.R int
-scoreboard players operation #color_cube.G int -= #color_cube.start.G int
-scoreboard players operation #color_cube.B int -= #color_cube.start.B int
+scoreboard players operation #color_cube.R int -= #color_wheel.output.R int
+scoreboard players operation #color_cube.G int -= #color_wheel.output.G int
+scoreboard players operation #color_cube.B int -= #color_wheel.output.B int
 scoreboard players operation #color_cube.R int *= #color_cube.u int
 scoreboard players operation #color_cube.G int *= #color_cube.u int
 scoreboard players operation #color_cube.B int *= #color_cube.u int
-scoreboard players operation #temp1 int = #color_cube.start.R int
-scoreboard players operation #temp2 int = #color_cube.start.G int
-scoreboard players operation #temp3 int = #color_cube.start.B int
+scoreboard players operation #temp1 int = #color_wheel.output.R int
+scoreboard players operation #temp2 int = #color_wheel.output.G int
+scoreboard players operation #temp3 int = #color_wheel.output.B int
 scoreboard players operation #temp1 int *= 10000 const
 scoreboard players operation #temp2 int *= 10000 const
 scoreboard players operation #temp3 int *= 10000 const

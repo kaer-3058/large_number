@@ -82,4 +82,4 @@ execute store result storage large_number:math temp_expon int 1 run scoreboard p
 function large_number:definite_integral/riemann_integral/0_1/macro2 with storage large_number:math
 data modify storage large_number:math expression_evaluation.definite_integral.output set from storage large_number:math temp4
 
-tellraw @a {"text":"\u00A77\u00A7o定积分求解完成"}
+tellraw @a {"translate":"large_number.definite_integral.end","fallback": "\u00A77\u00A7o定积分求解完成"}

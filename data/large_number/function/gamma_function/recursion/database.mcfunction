@@ -1005,4 +1005,4 @@ data modify storage large_number:math gamma_databse."0" set value 1.0d
 data modify storage large_number:math gamma_databse."0.0" set value 1.0d
 data modify storage large_number:math gamma_databse."0.00" set value 1.0d
 data modify storage large_number:math gamma_databse."0.000" set value 1.0d
-tellraw @a {"text":"已执行函数large_number:gamma_function/recursion/database里的1008条命令，录入了\u00A7e1007\u00A7r条数据"}
+tellraw @a {"translate":"large_number.gamma_function_recursion_database.command_times","fallback": "已执行函数large_number:gamma_function/recursion/database里的1008条命令，录入了\u00A7e1007\u00A7r条数据"}

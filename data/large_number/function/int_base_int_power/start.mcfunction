@@ -5,7 +5,9 @@
 
 scoreboard players operation #temp1 int = #int_base_int_power.expon int
 scoreboard players operation #temp3 int = #int_base_int_power.base int
+execute if score #temp3 int matches -2147483648 run scoreboard players set #temp3 int 2147483647
 execute if score #temp3 int matches ..-1 run scoreboard players operation #temp3 int *= -1 const
+execute if score #temp1 int matches -2147483648 run scoreboard players set #temp1 int 2147483647
 execute if score #temp1 int matches ..-1 run scoreboard players operation #temp1 int *= -1 const
 execute store result storage large_number:math temp1 double 1 run scoreboard players get #temp3 int
 execute if score #temp1 int matches 2.. run function large_number:int_base_int_power/loop

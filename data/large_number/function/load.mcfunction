@@ -40,7 +40,9 @@ scoreboard players set 100000000 const 100000000
 scoreboard players set 1000000000 const 1000000000
 scoreboard players set -2 const -2
 scoreboard players set -3 const -3
+scoreboard players set -4 const -4
 scoreboard players set -360 const -360
+scoreboard players set -100 const -100
 scoreboard players set -1000 const -1000
 scoreboard players set -10000 const -10000
 scoreboard players set -2147483648 const -2147483648
@@ -71,6 +73,7 @@ scoreboard players set 559 const 559
 scoreboard players set 600 const 600
 scoreboard players set 1535 const 1535
 scoreboard players set 1625 const 1625
+scoreboard players set 1700 const 1700
 scoreboard players set 2000 const 2000
 scoreboard players set 2500 const 2500
 scoreboard players set 2776 const 2776
@@ -114,14 +117,16 @@ data modify storage large_number:const "π" set value 3.141592653589793238462643
 data modify storage large_number:const "e" set value 2.71828182845904523536028747135266249775724709369995d
 data modify storage large_number:const "γ" set value 0.57721566490153286060651209008240243104215933593992d
 data modify storage large_number:const "φ" set value 1.61803398874989484820458683436563811772030917980576d
+data modify storage large_number:const "τ" set value 6.283185307179586476925286766559005768394338798750211d
+
 data modify storage large_number:const double_min set value -1.797693134862315807E308d
 data modify storage large_number:const double_max set value 1.797693134862315807E308d
 data modify storage large_number:const double_abs_min set value 4.9E-324d
 
 
-data modify storage large_number:const version set value "large_number v.1.17"
+data modify storage large_number:const version set value "large_number v.1.18"
 
-scoreboard players set #k.la.version const 1017
+scoreboard players set #k.la.version const 1018
 
 #large_number:math q0 系列专门用于优化函数宏
 

@@ -6,6 +6,7 @@ execute if score #float_add_subtra_ope_mode int matches 2 run scoreboard players
 
 data modify storage large_number:math temp0 set value ""
 execute if score #float_int0 int matches ..-1 run data modify storage large_number:math temp0 set value "-"
+execute if score #float_int0 int matches -2147483648 run scoreboard players set #float_int0 int 2147483647
 execute if score #float_int0 int matches ..-1 run scoreboard players operation #float_int0 int *= -1 const
 
 execute store result storage large_number:math temp1 int 1 run scoreboard players add #float_int0 int 100000000

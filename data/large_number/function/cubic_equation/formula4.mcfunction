@@ -25,8 +25,7 @@ function large_number:cubic_equation/macro8 with storage large_number:math float
 #浮点加法
 data modify storage large_number:math temp1 set from storage large_number:math q0
 data modify storage large_number:math temp2 set from storage large_number:math q1
-data modify storage large_number:math temp3 set value ""
-function large_number:float_add_subtra/macro2.ope with storage large_number:math
+function large_number:fourier_series_numerical/ope/macro3 with storage large_number:math
 execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
 data modify storage large_number:math float_division.input1 set from storage large_number:math temp1
 
@@ -61,8 +60,7 @@ function large_number:float_mul.high_precision/start
 #浮点加法
 data modify storage large_number:math temp1 set from storage large_number:math float_multiply.output
 data modify storage large_number:math temp2 set from storage large_number:math temp_b3
-data modify storage large_number:math temp3 set value ""
-function large_number:float_add_subtra/macro2.ope with storage large_number:math
+function large_number:fourier_series_numerical/ope/macro3 with storage large_number:math
 execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
 
 function large_number:cubic_equation/macro5 with storage large_number:math
@@ -77,8 +75,7 @@ data modify storage large_number:math cubic_equation.output[0] set from storage 
 #浮点加法
 data modify storage large_number:math temp1 set from storage large_number:math temp_cos
 data modify storage large_number:math temp2 set from storage large_number:math temp_sin
-data modify storage large_number:math temp3 set value ""
-function large_number:float_add_subtra/macro2.ope with storage large_number:math
+function large_number:fourier_series_numerical/ope/macro3 with storage large_number:math
 execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
 
 data modify storage large_number:math float_multiply.input1 set from storage large_number:math temp1
@@ -88,8 +85,7 @@ function large_number:float_mul.high_precision/start
 #浮点加法
 data modify storage large_number:math temp1 set from storage large_number:math float_multiply.output
 data modify storage large_number:math temp2 set from storage large_number:math temp_b3
-data modify storage large_number:math temp3 set value ""
-function large_number:float_add_subtra/macro2.ope with storage large_number:math
+function large_number:fourier_series_numerical/ope/macro3 with storage large_number:math
 execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
 
 data modify storage large_number:math float_division.input1 set from storage large_number:math temp1
@@ -118,8 +114,7 @@ function large_number:float_mul.high_precision/start
 #浮点加法
 data modify storage large_number:math temp1 set from storage large_number:math float_multiply.output
 data modify storage large_number:math temp2 set from storage large_number:math temp_b3
-data modify storage large_number:math temp3 set value ""
-function large_number:float_add_subtra/macro2.ope with storage large_number:math
+function large_number:fourier_series_numerical/ope/macro3 with storage large_number:math
 execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
 
 data modify storage large_number:math float_division.input1 set from storage large_number:math temp1

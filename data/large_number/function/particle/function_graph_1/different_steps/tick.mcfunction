@@ -1,0 +1,2 @@
+execute if score #function_graph_1.start int matches 1 run function large_number:particle/function_graph_1/different_steps/1
+execute if score #function_graph_1.start int matches 2 run function large_number:particle/function_graph_1/different_steps/2

@@ -2,7 +2,6 @@
 
 #输入：scoreboard players set #conti_frac.sqrt.input int <正整数>
 #迭代次数：scoreboard players set #conti_frac.sqrt.loops int <正整数>
-#约分：scoreboard players set #conti_frac.sqrt.reduction_fraction int 1
 #显示连分数表达式：scoreboard players set #conti_frac.sqrt.tellraw int 1
 #输出:（#conti_frac.sqrt.A int／#conti_frac.sqrt.N int）＋#conti_frac.sqrt.inte int
 #连分数表达式：data get storage large_number:math conti_frac_sqrt_expression

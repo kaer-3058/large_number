@@ -1,7 +1,7 @@
 scoreboard players operation #temp1 int = #start_r int
 scoreboard players operation #temp1 int *= #equiangular_spiral.b int
-execute if score #temp1 int matches ..-1 run scoreboard players operation #temp1 int *= -1 const
 execute if score #temp1 int matches -2147483648 run scoreboard players set #temp1 int 2147483647
+execute if score #temp1 int matches ..-1 run scoreboard players operation #temp1 int *= -1 const
 execute store result storage large_number:math ln_double.input double .000001 run scoreboard players get #temp1 int
 function large_number:ln_double/start
 function large_number:particle/equiangular_spiral/macro1 with storage large_number:math ln_double

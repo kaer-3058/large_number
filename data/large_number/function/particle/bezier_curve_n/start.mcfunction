@@ -43,4 +43,4 @@ execute if score #bezier_curve_N.loops int <= #bezier_curve_N.order int run func
 function large_number:particle/bezier_curve_n/loop3
 
 
-tellraw @a {"text":"\u00A77\u00A7oN阶贝塞尔曲线求解完成"}
+tellraw @a {"translate":"large_number.bezier_curve_n.end","fallback":"\u00A77\u00A7oN阶贝塞尔曲线求解完成"}

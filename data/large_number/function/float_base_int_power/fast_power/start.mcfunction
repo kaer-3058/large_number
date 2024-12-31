@@ -7,6 +7,7 @@ execute store result score #float_base_int_power.expon int run data get storage 
 data modify storage large_number:math float_base_int_power.output set from storage large_number:math float_base_int_power.base
 data remove storage large_number:math temp_convert_deci
 scoreboard players operation #temp_float_base_int_power_temp1 int = #float_base_int_power.expon int
+execute if score #temp_float_base_int_power_temp1 int matches -2147483648 run scoreboard players set #temp_float_base_int_power_temp1 int 2147483647
 execute if score #temp_float_base_int_power_temp1 int matches ..-1 run scoreboard players operation #temp_float_base_int_power_temp1 int *= -1 const
 data modify storage large_number:math sstemp1 set from storage large_number:math float_base_int_power.base
 data modify storage large_number:math temp1 set string storage large_number:math sstemp1 0 1

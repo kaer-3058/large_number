@@ -13,6 +13,8 @@
 #公式 (梯形法则)：∫[a,b]f(x)dx ≈ ((b-a)/k)*((f(a)+f(b))/2+Σ[n=1,k-1]f(a+((b-a)/k)*n)))
 #其中k是区间内小矩形的数量。这里的小矩形的高度取的是小区间右端的函数值。
 
+#function large_number:definite_integral/riemann_integral/start
+
 data remove storage large_number:math expression_evaluation.definite_integral.output
 
 #浮点减法
@@ -97,4 +99,4 @@ data modify storage large_number:math float_multiply.input2 set from storage lar
 function large_number:float_mul.high_precision/start
 data modify storage large_number:math expression_evaluation.definite_integral.output set from storage large_number:math float_multiply.output
 
-tellraw @a {"text":"\u00A77\u00A7o定积分求解完成"}
+tellraw @a {"translate":"large_number.definite_integral.end","fallback": "\u00A77\u00A7o定积分求解完成"}

@@ -1,0 +1,1 @@
+$data modify storage large_number:math test233 set value "$(test233)+$(temp_a8)*(cos((16*π*ｘ)/$(temp_p2)))+$(temp_b8)*(sin((16*π*ｘ)/$(temp_p2)))"

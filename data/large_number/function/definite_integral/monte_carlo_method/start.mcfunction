@@ -43,8 +43,4 @@ data modify storage large_number:math float_multiply.input2 set from storage lar
 function large_number:float_mul.high_precision/start
 data modify storage large_number:math expression_evaluation.definite_integral.output set from storage large_number:math float_multiply.output
 
-tellraw @a {"text":"\u00A77\u00A7o定积分求解完成"}
-
-
-
-  
+tellraw @a {"translate":"large_number.definite_integral.end","fallback": "\u00A77\u00A7o定积分求解完成"}

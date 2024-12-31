@@ -14,7 +14,7 @@ execute unless data storage large_number:math {s11:""} run data modify storage l
 #把变量也压入栈
 data modify storage large_number:math stemp1 set value ""
 data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 1
-data modify storage large_number:math sstemp07_786 set value ["α","β","δ","ε","η","λ","μ","ξ","τ","ω","π","ｅ","γ","ｘ","ｙ","ｚ"]
+data modify storage large_number:math sstemp07_786 set value ["α","β","δ","ε","η","λ","μ","ξ","ω","π","ｅ","γ","ｘ","ｙ","ｚ","τ"]
 scoreboard players set #temp1 int 16
 execute store result score #temp1 int run data modify storage large_number:math sstemp07_786[] set from storage large_number:math stemp1
 execute unless score #temp1 int matches 16 run data modify storage large_number:math temp_s2 append from storage large_number:math stemp1
@@ -82,6 +82,7 @@ execute if data storage large_number:math {stemp1:"exp"} run scoreboard players 
 execute if data storage large_number:math {stemp1:"log"} run scoreboard players set #sstemp1 int 1
 execute if data storage large_number:math {stemp1:"sin"} run scoreboard players set #sstemp1 int 1
 execute if data storage large_number:math {stemp1:"cos"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"tan"} run scoreboard players set #sstemp1 int 1
 execute if data storage large_number:math {stemp1:"sgn"} run scoreboard players set #sstemp1 int 1
 execute if data storage large_number:math {stemp1:"[0]"} run scoreboard players set #sstemp1 int 1
 execute if data storage large_number:math {stemp1:">/<"} run scoreboard players set #sstemp1 int 1

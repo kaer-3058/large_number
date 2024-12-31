@@ -1,1 +1,1 @@
-$execute positioned .0 ~$(temp2) .0 run run function large_number:double_norm/macro2/3 with storage large_number:math
+$execute positioned .0 ~$(temp2) .0 run function large_number:double_norm/macro2/3 with storage large_number:math

@@ -18,6 +18,6 @@ execute if data storage large_number:math temp_s1[-1] run function large_number:
 data modify storage large_number:math expression_evaluation.rev_polish_notation set from storage large_number:math temp_s2
 
 
-tellraw @a {"text":"\u00A77\u00A7o表达式转换完成"}
+tellraw @a {"translate":"large_number.expression_evaluation.to_rev_polish_notation.end","fallback": "\u00A77\u00A7o表达式转换完成"}
 
 #tellraw @a {"nbt":"expression_evaluation.rev_polish_notation[]","storage":"large_number:math","separator":" "}

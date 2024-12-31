@@ -3,7 +3,7 @@
 #输入：data modify storage large_number:math expression_evaluation.input set value "(12+14)*(106－32)"
 #运算符可接受+－*·/().E-^²。为了在转化为逆波兰式的过程中区分减法与负数，"－"(全角减号)表示减法，"-"(半角减号)表示负数。"·"等价于"*"。数字只能是double，不需要带单位。注意，即使是变量与数字相乘，乘号也必须要写。
 
-#函数列表：log exp sin cos arcsin arccos arctan ln √ Γ ┕ ºLambertW ¹LambertW || sgn [] — atan ψ Σ[1/n]n→ eunorm₂ eunorm₃ [0] >= <= == ≈≈ >/< >-< >> << ≥≥ ≤≤ nroot ºsinh ºcosh ºtanh。
+#函数列表：log exp sin cos arcsin arccos arctan ln √ Γ ┕ ºLambertW ¹LambertW || sgn [] — atan ψ Σ[1/n]n→ eunorm₂ eunorm₃ [0] >= <= == ≈≈ >/< >-< >> << ≥≥ ≤≤ nroot ºsinh ºcosh ºtanh tan 。
 #函数命名规则：不能含有0123456789.E-^²·αβδεηλμξτωｘｙｚ，不能与其他函数名称的前几个字母一样
 #每个函数和它的参数都必须单独放在一个括号里，支持复合函数
 
@@ -31,12 +31,13 @@
 # expβ = e^β，指数运算
 # sinβ = sin(β) 弧度制
 # cosβ = cos(β) 弧度制
+# tanβ = tan(β) 弧度制
 # arcsinβ = arcsin(β) 弧度制
 # arccosβ = arccos(β) 弧度制
 # arctanβ = arctan(β) 弧度制
 # lnβ = ln(β)，自然对数
 # √β = √β，开根号
-# Γβ = gamma(β)，输入范围为区间：[1.1, 171.6271]
+# Γβ = gamma(β)，输入范围为区间：(0, 171.6271]
 # ┕β = 逆gamma(β)，gamma(x)主分支的反函数，逆gamma(β)-1相当于阶乘的逆运算，输入范围：β≥1
 # ºLambertWβ = LambertWº(β)，主分支，输入范围：[-1/e,∞)
 # ¹LambertWβ = LambertW¹(β)，-1的分支，输入范围：[-1/e,0)
@@ -66,6 +67,6 @@ execute if data storage large_number:math temp_s1[-1] run function large_number:
 data modify storage large_number:math expression_evaluation.rev_polish_notation set from storage large_number:math temp_s2
 
 
-tellraw @a {"text":"\u00A77\u00A7o表达式转换完成"}
+tellraw @a {"translate":"large_number.expression_evaluation.to_rev_polish_notation.end","fallback": "\u00A77\u00A7o表达式转换完成"}
 
 #tellraw @a {"nbt":"expression_evaluation.rev_polish_notation[]","storage":"large_number:math","separator":" "}

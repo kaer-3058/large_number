@@ -7,7 +7,7 @@
 
 #我们mcf也有自己的计算π的算法了
 
-tellraw @a {"translate":"large_number.ope_pi.diff_start","fallback":"[圆周率 π]：开始分步计算圆周率..."}
+execute unless score #large_number.all_tellraw_set int matches 1 run tellraw @a {"translate":"large_number.ope_pi.diff_start","fallback":"[圆周率 π]：开始分步计算圆周率..."}
 
 execute store result score #length lan.pi_information run scoreboard players operation #temp1 lan.pi_information = #ope_pi.digit int
 execute store result score #temp3 lan.pi_information store result score #temp2 lan.pi_information run scoreboard players add #temp1 lan.pi_information 8

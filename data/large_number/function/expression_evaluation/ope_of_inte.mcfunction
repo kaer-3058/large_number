@@ -5,4 +5,4 @@ execute if data storage large_number:math temp_s2[0] run function large_number:e
 data modify storage large_number:math temp1 set from storage large_number:math temp_s1[0]
 function large_number:expression_evaluation/macro4.output with storage large_number:math
 
-tellraw @a {"translate":"large_number.expression_evaluation.end","fallback": "\u00A77\u00A7o表达式解析完成"}
+execute unless score #large_number.all_tellraw_set int matches 1 run tellraw @a {"translate":"large_number.expression_evaluation.end","fallback": "\u00A77\u00A7o表达式解析完成"}

@@ -33,7 +33,7 @@ function large_number:float_base_int_power/macro2 with storage large_number:math
 data modify storage large_number:math float_base_int_power.output set from storage large_number:math q0
 
 data modify storage large_number:math temp2 set from storage large_number:math float_base_int_power.output
-execute if data storage large_number:math {temp2:"Infinityd"} run data modify storage large_number:math float_base_int_power.output set value 9.9999E400d
-execute if data storage large_number:math {temp2:"-Infinityd"} run data modify storage large_number:math float_base_int_power.output set value -9.9999E400d
+execute if data storage large_number:math {temp2:"Infinityd"} run data modify storage large_number:math float_base_int_power.output set value "Infinityd"
+execute if data storage large_number:math {temp2:"-Infinityd"} run data modify storage large_number:math float_base_int_power.output set value "-Infinityd"
 execute if data storage large_number:math {temp2:"NaNd"} run data modify storage large_number:math float_base_int_power.output set value 0.0d
 execute if data storage large_number:math {temp2:"-NaNd"} run data modify storage large_number:math float_base_int_power.output set value 0.0d

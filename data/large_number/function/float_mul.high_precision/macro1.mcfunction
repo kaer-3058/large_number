@@ -1,0 +1,1 @@
+$execute store result storage large_number:math temp1 double $(store_float_multiply_input2) run return $(temp8)

@@ -51,25 +51,16 @@ scoreboard players operation #Z int /= 10000 const
 scoreboard players operation #u int %= 10000 const
 scoreboard players operation #v int %= 10000 const
 scoreboard players operation #x int %= 10000 const
-scoreboard players operation #y int %= 10000 const
-scoreboard players operation #4 int %= 10000 const
-scoreboard players operation #d int %= 10000 const
 
 #输出
-execute store result storage large_number:math sstemp3 int 1 run scoreboard players remove #double_to_int.expon.1 int 19
+execute store result storage large_number:math sstemp3 int 1 run scoreboard players remove #double_to_int.expon.1 int 7
 execute store result storage large_number:math temp1 int 1 run scoreboard players get #Z int
 execute store result storage large_number:math temp2 int 1 run scoreboard players add #u int 10000
 execute store result storage large_number:math temp3 int 1 run scoreboard players add #v int 10000
 execute store result storage large_number:math temp4 int 1 run scoreboard players add #x int 10000
-execute store result storage large_number:math temp5 int 1 run scoreboard players add #y int 10000
-execute store result storage large_number:math temp6 int 1 run scoreboard players add #4 int 10000
-execute store result storage large_number:math temp7 int 1 run scoreboard players add #d int 10000
 
 data modify storage large_number:math temp2 set string storage large_number:math temp2 1
 data modify storage large_number:math temp3 set string storage large_number:math temp3 1
 data modify storage large_number:math temp4 set string storage large_number:math temp4 1
-data modify storage large_number:math temp5 set string storage large_number:math temp5 1
-data modify storage large_number:math temp6 set string storage large_number:math temp6 1
-data modify storage large_number:math temp7 set string storage large_number:math temp7 1
 
 function large_number:macro_operation/double_sqrt_more_out2 with storage large_number:math

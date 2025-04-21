@@ -1,0 +1,1 @@
+$execute store result storage large_number:math temp_exp_any_input_base double $(temp_exp_any_input_base) run return -1

@@ -24,7 +24,7 @@ data modify storage large_number:math temp3 set value ""
 execute if score #int_base_int_power.base int matches ..-1 if score #temp1 int matches 1 run data modify storage large_number:math temp3 set value "-"
 function large_number:int_base_int_power/macro2 with storage large_number:math
 
-execute if data storage large_number:math {int_base_int_power_out:"Infinityd"} run data modify storage large_number:math int_base_int_power_out set value 9.9999E400d
-execute if data storage large_number:math {int_base_int_power_out:"-Infinityd"} run data modify storage large_number:math int_base_int_power_out set value -9.9999E400d
+execute if data storage large_number:math {int_base_int_power_out:"Infinityd"} run data modify storage large_number:math int_base_int_power_out set value "Infinityd"
+execute if data storage large_number:math {int_base_int_power_out:"-Infinityd"} run data modify storage large_number:math int_base_int_power_out set value "-Infinityd"
 execute if data storage large_number:math {int_base_int_power_out:"NaNd"} run data modify storage large_number:math int_base_int_power_out set value 0.0d
 execute if data storage large_number:math {int_base_int_power_out:"-NaNd"} run data modify storage large_number:math int_base_int_power_out set value 0.0d

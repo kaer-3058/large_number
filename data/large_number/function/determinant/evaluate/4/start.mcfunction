@@ -52,5 +52,5 @@ data modify storage large_number:math sstemp2 set from storage large_number:math
 function large_number:determinant/evaluate/4/macro4 with storage large_number:math
 
 function large_number:determinant/evaluate/4/macro5 with storage large_number:math
-execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run return run function large_number:determinant/evaluate/4/output
+execute as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run return run function large_number:determinant/evaluate/4/output
 

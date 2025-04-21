@@ -1,6 +1,5 @@
 #arccos(x)
 
-execute store result score #arcsin_cos.input int run data get storage large_number:math _expressionss2 10000
-function large_number:math_trifs/arccos
-execute store result storage large_number:math temp1 double .0000001 run scoreboard players get #arcsin_cos.output int
-execute store result storage large_number:math _expressionss3 double 0.00000001 run data get storage large_number:math temp1 1745329251
+data modify storage large_number:math arcsin_cos_high_precision.input set from storage large_number:math _expressionss2
+function large_number:math_trifs/arccos_hp/start
+execute store result storage large_number:math _expressionss3 double .0000000174532925199432957692369 run data get storage large_number:math arcsin_cos_high_precision.output 1000000

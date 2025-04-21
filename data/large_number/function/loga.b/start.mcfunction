@@ -34,7 +34,7 @@ execute store result storage large_number:math "log.a(b).output" double 0.0001 r
 #非0且非1的底数的0的对数都是负无穷
 execute if score #loga.b_a int matches 0..1 unless score #loga.b_b int matches 1 run data remove storage large_number:math "log.a(b).output"
 execute if score #loga.b_b int matches 1 run data modify storage large_number:math "log.a(b).output" set value 0.0d
-execute unless score #loga.b_a int matches 0..1 if score #loga.b_b int matches 0 run data modify storage large_number:math "log.a(b).output" set value -999.99E400d
+execute unless score #loga.b_a int matches 0..1 if score #loga.b_b int matches 0 run data modify storage large_number:math "log.a(b).output" set value "-Infinityd"
 
 #输出
 execute store result score #loga.b.output int run data get storage large_number:math "log.a(b).output" 10000

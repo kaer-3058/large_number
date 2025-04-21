@@ -19,7 +19,7 @@ execute if score #store_parabola_expre_x.length int matches 1.. run function lar
 
 execute if score #parabola_.tellraw int matches 1 run function large_number:parabola/tellraw
 
-tellraw @a {"translate":"large_number.parabola.end","fallback":"\u00A77抛物线解析完成"}
+execute unless score #large_number.all_tellraw_set int matches 1 run tellraw @a {"translate":"large_number.parabola.end","fallback":"\u00A77抛物线解析完成"}
 
 #知道什么比魔法更酷吗？是数学！ ——《蜘蛛侠·英雄无归》
 

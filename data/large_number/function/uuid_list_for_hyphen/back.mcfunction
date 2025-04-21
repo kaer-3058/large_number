@@ -39,22 +39,22 @@ data modify storage large_number:math temp1[29].a set string storage large_numbe
 data modify storage large_number:math temp1[30].a set string storage large_number:math temp2 34 35
 data modify storage large_number:math temp1[31].a set string storage large_number:math temp2 35 36
 
-data modify storage large_number:math temp1[{a:"0"}].a set value 0
-data modify storage large_number:math temp1[{a:"1"}].a set value 1
-data modify storage large_number:math temp1[{a:"2"}].a set value 2
-data modify storage large_number:math temp1[{a:"3"}].a set value 3
-data modify storage large_number:math temp1[{a:"4"}].a set value 4
-data modify storage large_number:math temp1[{a:"5"}].a set value 5
-data modify storage large_number:math temp1[{a:"6"}].a set value 6
-data modify storage large_number:math temp1[{a:"7"}].a set value 7
-data modify storage large_number:math temp1[{a:"8"}].a set value 8
-data modify storage large_number:math temp1[{a:"9"}].a set value 9
-data modify storage large_number:math temp1[{a:"a"}].a set value 10
-data modify storage large_number:math temp1[{a:"b"}].a set value 11
-data modify storage large_number:math temp1[{a:"c"}].a set value 12
-data modify storage large_number:math temp1[{a:"d"}].a set value 13
-data modify storage large_number:math temp1[{a:"e"}].a set value 14
-data modify storage large_number:math temp1[{a:"f"}].a set value 15
+data modify storage large_number:math temp1[{a:"0"}] set value {a:0}
+data modify storage large_number:math temp1[{a:"1"}] set value {a:1}
+data modify storage large_number:math temp1[{a:"2"}] set value {a:2}
+data modify storage large_number:math temp1[{a:"3"}] set value {a:3}
+data modify storage large_number:math temp1[{a:"4"}] set value {a:4}
+data modify storage large_number:math temp1[{a:"5"}] set value {a:5}
+data modify storage large_number:math temp1[{a:"6"}] set value {a:6}
+data modify storage large_number:math temp1[{a:"7"}] set value {a:7}
+data modify storage large_number:math temp1[{a:"8"}] set value {a:8}
+data modify storage large_number:math temp1[{a:"9"}] set value {a:9}
+data modify storage large_number:math temp1[{a:"a"}] set value {a:10}
+data modify storage large_number:math temp1[{a:"b"}] set value {a:11}
+data modify storage large_number:math temp1[{a:"c"}] set value {a:12}
+data modify storage large_number:math temp1[{a:"d"}] set value {a:13}
+data modify storage large_number:math temp1[{a:"e"}] set value {a:14}
+data modify storage large_number:math temp1[{a:"f"}] set value {a:15}
 
 data modify storage large_number:math temp3 set value []
 data modify storage large_number:math temp3 append from storage large_number:math temp1[].a

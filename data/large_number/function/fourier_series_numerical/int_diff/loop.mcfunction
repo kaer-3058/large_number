@@ -5,7 +5,7 @@ function large_number:definite_integral/riemann_integral/macro1 with storage lar
 data modify storage large_number:math sstempd set from storage large_number:math q1
 data modify storage large_number:math sstempc set from storage large_number:math expression_evaluation.definite_integral.a
 function large_number:definite_integral/riemann_integral/macro2 with storage large_number:math
-execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:definite_integral/riemann_integral/as_entity_1
+execute as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:definite_integral/riemann_integral/as_entity_1
 
 #解析逆波兰式
 data modify storage large_number:math temp_expression_s1 set value []

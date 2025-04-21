@@ -25,7 +25,7 @@ data modify storage large_number:math temp_r_p set from storage large_number:mat
 #分界点，r/(2^(1/p))
 function large_number:particle/star_line/int_div_8deci
 data modify storage large_number:math exp_e^x.input set from storage large_number:math int_more_decimal_out
-function large_number:exp_e.x/2
+function large_number:exp_e.x/start
 data modify storage large_number:math float_division.input2 set from storage large_number:math exp_e^x.output
 execute store result storage large_number:math float_division.input1 double .0001 run scoreboard players get #star_line.r int
 function large_number:division/float/start

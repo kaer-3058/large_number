@@ -24,8 +24,18 @@ data modify storage large_number:math stemp1 set string storage large_number:mat
 execute if data storage large_number:math {stemp1:"-"} run function large_number:float_add_subtra/macro1 with storage large_number:math
 data modify storage large_number:math temp3 set value ""
 execute unless data storage large_number:math {stemp1:"-"} run data modify storage large_number:math temp3 set value "-"
-function large_number:float_add_subtra/macro2.ope with storage large_number:math
-execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
+execute store result score #temp_test.float_add_sub_a2 int store result score #temp_test.float_add_sub_a int run data get storage large_number:math temp1
+execute store result score #temp_test.float_add_sub_b2 int store result score #temp_test.float_add_sub_b int run data get storage large_number:math temp2
+execute if score #temp_test.float_add_sub_a int matches ..-1 store result score #temp_test.float_add_sub_a int run data get storage large_number:math temp1 -1
+execute if score #temp_test.float_add_sub_b int matches ..-1 store result score #temp_test.float_add_sub_b int run data get storage large_number:math temp2 -1
+scoreboard players set #temp_test.float_add_sub.number_is_large int 0
+execute if score #temp_test.float_add_sub_a int matches 20000000.. run scoreboard players set #temp_test.float_add_sub.number_is_large int 1
+execute if score #temp_test.float_add_sub_b int matches 20000000.. run scoreboard players set #temp_test.float_add_sub.number_is_large int 1
+scoreboard players operation #temp_test.float_add_sub_a2 int -= #temp_test.float_add_sub_b2 int
+execute if score #temp_test.float_add_sub.number_is_large int matches 0 if score #temp_test.float_add_sub_a int matches 20000000.. run scoreboard players set #temp_test.float_add_sub.number_is_large int 1
+execute if score #temp_test.float_add_sub.number_is_large int matches 0 as b09e-44-fded-6-efa5ffffef64 run function large_number:fourier_series_numerical/ope/macro3.6 with storage large_number:math
+execute if score #temp_test.float_add_sub.number_is_large int matches 1 run function large_number:float_add_subtra/macro2.ope with storage large_number:math
+execute if score #temp_test.float_add_sub.number_is_large int matches 1 as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
 
 execute store result score #expression_evaluation.definite_integral.dx_times int run data get storage large_number:math expression_evaluation.definite_integral.dx_times
 scoreboard players operation #Store_expression_evaluation.definite_integral.dx_times int = #expression_evaluation.definite_integral.dx_times int
@@ -76,7 +86,7 @@ data modify storage large_number:math temp1 set from storage large_number:math t
 function large_number:definite_integral/riemann_integral/fa_addi_fb_div2/macro2 with storage large_number:math
 
 function large_number:definite_integral/riemann_integral/fa_addi_fb_div2/macro3 with storage large_number:math
-execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:definite_integral/riemann_integral/fa_addi_fb_div2/as_entity_1
+execute as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:definite_integral/riemann_integral/fa_addi_fb_div2/as_entity_1
 
 #double除以2
 function large_number:definite_integral/riemann_integral/fa_addi_fb_div2/macro4 with storage large_number:math
@@ -99,4 +109,4 @@ data modify storage large_number:math float_multiply.input2 set from storage lar
 function large_number:float_mul.high_precision/start
 data modify storage large_number:math expression_evaluation.definite_integral.output set from storage large_number:math float_multiply.output
 
-tellraw @a {"translate":"large_number.definite_integral.end","fallback": "\u00A77\u00A7o定积分求解完成"}
+execute unless score #large_number.all_tellraw_set int matches 1 run tellraw @a {"translate":"large_number.definite_integral.end","fallback": "\u00A77\u00A7o定积分求解完成"}

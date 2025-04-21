@@ -1,4 +1,4 @@
-##UUID数组转化为带连字符的16进制
+##UUID数组转化为带连字符的16进制 - 算术法
 
 #输入：data modify storage large_number:math uuid_list_for_hyphen.input set value [I;0,0,0,1]
 #输出：data get storage large_number:math uuid_list_for_hyphen.output
@@ -75,12 +75,12 @@ execute store result storage large_number:math temp1[29].a int 1 run scoreboard 
 execute store result storage large_number:math temp1[30].a int 1 run scoreboard players operation #temp32 int %= 16 const
 execute store result storage large_number:math temp1[31].a int 1 run scoreboard players operation #temp31 int %= 16 const
 
-data modify storage large_number:math temp1[{a:10}].a set value "a"
-data modify storage large_number:math temp1[{a:11}].a set value "b"
-data modify storage large_number:math temp1[{a:12}].a set value "c"
-data modify storage large_number:math temp1[{a:13}].a set value "d"
-data modify storage large_number:math temp1[{a:14}].a set value "e"
-data modify storage large_number:math temp1[{a:15}].a set value "f"
+data modify storage large_number:math temp1[{a:10}] set value {a:"a"}
+data modify storage large_number:math temp1[{a:11}] set value {a:"b"}
+data modify storage large_number:math temp1[{a:12}] set value {a:"c"}
+data modify storage large_number:math temp1[{a:13}] set value {a:"d"}
+data modify storage large_number:math temp1[{a:14}] set value {a:"e"}
+data modify storage large_number:math temp1[{a:15}] set value {a:"f"}
 
 #转存，合并字符串
 data modify storage large_number:math stemp0 set from storage large_number:math temp1[0].a

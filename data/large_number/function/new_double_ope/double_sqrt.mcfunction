@@ -1,5 +1,5 @@
 ##新架构的double/float型数值开方
-#基础59条命令，如果输入的是科学记数法则加12条，如果选择精度增加四位则加9条，最多80条命令
+#基础57条命令，如果输入的是科学记数法则加12条，如果选择精度增加四位则加11条，最多80条命令
 
 #输入：data modify storage large_number:math double_sqrt.input set value 0.0d
 #精度增加四位：scoreboard players set #New_double_sqrt.decimal_add int 1
@@ -55,8 +55,6 @@ scoreboard players operation #double_sqrt.int_output int /= 2 const
 scoreboard players operation #t3 int /= #double_sqrt.int_output int
 scoreboard players operation #double_sqrt.int_output int += #t3 int
 scoreboard players operation #double_sqrt.int_output int /= 2 const
-scoreboard players operation #inp int /= #double_sqrt.int_output int
-execute if score #double_sqrt.int_output int > #inp int run scoreboard players remove #double_sqrt.int_output int 1
 
 execute if score #New_double_sqrt.decimal_add int matches 1 run function large_number:new_double_ope/double_add_4
 execute unless score #New_double_sqrt.decimal_add int matches 1 run scoreboard players operation #double_sqrt.int_output int *= 10000 const

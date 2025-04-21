@@ -3,7 +3,7 @@
 #输入：data modify storage large_number:math expression_evaluation.input set value "(12+14)*(106－32)"
 #运算符可接受+－*·/().E-^²。为了在转化为逆波兰式的过程中区分减法与负数，"－"(全角减号)表示减法，"-"(半角减号)表示负数。"·"等价于"*"。数字只能是double，不需要带单位。注意，即使是变量与数字相乘，乘号也必须要写。
 
-#函数列表：log exp sin cos arcsin arccos arctan ln √ Γ ┕ ºLambertW ¹LambertW || sgn [] — atan ψ Σ[1/n]n→ eunorm₂ eunorm₃ [0] >= <= == ≈≈ >/< >-< >> << ≥≥ ≤≤ nroot ºsinh ºcosh ºtanh tan 。
+#函数列表：log exp sin cos arcsin arccos arctan ln √ Γ ┕ ºLambertW ¹LambertW || sgn [] — atan ψ Σ[1/n]n→ eunorm₂ eunorm₃ [0] >= <= == ≈≈ >/< >-< >> << ≥≥ ≤≤ nroot ºsinh ºcosh ºtanh tan hign┕ hignºW hign¹W 。
 #函数命名规则：不能含有0123456789.E-^²·αβδεηλμξτωｘｙｚ，不能与其他函数名称的前几个字母一样
 #每个函数和它的参数都必须单独放在一个括号里，支持复合函数
 
@@ -39,8 +39,11 @@
 # √β = √β，开根号
 # Γβ = gamma(β)，输入范围为区间：(0, 171.6271]
 # ┕β = 逆gamma(β)，gamma(x)主分支的反函数，逆gamma(β)-1相当于阶乘的逆运算，输入范围：β≥1
+# αhign┕β = 高精度 逆gamma(β)，牛顿迭代次数为α次
 # ºLambertWβ = LambertWº(β)，主分支，输入范围：[-1/e,∞)
 # ¹LambertWβ = LambertW¹(β)，-1的分支，输入范围：[-1/e,0)
+# αhignºWβ = 高精度 LambertWº(β) 主分支，牛顿迭代次数为α次
+# αhign¹Wβ = 高精度 LambertW¹(β) -1的分支，牛顿迭代次数为α次
 # ||β = β的绝对值
 # sgnβ = sgn(β)，符号函数
 # []β = 把β向下取整
@@ -55,6 +58,9 @@
 #拆字符串，把符号和数字拆开，然后转化为逆波兰式
 #逆波兰式算法：https://blog.csdn.net/zm_miner/article/details/115324206
 
+#function large_number:expression_evaluation_scientific/to_rev_polish_notation
+#function large_number:expression_evaluation_scientific/ope
+
 #temp_s1和temp_s2是事先分配的两个栈
 data modify storage large_number:math temp_s1 set value []
 data modify storage large_number:math temp_s2 set value []
@@ -67,6 +73,6 @@ execute if data storage large_number:math temp_s1[-1] run function large_number:
 data modify storage large_number:math expression_evaluation.rev_polish_notation set from storage large_number:math temp_s2
 
 
-tellraw @a {"translate":"large_number.expression_evaluation.to_rev_polish_notation.end","fallback": "\u00A77\u00A7o表达式转换完成"}
+execute unless score #large_number.all_tellraw_set int matches 1 run tellraw @a {"translate":"large_number.expression_evaluation.to_rev_polish_notation.end","fallback": "\u00A77\u00A7o表达式转换完成"}
 
 #tellraw @a {"nbt":"expression_evaluation.rev_polish_notation[]","storage":"large_number:math","separator":" "}

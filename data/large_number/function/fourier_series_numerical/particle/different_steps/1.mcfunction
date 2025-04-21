@@ -15,7 +15,7 @@
 
 #需要tick执行：function large_number:fourier_series_numerical/particle/different_steps/tick
 
-execute if score #fourier_series_numerical.tell_mode int matches 1..2 run tellraw @a {"translate":"large_number.fourier_series_numerical_particle.diff_start","fallback":"\u00A77\u00A7o傅里叶级数展开式的图像开始绘制"}
+execute unless score #large_number.all_tellraw_set int matches 1 if score #fourier_series_numerical.tell_mode int matches 1..2 run tellraw @a {"translate":"large_number.fourier_series_numerical_particle.diff_start","fallback":"\u00A77\u00A7o傅里叶级数展开式的图像开始绘制"}
 
 data modify storage large_number:math fourier_series_numerical_particle_Pos set value []
 

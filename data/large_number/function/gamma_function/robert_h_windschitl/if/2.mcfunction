@@ -3,6 +3,8 @@
 
 #data modify storage large_number:math gamma_function.input set value 73.2074d
 
+#使用校正项：scoreboard players set #gamma_function.robert_h.correct int 1
+
 #x+1
 execute as b09e-44-fded-6-efa5ffffef64 run function large_number:gamma_function/robert_h_windschitl/as_entity_1
 
@@ -29,24 +31,9 @@ data modify storage large_number:math float_multiply.input1 set from storage lar
 function large_number:float_mul.high_precision/start
 data modify storage large_number:math temp_x_sinh1/x set from storage large_number:math float_multiply.output
 
-#x^6
-function large_number:float_mul.high_precision/cube/start
-data modify storage large_number:math float_multiply.input1 set from storage large_number:math float_multiply.output
-function large_number:float_mul.high_precision/squ/start
-
-#x^-6
-data modify storage large_number:math float_reciprocal.input set from storage large_number:math float_multiply.output
-function large_number:division/float_reciprocal/start
-data modify storage large_number:math float_multiply.input1 set from storage large_number:math float_reciprocal.output
-
-#1/(810x^6)
-function large_number:gamma_function/robert_h_windschitl/mul_with_const_1
-
-#浮点加法
-data modify storage large_number:math temp1 set from storage large_number:math float_multiply.output
-data modify storage large_number:math temp2 set from storage large_number:math temp_x_sinh1/x
-function large_number:fourier_series_numerical/ope/macro3 with storage large_number:math
-execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
+#校正项
+data modify storage large_number:math temp1 set from storage large_number:math temp_x_sinh1/x
+execute if score #gamma_function.robert_h.correct int matches 1 run function large_number:gamma_function/robert_h_windschitl/correct
 
 #sqrt(x)
 data modify storage large_number:math double_sqrt.input set from storage large_number:math temp1

@@ -19,7 +19,7 @@ data modify storage large_number:math temp1 set from storage large_number:math t
 function large_number:definite_integral/riemann_integral/fa_addi_fb_div2/macro2 with storage large_number:math
 
 function large_number:definite_integral/riemann_integral/fa_addi_fb_div2/macro3 with storage large_number:math
-execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:definite_integral/riemann_integral/fa_addi_fb_div2/as_entity_1
+execute as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:definite_integral/riemann_integral/fa_addi_fb_div2/as_entity_1
 
 #double除以2
 function large_number:definite_integral/riemann_integral/fa_addi_fb_div2/macro4 with storage large_number:math
@@ -42,5 +42,5 @@ data modify storage large_number:math float_multiply.input2 set from storage lar
 function large_number:float_mul.high_precision/start
 data modify storage large_number:math expression_evaluation.definite_integral.output set from storage large_number:math float_multiply.output
 
-tellraw @a {"translate":"large_number.definite_integral.end","fallback": "\u00A77\u00A7o定积分求解完成"}
+execute unless score #large_number.all_tellraw_set int matches 1 run tellraw @a {"translate":"large_number.definite_integral.end","fallback": "\u00A77\u00A7o定积分求解完成"}
 scoreboard players set ##definite_integral.different_steps.start int 4

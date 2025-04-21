@@ -1,1 +1,1 @@
-$data modify storage large_number:math double_sqrt.output set value $(temp1)$(temp2)$(temp3)$(temp4)$(temp5)$(temp6)$(temp7)E$(sstemp3)d
+$data modify storage large_number:math double_sqrt.output set value $(temp1)$(temp2)$(temp3)$(temp4)E$(sstemp3)d

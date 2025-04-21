@@ -27,7 +27,7 @@ execute store result storage large_number:math q1 int 1 run scoreboard players o
 function large_number:random/skewed_distribution/macro1 with storage large_number:math
 
 function large_number:random/skewed_distribution/macro2 with storage large_number:math
-execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/as_entity_1
+execute as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/as_entity_1
 
 data modify storage large_number:math skewed_distribution.output set from storage large_number:math sstemp05
 

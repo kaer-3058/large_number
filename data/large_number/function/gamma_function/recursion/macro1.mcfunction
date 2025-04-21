@@ -1,0 +1,2 @@
+#$tellraw @a "data modify storage large_number:math q0 set from storage large_number:math gamma_databse.\"$(temp1)\""
+$data modify storage large_number:math q0 set from storage large_number:math gamma_databse."$(temp1)"

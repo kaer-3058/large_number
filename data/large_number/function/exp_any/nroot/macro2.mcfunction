@@ -1,0 +1,1 @@
+$execute store result storage large_number:math exp_any.output double $(output) run return -1

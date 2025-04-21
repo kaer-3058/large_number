@@ -22,20 +22,25 @@ execute if data storage large_number:math {stemp_expression1:"+"} run function l
 execute if data storage large_number:math {stemp_expression1:"-"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_2
 execute if data storage large_number:math {stemp_expression1:"*"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_3
 execute if data storage large_number:math {stemp_expression1:"·"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_3
+execute if data storage large_number:math {stemp_expression1:"²"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_27
 execute if data storage large_number:math {stemp_expression1:"/"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_4
 execute if data storage large_number:math {stemp_expression1:"^"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_5
 execute if data storage large_number:math {stemp_expression1:"exp"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_6
 execute if data storage large_number:math {stemp_expression1:"log"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_7
 execute if data storage large_number:math {stemp_expression1:"sin"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_8
 execute if data storage large_number:math {stemp_expression1:"cos"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_9
+execute if data storage large_number:math {stemp_expression1:"tan"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_44
 execute if data storage large_number:math {stemp_expression1:"arcsin"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_10
 execute if data storage large_number:math {stemp_expression1:"arccos"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_11
 execute if data storage large_number:math {stemp_expression1:"ln"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_12
 execute if data storage large_number:math {stemp_expression1:"√"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_13
 execute if data storage large_number:math {stemp_expression1:"Γ"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_14
 execute if data storage large_number:math {stemp_expression1:"┕"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_15
+execute if data storage large_number:math {stemp_expression1:"hign┕"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_45
 execute if data storage large_number:math {stemp_expression1:"ºLambertW"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_16
 execute if data storage large_number:math {stemp_expression1:"¹LambertW"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_17
+execute if data storage large_number:math {stemp_expression1:"hignºW"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_46
+execute if data storage large_number:math {stemp_expression1:"hign¹W"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_47
 execute if data storage large_number:math {stemp_expression1:"||"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_18
 execute if data storage large_number:math {stemp_expression1:"sgn"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_19
 execute if data storage large_number:math {stemp_expression1:"[]"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_20
@@ -45,7 +50,6 @@ execute if data storage large_number:math {stemp_expression1:"ψ"} run function 
 execute if data storage large_number:math {stemp_expression1:"Σ[1/n]n→"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_24
 execute if data storage large_number:math {stemp_expression1:"eunorm₂"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_25
 execute if data storage large_number:math {stemp_expression1:"eunorm₃"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_26
-execute if data storage large_number:math {stemp_expression1:"²"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_27
 execute if data storage large_number:math {stemp_expression1:"arctan"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_28
 execute if data storage large_number:math {stemp_expression1:"[0]"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_29
 execute if data storage large_number:math {stemp_expression1:"<="} run function large_number:expression_evaluation_scientific/ope_of_float/ope_30
@@ -62,12 +66,11 @@ execute if data storage large_number:math {stemp_expression1:"nroot"} run functi
 execute if data storage large_number:math {stemp_expression1:"ºsinh"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_41
 execute if data storage large_number:math {stemp_expression1:"ºcosh"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_42
 execute if data storage large_number:math {stemp_expression1:"ºtanh"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_43
-execute if data storage large_number:math {stemp_expression1:"tan"} run function large_number:expression_evaluation_scientific/ope_of_float/ope_44
 
 
 execute if score #expression_evaluation_test2 int matches 1.. run data remove storage large_number:math temp_expression_s1[-1]
 execute if score #expression_evaluation_test2 int matches 2.. run data remove storage large_number:math temp_expression_s1[-1]
-execute if score #expression_evaluation_test2 int matches 3.. run data remove storage large_number:math temp_expression_s1[-1]
+execute if score #expression_evaluation_test2 int matches 3 run data remove storage large_number:math temp_expression_s1[-1]
 #tellraw @a {"nbt":"_expressionss3","storage": "large_number:math"}
 data modify storage large_number:math _expressionss3 set string storage large_number:math _expressionss3 0 -1
 data modify storage large_number:math temp_expression_s1 append from storage large_number:math _expressionss3

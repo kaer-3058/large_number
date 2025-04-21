@@ -70,4 +70,4 @@ data modify storage large_number:timestamp timestamp.9 set value 111101
 data modify storage large_number:timestamp timestamp.+ set value 111110
 data modify storage large_number:timestamp timestamp./ set value 111111
 
-tellraw @a {"translate":"large_number.timestamp_database.command_times","fallback": "已执行函数large_number:timestamp/database中的66条命令，录入了\u00A7e65\u00A7r条数据"}
+execute unless score #large_number.all_tellraw_set int matches 1 run tellraw @a {"translate":"large_number.timestamp_database.command_times","fallback": "已执行函数large_number:timestamp/database中的66条命令，录入了\u00A7e65\u00A7r条数据"}

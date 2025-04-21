@@ -9999,4 +9999,4 @@ scoreboard players set #const_ln(9997) ln_const 92100
 scoreboard players set #const_ln(9998) ln_const 92101
 scoreboard players set #const_ln(9999) ln_const 92102
 scoreboard players set #const_ln(10000) ln_const 92103
-tellraw @a {"translate":"large_number.ln_database.command_times","fallback": "已执行函数large_number:ln/ln_database中的10001条命令，录入了\u00A7e10000\u00A7r条数据"}
+execute unless score #large_number.all_tellraw_set int matches 1 run tellraw @a {"translate":"large_number.ln_database.command_times","fallback": "已执行函数large_number:ln/ln_database中的10001条命令，录入了\u00A7e10000\u00A7r条数据"}

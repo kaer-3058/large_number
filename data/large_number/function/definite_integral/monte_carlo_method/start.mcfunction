@@ -24,7 +24,7 @@ execute if data storage large_number:math {stemp1:"-"} run function large_number
 data modify storage large_number:math temp3 set value ""
 execute unless data storage large_number:math {stemp1:"-"} run data modify storage large_number:math temp3 set value "-"
 function large_number:float_add_subtra/macro2.ope with storage large_number:math
-execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
+execute as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
 data modify storage large_number:math ssstemp_b_a set from storage large_number:math temp1
 
 
@@ -43,4 +43,4 @@ data modify storage large_number:math float_multiply.input2 set from storage lar
 function large_number:float_mul.high_precision/start
 data modify storage large_number:math expression_evaluation.definite_integral.output set from storage large_number:math float_multiply.output
 
-tellraw @a {"translate":"large_number.definite_integral.end","fallback": "\u00A77\u00A7o定积分求解完成"}
+execute unless score #large_number.all_tellraw_set int matches 1 run tellraw @a {"translate":"large_number.definite_integral.end","fallback": "\u00A77\u00A7o定积分求解完成"}

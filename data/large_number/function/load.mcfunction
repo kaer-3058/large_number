@@ -63,6 +63,7 @@ scoreboard players set 60 const 60
 scoreboard players set 72 const 72
 scoreboard players set 119 const 119
 scoreboard players set 180 const 180
+scoreboard players set 240 const 240
 scoreboard players set 250 const 250
 scoreboard players set 256 const 256
 scoreboard players set 360 const 360
@@ -87,6 +88,7 @@ scoreboard players set 4750 const 4750
 scoreboard players set 5000 const 5000
 scoreboard players set 20000 const 20000
 scoreboard players set 24703 const 24703
+scoreboard players set 25000 const 25000
 scoreboard players set 32768 const 32768
 scoreboard players set 40000 const 40000
 scoreboard players set 50436 const 50436
@@ -101,9 +103,13 @@ scoreboard players set 900000 const 900000
 scoreboard players set 1048576 const 1048576
 scoreboard players set 1800000 const 1800000
 scoreboard players set 3600000 const 3600000
+scoreboard players set 15000000 const 15000000
 scoreboard players set 16777216 const 16777216
+scoreboard players set 36000000 const 36000000
 scoreboard players set 268435456 const 268435456
 scoreboard players set 360000000 const 360000000
+scoreboard players set 2147483647 const 2147483647
+
 
 #设置重力加速度的一半
 scoreboard players set #g/2 const 122
@@ -117,16 +123,18 @@ data modify storage large_number:const "π" set value 3.141592653589793238462643
 data modify storage large_number:const "e" set value 2.71828182845904523536028747135266249775724709369995d
 data modify storage large_number:const "γ" set value 0.57721566490153286060651209008240243104215933593992d
 data modify storage large_number:const "φ" set value 1.61803398874989484820458683436563811772030917980576d
-data modify storage large_number:const "τ" set value 6.283185307179586476925286766559005768394338798750211d
+data modify storage large_number:const "τ" set value 6.28318530717958647692528676655900576839433879875021d
 
 data modify storage large_number:const double_min set value -1.797693134862315807E308d
 data modify storage large_number:const double_max set value 1.797693134862315807E308d
 data modify storage large_number:const double_abs_min set value 4.9E-324d
 
+data modify storage large_number:math buffer_NaN set value "NaNd"
 
-data modify storage large_number:const version set value "large_number v.1.18"
 
-scoreboard players set #k.la.version const 1018
+data modify storage large_number:const version set value "large_number v.1.19"
+
+scoreboard players set #k.la.version const 1019
 
 #large_number:math q0 系列专门用于优化函数宏
 
@@ -144,3 +152,8 @@ execute unless data storage large_number:math unit_vector[2] run data modify sto
 
 #base64解析
 scoreboard players set #cb_run_func:"timestamp/cb_start" int 0
+
+#运算符号集
+data modify storage large_number:math buffer_expression_evaluation_sign set value \
+["+","-","*","·","/","^","²","exp","log","ln","sin","cos","tan","arcsin","arccos","arctan","atan","√","Γ","┕","ºLambertW","¹LambertW","||","sgn","[]","[0]","—","ψ","Σ[1/n]n→","eunorm₂","eunorm₃",">=","<=","==","≈≈",">/<",">-<",">>","<<","≥≥","≤≤","nroot","ºsinh","ºcosh","ºtanh","hign┕","hignºW","hign¹W"]
+

@@ -15,4 +15,4 @@ scoreboard players operation #loop1 int = #fourier_series_numerical_particle.a i
 execute unless score #loop1 int > #fourier_series_numerical_particle.b int run function large_number:fourier_series_numerical/particle/loop1
 
 
-execute if score #fourier_series_numerical.tell_mode int matches 1..2 run tellraw @a {"translate":"large_number.fourier_series_numerical_particle.end","fallback":"\u00A77\u00A7o傅里叶级数展开式的图像绘制完成"}
+execute unless score #large_number.all_tellraw_set int matches 1 if score #fourier_series_numerical.tell_mode int matches 1..2 run tellraw @a {"translate":"large_number.fourier_series_numerical_particle.end","fallback":"\u00A77\u00A7o傅里叶级数展开式的图像绘制完成"}

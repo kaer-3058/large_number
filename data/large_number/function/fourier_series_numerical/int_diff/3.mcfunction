@@ -19,7 +19,7 @@ data modify storage large_number:math temp1 set from storage large_number:math t
 function large_number:definite_integral/riemann_integral/fa_addi_fb_div2/macro2 with storage large_number:math
 
 function large_number:definite_integral/riemann_integral/fa_addi_fb_div2/macro3 with storage large_number:math
-execute in minecraft:overworld as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:definite_integral/riemann_integral/fa_addi_fb_div2/as_entity_1
+execute as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:definite_integral/riemann_integral/fa_addi_fb_div2/as_entity_1
 
 #double除以2
 function large_number:definite_integral/riemann_integral/fa_addi_fb_div2/macro4 with storage large_number:math
@@ -78,4 +78,4 @@ execute if data storage large_number:math fourier_series_numerical{abnum:"A15"} 
 execute if data storage large_number:math fourier_series_numerical{abnum:"B15"} run scoreboard players set #temp_fourier_series_numerical.tick.start int 34
 
 
-execute if score #fourier_series_numerical.tell_mode int matches 1 run tellraw @a [{"translate":"large_number.fourier_series_numerical.diff_end","fallback":"\u00A77\u00A7o傅里叶级数：%1$s\u00A77\u00A7o的积分求解完成","with": [{"nbt":"fourier_series_numerical.abnum","storage":"large_number:math","color":"#dbdbdb","italic":true}]}]
+execute unless score #large_number.all_tellraw_set int matches 1 if score #fourier_series_numerical.tell_mode int matches 1 run tellraw @a [{"translate":"large_number.fourier_series_numerical.diff_end","fallback":"\u00A77\u00A7o傅里叶级数：%1$s\u00A77\u00A7o的积分求解完成","with": [{"nbt":"fourier_series_numerical.abnum","storage":"large_number:math","color":"#dbdbdb","italic":true}]}]

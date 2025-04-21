@@ -11,6 +11,7 @@ execute if data storage large_number:math {stemp_expression1:"ω"} run data modi
 execute if data storage large_number:math {stemp_expression1:"ｘ"} run data modify storage large_number:math stemp_expression1 set string storage large_number:math expression_evaluation_variables."ｘ" 0 -1
 execute if data storage large_number:math {stemp_expression1:"ｙ"} run data modify storage large_number:math stemp_expression1 set string storage large_number:math expression_evaluation_variables."ｙ" 0 -1
 execute if data storage large_number:math {stemp_expression1:"ｚ"} run data modify storage large_number:math stemp_expression1 set string storage large_number:math expression_evaluation_variables."ｚ" 0 -1
+execute if data storage large_number:math {stemp_expression1:"ｔ"} run data modify storage large_number:math stemp_expression1 set string storage large_number:math expression_evaluation_variables."ｔ" 0 -1
 execute if data storage large_number:math {stemp_expression1:""} run data modify storage large_number:math stemp_expression1 set value "0.0"
 
 #代入常数

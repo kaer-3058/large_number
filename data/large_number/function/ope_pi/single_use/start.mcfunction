@@ -51,6 +51,7 @@ execute if score #temp2 lan.pi_information matches 26 run data modify storage la
 execute if score #temp2 lan.pi_information matches 27 run data modify storage large_number:pi_information temp1 set value [41,8410,418,4100,4184,1004,1850]
 execute if score #temp2 lan.pi_information matches 28 run data modify storage large_number:pi_information temp1 set value [41,8410,418,4100,4184,1004,1842]
 execute if score #temp2 lan.pi_information matches 1.. run data modify storage large_number:pi_information temp_x2 append from storage large_number:pi_information temp1[]
+
 scoreboard players operation #temp3 lan.pi_information %= 4 const
 scoreboard players set #large_list_div_const.divisor lan.pi_information 0
 execute if score #temp3 lan.pi_information matches 1 run scoreboard players set #large_list_div_const.divisor lan.pi_information 1000
@@ -112,8 +113,15 @@ data modify storage large_number:pi_information temp1 set string storage large_n
 data modify storage large_number:pi_information pi prepend from storage large_number:pi_information temp1
 data modify storage large_number:pi_information pi_iarray prepend from storage large_number:pi_information sstemp3[0]
 
+#添加小数点
+data modify storage large_number:pi_information pi[0] set string storage large_number:pi_information pi[0] 1
+data modify storage large_number:pi_information temp1 set from storage large_number:pi_information pi[0]
+execute if data storage large_number:pi_information {temp1:""} run data remove storage large_number:pi_information pi[0]
+data modify storage large_number:pi_information pi prepend value "."
+data modify storage large_number:pi_information pi prepend value "3"
 
-tellraw @a {"translate":"large_number.ope_pi.tell","fallback":"[\u00A7e卡儿的数学库\u00A7r]\n圆周率π [%1$s位]：\n%2$s","with":[{"score":{"name":"#ope_pi.digit","objective":"int"}},{"nbt":"pi[]","storage":"large_number:pi_information","separator":""}]}
+
+execute unless score #large_number.all_tellraw_set int matches 1 run tellraw @a {"translate":"large_number.ope_pi.tell","fallback":"[\u00A7e卡儿的数学库\u00A7r]\n圆周率π [%1$s位]：\n%2$s","with":[{"score":{"name":"#ope_pi.digit","objective":"int"}},{"nbt":"pi[]","storage":"large_number:pi_information","separator":""}]}
 
 
 #tellraw @a {"nbt":"pi","storage":"large_number:pi_information"}

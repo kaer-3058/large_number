@@ -1712,4 +1712,4 @@ data modify storage large_number:exp database."e^0.997" set value 2.710139203018
 data modify storage large_number:exp database."e^0.998" set value 2.712850697743220d
 data modify storage large_number:exp database."e^0.999" set value 2.715564905318570d
 
-tellraw @a {"translate":"large_number.exp_e.x_database.command_times","fallback": "已执行函数large_number:exp_e.x/database里的1714条命令，录入了\u00A7e1713\u00A7r条数据"}
+execute unless score #large_number.all_tellraw_set int matches 1 run tellraw @a {"translate":"large_number.exp_e.x_database.command_times","fallback": "已执行函数large_number:exp_e.x/database里的1714条命令，录入了\u00A7e1713\u00A7r条数据"}

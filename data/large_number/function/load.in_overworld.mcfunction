@@ -2,6 +2,8 @@
 forceload add 1 1 -1 -1
 
 forceload add -29999982 22022220
+
+#告示牌
 setblock -29999982 -64 22022223 minecraft:bedrock
 setblock -29999982 -64 22022222 minecraft:oak_wall_sign
 
@@ -12,15 +14,15 @@ execute as b09e-44-fded-6-efa5ffffef64 run function ntre:randomize
 
 #利用矩阵进行计算的方块展示实体 UUID: 28529-0-3d00-0-2c4200ee8401
 summon minecraft:block_display .0 .0 .0 {UUID:[I;165161,15616,11330,15631361]}
-data remove storage large_number:math temp1
-data modify storage large_number:math temp1 set string storage large_number:math buffer_NaN 0 -1
-execute unless data storage large_number:math {temp1:"NaN"} as 28529-0-3d00-0-2c4200ee8401 run function large_number:loga.b_double/nan
 
 #物品展示实体 fffffb7c-0-198d-ffff-ff6400004881
 summon minecraft:item_display .0 .0 .0 {UUID:[I;-1156,6541,-156,18561]}
 
 #用于attribute计算的盔甲架 3faf-0-3d00-0-61900f4241f
 summon minecraft:armor_stand -29999982 -63 22022223 {UUID:[I;16303,15616,1561,16000031],Invulnerable:1b,NoGravity:1b}
+
+#物品 563adc0-fffd-c986-fd14-59f186a8aaa
+summon minecraft:item -29999982.5 -63 22022223.5 {UUID:[I;90418624,-145018,-49019489,409635498],Invulnerable:1b,NoGravity:1b,Item:{id:"minecraft:stone",count:1},PickupDelay:32767s,Age:-32768s}
 
 #用于暂存物品(单个)的唱片机
 setblock -29999984 -60 22022220 minecraft:stone

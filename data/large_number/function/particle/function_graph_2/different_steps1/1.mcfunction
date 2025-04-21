@@ -13,7 +13,7 @@
 #tick开始的信号：scoreboard players set #function_graph_2_Pos.tick_start int 1
 #需要tick执行：function large_number:particle/function_graph_2/different_steps1/tick
 
-tellraw @a {"translate":"large_number.function_graph_2.diff_start","fallback":"\u00A77\u00A7o二元函数图像开始绘制"}
+execute unless score #large_number.all_tellraw_set int matches 1 run tellraw @a {"translate":"large_number.function_graph_2.diff_start","fallback":"\u00A77\u00A7o二元函数图像开始绘制"}
 
 data modify storage large_number:math function_graph_2_Pos set value []
 

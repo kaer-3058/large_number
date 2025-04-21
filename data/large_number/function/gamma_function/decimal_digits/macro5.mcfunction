@@ -1,0 +1,1 @@
+$execute positioned .0 $(temp1) .0 run loot spawn .0 ~.9189385332046727417803297 .0 loot large_number:check_pos

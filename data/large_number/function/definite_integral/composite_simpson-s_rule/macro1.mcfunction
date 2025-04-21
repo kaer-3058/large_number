@@ -1,0 +1,1 @@
+$execute store result storage large_number:math temp1 double $(sstemp_a_b_divx) run return 5

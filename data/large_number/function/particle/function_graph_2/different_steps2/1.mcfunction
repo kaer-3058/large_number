@@ -18,7 +18,7 @@
 #若在此期间执行粒子显示函数，会看到函数图像逐渐出现的动画
 
 
-tellraw @a {"translate":"large_number.function_graph_2.diff_start","fallback":"\u00A77\u00A7o二元函数图像开始绘制"}
+execute unless score #large_number.all_tellraw_set int matches 1 run tellraw @a {"translate":"large_number.function_graph_2.diff_start","fallback":"\u00A77\u00A7o二元函数图像开始绘制"}
 
 data modify storage large_number:math function_graph_2_Pos set value []
 

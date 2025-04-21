@@ -11,7 +11,7 @@
 
 #scoreboard players set #bezier_curve_N.t.size int 100
 
-tellraw @a {"translate":"large_number.bezier_curve_n.diff_start","fallback":"\u00A77\u00A7oN阶贝塞尔曲线开始计算"}
+execute unless score #large_number.all_tellraw_set int matches 1 run tellraw @a {"translate":"large_number.bezier_curve_n.diff_start","fallback":"\u00A77\u00A7oN阶贝塞尔曲线开始计算"}
 
 execute store result score #bezier_curve_N.order int if data storage large_number:math bezier_curve_N_input[]
 scoreboard players remove #bezier_curve_N.order int 1

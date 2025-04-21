@@ -20,3 +20,9 @@ execute if data storage large_number:math inverse_gamma_function{input:362880.0}
 execute if data storage large_number:math inverse_gamma_function{input:3628800.0} run data modify storage large_number:math inverse_gamma_function.output set value 10.0
 execute if data storage large_number:math inverse_gamma_function{input:39916800.0} run data modify storage large_number:math inverse_gamma_function.output set value 11.0
 execute if data storage large_number:math inverse_gamma_function{input:479001600.0} run data modify storage large_number:math inverse_gamma_function.output set value 12.0
+execute if data storage large_number:math inverse_gamma_function{input:6227020800.0} run data modify storage large_number:math inverse_gamma_function.output set value 13.0
+execute if data storage large_number:math inverse_gamma_function{input:87178291200.0} run data modify storage large_number:math inverse_gamma_function.output set value 14.0
+execute if data storage large_number:math inverse_gamma_function{input:1307674368000.0} run data modify storage large_number:math inverse_gamma_function.output set value 15.0
+execute if data storage large_number:math inverse_gamma_function{input:20922789888000.0} run data modify storage large_number:math inverse_gamma_function.output set value 16.0
+execute if data storage large_number:math inverse_gamma_function{input:355687428096000.0} run data modify storage large_number:math inverse_gamma_function.output set value 17.0
+execute if data storage large_number:math inverse_gamma_function{input:6402373705728000.0} run data modify storage large_number:math inverse_gamma_function.output set value 18.0

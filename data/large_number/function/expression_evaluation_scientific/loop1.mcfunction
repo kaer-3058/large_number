@@ -14,11 +14,11 @@ execute unless data storage large_number:math {s11:""} run data modify storage l
 #把变量也压入栈
 data modify storage large_number:math stemp1 set value ""
 data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 1
-data modify storage large_number:math sstemp07_786 set value ["α","β","δ","ε","η","λ","μ","ξ","ω","π","ｅ","γ","ｘ","ｙ","ｚ","τ"]
-scoreboard players set #temp1 int 16
+data modify storage large_number:math sstemp07_786 set value ["α","β","δ","ε","η","λ","μ","ξ","ω","π","ｅ","γ","ｘ","ｙ","ｚ","τ","ｔ"]
+scoreboard players set #temp1 int 17
 execute store result score #temp1 int run data modify storage large_number:math sstemp07_786[] set from storage large_number:math stemp1
-execute unless score #temp1 int matches 16 run data modify storage large_number:math temp_s2 append from storage large_number:math stemp1
-execute unless score #temp1 int matches 16 run data modify storage large_number:math sstemp1 set string storage large_number:math sstemp1 1
+execute unless score #temp1 int matches 17 run data modify storage large_number:math temp_s2 append from storage large_number:math stemp1
+execute unless score #temp1 int matches 17 run data modify storage large_number:math sstemp1 set string storage large_number:math sstemp1 1
 
 #此时第一个子递归已经停止了，表示如果输入的字符串还有字符则一定是计算符，在计算符入栈前先判断该符号的优先级是否大于s1栈顶的计算符(忽略括号)
 data modify storage large_number:math stemp1 set value ""
@@ -94,10 +94,13 @@ execute if data storage large_number:math {stemp1:"nroot"} run scoreboard player
 execute if data storage large_number:math {stemp1:"ºsinh"} run scoreboard players set #sstemp1 int 1
 execute if data storage large_number:math {stemp1:"ºcosh"} run scoreboard players set #sstemp1 int 1
 execute if data storage large_number:math {stemp1:"ºtanh"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"hign┕"} run scoreboard players set #sstemp1 int 1
 execute if score #sstemp1 int matches 0 run data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 6
 execute if data storage large_number:math {stemp1:"arcsin"} run scoreboard players set #sstemp1 int 1
 execute if data storage large_number:math {stemp1:"arccos"} run scoreboard players set #sstemp1 int 1
 execute if data storage large_number:math {stemp1:"arctan"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"hignºW"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"hign¹W"} run scoreboard players set #sstemp1 int 1
 execute if score #sstemp1 int matches 0 run data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 7
 execute if data storage large_number:math {stemp1:"eunorm₂"} run scoreboard players set #sstemp1 int 1
 execute if data storage large_number:math {stemp1:"eunorm₃"} run scoreboard players set #sstemp1 int 1

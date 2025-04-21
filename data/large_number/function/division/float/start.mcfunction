@@ -3,7 +3,8 @@
 #被除数：data modify storage large_number:math float_division.input1 set value 6.71339703E12d
 #除数：data modify storage large_number:math float_division.input2 set value 2.0d
 
-#载入除数
+#载入除数 \
+把浮点数转化为三个记分板，其中sign是符号，#float_int0和#sstempd，如果这两个数不为0，则必须把位数缩放到八位。exp是科学记数法的10的指数。
 data modify storage large_number:math float_nbt_to_score_input set from storage large_number:math float_division.input2
 function large_number:float_nbt_to_score/start
 scoreboard players operation #Divisor_float_sign int = #float_sign int

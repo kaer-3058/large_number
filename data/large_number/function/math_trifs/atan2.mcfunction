@@ -9,7 +9,7 @@
 #输出(角度制)：
 #data get entity b09e-44-fded-6-efa5ffffef64 Rotation[0]
 
-#tp @s .0 .0 .0 .0 .0
+tp @s .0 .0 .0 .0 .0
 execute store result storage large_number:math buffer_all_xyz[0] double -0.0001 run scoreboard players get #y int
 execute store result storage large_number:math buffer_all_xyz[2] double 0.0001 run scoreboard players get #x int
 #tellraw @a [{"score":{"name": "#arcsin_cos.input","objective": "int"}}," ",{"score":{"name": "#y","objective": "int"}}," ",{"score":{"name": "#x","objective": "int"}}]

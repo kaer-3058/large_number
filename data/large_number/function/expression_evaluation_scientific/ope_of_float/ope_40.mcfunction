@@ -1,6 +1,8 @@
 #开n次根
 
-execute if data storage large_number:math {_expressionss1:3.0} run function large_number:expression_evaluation_scientific/ope_of_float/ope_40.1
-execute unless data storage large_number:math {_expressionss1:3.0} run function large_number:expression_evaluation_scientific/ope_of_float/ope_40.2
+data modify storage large_number:math exp_any.input.base set from storage large_number:math _expressionss2
+data modify storage large_number:math exp_any.input.expon set from storage large_number:math _expressionss1
+function large_number:exp_any/n_root
+data modify storage large_number:math _expressionss3 set from storage large_number:math exp_any.output
 
 scoreboard players set #expression_evaluation_test2 int 2

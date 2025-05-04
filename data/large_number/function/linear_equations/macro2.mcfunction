@@ -1,0 +1,1 @@
+$execute store result storage large_number:math float_multiply.output double $(output) run return -1

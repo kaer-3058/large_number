@@ -10,3 +10,6 @@ execute store result storage large_number:math temp1 double 1 run data get stora
 execute store success score #gamma_function_input_inte_test1 int run data modify storage large_number:math temp1 set from storage large_number:math store_gamma_function_input
 execute if score #gamma_function_input_inte_test1 int matches 0 run function large_number:gamma_function/recursion/1
 execute if score #gamma_function_input_inte_test1 int matches 1 run function large_number:gamma_function/recursion/2
+
+execute store result score #temp1 int run data get storage large_number:math gamma_function.input 10000
+execute if score #temp1 int matches 1706026.. run data modify storage large_number:math gamma_function.output set value 1.797693134856E308

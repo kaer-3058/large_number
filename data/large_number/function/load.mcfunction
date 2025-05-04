@@ -155,5 +155,5 @@ scoreboard players set #cb_run_func:"timestamp/cb_start" int 0
 
 #运算符号集
 data modify storage large_number:math buffer_expression_evaluation_sign set value \
-["+","-","*","·","/","^","²","exp","log","ln","sin","cos","tan","arcsin","arccos","arctan","atan","√","Γ","┕","ºLambertW","¹LambertW","||","sgn","[]","[0]","—","ψ","Σ[1/n]n→","eunorm₂","eunorm₃",">=","<=","==","≈≈",">/<",">-<",">>","<<","≥≥","≤≤","nroot","ºsinh","ºcosh","ºtanh","hign┕","hignºW","hign¹W"]
+["+","-","*","·","/","^","²","exp","log","ln","sin","cos","tan","arcsin","arccos","arctan","atan","√","Γ","┕","ºLambertW","¹LambertW","||","sgn","[]","[0]","—","ψ","Σ[1/n]n→","eunorm₂","eunorm₃",">=","<=","==","≈≈",">/<",">-<",">>","<<","≥≥","≤≤","nroot","ºsinh","ºcosh","ºtanh","hign┕","hignºW","hign¹W","erf"]
 

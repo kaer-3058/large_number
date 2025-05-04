@@ -1,0 +1,1 @@
+$data modify storage large_number:math exp_e^x.input set value -$(output)

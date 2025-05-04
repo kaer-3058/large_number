@@ -1,0 +1,1 @@
+$data modify storage large_number:math stempu set value -$(stempu)

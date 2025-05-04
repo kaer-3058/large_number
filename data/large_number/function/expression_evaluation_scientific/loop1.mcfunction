@@ -87,6 +87,7 @@ execute if data storage large_number:math {stemp1:"sgn"} run scoreboard players 
 execute if data storage large_number:math {stemp1:"[0]"} run scoreboard players set #sstemp1 int 1
 execute if data storage large_number:math {stemp1:">/<"} run scoreboard players set #sstemp1 int 1
 execute if data storage large_number:math {stemp1:">-<"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"erf"} run scoreboard players set #sstemp1 int 1
 execute if score #sstemp1 int matches 0 run data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 4
 execute if data storage large_number:math {stemp1:"atan"} run scoreboard players set #sstemp1 int 1
 execute if score #sstemp1 int matches 0 run data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 5

@@ -50,7 +50,53 @@ execute if score #set int matches -2147483648.. if score #set_-1 int matches -21
 #优先级判断完毕，如果输入的运算符或函数不是右括号则压入s1栈
 data modify storage large_number:math stemp1 set value ""
 scoreboard players set #sstemp1 int 0
-data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 1
+
+data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 9
+execute if data storage large_number:math {stemp1:"ºLambertW"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"¹LambertW"} run scoreboard players set #sstemp1 int 1
+execute if score #sstemp1 int matches 0 run data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 8
+execute if data storage large_number:math {stemp1:"Σ[1/n]n→"} run scoreboard players set #sstemp1 int 1
+execute if score #sstemp1 int matches 0 run data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 7
+execute if data storage large_number:math {stemp1:"eunorm₂"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"eunorm₃"} run scoreboard players set #sstemp1 int 1
+execute if score #sstemp1 int matches 0 run data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 6
+execute if data storage large_number:math {stemp1:"arcsin"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"arccos"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"arctan"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"hignºW"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"hign¹W"} run scoreboard players set #sstemp1 int 1
+execute if score #sstemp1 int matches 0 run data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 5
+execute if data storage large_number:math {stemp1:"nroot"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"ºsinh"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"ºcosh"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"ºtanh"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"hign┕"} run scoreboard players set #sstemp1 int 1
+execute if score #sstemp1 int matches 0 run data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 4
+execute if data storage large_number:math {stemp1:"atan"} run scoreboard players set #sstemp1 int 1
+execute if score #sstemp1 int matches 0 run data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 3
+execute if data storage large_number:math {stemp1:"exp"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"log"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"sin"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"cos"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"tan"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"sgn"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"[0]"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:">/<"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:">-<"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"erf"} run scoreboard players set #sstemp1 int 1
+execute if score #sstemp1 int matches 0 run data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 2
+execute if data storage large_number:math {stemp1:"ln"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"||"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"[]"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:">="} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"<="} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"=="} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"≈≈"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:">>"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"<<"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"≥≥"} run scoreboard players set #sstemp1 int 1
+execute if data storage large_number:math {stemp1:"≤≤"} run scoreboard players set #sstemp1 int 1
+execute if score #sstemp1 int matches 0 run data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 1
 execute if data storage large_number:math {stemp1:"－"} run data modify storage large_number:math stemp1 set value "-"
 execute if data storage large_number:math {stemp1:"+"} run scoreboard players set #sstemp1 int 1
 execute if data storage large_number:math {stemp1:"-"} run scoreboard players set #sstemp1 int 1
@@ -65,51 +111,7 @@ execute if data storage large_number:math {stemp1:"Γ"} run scoreboard players s
 execute if data storage large_number:math {stemp1:"┕"} run scoreboard players set #sstemp1 int 1
 execute if data storage large_number:math {stemp1:"—"} run scoreboard players set #sstemp1 int 1
 execute if data storage large_number:math {stemp1:"ψ"} run scoreboard players set #sstemp1 int 1
-execute if score #sstemp1 int matches 0 run data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 2
-execute if data storage large_number:math {stemp1:"ln"} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:"||"} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:"[]"} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:">="} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:"<="} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:"=="} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:"≈≈"} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:">>"} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:"<<"} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:"≥≥"} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:"≤≤"} run scoreboard players set #sstemp1 int 1
-execute if score #sstemp1 int matches 0 run data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 3
-execute if data storage large_number:math {stemp1:"exp"} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:"log"} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:"sin"} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:"cos"} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:"tan"} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:"sgn"} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:"[0]"} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:">/<"} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:">-<"} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:"erf"} run scoreboard players set #sstemp1 int 1
-execute if score #sstemp1 int matches 0 run data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 4
-execute if data storage large_number:math {stemp1:"atan"} run scoreboard players set #sstemp1 int 1
-execute if score #sstemp1 int matches 0 run data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 5
-execute if data storage large_number:math {stemp1:"nroot"} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:"ºsinh"} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:"ºcosh"} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:"ºtanh"} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:"hign┕"} run scoreboard players set #sstemp1 int 1
-execute if score #sstemp1 int matches 0 run data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 6
-execute if data storage large_number:math {stemp1:"arcsin"} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:"arccos"} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:"arctan"} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:"hignºW"} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:"hign¹W"} run scoreboard players set #sstemp1 int 1
-execute if score #sstemp1 int matches 0 run data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 7
-execute if data storage large_number:math {stemp1:"eunorm₂"} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:"eunorm₃"} run scoreboard players set #sstemp1 int 1
-execute if score #sstemp1 int matches 0 run data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 8
-execute if data storage large_number:math {stemp1:"Σ[1/n]n→"} run scoreboard players set #sstemp1 int 1
-execute if score #sstemp1 int matches 0 run data modify storage large_number:math stemp1 set string storage large_number:math sstemp1 0 9
-execute if data storage large_number:math {stemp1:"ºLambertW"} run scoreboard players set #sstemp1 int 1
-execute if data storage large_number:math {stemp1:"¹LambertW"} run scoreboard players set #sstemp1 int 1
+
 
 scoreboard players set #length1 int 1
 execute if score #sstemp1 int matches 1 store result score #length1 int run data get storage large_number:math stemp1

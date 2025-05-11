@@ -31,4 +31,6 @@ data modify storage large_number:math float_multiply.input1 set from storage lar
 data modify storage large_number:math float_multiply.input2 set from storage large_number:math temp_output_matrix[9][9]
 execute if score #determinant.order int matches 10.. run function large_number:float_mul.high_precision/start
 
+execute if score #temp_det_sign int matches -1 run function large_number:linear_equations/macro2 with storage large_number:math float_multiply
+
 data modify storage large_number:math linear_equations.det set from storage large_number:math float_multiply.output

@@ -93,23 +93,23 @@ execute if data storage large_number:math {stemp1:"-"} run function large_number
 #判断其接近0的程度
 scoreboard players set #max_precision int 1
 execute store result score #temp1 int run data get storage large_number:math temp1
-execute if score #temp1 int matches 0 run scoreboard players set #max_precision int 0
+execute if score #temp1 int matches ..4 run scoreboard players set #max_precision int 0
 execute store result score #temp1 int run data get storage large_number:math temp1 10
-execute if score #temp1 int matches 0 run scoreboard players set #max_precision int -1
+execute if score #temp1 int matches ..4 run scoreboard players set #max_precision int -1
 execute store result score #temp1 int run data get storage large_number:math temp1 100
-execute if score #temp1 int matches 0 run scoreboard players set #max_precision int -2
+execute if score #temp1 int matches ..4 run scoreboard players set #max_precision int -2
 execute store result score #temp1 int run data get storage large_number:math temp1 1000
-execute if score #temp1 int matches 0 run scoreboard players set #max_precision int -3
+execute if score #temp1 int matches ..4 run scoreboard players set #max_precision int -3
 execute store result score #temp1 int run data get storage large_number:math temp1 10000
-execute if score #temp1 int matches 0 run scoreboard players set #max_precision int -4
+execute if score #temp1 int matches ..4 run scoreboard players set #max_precision int -4
 execute store result score #temp1 int run data get storage large_number:math temp1 100000
-execute if score #temp1 int matches 0 run scoreboard players set #max_precision int -5
+execute if score #temp1 int matches ..4 run scoreboard players set #max_precision int -5
 execute store result score #temp1 int run data get storage large_number:math temp1 1000000
-execute if score #temp1 int matches 0 run scoreboard players set #max_precision int -6
+execute if score #temp1 int matches ..4 run scoreboard players set #max_precision int -6
 execute store result score #temp1 int run data get storage large_number:math temp1 10000000
-execute if score #temp1 int matches 0 run scoreboard players set #max_precision int -7
+execute if score #temp1 int matches ..4 run scoreboard players set #max_precision int -7
 execute store result score #temp1 int run data get storage large_number:math temp1 100000000
-execute if score #temp1 int matches 0 run scoreboard players set #max_precision int -8
+execute if score #temp1 int matches ..4 run scoreboard players set #max_precision int -8
 
 execute if score #max_precision int <= #temp_min_approaching int run scoreboard players set #determinant.order int -2
 

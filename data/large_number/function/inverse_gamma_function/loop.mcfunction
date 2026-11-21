@@ -2,7 +2,7 @@
 
 #f(x0)  伽玛函数 - 递推公式
 data modify storage large_number:math gamma_function.input set from storage large_number:math inverse_gamma_function.output
-function large_number:gamma_function/recursion/start
+function large_number:gamma_function/robert_h_windschitl/start
 
 #浮点减法
 data modify storage large_number:math temp1 set from storage large_number:math gamma_function.output
@@ -33,5 +33,5 @@ execute unless data storage large_number:math {stemp1:"-"} run function large_nu
 
 data modify storage large_number:math inverse_gamma_function.output set from storage large_number:math temp1
 
-scoreboard players remove #temp_newton.s_method.loops int 1
-execute if score #temp_newton.s_method.loops int matches 1.. run function large_number:inverse_gamma_function/loop
+scoreboard players remove #temp_newton.s_method.loops large_number.int 1
+execute if score #temp_newton.s_method.loops large_number.int matches 1.. run function large_number:inverse_gamma_function/loop

@@ -1,0 +1,2 @@
+$data modify storage large_number:math temp_dft_inp[$(temp_order_a)] set from storage large_number:math temp_A
+$data modify storage large_number:math temp_dft_inp[$(temp_order_b)] set from storage large_number:math temp_B

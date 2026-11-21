@@ -1,0 +1,1 @@
+$return run scoreboard players get #buffer_expre_sign_$(stemp_expression1) large_number.int

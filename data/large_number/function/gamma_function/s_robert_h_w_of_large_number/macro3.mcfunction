@@ -1,0 +1,1 @@
+$data modify storage large_number:math gamma_function.output.mantissa set value $(temp1)0.$(temp2)E1d

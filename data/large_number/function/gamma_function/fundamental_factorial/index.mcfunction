@@ -1,0 +1,1 @@
+$function large_number:gamma_function/fundamental_factorial/tree/$(q0)

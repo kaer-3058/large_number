@@ -17,7 +17,7 @@ data remove storage large_number:math stempd[{a:0}]
 ##double列表的最大值/最小值
 #data modify storage large_number:math stempd set from storage large_number:math double_extrema.input
 data modify storage large_number:math float_comparison_sizes.B set from storage large_number:math stempd[0].a
-scoreboard players set #stempd_order int 0
+scoreboard players set #stempd_order large_number.int 0
 execute if data storage large_number:math stempd[1] run function large_number:linear_equations/double_extrema/loop1
 #data modify storage large_number:math double_extrema.output set from storage large_number:math float_comparison_sizes.B
 
@@ -33,34 +33,34 @@ data modify storage large_number:math store_det_input[-9] append from storage la
 data modify storage large_number:math store_det_input[-10] append from storage large_number:math store_vecb[-10]
 
 data modify storage large_number:math temp1 set from storage large_number:math store_det_input[1]
-execute if score #stempd_order int matches 1 run data modify storage large_number:math store_det_input[1] set from storage large_number:math store_det_input[0]
-execute if score #stempd_order int matches 1 run data modify storage large_number:math store_det_input[0] set from storage large_number:math temp1
+execute if score #stempd_order large_number.int matches 1 run data modify storage large_number:math store_det_input[1] set from storage large_number:math store_det_input[0]
+execute if score #stempd_order large_number.int matches 1 run data modify storage large_number:math store_det_input[0] set from storage large_number:math temp1
 data modify storage large_number:math temp1 set from storage large_number:math store_det_input[2]
-execute if score #stempd_order int matches 2 run data modify storage large_number:math store_det_input[2] set from storage large_number:math store_det_input[0]
-execute if score #stempd_order int matches 2 run data modify storage large_number:math store_det_input[0] set from storage large_number:math temp1
+execute if score #stempd_order large_number.int matches 2 run data modify storage large_number:math store_det_input[2] set from storage large_number:math store_det_input[0]
+execute if score #stempd_order large_number.int matches 2 run data modify storage large_number:math store_det_input[0] set from storage large_number:math temp1
 data modify storage large_number:math temp1 set from storage large_number:math store_det_input[3]
-execute if score #stempd_order int matches 3 run data modify storage large_number:math store_det_input[3] set from storage large_number:math store_det_input[0]
-execute if score #stempd_order int matches 3 run data modify storage large_number:math store_det_input[0] set from storage large_number:math temp1
+execute if score #stempd_order large_number.int matches 3 run data modify storage large_number:math store_det_input[3] set from storage large_number:math store_det_input[0]
+execute if score #stempd_order large_number.int matches 3 run data modify storage large_number:math store_det_input[0] set from storage large_number:math temp1
 data modify storage large_number:math temp1 set from storage large_number:math store_det_input[4]
-execute if score #stempd_order int matches 4 run data modify storage large_number:math store_det_input[4] set from storage large_number:math store_det_input[0]
-execute if score #stempd_order int matches 4 run data modify storage large_number:math store_det_input[0] set from storage large_number:math temp1
+execute if score #stempd_order large_number.int matches 4 run data modify storage large_number:math store_det_input[4] set from storage large_number:math store_det_input[0]
+execute if score #stempd_order large_number.int matches 4 run data modify storage large_number:math store_det_input[0] set from storage large_number:math temp1
 data modify storage large_number:math temp1 set from storage large_number:math store_det_input[5]
-execute if score #stempd_order int matches 5 run data modify storage large_number:math store_det_input[5] set from storage large_number:math store_det_input[0]
-execute if score #stempd_order int matches 5 run data modify storage large_number:math store_det_input[0] set from storage large_number:math temp1
+execute if score #stempd_order large_number.int matches 5 run data modify storage large_number:math store_det_input[5] set from storage large_number:math store_det_input[0]
+execute if score #stempd_order large_number.int matches 5 run data modify storage large_number:math store_det_input[0] set from storage large_number:math temp1
 data modify storage large_number:math temp1 set from storage large_number:math store_det_input[6]
-execute if score #stempd_order int matches 6 run data modify storage large_number:math store_det_input[6] set from storage large_number:math store_det_input[0]
-execute if score #stempd_order int matches 6 run data modify storage large_number:math store_det_input[0] set from storage large_number:math temp1
+execute if score #stempd_order large_number.int matches 6 run data modify storage large_number:math store_det_input[6] set from storage large_number:math store_det_input[0]
+execute if score #stempd_order large_number.int matches 6 run data modify storage large_number:math store_det_input[0] set from storage large_number:math temp1
 data modify storage large_number:math temp1 set from storage large_number:math store_det_input[7]
-execute if score #stempd_order int matches 7 run data modify storage large_number:math store_det_input[7] set from storage large_number:math store_det_input[0]
-execute if score #stempd_order int matches 7 run data modify storage large_number:math store_det_input[0] set from storage large_number:math temp1
+execute if score #stempd_order large_number.int matches 7 run data modify storage large_number:math store_det_input[7] set from storage large_number:math store_det_input[0]
+execute if score #stempd_order large_number.int matches 7 run data modify storage large_number:math store_det_input[0] set from storage large_number:math temp1
 data modify storage large_number:math temp1 set from storage large_number:math store_det_input[8]
-execute if score #stempd_order int matches 8 run data modify storage large_number:math store_det_input[8] set from storage large_number:math store_det_input[0]
-execute if score #stempd_order int matches 8 run data modify storage large_number:math store_det_input[0] set from storage large_number:math temp1
+execute if score #stempd_order large_number.int matches 8 run data modify storage large_number:math store_det_input[8] set from storage large_number:math store_det_input[0]
+execute if score #stempd_order large_number.int matches 8 run data modify storage large_number:math store_det_input[0] set from storage large_number:math temp1
 data modify storage large_number:math temp1 set from storage large_number:math store_det_input[9]
-execute if score #stempd_order int matches 9 run data modify storage large_number:math store_det_input[9] set from storage large_number:math store_det_input[0]
-execute if score #stempd_order int matches 9 run data modify storage large_number:math store_det_input[0] set from storage large_number:math temp1
+execute if score #stempd_order large_number.int matches 9 run data modify storage large_number:math store_det_input[9] set from storage large_number:math store_det_input[0]
+execute if score #stempd_order large_number.int matches 9 run data modify storage large_number:math store_det_input[0] set from storage large_number:math temp1
 
-execute if score #stempd_order int matches 1.. run scoreboard players operation #temp_det_sign int *= -1 const
+execute if score #stempd_order large_number.int matches 1.. run scoreboard players operation #temp_det_sign large_number.int *= -1 const
 
 data modify storage large_number:math store_vecb[-1] set from storage large_number:math store_det_input[-1][-1]
 data modify storage large_number:math store_vecb[-2] set from storage large_number:math store_det_input[-2][-1]
@@ -91,27 +91,27 @@ data modify storage large_number:math stemp1 set string storage large_number:mat
 execute if data storage large_number:math {stemp1:"-"} run function large_number:linear_equations/macro1 with storage large_number:math
 
 #判断其接近0的程度
-scoreboard players set #max_precision int 1
-execute store result score #temp1 int run data get storage large_number:math temp1
-execute if score #temp1 int matches ..4 run scoreboard players set #max_precision int 0
-execute store result score #temp1 int run data get storage large_number:math temp1 10
-execute if score #temp1 int matches ..4 run scoreboard players set #max_precision int -1
-execute store result score #temp1 int run data get storage large_number:math temp1 100
-execute if score #temp1 int matches ..4 run scoreboard players set #max_precision int -2
-execute store result score #temp1 int run data get storage large_number:math temp1 1000
-execute if score #temp1 int matches ..4 run scoreboard players set #max_precision int -3
-execute store result score #temp1 int run data get storage large_number:math temp1 10000
-execute if score #temp1 int matches ..4 run scoreboard players set #max_precision int -4
-execute store result score #temp1 int run data get storage large_number:math temp1 100000
-execute if score #temp1 int matches ..4 run scoreboard players set #max_precision int -5
-execute store result score #temp1 int run data get storage large_number:math temp1 1000000
-execute if score #temp1 int matches ..4 run scoreboard players set #max_precision int -6
-execute store result score #temp1 int run data get storage large_number:math temp1 10000000
-execute if score #temp1 int matches ..4 run scoreboard players set #max_precision int -7
-execute store result score #temp1 int run data get storage large_number:math temp1 100000000
-execute if score #temp1 int matches ..4 run scoreboard players set #max_precision int -8
+scoreboard players set #max_precision large_number.int 1
+execute store result score #temp1 large_number.int run data get storage large_number:math temp1
+execute if score #temp1 large_number.int matches ..4 run scoreboard players set #max_precision large_number.int 0
+execute store result score #temp1 large_number.int run data get storage large_number:math temp1 10
+execute if score #temp1 large_number.int matches ..4 run scoreboard players set #max_precision large_number.int -1
+execute store result score #temp1 large_number.int run data get storage large_number:math temp1 100
+execute if score #temp1 large_number.int matches ..4 run scoreboard players set #max_precision large_number.int -2
+execute store result score #temp1 large_number.int run data get storage large_number:math temp1 1000
+execute if score #temp1 large_number.int matches ..4 run scoreboard players set #max_precision large_number.int -3
+execute store result score #temp1 large_number.int run data get storage large_number:math temp1 10000
+execute if score #temp1 large_number.int matches ..4 run scoreboard players set #max_precision large_number.int -4
+execute store result score #temp1 large_number.int run data get storage large_number:math temp1 100000
+execute if score #temp1 large_number.int matches ..4 run scoreboard players set #max_precision large_number.int -5
+execute store result score #temp1 large_number.int run data get storage large_number:math temp1 1000000
+execute if score #temp1 large_number.int matches ..4 run scoreboard players set #max_precision large_number.int -6
+execute store result score #temp1 large_number.int run data get storage large_number:math temp1 10000000
+execute if score #temp1 large_number.int matches ..4 run scoreboard players set #max_precision large_number.int -7
+execute store result score #temp1 large_number.int run data get storage large_number:math temp1 100000000
+execute if score #temp1 large_number.int matches ..4 run scoreboard players set #max_precision large_number.int -8
 
-execute if score #max_precision int <= #temp_min_approaching int run scoreboard players set #determinant.order int -2
+execute if score #max_precision large_number.int <= #temp_min_approaching large_number.int run scoreboard players set #determinant.order large_number.int -2
 
-execute store result storage large_number:math temp1 int 1 run scoreboard players get #max_precision int
+execute store result storage large_number:math temp1 int 1 run scoreboard players get #max_precision large_number.int
 data modify storage large_number:math temp_int_extrema_inp append from storage large_number:math temp1

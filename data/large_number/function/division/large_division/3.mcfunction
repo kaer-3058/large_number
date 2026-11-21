@@ -1,8 +1,8 @@
 #递归减
-scoreboard players set #sstempu int 0
+scoreboard players set #sstempu large_number.int 0
 function large_number:division/large_division/loop3
-execute store result storage large_number:math stemp1 int 1 run scoreboard players get #sstempu int
+execute store result storage large_number:math stemp1 int 1 run scoreboard players get #sstempu large_number.int
 data modify storage large_number:math sstempz append from storage large_number:math stemp1
 
 #loop4 乘10
-execute if score #loops int matches 1.. run function large_number:division/large_division/4
+execute if score #loops large_number.int matches 1.. run function large_number:division/large_division/4

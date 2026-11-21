@@ -6,34 +6,34 @@
 
 execute positioned .0 .0 .0 run tp @s ^1 ^ ^
 data modify storage large_number:math temp1 set from entity @s Pos
-execute store result score #x int run data get storage large_number:math temp1[0] 10000
-execute store result score #y int run data get storage large_number:math temp1[1] 10000
-execute store result score #z int run data get storage large_number:math temp1[2] 10000
-scoreboard players operation #x int *= #u int
-scoreboard players operation #y int *= #u int
-scoreboard players operation #z int *= #u int
+execute store result score #x large_number.int run data get storage large_number:math temp1[0] 10000
+execute store result score #y large_number.int run data get storage large_number:math temp1[1] 10000
+execute store result score #z large_number.int run data get storage large_number:math temp1[2] 10000
+scoreboard players operation #x large_number.int *= #u large_number.int
+scoreboard players operation #y large_number.int *= #u large_number.int
+scoreboard players operation #z large_number.int *= #u large_number.int
 
 execute positioned .0 .0 .0 run tp @s ^ ^1 ^
 data modify storage large_number:math temp1 set from entity @s Pos
-execute store result score #j.x int run data get storage large_number:math temp1[0] 10000
-execute store result score #j.y int run data get storage large_number:math temp1[1] 10000
-execute store result score #j.z int run data get storage large_number:math temp1[2] 10000
-scoreboard players operation #j.x int *= #v int
-scoreboard players operation #j.y int *= #v int
-scoreboard players operation #j.z int *= #v int
+execute store result score #j.x large_number.int run data get storage large_number:math temp1[0] 10000
+execute store result score #j.y large_number.int run data get storage large_number:math temp1[1] 10000
+execute store result score #j.z large_number.int run data get storage large_number:math temp1[2] 10000
+scoreboard players operation #j.x large_number.int *= #v large_number.int
+scoreboard players operation #j.y large_number.int *= #v large_number.int
+scoreboard players operation #j.z large_number.int *= #v large_number.int
 
 execute positioned .0 .0 .0 run tp @s ^ ^ ^1
 data modify storage large_number:math temp1 set from entity @s Pos
-execute store result score #k.x int run data get storage large_number:math temp1[0] 10000
-execute store result score #k.y int run data get storage large_number:math temp1[1] 10000
-execute store result score #k.z int run data get storage large_number:math temp1[2] 10000
-scoreboard players operation #k.x int *= #w int
-scoreboard players operation #k.y int *= #w int
-scoreboard players operation #k.z int *= #w int
+execute store result score #k.x large_number.int run data get storage large_number:math temp1[0] 10000
+execute store result score #k.y large_number.int run data get storage large_number:math temp1[1] 10000
+execute store result score #k.z large_number.int run data get storage large_number:math temp1[2] 10000
+scoreboard players operation #k.x large_number.int *= #w large_number.int
+scoreboard players operation #k.y large_number.int *= #w large_number.int
+scoreboard players operation #k.z large_number.int *= #w large_number.int
 
-scoreboard players operation #x int += #j.x int
-scoreboard players operation #x int += #k.x int
-scoreboard players operation #y int += #j.y int
-scoreboard players operation #y int += #k.y int
-scoreboard players operation #z int += #j.z int
-scoreboard players operation #z int += #k.z int
+scoreboard players operation #x large_number.int += #j.x large_number.int
+scoreboard players operation #x large_number.int += #k.x large_number.int
+scoreboard players operation #y large_number.int += #j.y large_number.int
+scoreboard players operation #y large_number.int += #k.y large_number.int
+scoreboard players operation #z large_number.int += #j.z large_number.int
+scoreboard players operation #z large_number.int += #k.z large_number.int

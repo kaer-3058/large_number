@@ -1,17 +1,17 @@
 ##转换进制，10进制转任意进制
 
-#scoreboard players set #conversion.10_to_any.input int 75535
-#scoreboard players set #conversion.10_to_any.radix int 8
+#scoreboard players set #conversion.10_to_any.input large_number.int 75535
+#scoreboard players set #conversion.10_to_any.radix large_number.int 8
 
 #接受的输入值为[-2147483647, 2147483647]
 #接受的进制为2~36
 
 data modify storage large_number:math temp1 set value [{a:0}]
-execute store result score #temp2 int run scoreboard players operation #temp1 int = #conversion.10_to_any.input int
-execute store result storage large_number:math temp1[0].a int 1 run scoreboard players operation #temp2 int %= #conversion.10_to_any.radix int
-execute if score #temp2 int matches 0..9 unless score #conversion.10_to_any.radix int matches ..10 run data modify storage large_number:math temp1[0].a set string storage large_number:math temp1[0].a
+execute store result score #temp2 large_number.int run scoreboard players operation #temp1 large_number.int = #conversion.10_to_any.input large_number.int
+execute store result storage large_number:math temp1[0].a int 1 run scoreboard players operation #temp2 large_number.int %= #conversion.10_to_any.radix large_number.int
+execute if score #temp2 large_number.int matches 0..9 unless score #conversion.10_to_any.radix large_number.int matches ..10 run data modify storage large_number:math temp1[0].a set string storage large_number:math temp1[0].a
 data modify storage large_number:math stemp1 set value {a:0}
-execute if score #temp1 int >= #conversion.10_to_any.radix int run function large_number:number_base_conversion/loop1
+execute if score #temp1 large_number.int >= #conversion.10_to_any.radix large_number.int run function large_number:number_base_conversion/loop1
 
 data modify storage large_number:math temp1[{a:10}] set value {a:"a"}
 data modify storage large_number:math temp1[{a:11}] set value {a:"b"}

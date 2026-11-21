@@ -2,14 +2,14 @@ data modify storage large_number:math temp1 set string storage large_number:time
 data modify storage large_number:math temp2 set string storage large_number:timestamp timestamp_base64 9 10
 data modify storage large_number:math temp3 set string storage large_number:timestamp timestamp_base64 10 11
 data modify storage large_number:math temp4 set string storage large_number:timestamp timestamp_base64 11 12
-execute store result score #temp1 int run function large_number:timestamp/macro.1.base64_to_index/1 with storage large_number:math
-execute store result score #temp2 int run function large_number:timestamp/macro.1.base64_to_index/2 with storage large_number:math
-execute store result score #temp3 int run function large_number:timestamp/macro.1.base64_to_index/3 with storage large_number:math
-execute store result score #temp4 int run function large_number:timestamp/macro.1.base64_to_index/4 with storage large_number:math
-execute store result storage large_number:math temp1 int 1 run scoreboard players add #temp1 int 1000000
-execute store result storage large_number:math temp2 int 1 run scoreboard players add #temp2 int 1000000
-execute store result storage large_number:math temp3 int 1 run scoreboard players add #temp3 int 1000000
-execute store result storage large_number:math temp4 int 1 run scoreboard players add #temp4 int 1000000
+execute store result score #temp1 large_number.int run function large_number:timestamp/macro.1.base64_to_index/1 with storage large_number:math
+execute store result score #temp2 large_number.int run function large_number:timestamp/macro.1.base64_to_index/2 with storage large_number:math
+execute store result score #temp3 large_number.int run function large_number:timestamp/macro.1.base64_to_index/3 with storage large_number:math
+execute store result score #temp4 large_number.int run function large_number:timestamp/macro.1.base64_to_index/4 with storage large_number:math
+execute store result storage large_number:math temp1 int 1 run scoreboard players add #temp1 large_number.int 1000000
+execute store result storage large_number:math temp2 int 1 run scoreboard players add #temp2 large_number.int 1000000
+execute store result storage large_number:math temp3 int 1 run scoreboard players add #temp3 large_number.int 1000000
+execute store result storage large_number:math temp4 int 1 run scoreboard players add #temp4 large_number.int 1000000
 data modify storage large_number:math temp1 set string storage large_number:math temp1 1
 data modify storage large_number:math temp2 set string storage large_number:math temp2 1
 data modify storage large_number:math temp3 set string storage large_number:math temp3 1
@@ -21,10 +21,10 @@ data modify storage large_number:math s1[2].a set string storage large_number:ma
 
 data modify storage large_number:math temp1 set string storage large_number:timestamp timestamp_base64 12 13
 data modify storage large_number:math temp2 set string storage large_number:timestamp timestamp_base64 13 14
-execute store result score #temp1 int run function large_number:timestamp/macro.1.base64_to_index/1 with storage large_number:math
-execute store result score #temp2 int run function large_number:timestamp/macro.1.base64_to_index/2 with storage large_number:math
-execute store result storage large_number:math temp1 int 1 run scoreboard players add #temp1 int 1000000
-execute store result storage large_number:math temp2 int 1 run scoreboard players add #temp2 int 1000000
+execute store result score #temp1 large_number.int run function large_number:timestamp/macro.1.base64_to_index/1 with storage large_number:math
+execute store result score #temp2 large_number.int run function large_number:timestamp/macro.1.base64_to_index/2 with storage large_number:math
+execute store result storage large_number:math temp1 int 1 run scoreboard players add #temp1 large_number.int 1000000
+execute store result storage large_number:math temp2 int 1 run scoreboard players add #temp2 large_number.int 1000000
 data modify storage large_number:math temp1 set string storage large_number:math temp1 1
 data modify storage large_number:math temp2 set string storage large_number:math temp2 1
 function large_number:timestamp/macro.2.01string_4_merge_to_1 with storage large_number:math
@@ -44,22 +44,22 @@ data modify storage large_number:math s1[{a:"00111000"}] set value {a:8}
 data modify storage large_number:math s1[{a:"00111001"}] set value {a:9}
 data modify storage large_number:timestamp timestamp_decoded_base64 append from storage large_number:math s1[].a
 
-execute store result score #timestamp.num int run data get storage large_number:timestamp timestamp_decoded_base64[0] 1000000000
-execute store result score #temp1 int run data get storage large_number:timestamp timestamp_decoded_base64[1] 100000000
-execute store result score #temp2 int run data get storage large_number:timestamp timestamp_decoded_base64[2] 10000000
-execute store result score #temp3 int run data get storage large_number:timestamp timestamp_decoded_base64[3] 1000000
-execute store result score #temp4 int run data get storage large_number:timestamp timestamp_decoded_base64[4] 100000
-execute store result score #temp5 int run data get storage large_number:timestamp timestamp_decoded_base64[5] 10000
-execute store result score #temp6 int run data get storage large_number:timestamp timestamp_decoded_base64[6] 1000
-execute store result score #temp7 int run data get storage large_number:timestamp timestamp_decoded_base64[7] 100
-execute store result score #temp8 int run data get storage large_number:timestamp timestamp_decoded_base64[8] 10
-execute store result score #temp9 int run data get storage large_number:timestamp timestamp_decoded_base64[9]
-scoreboard players operation #timestamp.num int += #temp1 int
-scoreboard players operation #timestamp.num int += #temp2 int
-scoreboard players operation #timestamp.num int += #temp3 int
-scoreboard players operation #timestamp.num int += #temp4 int
-scoreboard players operation #timestamp.num int += #temp5 int
-scoreboard players operation #timestamp.num int += #temp6 int
-scoreboard players operation #timestamp.num int += #temp7 int
-scoreboard players operation #timestamp.num int += #temp8 int
-scoreboard players operation #timestamp.num int += #temp9 int
+execute store result score #timestamp.num large_number.int run data get storage large_number:timestamp timestamp_decoded_base64[0] 1000000000
+execute store result score #temp1 large_number.int run data get storage large_number:timestamp timestamp_decoded_base64[1] 100000000
+execute store result score #temp2 large_number.int run data get storage large_number:timestamp timestamp_decoded_base64[2] 10000000
+execute store result score #temp3 large_number.int run data get storage large_number:timestamp timestamp_decoded_base64[3] 1000000
+execute store result score #temp4 large_number.int run data get storage large_number:timestamp timestamp_decoded_base64[4] 100000
+execute store result score #temp5 large_number.int run data get storage large_number:timestamp timestamp_decoded_base64[5] 10000
+execute store result score #temp6 large_number.int run data get storage large_number:timestamp timestamp_decoded_base64[6] 1000
+execute store result score #temp7 large_number.int run data get storage large_number:timestamp timestamp_decoded_base64[7] 100
+execute store result score #temp8 large_number.int run data get storage large_number:timestamp timestamp_decoded_base64[8] 10
+execute store result score #temp9 large_number.int run data get storage large_number:timestamp timestamp_decoded_base64[9]
+scoreboard players operation #timestamp.num large_number.int += #temp1 large_number.int
+scoreboard players operation #timestamp.num large_number.int += #temp2 large_number.int
+scoreboard players operation #timestamp.num large_number.int += #temp3 large_number.int
+scoreboard players operation #timestamp.num large_number.int += #temp4 large_number.int
+scoreboard players operation #timestamp.num large_number.int += #temp5 large_number.int
+scoreboard players operation #timestamp.num large_number.int += #temp6 large_number.int
+scoreboard players operation #timestamp.num large_number.int += #temp7 large_number.int
+scoreboard players operation #timestamp.num large_number.int += #temp8 large_number.int
+scoreboard players operation #timestamp.num large_number.int += #temp9 large_number.int

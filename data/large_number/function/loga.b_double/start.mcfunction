@@ -28,10 +28,10 @@ data modify storage large_number:math temp_b set string storage large_number:mat
 execute if data storage large_number:math {temp_a:"0.0"} unless data storage large_number:math {temp_b:"1.0"} run data modify storage large_number:math log(a,b)_double.output set from storage large_number:math buffer_NaN
 execute if data storage large_number:math {temp_a:"1.0"} unless data storage large_number:math {temp_b:"1.0"} run data modify storage large_number:math log(a,b)_double.output set from storage large_number:math buffer_NaN
 execute if data storage large_number:math {temp_b:"1.0"} run data modify storage large_number:math log(a,b)_double.output set value 0.0d
-execute unless data storage large_number:math {temp_a:"0.0"} unless data storage large_number:math {temp_a:"1.0"} if data storage large_number:math {temp_b:"0.0"} run data modify storage large_number:math log(a,b)_double.output set value "-Infinityd"
+execute unless data storage large_number:math {temp_a:"0.0"} unless data storage large_number:math {temp_a:"1.0"} if data storage large_number:math {temp_b:"0.0"} run data modify storage large_number:math log(a,b)_double.output set value -1.797693134862315807E308d
 
 #输出
-execute store result score #loga.b.output int run data get storage large_number:math log(a,b)_double.output 10000
-execute unless data storage large_number:math log(a,b)_double.output run scoreboard players reset #loga.b.output int
+execute store result score #loga.b.output large_number.int run data get storage large_number:math log(a,b)_double.output 10000
+execute unless data storage large_number:math log(a,b)_double.output run scoreboard players reset #loga.b.output large_number.int
 data modify storage large_number:math temp1 set string storage large_number:math log(a,b)_double.output 0 -1
-execute if data storage large_number:math {temp1:"-Infinity"} run scoreboard players set #loga.b.output int -2147483648
+execute if data storage large_number:math {temp1:"-Infinity"} run scoreboard players set #loga.b.output large_number.int -2147483648

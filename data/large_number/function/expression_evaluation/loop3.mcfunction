@@ -1,4 +1,4 @@
-scoreboard players set #test2 int 1
+scoreboard players set #test2 large_number.int 1
 
 data modify storage large_number:math stemp9 set value ""
 data modify storage large_number:math stemp9 set from storage large_number:math temp_s1[-1]

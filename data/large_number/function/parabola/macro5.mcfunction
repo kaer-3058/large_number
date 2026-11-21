@@ -1,1 +1,1 @@
-$particle minecraft:end_rod ^$(temp3) ^$(temp4) ^ 0.0 0.0 0.0 0.0 1 force
+$execute positioned ^$(temp3) ^$(temp4) ^ run function large_number:macro_operation/particle_end_rod_here

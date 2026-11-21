@@ -1,1 +1,1 @@
-$particle end_rod ^$(stemp2) ^$(stemp1) ^ .0 .0 .0 .0 1 force
+$execute positioned ^$(stemp2) ^$(stemp1) ^ run function large_number:macro_operation/particle_end_rod_here

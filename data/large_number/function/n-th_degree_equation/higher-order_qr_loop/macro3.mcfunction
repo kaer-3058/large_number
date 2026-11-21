@@ -1,0 +1,1 @@
+$function large_number:n-th_degree_equation/higher-order_qr_loop/r_c_index/output/$(temp_index)

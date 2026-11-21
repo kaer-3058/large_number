@@ -1,0 +1,1 @@
+$execute store result storage large_number:math temp1 double $(_expressionss2) run return 572957795

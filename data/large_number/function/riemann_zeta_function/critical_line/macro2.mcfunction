@@ -1,0 +1,2 @@
+scoreboard players set #temp_riemann_zeta_critical_line_inp_is- large_number.int 1
+$execute store result storage large_number:math riemann_zeta_critical_line_inp double $(riemann_zeta_critical_line_inp) run return -1

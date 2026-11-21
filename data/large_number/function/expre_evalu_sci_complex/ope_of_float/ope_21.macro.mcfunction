@@ -1,0 +1,2 @@
+$execute store result storage large_number:math _expressionss3.x double $(x) run scoreboard players set #-1 const -1
+$execute store result storage large_number:math _expressionss3.i double $(i) run return -1

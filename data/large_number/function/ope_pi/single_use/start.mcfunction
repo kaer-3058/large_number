@@ -1,13 +1,13 @@
 ##计算圆周率π
 
-#位数：scoreboard players set #ope_pi.digit int 20
+#位数：scoreboard players set #ope_pi.digit large_number.int 20
 #理论上最高支持107373位
 
 #原理：https://zhuanlan.zhihu.com/p/114320417
 
 #我们mcf也有自己的计算π的算法了
 
-execute store result score #length lan.pi_information run scoreboard players operation #temp1 lan.pi_information = #ope_pi.digit int
+execute store result score #length lan.pi_information run scoreboard players operation #temp1 lan.pi_information = #ope_pi.digit large_number.int
 execute store result score #temp3 lan.pi_information store result score #temp2 lan.pi_information run scoreboard players add #temp1 lan.pi_information 8
 
 #生成x1
@@ -121,7 +121,7 @@ data modify storage large_number:pi_information pi prepend value "."
 data modify storage large_number:pi_information pi prepend value "3"
 
 
-execute unless score #large_number.all_tellraw_set int matches 1 run tellraw @a {"translate":"large_number.ope_pi.tell","fallback":"[\u00A7e卡儿的数学库\u00A7r]\n圆周率π [%1$s位]：\n%2$s","with":[{"score":{"name":"#ope_pi.digit","objective":"int"}},{"nbt":"pi[]","storage":"large_number:pi_information","separator":""}]}
+execute unless score #large_number.all_tellraw_set large_number.int matches 1 run tellraw @a {"translate":"large_number.ope_pi.tell","fallback":"[\u00A7e卡儿的数学库\u00A7r]\n圆周率π [%1$s位]：\n%2$s","with":[{"score":{"name":"#ope_pi.digit","objective":"large_number.int"}},{"nbt":"pi[]","storage":"large_number:pi_information","separator":""}]}
 
 
 #tellraw @a {"nbt":"pi","storage":"large_number:pi_information"}

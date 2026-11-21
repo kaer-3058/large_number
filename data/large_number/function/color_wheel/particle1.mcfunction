@@ -734,4 +734,4 @@ execute rotated ~ 3.0 run particle dust{color:[1.0f,0.0f,0.050f],scale:0.5} ^ ^ 
 execute rotated ~ 2.0 run particle dust{color:[1.0f,0.0f,0.033f],scale:0.5} ^ ^ ^1
 execute rotated ~ 1.0 run particle dust{color:[1.0f,0.0f,0.017f],scale:0.5} ^ ^ ^1
 
-execute if score #color_wheel.see_marker int matches 1 if score #color_wheel.angle.input int matches 0..3600001 run function large_number:color_wheel/in/particle/macro1 with storage large_number:math color_wheel_color_cube_RGB
+execute if score #color_wheel.see_marker large_number.int matches 1 if score #color_wheel.angle.input large_number.int matches 0..3600001 run function large_number:color_wheel/in/particle/macro1 with storage large_number:math color_wheel_color_cube_RGB

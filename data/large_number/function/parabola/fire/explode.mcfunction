@@ -9,7 +9,7 @@ kill @s
 # @e[type=minecraft:falling_block,tag=test233]
 
 #执行：
-#scoreboard players set #dt int 65
+#scoreboard players set #dt large_number.int 65
 #setblock 274 70 -30 minecraft:redstone_block
 
 #summon marker 276.49 70.20 -28.54 {Tags:["test233"]}

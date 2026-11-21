@@ -1,16 +1,21 @@
 {
-    "function": "minecraft:set_custom_model_data",
-    "value": {
-        "type": "binomial",
-        "n": {
-            "type": "storage",
-            "storage": "large_number:math",
-            "path": "binomial_distribution.n"
-        },
-        "p": {
-            "type": "storage",
-            "storage": "large_number:math",
-            "path": "binomial_distribution.p"
-        }
+    "function": "set_custom_model_data",
+    "floats": {
+        "mode": "replace_all",
+        "values": [
+            {
+                "type": "minecraft:binomial",
+                "n": {
+                    "type": "minecraft:storage",
+                    "storage": "large_number:math",
+                    "path": "binomial_distribution.n"
+                },
+                "p": {
+                    "type": "minecraft:storage",
+                    "storage": "large_number:math",
+                    "path": "binomial_distribution.p"
+                }
+            }
+        ]
     }
 }

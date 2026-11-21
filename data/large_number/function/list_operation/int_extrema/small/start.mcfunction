@@ -8,7 +8,7 @@
 
 data modify storage large_number:math stempd set from storage large_number:math int_extrema.input
 data modify storage large_number:math stempu set from storage large_number:math int_extrema.mode
-execute store result score #float_comparison_sizes_B int run data get storage large_number:math stempd[0]
+execute store result score #float_comparison_sizes_B large_number.int run data get storage large_number:math stempd[0]
 
 execute if data storage large_number:math stempd[1] run function large_number:list_operation/int_extrema/small/loop
-execute store result storage large_number:math int_extrema.output int 1 run scoreboard players get #float_comparison_sizes_B int
+execute store result storage large_number:math int_extrema.output int 1 run scoreboard players get #float_comparison_sizes_B large_number.int

@@ -9,6 +9,6 @@ execute unless data storage large_number:math {stemp1:"-"} run function large_nu
 data modify storage large_number:math stempu set string storage large_number:math temp1 0 1
 execute unless data storage large_number:math {stempu:"-"} run data modify storage large_number:math stempu set value "+"
 data modify storage large_number:math temp1 set from storage large_number:math temp_compar_a
-execute store success score #temp int run data modify storage large_number:math temp1 set from storage large_number:math temp_compar_b
-execute if score #temp int matches 0 run data modify storage large_number:math stempu set value "="
+execute store success score #temp large_number.int run data modify storage large_number:math temp1 set from storage large_number:math temp_compar_b
+execute if score #temp large_number.int matches 0 run data modify storage large_number:math stempu set value "="
 data modify storage large_number:math float_comparison_sizes.output set from storage large_number:math stempu

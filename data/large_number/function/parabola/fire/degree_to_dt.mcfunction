@@ -6,43 +6,43 @@
 execute store result score @s x run data get entity @s Pos[0] 10000
 execute store result score @s y run data get entity @s Pos[1] 10000
 execute store result score @s z run data get entity @s Pos[2] 10000
-scoreboard players operation #sstempx0 int = @s x
-scoreboard players operation #sstempz0 int = @s z
+scoreboard players operation #sstempx0 large_number.int = @s x
+scoreboard players operation #sstempz0 large_number.int = @s z
 
 execute as b09e-44-fded-6-efa5ffffef64 run function large_number:parabola/fire/as_entity2
 
-scoreboard players operation #sstempx1 int = #1.1 int
-scoreboard players operation #sstempz1 int = #1.3 int
-scoreboard players operation @s vx = #1.1 int
-scoreboard players operation @s vy = #1.2 int
-scoreboard players operation @s vz = #1.3 int
+scoreboard players operation #sstempx1 large_number.int = #1.1 large_number.int
+scoreboard players operation #sstempz1 large_number.int = #1.3 large_number.int
+scoreboard players operation @s vx = #1.1 large_number.int
+scoreboard players operation @s vy = #1.2 large_number.int
+scoreboard players operation @s vz = #1.3 large_number.int
 
 #根据抛射角计算dt
-scoreboard players operation #sstempx1 int -= #sstempx0 int
-execute unless score #sstempi int matches 0 store result score #dt int run scoreboard players operation #sstempx1 int /= #sstempi int
+scoreboard players operation #sstempx1 large_number.int -= #sstempx0 large_number.int
+execute unless score #sstempi large_number.int matches 0 store result score #dt large_number.int run scoreboard players operation #sstempx1 large_number.int /= #sstempi large_number.int
 
-scoreboard players operation #sstempz1 int -= #sstempz0 int
-execute unless score #sstempk int matches 0 store result score #dt int run scoreboard players operation #sstempz1 int /= #sstempk int
-execute if score #sstempi int matches 0 if score #sstempk int matches 0 run scoreboard players set #dt int 1
+scoreboard players operation #sstempz1 large_number.int -= #sstempz0 large_number.int
+execute unless score #sstempk large_number.int matches 0 store result score #dt large_number.int run scoreboard players operation #sstempz1 large_number.int /= #sstempk large_number.int
+execute if score #sstempi large_number.int matches 0 if score #sstempk large_number.int matches 0 run scoreboard players set #dt large_number.int 1
 
-execute if score #dt int matches ..-1 run scoreboard players operation #dt int *= -1 const
-execute if score #dt int matches 0 run scoreboard players set #dt int 1
+execute if score #dt large_number.int matches ..-1 run scoreboard players operation #dt large_number.int *= -1 const
+execute if score #dt large_number.int matches 0 run scoreboard players set #dt large_number.int 1
 
 #计算初速度
 scoreboard players operation @s vx -= @s x
-execute store result storage large_number:math buffer_all_xyz[0] double .0001 run scoreboard players operation @s vx /= #dt int
+execute store result storage large_number:math buffer_all_xyz[0] double .0001 run scoreboard players operation @s vx /= #dt large_number.int
 
 scoreboard players operation @s vy -= @s y
-scoreboard players operation @s vy /= #dt int
-scoreboard players operation #temp int = #dt int
-scoreboard players operation #temp int *= #g/2 const
-execute store result storage large_number:math buffer_all_xyz[1] double .0001 run scoreboard players operation @s vy += #temp int
+scoreboard players operation @s vy /= #dt large_number.int
+scoreboard players operation #temp large_number.int = #dt large_number.int
+scoreboard players operation #temp large_number.int *= #g/2 const
+execute store result storage large_number:math buffer_all_xyz[1] double .0001 run scoreboard players operation @s vy += #temp large_number.int
 
 scoreboard players operation @s vz -= @s z
-execute store result storage large_number:math buffer_all_xyz[2] double .0001 run scoreboard players operation @s vz /= #dt int
+execute store result storage large_number:math buffer_all_xyz[2] double .0001 run scoreboard players operation @s vz /= #dt large_number.int
 
 #储存运动时间
-scoreboard players operation @s int = #dt int
+scoreboard players operation @s int = #dt large_number.int
 
 #标记为发射完成实体
 tag @s add missile_shot

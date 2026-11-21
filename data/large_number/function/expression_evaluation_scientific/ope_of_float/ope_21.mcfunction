@@ -1,3 +1,3 @@
 #取相反数
 
-$execute store result storage large_number:math _expressionss3 double $(_expressionss2) run return -1
+function large_number:expression_evaluation_scientific/ope_of_float/ope_21.macro with storage large_number:math

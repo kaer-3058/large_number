@@ -8,5 +8,5 @@ data modify storage large_number:math 3d_ar_rotation_circle_posX append from sto
 data modify storage large_number:math 3d_ar_rotation_circle_posY append from storage large_number:math buffer_all_xyz[2]
 
 #递归
-execute store result entity @s Rotation[0] float -0.1 run scoreboard players operation #loop int -= #3d.circle.angle int
-execute if score #loop int matches 1.. run function large_number:particle/3d_ar_rotation_circle/loop
+execute store result entity @s Rotation[0] float -0.1 run scoreboard players operation #loop large_number.int -= #3d.circle.angle large_number.int
+execute if score #loop large_number.int matches 1.. run function large_number:particle/3d_ar_rotation_circle/loop

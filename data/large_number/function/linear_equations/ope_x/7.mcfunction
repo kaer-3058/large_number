@@ -67,4 +67,4 @@ data remove storage large_number:math temp_output_matrix[-7][-1]
 data remove storage large_number:math temp_output_matrix[-1]
 data remove storage large_number:math store_vecb[-1]
 
-scoreboard players remove #determinant.order int 1
+scoreboard players remove #determinant.order large_number.int 1

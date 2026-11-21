@@ -1,0 +1,1 @@
+execute store result score #float_int0 large_number.int run data get storage large_number:math float_nbt_to_score_input 1.0

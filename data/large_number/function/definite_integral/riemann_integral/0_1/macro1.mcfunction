@@ -1,1 +1,1 @@
-$execute store result storage large_number:math temp4 double $(sstemp_a_b_divx) run scoreboard players get #temp int
+$execute store result storage large_number:math temp4 double $(sstemp_a_b_divx) run scoreboard players get #temp large_number.int

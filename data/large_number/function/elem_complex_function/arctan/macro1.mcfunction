@@ -1,0 +1,1 @@
+$execute store result storage large_number:math atan2_double.y double $(x) run return 2

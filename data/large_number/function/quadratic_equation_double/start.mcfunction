@@ -3,7 +3,9 @@
 #data modify storage large_number:math quadratic_equation_double.input set value [1.5,-2.8,-26.34]
 #列表三项分别表示一元二次方程系数里的[a,b,c]
 
-#data modify storage large_number:math quadratic_equation_double.tell set value 1
+#data modify storage large_number:math quadratic_equation_double.tell set value 
+
+#function large_number:quadratic_equation_double/start
 
 data modify storage large_number:math temp_a set from storage large_number:math quadratic_equation_double.input[0]
 data modify storage large_number:math temp_b set from storage large_number:math quadratic_equation_double.input[1]

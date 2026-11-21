@@ -29,11 +29,10 @@
 #give @s evoker_spawn_egg[entity_data={id:"giant"},custom_model_data=513005]
 
 
-#输入：scoreboard players set #damage_% int 3
+#输入：scoreboard players set #damage_% large_number.int 3
 
 
-#data modify storage large_number:math expression_evaluation.input set value "0.5^0·(cos(3^0·π·ｘ/2))+0.5^1·(cos(3^1·π·ｘ/2))+0.5^2·(cos(3^2·π·ｘ/2))+0.5^3·(cos(3^3·π·ｘ/2))+0.5^4·(cos(3^4·π·ｘ/2))+0.5^5·(cos(3^5·π·ｘ/2))+0.5^6·(cos(3^6·π·ｘ/2))+0.5^7·(cos(3^7·π·ｘ/2))+0.5^8·(cos(3^8·π·ｘ/2))+0.5^9·(cos(3^9·π·ｘ/2))+0.5^10·(cos(3^10·π·ｘ/2))"
-
+#data modify storage large_number:math expression_evaluation.input set value "0.5^0·(cos(3^0·π·x/2))+0.5^1·(cos(3^1·π·x/2))+0.5^2·(cos(3^2·π·x/2))+0.5^3·(cos(3^3·π·x/2))+0.5^4·(cos(3^4·π·x/2))+0.5^5·(cos(3^5·π·x/2))+0.5^6·(cos(3^6·π·x/2))+0.5^7·(cos(3^7·π·x/2))+0.5^8·(cos(3^8·π·x/2))+0.5^9·(cos(3^9·π·x/2))+0.5^10·(cos(3^10·π·x/2))"
 
 
 

@@ -1,0 +1,1 @@
+$execute store result storage large_number:math _expressionss3.i double $(i) run return -1

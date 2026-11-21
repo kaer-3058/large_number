@@ -1,0 +1,1 @@
+$data modify storage large_number:math linear_equations_tell.tell set value "线性方程组: \n$(1_1)a$(1_2)b$(1_3)c=$(b_1)\n$(2_1)a$(2_2)b$(2_3)c=$(b_2)\n$(3_1)a$(3_2)b$(3_3)c=$(b_3)\n\n解得: a=$(c_1), b=$(c_2), c=$(c_3)"

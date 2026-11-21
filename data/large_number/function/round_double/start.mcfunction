@@ -1,7 +1,7 @@
 ##对浮点数向下取整
 
 #data modify storage large_number:math round_double.input set value 38.6625
-#向0取整：scoreboard players set #round_towards_zero int 1
+#向0取整：scoreboard players set #round_towards_zero large_number.int 1
 
 data modify storage large_number:math temp1 set string storage large_number:math round_double.input 0 -1
 
@@ -11,13 +11,14 @@ data modify storage large_number:math temp2[0].a set string storage large_number
 data modify storage large_number:math temp2[1].a set string storage large_number:math temp1 -4 -3
 data modify storage large_number:math temp2[2].a set string storage large_number:math temp1 -3 -2
 data modify storage large_number:math temp2[3].a set string storage large_number:math temp1 -2 -1
-execute store success score #is_XXEXX int run data get storage large_number:math temp2[{a:"E"}]
+execute store success score #is_XXEXX large_number.int run data get storage large_number:math temp2[{a:"E"}]
 
 #如果为科学计数法则拆出指数位
 data modify storage large_number:math temp_expon set value "0"
-execute if score #is_XXEXX int matches 1 run function large_number:double_sqrt.if/the_scientific_notation
-execute store result score #_exp int run function large_number:sigmoid/macro3 with storage large_number:math
+execute if score #is_XXEXX large_number.int matches 1 run function large_number:double_sqrt.if/the_scientific_notation
+execute store result score #_exp large_number.int run function large_number:sigmoid/macro3 with storage large_number:math
 
-execute if score #_exp int matches 17.. run data modify storage large_number:math round_double.output set from storage large_number:math round_double.input
-execute if score #_exp int matches ..-17 run data modify storage large_number:math round_double.output set value 0.0
-execute if score #_exp int matches -16..16 run function large_number:round_double/1
+data modify storage large_number:math round_double.output set value 0.0
+execute if score #_exp large_number.int matches 17.. run data modify storage large_number:math round_double.output set from storage large_number:math round_double.input
+execute store result score #round_double.output large_number.int run data get storage large_number:math round_double.output
+execute if score #_exp large_number.int matches -16..16 run function large_number:round_double/1

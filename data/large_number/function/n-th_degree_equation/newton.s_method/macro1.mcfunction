@@ -1,0 +1,1 @@
+$execute store result storage large_number:math temp_newton-s_method_fz[0] double $(temp1) run return -1

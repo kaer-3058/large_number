@@ -2,7 +2,7 @@
 
 #是则输出1，不是则输出0
 
-scoreboard players set #expression_evaluation_test2 int 2
+scoreboard players set #expression_evaluation_test2 large_number.int 2
 
 data modify storage large_number:math float_comparison_sizes.A set from storage large_number:math _expressionss1
 data modify storage large_number:math float_comparison_sizes.B set from storage large_number:math _expressionss2

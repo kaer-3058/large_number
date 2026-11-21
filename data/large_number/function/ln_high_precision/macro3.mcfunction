@@ -1,1 +1,1 @@
-$tp ~ ~$(sstemp_f) ~
+$execute positioned ~ ~$(sstemp_f) ~ positioned ~ ~-$(temp_ff2) ~ positioned ~ ~$(sstempcc) ~ positioned ~ ~$(high_precision_stemp4) ~ run function large_number:macro_operation/tp_here

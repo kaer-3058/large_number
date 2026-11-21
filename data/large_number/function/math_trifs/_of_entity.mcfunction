@@ -7,23 +7,23 @@
 execute as b09e-44-fded-6-efa5ffffef64 rotated as @s rotated ~ 0.0 positioned .0 .0 .0 run tp @s ^ ^ ^-1.0 ~ ~
 
 #sin
-execute store result score #tan int store result score #sin int run data get entity b09e-44-fded-6-efa5ffffef64 Pos[0] 10000
+execute store result score #tan large_number.int store result score #sin large_number.int run data get entity b09e-44-fded-6-efa5ffffef64 Pos[0] 10000
 
 #cos
-execute store result score #cot int store result score #cos int run data get entity b09e-44-fded-6-efa5ffffef64 Pos[2] -10000
+execute store result score #cot large_number.int store result score #cos large_number.int run data get entity b09e-44-fded-6-efa5ffffef64 Pos[2] -10000
 
 #tan
-scoreboard players operation #tan int *= 10000 const
-scoreboard players operation #tan int /= #cos int
+scoreboard players operation #tan large_number.int *= 10000 const
+scoreboard players operation #tan large_number.int /= #cos large_number.int
 
 #cot
-scoreboard players operation #cot int *= 10000 const
-scoreboard players operation #cot int /= #sin int
+scoreboard players operation #cot large_number.int *= 10000 const
+scoreboard players operation #cot large_number.int /= #sin large_number.int
 
 #sec
-scoreboard players set #sec int 100000000
-scoreboard players operation #sec int /= #cos int
+scoreboard players set #sec large_number.int 100000000
+scoreboard players operation #sec large_number.int /= #cos large_number.int
 
 #csc
-scoreboard players set #csc int 100000000
-scoreboard players operation #csc int /= #sin int
+scoreboard players set #csc large_number.int 100000000
+scoreboard players operation #csc large_number.int /= #sin large_number.int

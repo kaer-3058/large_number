@@ -13,7 +13,7 @@ data modify storage large_number:math temp_01 set value ""
 
 #判断输入值是不是整数
 execute store result storage large_number:math temp1 double 1 run data get storage large_number:math temp_x
-execute store success score #expression_evaluation_test1 int run data modify storage large_number:math temp1 set from storage large_number:math temp_x
-execute if score #expression_evaluation_test1 int matches 0 run data modify storage large_number:math temp_01 set value ".0"
+execute store success score #expression_evaluation_test1 large_number.int run data modify storage large_number:math temp1 set from storage large_number:math temp_x
+execute if score #expression_evaluation_test1 large_number.int matches 0 run data modify storage large_number:math temp_01 set value ".0"
 
 function large_number:math_trifs/arctan/1.5 with storage large_number:math

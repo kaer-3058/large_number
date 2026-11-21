@@ -16,14 +16,14 @@ execute if block ~ ~ ~ minecraft:green_concrete run data modify storage large_nu
 execute if block ~ ~ ~ minecraft:red_concrete run data modify storage large_number:math temp_particle set value "{color:[.49f,.086f,.086f],scale:.4}"
 execute if block ~ ~ ~ minecraft:black_concrete run data modify storage large_number:math temp_particle set value "{color:[.004f,.004f,.02f],scale:.4}"
 
-execute store result storage large_number:math sstemp0 int 1 run scoreboard players add #sstemp0 int 1
+execute store result storage large_number:math sstemp0 int 1 run scoreboard players add #sstemp0 large_number.int 1
 execute if data storage large_number:math temp_particle run function large_number:particle/holographic_projection/set with storage large_number:math
 execute if data storage large_number:math temp_particle run function large_number:particle/holographic_projection/set.test.0 with storage large_number:math
-scoreboard players set #temp1 int 0
-execute if data storage large_number:math {s1:".0"} run scoreboard players set #temp1 int 1
-execute if data storage large_number:math {s2:".0"} run scoreboard players set #temp1 int 1
-execute if data storage large_number:math {s3:".0"} run scoreboard players set #temp1 int 1
-execute if score #temp1 int matches 1 run function large_number:particle/holographic_projection/set.test.0.2 with storage large_number:math
+scoreboard players set #temp1 large_number.int 0
+execute if data storage large_number:math {s1:".0"} run scoreboard players set #temp1 large_number.int 1
+execute if data storage large_number:math {s2:".0"} run scoreboard players set #temp1 large_number.int 1
+execute if data storage large_number:math {s3:".0"} run scoreboard players set #temp1 large_number.int 1
+execute if score #temp1 large_number.int matches 1 run function large_number:particle/holographic_projection/set.test.0.2 with storage large_number:math
 
 #添加可解析方块：
 #在本函数第18行开始添加如下格式的命令：

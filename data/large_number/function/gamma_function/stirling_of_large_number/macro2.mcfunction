@@ -1,0 +1,1 @@
+$execute store result storage large_number:math float_reciprocal.input double $(store_gamma_function_inp) run return 12

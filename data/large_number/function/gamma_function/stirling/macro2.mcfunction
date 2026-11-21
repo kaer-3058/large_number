@@ -1,1 +1,1 @@
-$tp ~ ~$(sstemp06) ~
+$execute positioned ~ ~$(sstemp06) ~ run function large_number:macro_operation/tp_here

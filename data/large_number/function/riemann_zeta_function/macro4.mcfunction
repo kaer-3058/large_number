@@ -1,0 +1,1 @@
+$execute store result storage large_number:math gamma_function.input double $(Temp_store_zeta_function_inp) run return -1

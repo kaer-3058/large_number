@@ -14,6 +14,9 @@
 
 #蒙特卡洛积分法：https://zhuanlan.zhihu.com/p/659412180
 
+#未定义点的列表
+data modify storage large_number:math definite_integral_error_x_list set value []
+
 data remove storage large_number:math expression_evaluation.definite_integral.output
 
 #b-a
@@ -24,14 +27,14 @@ execute if data storage large_number:math {stemp1:"-"} run function large_number
 data modify storage large_number:math temp3 set value ""
 execute unless data storage large_number:math {stemp1:"-"} run data modify storage large_number:math temp3 set value "-"
 function large_number:float_add_subtra/macro2.ope with storage large_number:math
-execute as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
+execute as @e[type=minecraft:item,distance=.0..] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
 data modify storage large_number:math ssstemp_b_a set from storage large_number:math temp1
 
 
-execute store result score #Store_expression_evaluation.definite_integral.loop int run data get storage large_number:math expression_evaluation.definite_integral.dx_times
+execute store result score #Store_expression_evaluation.definite_integral.loop large_number.int run data get storage large_number:math expression_evaluation.definite_integral.dx_times
 
 data modify storage large_number:math sstempr set value []
-execute if score #Store_expression_evaluation.definite_integral.loop int matches 1.. run function large_number:definite_integral/monte_carlo_method/loop1
+execute if score #Store_expression_evaluation.definite_integral.loop large_number.int matches 1.. run function large_number:definite_integral/monte_carlo_method/loop1
 
 execute if data storage large_number:math sstempr[0] positioned .0 .0 .0 run function large_number:definite_integral/riemann_integral/loop2
 
@@ -43,4 +46,4 @@ data modify storage large_number:math float_multiply.input2 set from storage lar
 function large_number:float_mul.high_precision/start
 data modify storage large_number:math expression_evaluation.definite_integral.output set from storage large_number:math float_multiply.output
 
-execute unless score #large_number.all_tellraw_set int matches 1 run tellraw @a {"translate":"large_number.definite_integral.end","fallback": "\u00A77\u00A7o定积分求解完成"}
+execute unless score #large_number.all_tellraw_set large_number.int matches 1 run tellraw @a {"translate":"large_number.definite_integral.end","fallback": "\u00A77\u00A7o定积分求解完成"}

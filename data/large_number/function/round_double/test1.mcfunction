@@ -1,3 +1,4 @@
+#此函数为算法的一部分，非工程测试函数，如无变动此算法的需求请勿删勿改
 data modify storage large_number:math temp1 set string storage large_number:math sstemp1 0 1
 execute if data storage large_number:math {temp1:"."} run return 1
 data modify storage large_number:math temp1 set string storage large_number:math sstemp1 1 2

@@ -1,0 +1,1 @@
+$execute store result storage large_number:math float_division.input1 double $(temp_b) run return -1

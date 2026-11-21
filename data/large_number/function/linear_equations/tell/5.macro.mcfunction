@@ -1,0 +1,1 @@
+$data modify storage large_number:math linear_equations_tell.tell set value "线性方程组: \n$(1_1)a$(1_2)b$(1_3)c$(1_4)d$(1_5)e=$(b_1)\n$(2_1)a$(2_2)b$(2_3)c$(2_4)d$(2_5)e=$(b_2)\n$(3_1)a$(3_2)b$(3_3)c$(3_4)d$(3_5)e=$(b_3)\n$(4_1)a$(4_2)b$(4_3)c$(4_4)d$(4_5)e=$(b_4)\n$(5_1)a$(5_2)b$(5_3)c$(5_4)d$(5_5)e=$(b_5)\n\n解得: a=$(c_1), b=$(c_2), c=$(c_3), d=$(c_4), e=$(c_5)"

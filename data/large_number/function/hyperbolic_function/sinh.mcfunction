@@ -2,6 +2,8 @@
 
 #data modify storage large_number:math hyperbolic_function.input set value 12.21088
 
+#function large_number:hyperbolic_function/sinh
+
 #e^x
 data modify storage large_number:math exp_e^x.input set from storage large_number:math hyperbolic_function.input
 function large_number:exp_e.x/start
@@ -22,7 +24,6 @@ data modify storage large_number:math temp2 set from storage large_number:math t
 data modify storage large_number:math stemp1 set string storage large_number:math temp2 0 1
 execute if data storage large_number:math {stemp1:"-"} run function large_number:float_comparison_sizes/float_sub_ope.1
 execute unless data storage large_number:math {stemp1:"-"} run function large_number:float_comparison_sizes/float_sub_ope.2
-
 #((e^x)-(e^-x))*5
 function large_number:hyperbolic_function/macro1 with storage large_number:math
 
@@ -33,11 +34,11 @@ data modify storage large_number:math temp2[0].a set string storage large_number
 data modify storage large_number:math temp2[1].a set string storage large_number:math temp1 -4 -3
 data modify storage large_number:math temp2[2].a set string storage large_number:math temp1 -3 -2
 data modify storage large_number:math temp2[3].a set string storage large_number:math temp1 -2 -1
-execute store success score #is_XXEXX int run data get storage large_number:math temp2[{a:"E"}]
+execute store success score #is_XXEXX large_number.int run data get storage large_number:math temp2[{a:"E"}]
 data modify storage large_number:math temp_expon set value "0"
-execute if score #is_XXEXX int matches 1 run function large_number:double_sqrt.if/the_scientific_notation
-execute store result score #_exp int run function large_number:sigmoid/macro3 with storage large_number:math
-execute store result storage large_number:math temp_expon int 1 run scoreboard players remove #_exp int 1
+execute if score #is_XXEXX large_number.int matches 1 run function large_number:double_sqrt.if/the_scientific_notation
+execute store result score #_exp large_number.int run function large_number:sigmoid/macro3 with storage large_number:math
+execute store result storage large_number:math temp_expon int 1 run scoreboard players remove #_exp large_number.int 1
 function large_number:gamma_function/stirling/macro1 with storage large_number:math
 
 data modify storage large_number:math hyperbolic_function.output set from storage large_number:math sstemp06

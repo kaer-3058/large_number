@@ -1,1 +1,1 @@
-$execute positioned .0 $(temp_a11) .0 run loot spawn .0 ~$(temp_a12) .0 loot large_number:check_pos
+$execute positioned .0 $(temp_a11) .0 positioned .0 ~$(temp_a12) .0 run function large_number:macro_operation/loot_spawn_here

@@ -1,0 +1,1 @@
+$execute store result storage large_number:math temp_arcinp_q double $(temp_arcinp_q) run return -1

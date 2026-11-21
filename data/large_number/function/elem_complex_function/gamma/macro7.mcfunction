@@ -1,0 +1,1 @@
+$execute store result storage large_number:math stemp_gamma_function_inp.i double $(i) run return -1

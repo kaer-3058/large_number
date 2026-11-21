@@ -1,0 +1,1 @@
+$execute store result storage large_number:math tan_high_precision.input double $(temp_digamma_function_inp2) run return 180

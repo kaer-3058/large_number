@@ -1,2 +1,2 @@
-execute if score #parametric_equation_particle.start int matches 1 run function large_number:particle/parametric_equation/different_steps/1
-execute if score #parametric_equation_particle.start int matches 2 run function large_number:particle/parametric_equation/different_steps/2
+execute if score #parametric_equation_particle.start large_number.int matches 1 run function large_number:particle/parametric_equation/different_steps/1
+execute if score #parametric_equation_particle.start large_number.int matches 2 run function large_number:particle/parametric_equation/different_steps/2

@@ -1,6 +1,6 @@
 ##显示
 
-#显示模式：scoreboard players set #function_graph_1.particle.mode int 1
+#显示模式：scoreboard players set #function_graph_1.particle.mode large_number.int 1
 #1是自变量为x，2是自变量为y
 
 data modify storage large_number:math temp1 set from storage large_number:math function_graph_1_Pos

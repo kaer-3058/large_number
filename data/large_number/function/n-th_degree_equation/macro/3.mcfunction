@@ -1,0 +1,1 @@
+$execute store result storage large_number:math temp_del_4 double $(output) run return 4

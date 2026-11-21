@@ -9,7 +9,8 @@
 data modify storage large_number:math float_multiply.input1 set from storage large_number:math arcsin_cos_high_precision.input
 function large_number:float_mul.high_precision/squ/start
 execute as b09e-44-fded-6-efa5ffffef64 run function large_number:math_trifs/arccos_hp/as_entity_1
-function large_number:double_sqrt
+scoreboard players set #New_double_sqrt.decimal_add large_number.int 1
+function large_number:new_double_ope/double_sqrt
 data modify storage large_number:math atan2_double.x set from storage large_number:math double_sqrt.output
 data modify storage large_number:math atan2_double.y set from storage large_number:math arcsin_cos_high_precision.input
 execute as b09e-44-fded-6-efa5ffffef64 positioned .0 .0 .0 run function large_number:math_trifs/atan2_double/start

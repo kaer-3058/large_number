@@ -11,3 +11,5 @@ execute rotated as @s rotated ~ .0 positioned .0 .0 .0 run tp @s ^1.0 ^ ^ ~ ~
 data modify storage large_number:math xyzw set value [0f,0f,0f,0f]
 execute store result storage large_number:math xyzw[3] float .000000001 run data get entity @s Pos[0] 1000000000
 execute store result storage large_number:math xyzw[2] float -.000000001 run data get entity @s Pos[2] 1000000000
+
+#summon minecraft:text_display ~ ~ ~ {text:{text:"A"},transformation:{right_rotation:[0.0f,0.0f,0.0f,1.0],left_rotation:[-0.8509f,0.0f,0.0f,0.5253f],scale:[1.0f,1.0f,1.0f],translation:[0.0f,-0.15f,0.5f]},teleport_duration:1,Tags:["kill_no_rideon"]}

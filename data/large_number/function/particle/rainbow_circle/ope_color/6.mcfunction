@@ -1,7 +1,7 @@
-scoreboard players set #R int 1000
-scoreboard players set #G int 0
-scoreboard players operation #B int = #loop int
-scoreboard players operation #B int *= 5 const
-scoreboard players operation #B int /= 3 const
-scoreboard players operation #B int *= -1 const
-scoreboard players add #B int 6000
+scoreboard players set #R large_number.int 1000
+scoreboard players set #G large_number.int 0
+scoreboard players operation #B large_number.int = #loop large_number.int
+scoreboard players operation #B large_number.int *= 5 const
+scoreboard players operation #B large_number.int /= 3 const
+scoreboard players operation #B large_number.int *= -1 const
+scoreboard players add #B large_number.int 6000

@@ -7,21 +7,22 @@
 
 #sqrt(x)
 data remove storage large_number:math double_sqrt
-data modify storage large_number:math double_sqrt.input set from storage large_number:math gamma_function.input
-function large_number:double_sqrt
+data modify storage large_number:math double_sqrt.input set from storage large_number:math store_gamma_function_inp
+scoreboard players set #New_double_sqrt.decimal_add large_number.int 1
+function large_number:new_double_ope/double_sqrt
 
 #sqrt(2πx)
 data modify storage large_number:math float_multiply.input1 set from storage large_number:math double_sqrt.output
-function large_number:gamma_function/stirling/mul_with_const_1
+function large_number:gamma_function/stirling/mul_sqrt_2pi
 data modify storage large_number:math temp_sqrt_2pix set from storage large_number:math float_multiply.output
 
 #x/e
-data modify storage large_number:math float_multiply.input1 set from storage large_number:math gamma_function.input
-function large_number:gamma_function/stirling/mul_with_const_2
+data modify storage large_number:math float_multiply.input1 set from storage large_number:math store_gamma_function_inp
+function large_number:gamma_function/robert_h_windschitl/mul_1_euler_e
 
 #(x/e)^x
 data modify storage large_number:math exp_any.input.base set from storage large_number:math float_multiply.output
-data modify storage large_number:math exp_any.input.expon set from storage large_number:math gamma_function.input
+data modify storage large_number:math exp_any.input.expon set from storage large_number:math store_gamma_function_inp
 function large_number:exp_any/start
 data modify storage large_number:math temp_(x/e)^x set from storage large_number:math exp_any.output
 

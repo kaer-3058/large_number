@@ -1,0 +1,1 @@
+$execute store result storage large_number:math temp1 double $(stempj_0) run data get storage large_number:math temp_xz_c 1000000000

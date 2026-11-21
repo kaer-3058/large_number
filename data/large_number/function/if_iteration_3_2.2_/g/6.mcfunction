@@ -1,5 +1,5 @@
-scoreboard players operation #Iteration_2 int = #3.7 int
-scoreboard players set #loop_math.1 int 6
-scoreboard players operation #Iteration_2 int += #loop_math.1 int
-scoreboard players operation #Iteration_2 int *= #loop_math.1 int
+scoreboard players operation #Iteration_2 large_number.int = #3.7 large_number.int
+scoreboard players set #loop_math.1 large_number.int 6
+scoreboard players operation #Iteration_2 large_number.int += #loop_math.1 large_number.int
+scoreboard players operation #Iteration_2 large_number.int *= #loop_math.1 large_number.int
 

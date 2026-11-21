@@ -9,7 +9,7 @@ function large_number:lambertw/start
 
 #迭代次数：data modify storage large_number:math newton.s_method.loops set value 30
 
-execute store result score #temp_newton.s_method.loops int run data get storage large_number:math newton.s_method.loops
-execute if score #temp_newton.s_method.loops int matches 1.. run function large_number:lambertw/loop
+execute store result score #temp_newton.s_method.loops large_number.int run data get storage large_number:math newton.s_method.loops
+execute if score #temp_newton.s_method.loops large_number.int matches 1.. run function large_number:lambertw/loop
 
-execute unless score #large_number.all_tellraw_set int matches 1 run tellraw @a {"translate": "large_number.newton.s_method.end","fallback": "\u00A77\u00A7o牛顿迭代法计算完成"}
+execute unless score #large_number.all_tellraw_set large_number.int matches 1 run tellraw @a {"translate": "large_number.newton.s_method.end","fallback": "\u00A77\u00A7o牛顿迭代法计算完成"}

@@ -8,12 +8,15 @@
 #被积函数直接取"表达式求值 - 科学计算"解析出来的逆波兰式
 #输出：storage large_number:math expression_evaluation.definite_integral.output
 
+#未定义点的列表
+data modify storage large_number:math definite_integral_error_x_list set value []
+
 data remove storage large_number:math expression_evaluation.definite_integral.output
 
-execute store result score #Store_expression_evaluation.definite_integral.loop int run data get storage large_number:math expression_evaluation.definite_integral.dx_times
+execute store result score #Store_expression_evaluation.definite_integral.loop large_number.int run data get storage large_number:math expression_evaluation.definite_integral.dx_times
 
 data modify storage large_number:math sstempr set value []
-execute if score #Store_expression_evaluation.definite_integral.loop int matches 1.. run function large_number:definite_integral/monte_carlo_method/0_1/loop1
+execute if score #Store_expression_evaluation.definite_integral.loop large_number.int matches 1.. run function large_number:definite_integral/monte_carlo_method/0_1/loop1
 
 execute if data storage large_number:math sstempr[0] positioned .0 .0 .0 run function large_number:definite_integral/riemann_integral/loop2
 
@@ -22,4 +25,4 @@ execute store result storage large_number:math float_division.input2 double 1 ru
 function large_number:division/float/start
 data modify storage large_number:math expression_evaluation.definite_integral.output set from storage large_number:math float_division.output
 
-execute unless score #large_number.all_tellraw_set int matches 1 run tellraw @a {"translate":"large_number.definite_integral.end","fallback": "\u00A77\u00A7o定积分求解完成"}
+execute unless score #large_number.all_tellraw_set large_number.int matches 1 run tellraw @a {"translate":"large_number.definite_integral.end","fallback": "\u00A77\u00A7o定积分求解完成"}

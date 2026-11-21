@@ -1,0 +1,1 @@
+$execute store result storage large_number:math sin_cos_high_precision.input float $(input) run return -1

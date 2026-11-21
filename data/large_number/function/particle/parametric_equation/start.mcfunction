@@ -11,12 +11,17 @@
 #内部以一千倍放大存入int进行比较，因此允许的值的范围是：[-2147483, 2147483]
 #注意t的范围不能超出函数允许的范围
 
+data modify storage large_number:math store_expres_rev_polish_notation set from storage large_number:math expression_evaluation.rev_polish_notation
+
 data modify storage large_number:math parametric_equation_particle_Pos set value []
 data modify storage large_number:math temp_xy set value [0.0,0.0]
-execute store result score #parametric_equation_particle.t_start int run data get storage large_number:math parametric_equation_particle.t_start 1000
-execute store result score #parametric_equation_particle.t_end int run data get storage large_number:math parametric_equation_particle.t_end 1000
-execute store result score #parametric_equation_particle.t_step int run data get storage large_number:math parametric_equation_particle.t_step 1000
+execute store result score #parametric_equation_particle.t_start large_number.int run data get storage large_number:math parametric_equation_particle.t_start 1000
+execute store result score #parametric_equation_particle.t_end large_number.int run data get storage large_number:math parametric_equation_particle.t_end 1000
+execute store result score #parametric_equation_particle.t_step large_number.int run data get storage large_number:math parametric_equation_particle.t_step 1000
 
-execute if score #parametric_equation_particle.t_start int <= #parametric_equation_particle.t_end int run function large_number:particle/parametric_equation/loop1
+execute if score #parametric_equation_particle.t_start large_number.int <= #parametric_equation_particle.t_end large_number.int run function large_number:particle/parametric_equation/loop1
 
-execute unless score #large_number.all_tellraw_set int matches 1 run tellraw @a {"translate":"large_number.parametric_equation_particle.ope.end","fallback": "\u00A77\u00A7o参数方程：图像绘制完成"}
+data modify storage large_number:math expression_evaluation.rev_polish_notation set from storage large_number:math store_expres_rev_polish_notation
+
+
+execute unless score #large_number.all_tellraw_set large_number.int matches 1 run tellraw @a {"translate":"large_number.parametric_equation_particle.ope.end","fallback": "\u00A77\u00A7o参数方程：图像绘制完成"}

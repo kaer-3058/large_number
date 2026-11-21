@@ -1,0 +1,11 @@
+data modify storage large_number:math c_list append from storage large_number:math temp_balance_input[0][9]
+data modify storage large_number:math c_list append from storage large_number:math temp_balance_input[1][9]
+data modify storage large_number:math c_list append from storage large_number:math temp_balance_input[2][9]
+data modify storage large_number:math c_list append from storage large_number:math temp_balance_input[3][9]
+data modify storage large_number:math c_list append from storage large_number:math temp_balance_input[4][9]
+data modify storage large_number:math c_list append from storage large_number:math temp_balance_input[5][9]
+data modify storage large_number:math c_list append from storage large_number:math temp_balance_input[6][9]
+data modify storage large_number:math c_list append from storage large_number:math temp_balance_input[7][9]
+data modify storage large_number:math c_list append from storage large_number:math temp_balance_input[8][9]
+
+data modify storage large_number:math r_list append from storage large_number:math temp_balance_input[9][8]

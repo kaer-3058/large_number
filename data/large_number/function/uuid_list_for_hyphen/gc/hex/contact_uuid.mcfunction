@@ -1,0 +1,1 @@
+$data modify storage large_number:math q0 set value "$(3)$(2)$(1)$(0)-$(7)$(6)-$(5)$(4)-$(b)$(a)-$(9)$(8)$(f)$(e)$(d)$(c)"

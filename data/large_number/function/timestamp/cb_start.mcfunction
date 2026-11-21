@@ -1,3 +1,5 @@
+#base64解码
+
 data modify storage large_number:timestamp timestamp_base64 set from block -29999982 -60 22022222
 data modify storage large_number:timestamp timestamp_base64 set string storage large_number:timestamp timestamp_base64.profile.properties[0].value 24 38
 
@@ -11,14 +13,14 @@ data modify storage large_number:math temp1 set string storage large_number:time
 data modify storage large_number:math temp2 set string storage large_number:timestamp timestamp_base64 1 2
 data modify storage large_number:math temp3 set string storage large_number:timestamp timestamp_base64 2 3
 data modify storage large_number:math temp4 set string storage large_number:timestamp timestamp_base64 3 4
-execute store result score #temp1 int run function large_number:timestamp/macro.1.base64_to_index/1 with storage large_number:math
-execute store result score #temp2 int run function large_number:timestamp/macro.1.base64_to_index/2 with storage large_number:math
-execute store result score #temp3 int run function large_number:timestamp/macro.1.base64_to_index/3 with storage large_number:math
-execute store result score #temp4 int run function large_number:timestamp/macro.1.base64_to_index/4 with storage large_number:math
-execute store result storage large_number:math temp1 int 1 run scoreboard players add #temp1 int 1000000
-execute store result storage large_number:math temp2 int 1 run scoreboard players add #temp2 int 1000000
-execute store result storage large_number:math temp3 int 1 run scoreboard players add #temp3 int 1000000
-execute store result storage large_number:math temp4 int 1 run scoreboard players add #temp4 int 1000000
+execute store result score #temp1 large_number.int run function large_number:timestamp/macro.1.base64_to_index/1 with storage large_number:math
+execute store result score #temp2 large_number.int run function large_number:timestamp/macro.1.base64_to_index/2 with storage large_number:math
+execute store result score #temp3 large_number.int run function large_number:timestamp/macro.1.base64_to_index/3 with storage large_number:math
+execute store result score #temp4 large_number.int run function large_number:timestamp/macro.1.base64_to_index/4 with storage large_number:math
+execute store result storage large_number:math temp1 int 1 run scoreboard players add #temp1 large_number.int 1000000
+execute store result storage large_number:math temp2 int 1 run scoreboard players add #temp2 large_number.int 1000000
+execute store result storage large_number:math temp3 int 1 run scoreboard players add #temp3 large_number.int 1000000
+execute store result storage large_number:math temp4 int 1 run scoreboard players add #temp4 large_number.int 1000000
 data modify storage large_number:math temp1 set string storage large_number:math temp1 1
 data modify storage large_number:math temp2 set string storage large_number:math temp2 1
 data modify storage large_number:math temp3 set string storage large_number:math temp3 1
@@ -32,14 +34,14 @@ data modify storage large_number:math temp1 set string storage large_number:time
 data modify storage large_number:math temp2 set string storage large_number:timestamp timestamp_base64 5 6
 data modify storage large_number:math temp3 set string storage large_number:timestamp timestamp_base64 6 7
 data modify storage large_number:math temp4 set string storage large_number:timestamp timestamp_base64 7 8
-execute store result score #temp1 int run function large_number:timestamp/macro.1.base64_to_index/1 with storage large_number:math
-execute store result score #temp2 int run function large_number:timestamp/macro.1.base64_to_index/2 with storage large_number:math
-execute store result score #temp3 int run function large_number:timestamp/macro.1.base64_to_index/3 with storage large_number:math
-execute store result score #temp4 int run function large_number:timestamp/macro.1.base64_to_index/4 with storage large_number:math
-execute store result storage large_number:math temp1 int 1 run scoreboard players add #temp1 int 1000000
-execute store result storage large_number:math temp2 int 1 run scoreboard players add #temp2 int 1000000
-execute store result storage large_number:math temp3 int 1 run scoreboard players add #temp3 int 1000000
-execute store result storage large_number:math temp4 int 1 run scoreboard players add #temp4 int 1000000
+execute store result score #temp1 large_number.int run function large_number:timestamp/macro.1.base64_to_index/1 with storage large_number:math
+execute store result score #temp2 large_number.int run function large_number:timestamp/macro.1.base64_to_index/2 with storage large_number:math
+execute store result score #temp3 large_number.int run function large_number:timestamp/macro.1.base64_to_index/3 with storage large_number:math
+execute store result score #temp4 large_number.int run function large_number:timestamp/macro.1.base64_to_index/4 with storage large_number:math
+execute store result storage large_number:math temp1 int 1 run scoreboard players add #temp1 large_number.int 1000000
+execute store result storage large_number:math temp2 int 1 run scoreboard players add #temp2 large_number.int 1000000
+execute store result storage large_number:math temp3 int 1 run scoreboard players add #temp3 large_number.int 1000000
+execute store result storage large_number:math temp4 int 1 run scoreboard players add #temp4 large_number.int 1000000
 data modify storage large_number:math temp1 set string storage large_number:math temp1 1
 data modify storage large_number:math temp2 set string storage large_number:math temp2 1
 data modify storage large_number:math temp3 set string storage large_number:math temp3 1
@@ -63,16 +65,16 @@ data modify storage large_number:timestamp timestamp_decoded_base64 append from 
 
 
 #解码完成了,把时间戳解密为日期
-execute if data storage large_number:timestamp timestamp_base64 unless score #timestamp.get_num int matches 2 run function large_number:timestamp/cb_start.2
+execute if data storage large_number:timestamp timestamp_base64 unless score #timestamp.get_num large_number.int matches 2 run function large_number:timestamp/cb_start.2
 
-execute if score #timestamp.get_num int matches 1.. run function large_number:timestamp/get_num
+execute if score #timestamp.get_num large_number.int matches 1.. run function large_number:timestamp/get_num
 
-scoreboard players set #cb_run_func:"timestamp/cb_start" int 0
+scoreboard players set #cb_run_func:"timestamp/cb_start" large_number.int 0
 
 data modify storage large_number:math output_base64_json_GMT+- set value "+"
-execute if score #GMT-time_zone int matches ..0 run data modify storage large_number:math output_base64_json_GMT+- set value ""
+execute if score #GMT-time_zone large_number.int matches ..0 run data modify storage large_number:math output_base64_json_GMT+- set value ""
 
-execute unless score #GMT-time_zone int matches 8 run data modify storage large_number:math output_base64_json_tellraw set value '{"translate": "large_number.timestamp.time","fallback":"现在是：GMT%1$s%2$s %3$s年%4$s月%5$s日，%6$s时%7$s分%8$s秒","with":[{"nbt":"output_base64_json_GMT+-","storage":"large_number:math"},{"score":{"name":"#GMT-time_zone","objective":"int"}},{"score":{"name":"#timestamp_year","objective":"int"}},{"score":{"name":"#timestamp_month","objective":"int"}},{"score":{"name":"#timestamp_day","objective":"int"}},{"nbt":"output_day_Hour","storage":"large_number:timestamp"},{"nbt":"output_day_Minute","storage":"large_number:timestamp"},{"nbt":"output_day_Second","storage":"large_number:timestamp"}]}'
-execute if score #GMT-time_zone int matches 8 run data modify storage large_number:math output_base64_json_tellraw set value '{"translate": "large_number.timestamp.time.gmt8","fallback":"现在是：北京时间(GMT+8) %1$s年%2$s月%3$s日，%4$s时%5$s分%6$s秒","with":[{"score":{"name":"#timestamp_year","objective":"int"}},{"score":{"name":"#timestamp_month","objective":"int"}},{"score":{"name":"#timestamp_day","objective":"int"}},{"nbt":"output_day_Hour","storage":"large_number:timestamp"},{"nbt":"output_day_Minute","storage":"large_number:timestamp"},{"nbt":"output_day_Second","storage":"large_number:timestamp"}]}'
+execute unless score #GMT-time_zone large_number.int matches 8 run data modify storage large_number:math output_base64_json_tellraw set value {"translate": "large_number.timestamp.time","fallback":"现在是：GMT%1$s%2$s %3$s年%4$s月%5$s日，%6$s时%7$s分%8$s秒","with":[{"nbt":"output_base64_json_GMT+-","storage":"large_number:math"},{"score":{"name":"#GMT-time_zone","objective":"large_number.int"}},{"score":{"name":"#timestamp_year","objective":"large_number.int"}},{"score":{"name":"#timestamp_month","objective":"large_number.int"}},{"score":{"name":"#timestamp_day","objective":"large_number.int"}},{"nbt":"output_day_Hour","storage":"large_number:timestamp"},{"nbt":"output_day_Minute","storage":"large_number:timestamp"},{"nbt":"output_day_Second","storage":"large_number:timestamp"}]}
+execute if score #GMT-time_zone large_number.int matches 8 run data modify storage large_number:math output_base64_json_tellraw set value {"translate": "large_number.timestamp.time.gmt8","fallback":"现在是：北京时间(GMT+8) %1$s年%2$s月%3$s日，%4$s时%5$s分%6$s秒","with":[{"score":{"name":"#timestamp_year","objective":"large_number.int"}},{"score":{"name":"#timestamp_month","objective":"large_number.int"}},{"score":{"name":"#timestamp_day","objective":"large_number.int"}},{"nbt":"output_day_Hour","storage":"large_number:timestamp"},{"nbt":"output_day_Minute","storage":"large_number:timestamp"},{"nbt":"output_day_Second","storage":"large_number:timestamp"}]}
 
 #tellraw @a {"nbt":"output_base64_json_tellraw","storage":"large_number:math","interpret":true}

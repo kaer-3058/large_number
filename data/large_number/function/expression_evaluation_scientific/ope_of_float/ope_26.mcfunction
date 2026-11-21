@@ -1,6 +1,6 @@
 #三维向量的欧氏范数
 
-scoreboard players set #expression_evaluation_test2 int 3
+scoreboard players set #expression_evaluation_test2 large_number.int 3
 
 data modify storage large_number:math double_norm_3d.x set from storage large_number:math _expressionss1
 data modify storage large_number:math double_norm_3d.y set from storage large_number:math _expressionss2

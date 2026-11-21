@@ -1,0 +1,1 @@
+$data modify storage large_number:math linear_equations_tell.tell set value "线性方程组: \n$(1_1)a=$(b_1)\n\n解得: a=$(c_1)"

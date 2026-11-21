@@ -3,16 +3,18 @@
 #输入：data modify storage large_number:math factorial_decimal_digits.input set value 1730220.77
 #输入范围：x>1
 
+#function large_number:gamma_function/decimal_digits/start
+
 #浮点加法
 data modify storage large_number:math temp1 set from storage large_number:math factorial_decimal_digits.input
-execute store result score #temp_test.float_add_sub_a2 int store result score #temp_test.float_add_sub_a int run data get storage large_number:math temp1
-execute if score #temp_test.float_add_sub_a int matches ..-1 store result score #temp_test.float_add_sub_a int run data get storage large_number:math temp1 -1
-execute store success score #temp_test.float_add_sub.number_is_large int if score #temp_test.float_add_sub_a int matches 20000000..
-scoreboard players add #temp_test.float_add_sub_a2 int 1
-execute if score #temp_test.float_add_sub.number_is_large int matches 0 if score #temp_test.float_add_sub_a int matches 20000000.. run scoreboard players set #temp_test.float_add_sub.number_is_large int 1
-execute if score #temp_test.float_add_sub.number_is_large int matches 0 as b09e-44-fded-6-efa5ffffef64 run function large_number:gamma_function/decimal_digits/macro1 with storage large_number:math
-execute if score #temp_test.float_add_sub.number_is_large int matches 1 run function large_number:gamma_function/decimal_digits/macro2 with storage large_number:math
-execute if score #temp_test.float_add_sub.number_is_large int matches 1 as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
+execute store result score #temp_test.float_add_sub_a2 large_number.int store result score #temp_test.float_add_sub_a large_number.int run data get storage large_number:math temp1
+execute if score #temp_test.float_add_sub_a large_number.int matches ..-1 store result score #temp_test.float_add_sub_a large_number.int run data get storage large_number:math temp1 -1
+execute store success score #temp_test.float_add_sub.number_is_large large_number.int if score #temp_test.float_add_sub_a large_number.int matches 20000000..
+scoreboard players add #temp_test.float_add_sub_a2 large_number.int 1
+execute if score #temp_test.float_add_sub.number_is_large large_number.int matches 0 if score #temp_test.float_add_sub_a large_number.int matches 20000000.. run scoreboard players set #temp_test.float_add_sub.number_is_large large_number.int 1
+execute if score #temp_test.float_add_sub.number_is_large large_number.int matches 0 as b09e-44-fded-6-efa5ffffef64 run function large_number:gamma_function/decimal_digits/macro1 with storage large_number:math
+execute if score #temp_test.float_add_sub.number_is_large large_number.int matches 1 run function large_number:gamma_function/decimal_digits/macro2 with storage large_number:math
+execute if score #temp_test.float_add_sub.number_is_large large_number.int matches 1 as @e[type=minecraft:item,distance=.0..] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
 data modify storage large_number:math temp_x_add__5 set from storage large_number:math temp1
 
 #ln(x)
@@ -33,17 +35,17 @@ execute if data storage large_number:math {stemp1:"-"} run function large_number
 execute unless data storage large_number:math {stemp1:"-"} run function large_number:float_comparison_sizes/float_sub_ope.2
 
 #浮点加法
-execute store result score #temp_test.float_add_sub_a2 int store result score #temp_test.float_add_sub_a int run data get storage large_number:math temp1
-execute if score #temp_test.float_add_sub_a int matches ..-1 store result score #temp_test.float_add_sub_a int run data get storage large_number:math temp1 -1
-execute store success score #temp_test.float_add_sub.number_is_large int if score #temp_test.float_add_sub_a int matches 20000000..
-scoreboard players add #temp_test.float_add_sub_a2 int 1
-execute if score #temp_test.float_add_sub.number_is_large int matches 0 if score #temp_test.float_add_sub_a int matches 20000000.. run scoreboard players set #temp_test.float_add_sub.number_is_large int 1
-execute if score #temp_test.float_add_sub.number_is_large int matches 0 as b09e-44-fded-6-efa5ffffef64 run function large_number:gamma_function/decimal_digits/macro4 with storage large_number:math
-execute if score #temp_test.float_add_sub.number_is_large int matches 1 run function large_number:gamma_function/decimal_digits/macro5 with storage large_number:math
-execute if score #temp_test.float_add_sub.number_is_large int matches 1 as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
+execute store result score #temp_test.float_add_sub_a2 large_number.int store result score #temp_test.float_add_sub_a large_number.int run data get storage large_number:math temp1
+execute if score #temp_test.float_add_sub_a large_number.int matches ..-1 store result score #temp_test.float_add_sub_a large_number.int run data get storage large_number:math temp1 -1
+execute store success score #temp_test.float_add_sub.number_is_large large_number.int if score #temp_test.float_add_sub_a large_number.int matches 20000000..
+scoreboard players add #temp_test.float_add_sub_a2 large_number.int 1
+execute if score #temp_test.float_add_sub.number_is_large large_number.int matches 0 if score #temp_test.float_add_sub_a large_number.int matches 20000000.. run scoreboard players set #temp_test.float_add_sub.number_is_large large_number.int 1
+execute if score #temp_test.float_add_sub.number_is_large large_number.int matches 0 as b09e-44-fded-6-efa5ffffef64 run function large_number:gamma_function/decimal_digits/macro4 with storage large_number:math
+execute if score #temp_test.float_add_sub.number_is_large large_number.int matches 1 run function large_number:gamma_function/decimal_digits/macro5 with storage large_number:math
+execute if score #temp_test.float_add_sub.number_is_large large_number.int matches 1 as @e[type=minecraft:item,distance=.0..] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
 
 data modify storage large_number:math float_multiply.input1 set from storage large_number:math temp1
-function large_number:gamma_function/decimal_digits/mul_with_const_1
+function large_number:gamma_function/decimal_digits/mul_1_ln10
 
 
 ##对浮点数向下取整
@@ -58,13 +60,13 @@ data modify storage large_number:math temp2[0].a set string storage large_number
 data modify storage large_number:math temp2[1].a set string storage large_number:math temp1 -4 -3
 data modify storage large_number:math temp2[2].a set string storage large_number:math temp1 -3 -2
 data modify storage large_number:math temp2[3].a set string storage large_number:math temp1 -2 -1
-execute store success score #is_XXEXX int run data get storage large_number:math temp2[{a:"E"}]
+execute store success score #is_XXEXX large_number.int run data get storage large_number:math temp2[{a:"E"}]
 
 #如果为科学计数法则拆出指数位
 data modify storage large_number:math temp_expon set value "0"
-execute if score #is_XXEXX int matches 1 run function large_number:double_sqrt.if/the_scientific_notation
-execute store result score #_exp int run function large_number:sigmoid/macro3 with storage large_number:math
+execute if score #is_XXEXX large_number.int matches 1 run function large_number:double_sqrt.if/the_scientific_notation
+execute store result score #_exp large_number.int run function large_number:sigmoid/macro3 with storage large_number:math
 
-execute if score #_exp int matches 17.. run data modify storage large_number:math round_double.output set from storage large_number:math round_double.input
-execute if score #_exp int matches ..-17 run data modify storage large_number:math round_double.output set value 0.0
-execute if score #_exp int matches -16..16 run function large_number:gamma_function/decimal_digits/round_double_1
+execute if score #_exp large_number.int matches 17.. run data modify storage large_number:math round_double.output set from storage large_number:math round_double.input
+execute if score #_exp large_number.int matches ..-17 run data modify storage large_number:math round_double.output set value 0.0
+execute if score #_exp large_number.int matches -16..16 run function large_number:gamma_function/decimal_digits/round_double_1

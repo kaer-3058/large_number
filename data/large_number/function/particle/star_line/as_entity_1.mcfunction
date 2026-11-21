@@ -1,5 +1,5 @@
 #局部坐标转相对坐标
-execute store result entity @s Rotation[0] float .0001 run scoreboard players get #star_line.roll int
+execute store result entity @s Rotation[0] float .0001 run scoreboard players get #star_line.roll large_number.int
 
 data modify storage large_number:math u set from storage large_number:math sstempu[0][0]
 data modify storage large_number:math w set from storage large_number:math sstempu[0][1]

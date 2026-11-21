@@ -5,16 +5,16 @@
 #按顺序输入各个控制点的三维坐标，阶数=点数-1
 #支持1~33阶
 
-#单tick绘制几个点(不可小于1)：scoreboard players set #bezier_curve_n.diff_loops int 3
-#开始信号：scoreboard players set #bezier_curve_n.diff_start int 1
+#单tick绘制几个点(不可小于1)：scoreboard players set #bezier_curve_n.diff_loops large_number.int 3
+#开始信号：scoreboard players set #bezier_curve_n.diff_start large_number.int 1
 #需要tick执行：function large_number:particle/bezier_curve_n/different_steps/tick
 
-#scoreboard players set #bezier_curve_N.t.size int 100
+#scoreboard players set #bezier_curve_N.t.size large_number.int 100
 
-execute unless score #large_number.all_tellraw_set int matches 1 run tellraw @a {"translate":"large_number.bezier_curve_n.diff_start","fallback":"\u00A77\u00A7oN阶贝塞尔曲线开始计算"}
+execute unless score #large_number.all_tellraw_set large_number.int matches 1 run tellraw @a {"translate":"large_number.bezier_curve_n.diff_start","fallback":"\u00A77\u00A7oN阶贝塞尔曲线开始计算"}
 
-execute store result score #bezier_curve_N.order int if data storage large_number:math bezier_curve_N_input[]
-scoreboard players remove #bezier_curve_N.order int 1
+execute store result score #bezier_curve_N.order large_number.int if data storage large_number:math bezier_curve_N_input[]
+scoreboard players remove #bezier_curve_N.order large_number.int 1
 
 #把各个点都换算成以第一个点为原点的相对坐标
 data modify storage large_number:math sstempa set value [0d]
@@ -37,12 +37,12 @@ data remove storage large_number:math sstempc0[0]
 execute if data storage large_number:math sstempa0[0] run function large_number:particle/bezier_curve_n/loop0
 
 #t
-scoreboard players operation #bezier_curve_N.t int = #bezier_curve_N.t.size int
+scoreboard players operation #bezier_curve_N.t large_number.int = #bezier_curve_N.t.size large_number.int
 
 #计算系数
-scoreboard players set #bezier_curve_N.loops int 0
-scoreboard players operation #combinations.n int = #bezier_curve_N.order int
+scoreboard players set #bezier_curve_N.loops large_number.int 0
+scoreboard players operation #combinations.n large_number.int = #bezier_curve_N.order large_number.int
 data modify storage large_number:math temp_nCr set value []
-execute if score #bezier_curve_N.loops int <= #bezier_curve_N.order int run function large_number:particle/bezier_curve_n/loop1
+execute if score #bezier_curve_N.loops large_number.int <= #bezier_curve_N.order large_number.int run function large_number:particle/bezier_curve_n/loop1
 
-scoreboard players set #bezier_curve_n.diff_start int 2
+scoreboard players set #bezier_curve_n.diff_start large_number.int 2

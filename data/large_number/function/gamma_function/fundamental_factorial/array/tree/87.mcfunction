@@ -1,0 +1,1 @@
+execute if score #natural_num.factorial.input large_number.int matches 87 run data modify storage large_number:math natural_num_factorial set value [2,1077,5729,8379,5277,1721,3600,5186,9938,9595,2297,8373,8061,3562,1232,2972,5112,1465,4115,7275,9317,4080,6834,2323,6414,7935,473,4471,7824,0,0,0,0,0]

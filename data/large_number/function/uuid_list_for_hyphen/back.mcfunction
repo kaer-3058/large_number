@@ -63,61 +63,61 @@ execute store result storage large_number:math temp_uu2 long 268435456 run data 
 execute store result storage large_number:math temp_uu3 long 268435456 run data get storage large_number:math temp3[16]
 execute store result storage large_number:math temp_uu4 long 268435456 run data get storage large_number:math temp3[24]
 
-execute store result score #uuid_list.1 int run data get storage large_number:math temp3[1] 16777216
-execute store result score #temp2 int run data get storage large_number:math temp3[2] 1048576
-execute store result score #temp3 int run data get storage large_number:math temp3[3] 65536
-execute store result score #temp4 int run data get storage large_number:math temp3[4] 4096
-execute store result score #temp5 int run data get storage large_number:math temp3[5] 256
-execute store result score #temp6 int run data get storage large_number:math temp3[6] 16
-execute store result score #temp7 int run data get storage large_number:math temp3[7]
-scoreboard players operation #uuid_list.1 int += #temp2 int
-scoreboard players operation #uuid_list.1 int += #temp3 int
-scoreboard players operation #uuid_list.1 int += #temp4 int
-scoreboard players operation #uuid_list.1 int += #temp5 int
-scoreboard players operation #uuid_list.1 int += #temp6 int
-scoreboard players operation #uuid_list.1 int += #temp7 int
+execute store result score #uuid_list.1 large_number.int run data get storage large_number:math temp3[1] 16777216
+execute store result score #temp2 large_number.int run data get storage large_number:math temp3[2] 1048576
+execute store result score #temp3 large_number.int run data get storage large_number:math temp3[3] 65536
+execute store result score #temp4 large_number.int run data get storage large_number:math temp3[4] 4096
+execute store result score #temp5 large_number.int run data get storage large_number:math temp3[5] 256
+execute store result score #temp6 large_number.int run data get storage large_number:math temp3[6] 16
+execute store result score #temp7 large_number.int run data get storage large_number:math temp3[7]
+scoreboard players operation #uuid_list.1 large_number.int += #temp2 large_number.int
+scoreboard players operation #uuid_list.1 large_number.int += #temp3 large_number.int
+scoreboard players operation #uuid_list.1 large_number.int += #temp4 large_number.int
+scoreboard players operation #uuid_list.1 large_number.int += #temp5 large_number.int
+scoreboard players operation #uuid_list.1 large_number.int += #temp6 large_number.int
+scoreboard players operation #uuid_list.1 large_number.int += #temp7 large_number.int
 
-execute store result score #uuid_list.2 int run data get storage large_number:math temp3[9] 16777216
-execute store result score #temp2 int run data get storage large_number:math temp3[10] 1048576
-execute store result score #temp3 int run data get storage large_number:math temp3[11] 65536
-execute store result score #temp4 int run data get storage large_number:math temp3[12] 4096
-execute store result score #temp5 int run data get storage large_number:math temp3[13] 256
-execute store result score #temp6 int run data get storage large_number:math temp3[14] 16
-execute store result score #temp7 int run data get storage large_number:math temp3[15]
-scoreboard players operation #uuid_list.2 int += #temp2 int
-scoreboard players operation #uuid_list.2 int += #temp3 int
-scoreboard players operation #uuid_list.2 int += #temp4 int
-scoreboard players operation #uuid_list.2 int += #temp5 int
-scoreboard players operation #uuid_list.2 int += #temp6 int
-scoreboard players operation #uuid_list.2 int += #temp7 int
+execute store result score #uuid_list.2 large_number.int run data get storage large_number:math temp3[9] 16777216
+execute store result score #temp2 large_number.int run data get storage large_number:math temp3[10] 1048576
+execute store result score #temp3 large_number.int run data get storage large_number:math temp3[11] 65536
+execute store result score #temp4 large_number.int run data get storage large_number:math temp3[12] 4096
+execute store result score #temp5 large_number.int run data get storage large_number:math temp3[13] 256
+execute store result score #temp6 large_number.int run data get storage large_number:math temp3[14] 16
+execute store result score #temp7 large_number.int run data get storage large_number:math temp3[15]
+scoreboard players operation #uuid_list.2 large_number.int += #temp2 large_number.int
+scoreboard players operation #uuid_list.2 large_number.int += #temp3 large_number.int
+scoreboard players operation #uuid_list.2 large_number.int += #temp4 large_number.int
+scoreboard players operation #uuid_list.2 large_number.int += #temp5 large_number.int
+scoreboard players operation #uuid_list.2 large_number.int += #temp6 large_number.int
+scoreboard players operation #uuid_list.2 large_number.int += #temp7 large_number.int
 
-execute store result score #uuid_list.3 int run data get storage large_number:math temp3[17] 16777216
-execute store result score #temp2 int run data get storage large_number:math temp3[18] 1048576
-execute store result score #temp3 int run data get storage large_number:math temp3[19] 65536
-execute store result score #temp4 int run data get storage large_number:math temp3[20] 4096
-execute store result score #temp5 int run data get storage large_number:math temp3[21] 256
-execute store result score #temp6 int run data get storage large_number:math temp3[22] 16
-execute store result score #temp7 int run data get storage large_number:math temp3[23]
-scoreboard players operation #uuid_list.3 int += #temp2 int
-scoreboard players operation #uuid_list.3 int += #temp3 int
-scoreboard players operation #uuid_list.3 int += #temp4 int
-scoreboard players operation #uuid_list.3 int += #temp5 int
-scoreboard players operation #uuid_list.3 int += #temp6 int
-scoreboard players operation #uuid_list.3 int += #temp7 int
+execute store result score #uuid_list.3 large_number.int run data get storage large_number:math temp3[17] 16777216
+execute store result score #temp2 large_number.int run data get storage large_number:math temp3[18] 1048576
+execute store result score #temp3 large_number.int run data get storage large_number:math temp3[19] 65536
+execute store result score #temp4 large_number.int run data get storage large_number:math temp3[20] 4096
+execute store result score #temp5 large_number.int run data get storage large_number:math temp3[21] 256
+execute store result score #temp6 large_number.int run data get storage large_number:math temp3[22] 16
+execute store result score #temp7 large_number.int run data get storage large_number:math temp3[23]
+scoreboard players operation #uuid_list.3 large_number.int += #temp2 large_number.int
+scoreboard players operation #uuid_list.3 large_number.int += #temp3 large_number.int
+scoreboard players operation #uuid_list.3 large_number.int += #temp4 large_number.int
+scoreboard players operation #uuid_list.3 large_number.int += #temp5 large_number.int
+scoreboard players operation #uuid_list.3 large_number.int += #temp6 large_number.int
+scoreboard players operation #uuid_list.3 large_number.int += #temp7 large_number.int
 
-execute store result score #uuid_list.4 int run data get storage large_number:math temp3[25] 16777216
-execute store result score #temp2 int run data get storage large_number:math temp3[26] 1048576
-execute store result score #temp3 int run data get storage large_number:math temp3[27] 65536
-execute store result score #temp4 int run data get storage large_number:math temp3[28] 4096
-execute store result score #temp5 int run data get storage large_number:math temp3[29] 256
-execute store result score #temp6 int run data get storage large_number:math temp3[30] 16
-execute store result score #temp7 int run data get storage large_number:math temp3[31]
-scoreboard players operation #uuid_list.4 int += #temp2 int
-scoreboard players operation #uuid_list.4 int += #temp3 int
-scoreboard players operation #uuid_list.4 int += #temp4 int
-scoreboard players operation #uuid_list.4 int += #temp5 int
-scoreboard players operation #uuid_list.4 int += #temp6 int
-scoreboard players operation #uuid_list.4 int += #temp7 int
+execute store result score #uuid_list.4 large_number.int run data get storage large_number:math temp3[25] 16777216
+execute store result score #temp2 large_number.int run data get storage large_number:math temp3[26] 1048576
+execute store result score #temp3 large_number.int run data get storage large_number:math temp3[27] 65536
+execute store result score #temp4 large_number.int run data get storage large_number:math temp3[28] 4096
+execute store result score #temp5 large_number.int run data get storage large_number:math temp3[29] 256
+execute store result score #temp6 large_number.int run data get storage large_number:math temp3[30] 16
+execute store result score #temp7 large_number.int run data get storage large_number:math temp3[31]
+scoreboard players operation #uuid_list.4 large_number.int += #temp2 large_number.int
+scoreboard players operation #uuid_list.4 large_number.int += #temp3 large_number.int
+scoreboard players operation #uuid_list.4 large_number.int += #temp4 large_number.int
+scoreboard players operation #uuid_list.4 large_number.int += #temp5 large_number.int
+scoreboard players operation #uuid_list.4 large_number.int += #temp6 large_number.int
+scoreboard players operation #uuid_list.4 large_number.int += #temp7 large_number.int
 
 data modify storage large_number:math temp2 set value 0
 data modify storage large_number:math temp4 set value 0
@@ -132,25 +132,25 @@ data modify storage large_number:math temp_uu3 set string storage large_number:m
 data modify storage large_number:math temp8 set string storage large_number:math temp_uu4 -9 -1
 data modify storage large_number:math temp_uu4 set string storage large_number:math temp_uu4 0 -9
 
-execute store result score #temp1 int run function large_number:uuid_list_for_hyphen/back.macro1/1 with storage large_number:math
-execute store result score #temp2 int run function large_number:uuid_list_for_hyphen/back.macro1/2 with storage large_number:math
-execute store result score #temp3 int run function large_number:uuid_list_for_hyphen/back.macro1/3 with storage large_number:math
-execute store result score #temp4 int run function large_number:uuid_list_for_hyphen/back.macro1/4 with storage large_number:math
-execute store result score #temp5 int run function large_number:uuid_list_for_hyphen/back.macro1/5 with storage large_number:math
-execute store result score #temp6 int run function large_number:uuid_list_for_hyphen/back.macro1/6 with storage large_number:math
-execute store result score #temp7 int run function large_number:uuid_list_for_hyphen/back.macro1/7 with storage large_number:math
-execute store result score #temp8 int run function large_number:uuid_list_for_hyphen/back.macro1/8 with storage large_number:math
-scoreboard players operation #temp1 int *= 100000000 const
-scoreboard players operation #temp1 int += #temp2 int
-scoreboard players operation #temp3 int *= 100000000 const
-scoreboard players operation #temp3 int += #temp4 int
-scoreboard players operation #temp5 int *= 100000000 const
-scoreboard players operation #temp5 int += #temp6 int
-scoreboard players operation #temp7 int *= 100000000 const
-scoreboard players operation #temp7 int += #temp8 int
+execute store result score #temp1 large_number.int run function large_number:uuid_list_for_hyphen/back.macro1/1 with storage large_number:math
+execute store result score #temp2 large_number.int run function large_number:uuid_list_for_hyphen/back.macro1/2 with storage large_number:math
+execute store result score #temp3 large_number.int run function large_number:uuid_list_for_hyphen/back.macro1/3 with storage large_number:math
+execute store result score #temp4 large_number.int run function large_number:uuid_list_for_hyphen/back.macro1/4 with storage large_number:math
+execute store result score #temp5 large_number.int run function large_number:uuid_list_for_hyphen/back.macro1/5 with storage large_number:math
+execute store result score #temp6 large_number.int run function large_number:uuid_list_for_hyphen/back.macro1/6 with storage large_number:math
+execute store result score #temp7 large_number.int run function large_number:uuid_list_for_hyphen/back.macro1/7 with storage large_number:math
+execute store result score #temp8 large_number.int run function large_number:uuid_list_for_hyphen/back.macro1/8 with storage large_number:math
+scoreboard players operation #temp1 large_number.int *= 100000000 const
+scoreboard players operation #temp1 large_number.int += #temp2 large_number.int
+scoreboard players operation #temp3 large_number.int *= 100000000 const
+scoreboard players operation #temp3 large_number.int += #temp4 large_number.int
+scoreboard players operation #temp5 large_number.int *= 100000000 const
+scoreboard players operation #temp5 large_number.int += #temp6 large_number.int
+scoreboard players operation #temp7 large_number.int *= 100000000 const
+scoreboard players operation #temp7 large_number.int += #temp8 large_number.int
 
 data modify storage large_number:math uuid_hyphen_back_list.output set value [I;0,0,0,0]
-execute store result storage large_number:math uuid_hyphen_back_list.output[0] int 1 run scoreboard players operation #uuid_list.1 int += #temp1 int
-execute store result storage large_number:math uuid_hyphen_back_list.output[1] int 1 run scoreboard players operation #uuid_list.2 int += #temp3 int
-execute store result storage large_number:math uuid_hyphen_back_list.output[2] int 1 run scoreboard players operation #uuid_list.3 int += #temp5 int
-execute store result storage large_number:math uuid_hyphen_back_list.output[3] int 1 run scoreboard players operation #uuid_list.4 int += #temp7 int
+execute store result storage large_number:math uuid_hyphen_back_list.output[0] int 1 run scoreboard players operation #uuid_list.1 large_number.int += #temp1 large_number.int
+execute store result storage large_number:math uuid_hyphen_back_list.output[1] int 1 run scoreboard players operation #uuid_list.2 large_number.int += #temp3 large_number.int
+execute store result storage large_number:math uuid_hyphen_back_list.output[2] int 1 run scoreboard players operation #uuid_list.3 large_number.int += #temp5 large_number.int
+execute store result storage large_number:math uuid_hyphen_back_list.output[3] int 1 run scoreboard players operation #uuid_list.4 large_number.int += #temp7 large_number.int

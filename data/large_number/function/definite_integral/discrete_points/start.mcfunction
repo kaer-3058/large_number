@@ -35,13 +35,13 @@ data modify storage large_number:math temp2[0].a set string storage large_number
 data modify storage large_number:math temp2[1].a set string storage large_number:math temp1 -4 -3
 data modify storage large_number:math temp2[2].a set string storage large_number:math temp1 -3 -2
 data modify storage large_number:math temp2[3].a set string storage large_number:math temp1 -2 -1
-execute store success score #is_XXEXX int run data get storage large_number:math temp2[{a:"E"}]
+execute store success score #is_XXEXX large_number.int run data get storage large_number:math temp2[{a:"E"}]
 data modify storage large_number:math temp_expon set value "0"
-execute if score #is_XXEXX int matches 1 run function large_number:double_sqrt.if/the_scientific_notation
-execute store result score #_exp int run function large_number:sigmoid/macro3 with storage large_number:math
-execute store result storage large_number:math temp_expon int 1 run scoreboard players remove #_exp int 1
+execute if score #is_XXEXX large_number.int matches 1 run function large_number:double_sqrt.if/the_scientific_notation
+execute store result score #_exp large_number.int run function large_number:sigmoid/macro3 with storage large_number:math
+execute store result storage large_number:math temp_expon int 1 run scoreboard players remove #_exp large_number.int 1
 function large_number:gamma_function/stirling/macro1 with storage large_number:math
 
 data modify storage large_number:math area_ab_discrete_points.output set from storage large_number:math sstemp06
 
-execute unless score #large_number.all_tellraw_set int matches 1 run tellraw @a {"translate":"large_number.definite_integral.end","fallback": "\u00A77\u00A7o定积分求解完成"}
+execute unless score #large_number.all_tellraw_set large_number.int matches 1 run tellraw @a {"translate":"large_number.definite_integral.end","fallback": "\u00A77\u00A7o定积分求解完成"}

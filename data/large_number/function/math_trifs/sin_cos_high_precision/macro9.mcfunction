@@ -1,0 +1,1 @@
+$execute store result storage large_number:math int_mult2_out long $(temp_sin_high_precision) run return $(temp2)

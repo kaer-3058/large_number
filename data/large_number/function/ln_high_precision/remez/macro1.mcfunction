@@ -1,1 +1,1 @@
-$tp ~ ~$(sstemp_t1) ~
+$execute positioned ~ ~$(temp_item1) ~ positioned ~ ~$(temp_item2) ~ positioned ~ ~$(temp_item3) ~ positioned ~ ~$(temp_item4) ~ positioned ~ ~$(temp_item5) ~ positioned ~ ~$(temp_item6) ~ positioned ~ ~$(temp_item7) ~ run function large_number:macro_operation/tp_here

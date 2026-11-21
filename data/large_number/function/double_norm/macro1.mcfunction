@@ -1,1 +1,1 @@
-$execute positioned .0 $(temp1) .0 run tp .0 ~$(temp2) .0
+$execute positioned .0 $(temp1) .0 positioned .0 ~$(temp2) .0 run function large_number:macro_operation/tp_here

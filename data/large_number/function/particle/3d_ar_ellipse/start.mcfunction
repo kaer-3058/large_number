@@ -1,12 +1,12 @@
 ##三维空间任意方向的椭圆
 
-#1000倍输入 a：#3d.ellipse.a int [1,2147483]
-#1000倍输入 b：#3d.ellipse.b int [1,2147483]
+#1000倍输入 a：#3d.ellipse.a large_number.int [1,2147483]
+#1000倍输入 b：#3d.ellipse.b large_number.int [1,2147483]
 
-#粒子密度：#3d.ellipse.density int
+#粒子密度：#3d.ellipse.density large_number.int
 #粒子密度就是每n次迭代描一个点，范围为1~3600
 
-#横滚角(1000倍输入)：#3d.ellipse.roll.θ int
+#横滚角(1000倍输入)：#3d.ellipse.roll.θ large_number.int
 
 #计算坐标：execute as b09e-44-fded-6-efa5ffffef64 run function large_number:particle/3d_ar_ellipse/start
 
@@ -15,19 +15,19 @@
 
 tp @s 0.0 0.0 0.0 0.0 0.0
 
-scoreboard players operation #store_3d.ellipse.a int = #3d.ellipse.a int
-scoreboard players operation #store_3d.ellipse.b int = #3d.ellipse.b int
-execute if score #store_3d.ellipse.a int > #store_3d.ellipse.b int run scoreboard players operation #store_3d.ellipse.a int >< #store_3d.ellipse.b int
+scoreboard players operation #store_3d.ellipse.a large_number.int = #3d.ellipse.a large_number.int
+scoreboard players operation #store_3d.ellipse.b large_number.int = #3d.ellipse.b large_number.int
+execute if score #store_3d.ellipse.a large_number.int > #store_3d.ellipse.b large_number.int run scoreboard players operation #store_3d.ellipse.a large_number.int >< #store_3d.ellipse.b large_number.int
 
-scoreboard players operation #b/a int = #store_3d.ellipse.b int
-scoreboard players operation #b/a int *= 1000 const
-scoreboard players operation #b/a int /= #store_3d.ellipse.a int
+scoreboard players operation #b/a large_number.int = #store_3d.ellipse.b large_number.int
+scoreboard players operation #b/a large_number.int *= 1000 const
+scoreboard players operation #b/a large_number.int /= #store_3d.ellipse.a large_number.int
 
-execute store result storage large_number:math temp_r double .001 run scoreboard players get #store_3d.ellipse.a int
-execute store result storage large_number:math temp_rn double .001 run scoreboard players get #3d.ellipse.roll.θ int
+execute store result storage large_number:math temp_r double .001 run scoreboard players get #store_3d.ellipse.a large_number.int
+execute store result storage large_number:math temp_rn double .001 run scoreboard players get #3d.ellipse.roll.θ large_number.int
 
 data modify storage large_number:math 3d_ar_ellipse_pos set value []
-execute store result entity @s Rotation[0] float -0.1 run scoreboard players set #loop int 3600
+execute store result entity @s Rotation[0] float -0.1 run scoreboard players set #loop large_number.int 3600
 function large_number:particle/3d_ar_ellipse/loop
 
 tp .0 .0 .0

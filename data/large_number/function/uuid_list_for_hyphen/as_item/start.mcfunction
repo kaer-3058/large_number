@@ -9,7 +9,7 @@
 #execute as 563adc0-fffd-c986-fd14-59f186a8aaa on origin run function large_number:uuid_list_for_hyphen/as_item/start
 
 tag @s add large_number_uuid_list_for_hyphen
-data modify block -29999982 -64 22022222 front_text.messages[0] set value '{"selector": "@e[tag=large_number_uuid_list_for_hyphen,limit=1]"}'
+data modify block -29999982 -64 22022222 front_text.messages[0] set value {"selector": "@e[tag=large_number_uuid_list_for_hyphen,limit=1]"}
 tag @s remove large_number_uuid_list_for_hyphen
 
 data modify storage large_number:math temp1 set from block -29999982 -64 22022222 front_text.messages[0]

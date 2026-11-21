@@ -1,1 +1,0 @@
-$tp ~ ~$(high_precision_stemp4) ~

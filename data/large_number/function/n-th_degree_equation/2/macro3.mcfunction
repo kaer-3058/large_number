@@ -1,0 +1,1 @@
+$execute store result storage large_number:math double_sqrt.input double $(temp_delta) run return -1

@@ -1,1 +1,1 @@
-$execute positioned .0 $(temp_list_div_int_craft1) .0 run loot spawn .0 ~$(temp_list_div_int_craft3) .0 loot large_number:check_pos
+$execute positioned .0 $(temp_list_div_int_craft1) .0 positioned .0 ~$(temp_list_div_int_craft3) .0 run function large_number:macro_operation/loot_spawn_here

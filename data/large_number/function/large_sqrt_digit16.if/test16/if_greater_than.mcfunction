@@ -1,27 +1,27 @@
-scoreboard players remove #d3.1 int 1
+scoreboard players remove #d3.1 large_number.int 1
 
 #不超过八位的大数的平方
-execute store result score #1.3 int run scoreboard players operation #y int = #d3.1 int
-execute store result score #1.2 int run scoreboard players operation #x int = #d2.1 int
+execute store result score #1.3 large_number.int run scoreboard players operation #y large_number.int = #d3.1 large_number.int
+execute store result score #1.2 large_number.int run scoreboard players operation #x large_number.int = #d2.1 large_number.int
 
-execute store result score #4.4 int run scoreboard players operation #1.3 int *= #y int
-scoreboard players operation #1.2 int *= #y int
-scoreboard players operation #y int *= #x int
-scoreboard players operation #x int *= #x int
-scoreboard players operation #y int += #1.2 int
-scoreboard players operation #4.4 int /= 10000 const
-execute store result score #4.3 int run scoreboard players operation #y int += #4.4 int
-scoreboard players operation #4.3 int /= 10000 const
-execute store result score #4.2 int run scoreboard players operation #x int += #4.3 int
-execute store result score #1.0 int run scoreboard players operation #4.2 int /= 10000 const
-scoreboard players operation #1.3 int %= 10000 const
-scoreboard players operation #y int %= 10000 const
-scoreboard players operation #x int %= 10000 const
+execute store result score #4.4 large_number.int run scoreboard players operation #1.3 large_number.int *= #y large_number.int
+scoreboard players operation #1.2 large_number.int *= #y large_number.int
+scoreboard players operation #y large_number.int *= #x large_number.int
+scoreboard players operation #x large_number.int *= #x large_number.int
+scoreboard players operation #y large_number.int += #1.2 large_number.int
+scoreboard players operation #4.4 large_number.int /= 10000 const
+execute store result score #4.3 large_number.int run scoreboard players operation #y large_number.int += #4.4 large_number.int
+scoreboard players operation #4.3 large_number.int /= 10000 const
+execute store result score #4.2 large_number.int run scoreboard players operation #x large_number.int += #4.3 large_number.int
+execute store result score #1.0 large_number.int run scoreboard players operation #4.2 large_number.int /= 10000 const
+scoreboard players operation #1.3 large_number.int %= 10000 const
+scoreboard players operation #y large_number.int %= 10000 const
+scoreboard players operation #x large_number.int %= 10000 const
 #1.0 #x #y #1.3
 
-scoreboard players set #is_>.test16 int 0
-execute if score #1.0 int > #digit1.1 int run scoreboard players set #is_>.test16 int 1
-execute unless score #1.0 int < #digit1.1 int if score #x int > #digit1.2 int run scoreboard players set #is_>.test16 int 1
-execute unless score #1.0 int < #digit1.1 int unless score #x int < #digit1.2 int if score #y int > #digit1.3 int run scoreboard players set #is_>.test16 int 1
-execute unless score #1.0 int < #digit1.1 int unless score #x int < #digit1.2 int unless score #y int < #digit1.3 int if score #1.3 int > #digit1.4 int run scoreboard players set #is_>.test16 int 1
-execute if score #is_>.test16 int matches 1 run function large_number:large_sqrt_digit16.if/test16/if_greater_than
+scoreboard players set #is_>.test16 large_number.int 0
+execute if score #1.0 large_number.int > #digit1.1 large_number.int run scoreboard players set #is_>.test16 large_number.int 1
+execute unless score #1.0 large_number.int < #digit1.1 large_number.int if score #x large_number.int > #digit1.2 large_number.int run scoreboard players set #is_>.test16 large_number.int 1
+execute unless score #1.0 large_number.int < #digit1.1 large_number.int unless score #x large_number.int < #digit1.2 large_number.int if score #y large_number.int > #digit1.3 large_number.int run scoreboard players set #is_>.test16 large_number.int 1
+execute unless score #1.0 large_number.int < #digit1.1 large_number.int unless score #x large_number.int < #digit1.2 large_number.int unless score #y large_number.int < #digit1.3 large_number.int if score #1.3 large_number.int > #digit1.4 large_number.int run scoreboard players set #is_>.test16 large_number.int 1
+execute if score #is_>.test16 large_number.int matches 1 run function large_number:large_sqrt_digit16.if/test16/if_greater_than

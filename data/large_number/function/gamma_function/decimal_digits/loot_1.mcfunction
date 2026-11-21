@@ -1,0 +1,1 @@
+loot spawn .0 ~.5 .0 loot large_number:check_pos

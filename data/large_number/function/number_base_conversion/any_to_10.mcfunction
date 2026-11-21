@@ -1,41 +1,41 @@
 ##转换进制，任意进制转10进制
 
 #data modify storage large_number:math number_base_conversion set value ["f","f","0","9","7"]
-#scoreboard players set #conversion.10_to_any.radix int 27
+#scoreboard players set #conversion.10_to_any.radix large_number.int 27
 
 #接受的进制为2~36，仅接受正整数
 
 data modify storage large_number:math temp_s1 set value [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]
-execute store result storage large_number:math temp_s1[-2] int 1 run scoreboard players operation #temp_n2 int = #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-3] int 1 store result score #temp_n3 int run scoreboard players operation #temp_n2 int *= #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-4] int 1 store result score #temp_n4 int run scoreboard players operation #temp_n3 int *= #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-5] int 1 store result score #temp_n5 int run scoreboard players operation #temp_n4 int *= #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-6] int 1 store result score #temp_n6 int run scoreboard players operation #temp_n5 int *= #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-7] int 1 store result score #temp_n7 int run scoreboard players operation #temp_n6 int *= #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-8] int 1 store result score #temp_n8 int run scoreboard players operation #temp_n7 int *= #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-9] int 1 store result score #temp_n9 int run scoreboard players operation #temp_n8 int *= #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-10] int 1 store result score #temp_n10 int run scoreboard players operation #temp_n9 int *= #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-11] int 1 store result score #temp_n11 int run scoreboard players operation #temp_n10 int *= #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-12] int 1 store result score #temp_n12 int run scoreboard players operation #temp_n11 int *= #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-13] int 1 store result score #temp_n13 int run scoreboard players operation #temp_n12 int *= #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-14] int 1 store result score #temp_n14 int run scoreboard players operation #temp_n13 int *= #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-15] int 1 store result score #temp_n15 int run scoreboard players operation #temp_n14 int *= #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-16] int 1 store result score #temp_n16 int run scoreboard players operation #temp_n15 int *= #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-17] int 1 store result score #temp_n17 int run scoreboard players operation #temp_n16 int *= #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-18] int 1 store result score #temp_n18 int run scoreboard players operation #temp_n17 int *= #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-19] int 1 store result score #temp_n19 int run scoreboard players operation #temp_n18 int *= #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-20] int 1 store result score #temp_n20 int run scoreboard players operation #temp_n19 int *= #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-21] int 1 store result score #temp_n21 int run scoreboard players operation #temp_n20 int *= #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-22] int 1 store result score #temp_n22 int run scoreboard players operation #temp_n21 int *= #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-23] int 1 store result score #temp_n23 int run scoreboard players operation #temp_n22 int *= #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-24] int 1 store result score #temp_n24 int run scoreboard players operation #temp_n23 int *= #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-25] int 1 store result score #temp_n25 int run scoreboard players operation #temp_n24 int *= #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-26] int 1 store result score #temp_n26 int run scoreboard players operation #temp_n25 int *= #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-27] int 1 store result score #temp_n27 int run scoreboard players operation #temp_n26 int *= #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-28] int 1 store result score #temp_n28 int run scoreboard players operation #temp_n27 int *= #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-29] int 1 store result score #temp_n29 int run scoreboard players operation #temp_n28 int *= #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-30] int 1 store result score #temp_n30 int run scoreboard players operation #temp_n29 int *= #conversion.10_to_any.radix int
-execute store result storage large_number:math temp_s1[-31] int 1 run scoreboard players operation #temp_n30 int *= #conversion.10_to_any.radix int
+execute store result storage large_number:math temp_s1[-2] int 1 run scoreboard players operation #temp_n2 large_number.int = #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-3] int 1 store result score #temp_n3 large_number.int run scoreboard players operation #temp_n2 large_number.int *= #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-4] int 1 store result score #temp_n4 large_number.int run scoreboard players operation #temp_n3 large_number.int *= #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-5] int 1 store result score #temp_n5 large_number.int run scoreboard players operation #temp_n4 large_number.int *= #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-6] int 1 store result score #temp_n6 large_number.int run scoreboard players operation #temp_n5 large_number.int *= #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-7] int 1 store result score #temp_n7 large_number.int run scoreboard players operation #temp_n6 large_number.int *= #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-8] int 1 store result score #temp_n8 large_number.int run scoreboard players operation #temp_n7 large_number.int *= #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-9] int 1 store result score #temp_n9 large_number.int run scoreboard players operation #temp_n8 large_number.int *= #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-10] int 1 store result score #temp_n10 large_number.int run scoreboard players operation #temp_n9 large_number.int *= #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-11] int 1 store result score #temp_n11 large_number.int run scoreboard players operation #temp_n10 large_number.int *= #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-12] int 1 store result score #temp_n12 large_number.int run scoreboard players operation #temp_n11 large_number.int *= #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-13] int 1 store result score #temp_n13 large_number.int run scoreboard players operation #temp_n12 large_number.int *= #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-14] int 1 store result score #temp_n14 large_number.int run scoreboard players operation #temp_n13 large_number.int *= #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-15] int 1 store result score #temp_n15 large_number.int run scoreboard players operation #temp_n14 large_number.int *= #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-16] int 1 store result score #temp_n16 large_number.int run scoreboard players operation #temp_n15 large_number.int *= #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-17] int 1 store result score #temp_n17 large_number.int run scoreboard players operation #temp_n16 large_number.int *= #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-18] int 1 store result score #temp_n18 large_number.int run scoreboard players operation #temp_n17 large_number.int *= #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-19] int 1 store result score #temp_n19 large_number.int run scoreboard players operation #temp_n18 large_number.int *= #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-20] int 1 store result score #temp_n20 large_number.int run scoreboard players operation #temp_n19 large_number.int *= #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-21] int 1 store result score #temp_n21 large_number.int run scoreboard players operation #temp_n20 large_number.int *= #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-22] int 1 store result score #temp_n22 large_number.int run scoreboard players operation #temp_n21 large_number.int *= #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-23] int 1 store result score #temp_n23 large_number.int run scoreboard players operation #temp_n22 large_number.int *= #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-24] int 1 store result score #temp_n24 large_number.int run scoreboard players operation #temp_n23 large_number.int *= #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-25] int 1 store result score #temp_n25 large_number.int run scoreboard players operation #temp_n24 large_number.int *= #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-26] int 1 store result score #temp_n26 large_number.int run scoreboard players operation #temp_n25 large_number.int *= #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-27] int 1 store result score #temp_n27 large_number.int run scoreboard players operation #temp_n26 large_number.int *= #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-28] int 1 store result score #temp_n28 large_number.int run scoreboard players operation #temp_n27 large_number.int *= #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-29] int 1 store result score #temp_n29 large_number.int run scoreboard players operation #temp_n28 large_number.int *= #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-30] int 1 store result score #temp_n30 large_number.int run scoreboard players operation #temp_n29 large_number.int *= #conversion.10_to_any.radix large_number.int
+execute store result storage large_number:math temp_s1[-31] int 1 run scoreboard players operation #temp_n30 large_number.int *= #conversion.10_to_any.radix large_number.int
 
 data modify storage large_number:math temp_s2 set value [{a:0},{a:0},{a:0},{a:0},{a:0},{a:0},{a:0},{a:0},{a:0},{a:0},{a:0},{a:0},{a:0},{a:0},{a:0},{a:0},{a:0},{a:0},{a:0},{a:0},{a:0},{a:0},{a:0},{a:0},{a:0},{a:0},{a:0},{a:0},{a:0},{a:0},{a:0}]
 
@@ -108,5 +108,5 @@ data modify storage large_number:math temp_s2[{a:"x"}] set value {a:33}
 data modify storage large_number:math temp_s2[{a:"y"}] set value {a:34}
 data modify storage large_number:math temp_s2[{a:"z"}] set value {a:35}
 
-scoreboard players set #conversion.any_to_10.output int 0
+scoreboard players set #conversion.any_to_10.output large_number.int 0
 execute if data storage large_number:math temp_s2[-1] run function large_number:number_base_conversion/loop2

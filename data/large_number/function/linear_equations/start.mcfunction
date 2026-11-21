@@ -19,35 +19,35 @@
 #function large_number:linear_equations/start
 
 data modify storage large_number:math store_det_input set from storage large_number:math linear_equations.inputA
-scoreboard players set #temp_det_sign int 1
+scoreboard players set #temp_det_sign large_number.int 1
 data modify storage large_number:math linear_equations.output set value []
 data modify storage large_number:math store_vecb set from storage large_number:math linear_equations.inputB
-execute store result score #temp_min_approaching int run data get storage large_number:math linear_equations.min_approaching
+execute store result score #temp_min_approaching large_number.int run data get storage large_number:math linear_equations.min_approaching
 
 #判断系数方阵阶数
 data modify storage large_number:math temp1 set from storage large_number:math store_det_input
-execute store result score #determinant.order int run data get storage large_number:math temp1
-scoreboard players operation #temp2 int = #determinant.order int
-execute store result score #temp1 int if data storage large_number:math temp1[][]
-scoreboard players operation #temp2 int *= #temp2 int
-execute unless score #temp1 int = #temp2 int run scoreboard players set #determinant.order int -1
-execute unless data storage large_number:math temp1[0][0] run scoreboard players set #determinant.order int -1
-execute unless data storage large_number:math temp1[0] run scoreboard players set #determinant.order int 0
+execute store result score #determinant.order large_number.int run data get storage large_number:math temp1
+scoreboard players operation #temp2 large_number.int = #determinant.order large_number.int
+execute store result score #temp1 large_number.int if data storage large_number:math temp1[][]
+scoreboard players operation #temp2 large_number.int *= #temp2 large_number.int
+execute unless score #temp1 large_number.int = #temp2 large_number.int run scoreboard players set #determinant.order large_number.int -1
+execute unless data storage large_number:math temp1[0][0] run scoreboard players set #determinant.order large_number.int -1
+execute unless data storage large_number:math temp1[0] run scoreboard players set #determinant.order large_number.int 0
 
 #消元核心
 data modify storage large_number:math temp_output_matrix set value [[0d]]
 data modify storage large_number:math temp_output_matrix[0][0] set from storage large_number:math store_det_input[0][0]
 data modify storage large_number:math temp_int_extrema_inp set value []
-execute if score #determinant.order int matches 1.. run function large_number:linear_equations/0
-execute if score #determinant.order int matches 2 run function large_number:linear_equations/2.1
-execute if score #determinant.order int matches 3 run function large_number:linear_equations/3.1
-execute if score #determinant.order int matches 4 run function large_number:linear_equations/4.1
-execute if score #determinant.order int matches 5 run function large_number:linear_equations/5.1
-execute if score #determinant.order int matches 6 run function large_number:linear_equations/6.1
-execute if score #determinant.order int matches 7 run function large_number:linear_equations/7.1
-execute if score #determinant.order int matches 8 run function large_number:linear_equations/8.1
-execute if score #determinant.order int matches 9 run function large_number:linear_equations/9.1
-execute if score #determinant.order int matches 10 run function large_number:linear_equations/10.1
+execute if score #determinant.order large_number.int matches 1.. run function large_number:linear_equations/0
+execute if score #determinant.order large_number.int matches 2 run function large_number:linear_equations/2.1
+execute if score #determinant.order large_number.int matches 3 run function large_number:linear_equations/3.1
+execute if score #determinant.order large_number.int matches 4 run function large_number:linear_equations/4.1
+execute if score #determinant.order large_number.int matches 5 run function large_number:linear_equations/5.1
+execute if score #determinant.order large_number.int matches 6 run function large_number:linear_equations/6.1
+execute if score #determinant.order large_number.int matches 7 run function large_number:linear_equations/7.1
+execute if score #determinant.order large_number.int matches 8 run function large_number:linear_equations/8.1
+execute if score #determinant.order large_number.int matches 9 run function large_number:linear_equations/9.1
+execute if score #determinant.order large_number.int matches 10 run function large_number:linear_equations/10.1
 
 #判断最后一个元素接近0的程度
 data modify storage large_number:math temp1 set from storage large_number:math store_det_input[-1][-1]
@@ -55,29 +55,29 @@ data modify storage large_number:math stemp1 set value ""
 data modify storage large_number:math stemp1 set string storage large_number:math temp1 0 1
 execute if data storage large_number:math {stemp1:"-"} run function large_number:linear_equations/macro1 with storage large_number:math
 
-scoreboard players set #max_precision int 1
-execute store result score #temp1 int run data get storage large_number:math temp1
-execute if score #temp1 int matches ..4 run scoreboard players set #max_precision int 0
-execute store result score #temp1 int run data get storage large_number:math temp1 10
-execute if score #temp1 int matches ..4 run scoreboard players set #max_precision int -1
-execute store result score #temp1 int run data get storage large_number:math temp1 100
-execute if score #temp1 int matches ..4 run scoreboard players set #max_precision int -2
-execute store result score #temp1 int run data get storage large_number:math temp1 1000
-execute if score #temp1 int matches ..4 run scoreboard players set #max_precision int -3
-execute store result score #temp1 int run data get storage large_number:math temp1 10000
-execute if score #temp1 int matches ..4 run scoreboard players set #max_precision int -4
-execute store result score #temp1 int run data get storage large_number:math temp1 100000
-execute if score #temp1 int matches ..4 run scoreboard players set #max_precision int -5
-execute store result score #temp1 int run data get storage large_number:math temp1 1000000
-execute if score #temp1 int matches ..4 run scoreboard players set #max_precision int -6
-execute store result score #temp1 int run data get storage large_number:math temp1 10000000
-execute if score #temp1 int matches ..4 run scoreboard players set #max_precision int -7
-execute store result score #temp1 int run data get storage large_number:math temp1 100000000
-execute if score #temp1 int matches ..4 run scoreboard players set #max_precision int -8
+scoreboard players set #max_precision large_number.int 1
+execute store result score #temp1 large_number.int run data get storage large_number:math temp1
+execute if score #temp1 large_number.int matches ..4 run scoreboard players set #max_precision large_number.int 0
+execute store result score #temp1 large_number.int run data get storage large_number:math temp1 10
+execute if score #temp1 large_number.int matches ..4 run scoreboard players set #max_precision large_number.int -1
+execute store result score #temp1 large_number.int run data get storage large_number:math temp1 100
+execute if score #temp1 large_number.int matches ..4 run scoreboard players set #max_precision large_number.int -2
+execute store result score #temp1 large_number.int run data get storage large_number:math temp1 1000
+execute if score #temp1 large_number.int matches ..4 run scoreboard players set #max_precision large_number.int -3
+execute store result score #temp1 large_number.int run data get storage large_number:math temp1 10000
+execute if score #temp1 large_number.int matches ..4 run scoreboard players set #max_precision large_number.int -4
+execute store result score #temp1 large_number.int run data get storage large_number:math temp1 100000
+execute if score #temp1 large_number.int matches ..4 run scoreboard players set #max_precision large_number.int -5
+execute store result score #temp1 large_number.int run data get storage large_number:math temp1 1000000
+execute if score #temp1 large_number.int matches ..4 run scoreboard players set #max_precision large_number.int -6
+execute store result score #temp1 large_number.int run data get storage large_number:math temp1 10000000
+execute if score #temp1 large_number.int matches ..4 run scoreboard players set #max_precision large_number.int -7
+execute store result score #temp1 large_number.int run data get storage large_number:math temp1 100000000
+execute if score #temp1 large_number.int matches ..4 run scoreboard players set #max_precision large_number.int -8
 
-execute if score #max_precision int <= #temp_min_approaching int run scoreboard players set #determinant.order int -2
+execute if score #max_precision large_number.int <= #temp_min_approaching large_number.int run scoreboard players set #determinant.order large_number.int -2
 
-execute store result storage large_number:math temp1 int 1 run scoreboard players get #max_precision int
+execute store result storage large_number:math temp1 int 1 run scoreboard players get #max_precision large_number.int
 data modify storage large_number:math temp_int_extrema_inp append from storage large_number:math temp1
 
 
@@ -85,32 +85,32 @@ data modify storage large_number:math linear_equations.output_matrix set from st
 
 #int列表的最大值/最小值 - 任意两个元素之差不会超出int范围 - 找出主元的最小精度
 data modify storage large_number:math stempd set from storage large_number:math temp_int_extrema_inp
-execute store result score #float_comparison_sizes_B int run data get storage large_number:math stempd[0]
+execute store result score #float_comparison_sizes_B large_number.int run data get storage large_number:math stempd[0]
 execute if data storage large_number:math stempd[1] run function large_number:linear_equations/int_extrema_small/loop
-execute if score #float_comparison_sizes_B int <= #temp_min_approaching int run scoreboard players set #determinant.order int -2
-execute store result storage large_number:math linear_equations.matrix_approaching_zero int 1 run scoreboard players get #float_comparison_sizes_B int
+execute if score #float_comparison_sizes_B large_number.int <= #temp_min_approaching large_number.int run scoreboard players set #determinant.order large_number.int -2
+execute store result storage large_number:math linear_equations.matrix_approaching_zero int 1 run scoreboard players get #float_comparison_sizes_B large_number.int
 
-execute if score #determinant.order int matches ..0 run data modify storage large_number:math linear_equations.output set from storage large_number:math buffer_NaN
+execute if score #determinant.order large_number.int matches ..0 run data modify storage large_number:math linear_equations.output set from storage large_number:math buffer_NaN
 
-execute store result storage large_number:math linear_equations.order int 1 run scoreboard players get #determinant.order int
+execute store result storage large_number:math linear_equations.order int 1 run scoreboard players get #determinant.order large_number.int
 
 #计算行列式
 execute if data storage large_number:math linear_equations{ope_det:1b} run function large_number:linear_equations/det
 data modify storage large_number:math linear_equations.det_sign set value 1b
-execute if score #temp_det_sign int matches -1 run data modify storage large_number:math linear_equations.det_sign set value -1b
+execute if score #temp_det_sign large_number.int matches -1 run data modify storage large_number:math linear_equations.det_sign set value -1b
 
 #进行回代
 data modify storage large_number:math temp_x set value []
 
-execute if score #determinant.order int matches 10.. run function large_number:linear_equations/ope_x/10
-execute if score #determinant.order int matches 9.. run function large_number:linear_equations/ope_x/9
-execute if score #determinant.order int matches 8.. run function large_number:linear_equations/ope_x/8
-execute if score #determinant.order int matches 7.. run function large_number:linear_equations/ope_x/7
-execute if score #determinant.order int matches 6.. run function large_number:linear_equations/ope_x/6
-execute if score #determinant.order int matches 5.. run function large_number:linear_equations/ope_x/5
-execute if score #determinant.order int matches 4.. run function large_number:linear_equations/ope_x/4
-execute if score #determinant.order int matches 3.. run function large_number:linear_equations/ope_x/3
-execute if score #determinant.order int matches 2.. run function large_number:linear_equations/ope_x/2
-execute if score #determinant.order int matches 1.. run function large_number:linear_equations/ope_x/1
+execute if score #determinant.order large_number.int matches 10.. run function large_number:linear_equations/ope_x/10
+execute if score #determinant.order large_number.int matches 9.. run function large_number:linear_equations/ope_x/9
+execute if score #determinant.order large_number.int matches 8.. run function large_number:linear_equations/ope_x/8
+execute if score #determinant.order large_number.int matches 7.. run function large_number:linear_equations/ope_x/7
+execute if score #determinant.order large_number.int matches 6.. run function large_number:linear_equations/ope_x/6
+execute if score #determinant.order large_number.int matches 5.. run function large_number:linear_equations/ope_x/5
+execute if score #determinant.order large_number.int matches 4.. run function large_number:linear_equations/ope_x/4
+execute if score #determinant.order large_number.int matches 3.. run function large_number:linear_equations/ope_x/3
+execute if score #determinant.order large_number.int matches 2.. run function large_number:linear_equations/ope_x/2
+execute if score #determinant.order large_number.int matches 1.. run function large_number:linear_equations/ope_x/1
 
 data modify storage large_number:math linear_equations.output append from storage large_number:math temp_x[]

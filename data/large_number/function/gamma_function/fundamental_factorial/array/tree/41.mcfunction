@@ -1,0 +1,1 @@
+execute if score #natural_num.factorial.input large_number.int matches 41 run data modify storage large_number:math natural_num_factorial set value [33,4525,2661,3163,8071,817,62,534,4075,1665,1520,0,0]

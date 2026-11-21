@@ -1,0 +1,1 @@
+execute if score #natural_num.factorial.input large_number.int matches 109 run data modify storage large_number:math natural_num_factorial set value [1,4438,5958,3202,4935,8220,4882,1024,6279,7533,7931,2820,3133,9602,9159,8340,7562,2223,3378,4498,3482,996,3600,1195,6152,5927,7084,333,8761,9818,928,473,7714,7583,8424,4334,1602,1737,4720,0,0,0,0,0,0]

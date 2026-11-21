@@ -7,10 +7,10 @@
 #执行：function large_number:random/pascal_distribution/start
 
 data modify storage large_number:math geometric_distribution_chance set from storage large_number:math pascal_distribution.p
-scoreboard players set #loop int 0
-scoreboard players set #loop2 int 0
-execute store result score #sstempu int run data get storage large_number:math pascal_distribution.max
-execute store result score #sstempv int run data get storage large_number:math pascal_distribution.r
+scoreboard players set #loop large_number.int 0
+scoreboard players set #loop2 large_number.int 0
+execute store result score #sstempu large_number.int run data get storage large_number:math pascal_distribution.max
+execute store result score #sstempv large_number.int run data get storage large_number:math pascal_distribution.r
 
 function large_number:random/pascal_distribution/loop
-execute store result storage large_number:math pascal_distribution.output int 1 run scoreboard players get #loop int
+execute store result storage large_number:math pascal_distribution.output int 1 run scoreboard players get #loop large_number.int

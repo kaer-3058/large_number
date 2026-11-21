@@ -1,0 +1,1 @@
+$execute store result storage large_number:math float_nbt_to_score_input double $(temp_int_b_a) run return $(temp)

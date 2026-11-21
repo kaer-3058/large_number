@@ -1,1 +1,1 @@
-$execute store result storage large_number:math temp_ss3 double $(output) run return 2
+$execute store result storage large_number:math temp_ss1 double $(output) run return 2

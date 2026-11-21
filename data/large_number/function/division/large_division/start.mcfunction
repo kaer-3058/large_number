@@ -12,17 +12,17 @@
 
 data modify storage large_number:math div_1 set from storage large_number:math large_division.input1
 data modify storage large_number:math div_2 set from storage large_number:math large_division.input2
-execute store result score #loops int run data get storage large_number:math large_division.times
+execute store result score #loops large_number.int run data get storage large_number:math large_division.times
 data modify storage large_number:math sstempz set value []
 
 #总循环
-execute if score #loops int matches 1.. run function large_number:division/large_division/loop_all
+execute if score #loops large_number.int matches 1.. run function large_number:division/large_division/loop_all
 
 #去掉后缀0
-execute store result score #temp1 int run data get storage large_number:math sstempz[-1]
-execute if score #temp1 int matches 0 if data storage large_number:math large_division{del_zeros:1} if data storage large_number:math sstempz[-2] run function large_number:division/large_division/del_zero_2
+execute store result score #temp1 large_number.int run data get storage large_number:math sstempz[-1]
+execute if score #temp1 large_number.int matches 0 if data storage large_number:math large_division{del_zeros:1} if data storage large_number:math sstempz[-2] run function large_number:division/large_division/del_zero_2
 
 data modify storage large_number:math large_division.output set from storage large_number:math sstempz
 
 
-execute unless score #large_number.all_tellraw_set int matches 1 run tellraw @a {"translate":"large_number.large_division.end","fallback": "\u00A77\u00A7o大数除法计算完成"}
+execute unless score #large_number.all_tellraw_set large_number.int matches 1 run tellraw @a {"translate":"large_number.large_division.end","fallback": "\u00A77\u00A7o大数除法计算完成"}

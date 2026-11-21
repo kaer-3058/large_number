@@ -1,1 +1,1 @@
-$tp ^$(u) ^ ^$(w)
+$execute positioned ^$(u) ^ ^$(w) run function large_number:macro_operation/tp_here

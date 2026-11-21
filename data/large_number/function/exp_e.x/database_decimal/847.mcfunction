@@ -1,0 +1,1 @@
+data modify storage large_number:math s0 set value {"a": 2332, "b": 6384, "c": 2926, "d": 530, "e": 1}

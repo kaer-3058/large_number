@@ -1,0 +1,1 @@
+$execute positioned ~ ~$(temp_stirling_series_times_4) ~ run function large_number:macro_operation/tp_here

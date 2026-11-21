@@ -1,6 +1,6 @@
 #计算平面向量的方向角。
 #给出两个值，计算该坐标下的反正切值
-#输入：#y int  #x int
+#输入：#y large_number.int  #x large_number.int
 #公式：atan2d(y,x)
 
 #计算：
@@ -10,24 +10,24 @@
 #data get entity b09e-44-fded-6-efa5ffffef64 Rotation[0]
 
 tp @s .0 .0 .0 .0 .0
-execute store result storage large_number:math buffer_all_xyz[0] double -0.0001 run scoreboard players get #y int
-execute store result storage large_number:math buffer_all_xyz[2] double 0.0001 run scoreboard players get #x int
-#tellraw @a [{"score":{"name": "#arcsin_cos.input","objective": "int"}}," ",{"score":{"name": "#y","objective": "int"}}," ",{"score":{"name": "#x","objective": "int"}}]
+execute store result storage large_number:math buffer_all_xyz[0] double -0.0001 run scoreboard players get #y large_number.int
+execute store result storage large_number:math buffer_all_xyz[2] double 0.0001 run scoreboard players get #x large_number.int
+#tellraw @a [{"score":{"name": "#arcsin_cos.input","objective": "large_number.int"}}," ",{"score":{"name": "#y","objective": "large_number.int"}}," ",{"score":{"name": "#x","objective": "large_number.int"}}]
 #tellraw @a {"nbt":"Pos","entity": "@s"}
 data modify entity @s Pos set from storage large_number:math buffer_all_xyz
 execute positioned .0 .0 .0 facing entity @s feet rotated ~ .0 run tp @s .0 .0 .0 ~ ~
 #tellraw @a {"nbt":"Rotation","entity": "@s"}
 
-execute store result score #arcsin_cos.output int run data get entity @s Rotation[0] 10000
-execute if score #x int matches 0.. if score #y int matches 0.. unless score #arcsin_cos.output int matches 0..900000 run scoreboard players add #arcsin_cos.output int 3600000
-execute if score #x int matches ..-1 if score #y int matches 0.. unless score #arcsin_cos.output int matches 900000..1800000 run scoreboard players add #arcsin_cos.output int 3600000
-execute if score #x int matches ..-1 if score #y int matches ..-1 unless score #arcsin_cos.output int matches -1800000..-900000 run scoreboard players remove #arcsin_cos.output int 3600000
-execute if score #x int matches 0.. if score #y int matches ..-1 unless score #arcsin_cos.output int matches -900000..0 run scoreboard players remove #arcsin_cos.output int 3600000
-execute if score #arcsin_cos.output int matches -1800000 run scoreboard players set #arcsin_cos.output int 1800000
+execute store result score #arcsin_cos.output large_number.int run data get entity @s Rotation[0] 10000
+execute if score #x large_number.int matches 0.. if score #y large_number.int matches 0.. unless score #arcsin_cos.output large_number.int matches 0..900000 run scoreboard players add #arcsin_cos.output large_number.int 3600000
+execute if score #x large_number.int matches ..-1 if score #y large_number.int matches 0.. unless score #arcsin_cos.output large_number.int matches 900000..1800000 run scoreboard players add #arcsin_cos.output large_number.int 3600000
+execute if score #x large_number.int matches ..-1 if score #y large_number.int matches ..-1 unless score #arcsin_cos.output large_number.int matches -1800000..-900000 run scoreboard players remove #arcsin_cos.output large_number.int 3600000
+execute if score #x large_number.int matches 0.. if score #y large_number.int matches ..-1 unless score #arcsin_cos.output large_number.int matches -900000..0 run scoreboard players remove #arcsin_cos.output large_number.int 3600000
+execute if score #arcsin_cos.output large_number.int matches -1800000 run scoreboard players set #arcsin_cos.output large_number.int 1800000
 
 
 #复现条件：按顺序执行如下命令：
-#scoreboard players set #arcsin_cos.input int -2300
+#scoreboard players set #arcsin_cos.input large_number.int -2300
 #function large_number:math_trifs/arccos   -> 观察它的tellraw
 #data modify storage large_number:math expression_evaluation.input set value "(exp2.1455)+(sin17.4)^3+(cos-16.5)²+(arcsin0.14)+(arccos-0.23)+(ln17.66E2)+(√54554.38802)/2.12"
 #function large_number:expression_evaluation_scientific/to_rev_polish_notation  -> 执行后看到弹出提示再进行下一步

@@ -1,0 +1,1 @@
+$execute store result storage large_number:math temp_zeta_critical_line_r double $(temp_zeta_critical_line_r) run return -1

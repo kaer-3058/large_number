@@ -1,0 +1,1 @@
+data modify storage large_number:math natural_num_double_factorial set value 1.46147931812376E36d

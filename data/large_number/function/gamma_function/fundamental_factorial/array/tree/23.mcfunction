@@ -1,0 +1,1 @@
+execute if score #natural_num.factorial.input large_number.int matches 23 run data modify storage large_number:math natural_num_factorial set value [258,5201,6738,8849,7664,0]

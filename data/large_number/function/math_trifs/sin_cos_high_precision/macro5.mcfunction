@@ -1,0 +1,1 @@
+$data modify storage large_number:math sin_cos_high_precision.input set value $(stemp1)0.$(temp1)$(temp2)$(temp3)E$(stemp2)f

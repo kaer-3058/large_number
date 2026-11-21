@@ -1,1 +1,1 @@
-$return run data get storage large_number:const sin2[$(s2)]
+$execute store result storage large_number:math int_mul_1 long $(temp_sin_inte) run return $(temp_cos_deci_12)

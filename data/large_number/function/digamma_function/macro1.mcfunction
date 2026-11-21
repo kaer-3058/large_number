@@ -1,1 +1,1 @@
-$execute store result storage large_number:math temp1 double $(input) run return 2
+$execute store result storage large_number:math temp1 double $(temp_digamma_function_inp) run return 2

@@ -1,0 +1,10 @@
+execute if score #n-th_degree_equ.n-th large_number.int matches 1.. run tellraw @a {nbt:"naive_qr_method_input[0]",storage:"large_number:math"}
+execute if score #n-th_degree_equ.n-th large_number.int matches 2.. run tellraw @a {nbt:"naive_qr_method_input[1]",storage:"large_number:math"}
+execute if score #n-th_degree_equ.n-th large_number.int matches 3.. run tellraw @a {nbt:"naive_qr_method_input[2]",storage:"large_number:math"}
+execute if score #n-th_degree_equ.n-th large_number.int matches 4.. run tellraw @a {nbt:"naive_qr_method_input[3]",storage:"large_number:math"}
+execute if score #n-th_degree_equ.n-th large_number.int matches 5.. run tellraw @a {nbt:"naive_qr_method_input[4]",storage:"large_number:math"}
+execute if score #n-th_degree_equ.n-th large_number.int matches 6.. run tellraw @a {nbt:"naive_qr_method_input[5]",storage:"large_number:math"}
+execute if score #n-th_degree_equ.n-th large_number.int matches 7.. run tellraw @a {nbt:"naive_qr_method_input[6]",storage:"large_number:math"}
+execute if score #n-th_degree_equ.n-th large_number.int matches 8.. run tellraw @a {nbt:"naive_qr_method_input[7]",storage:"large_number:math"}
+execute if score #n-th_degree_equ.n-th large_number.int matches 9.. run tellraw @a {nbt:"naive_qr_method_input[8]",storage:"large_number:math"}
+execute if score #n-th_degree_equ.n-th large_number.int matches 10.. run tellraw @a {nbt:"naive_qr_method_input[9]",storage:"large_number:math"}

@@ -7,14 +7,14 @@
 
 #判断行列式阶数
 data modify storage large_number:math temp1 set from storage large_number:math determinant_evaluate.input
-execute store result score #determinant.order int run data get storage large_number:math temp1
-scoreboard players operation #temp2 int = #determinant.order int
-execute store result score #temp1 int if data storage large_number:math temp1[][]
-scoreboard players operation #temp2 int *= #temp2 int
-execute unless score #temp1 int = #temp2 int run scoreboard players set #determinant.order int -1
-execute unless data storage large_number:math temp1[0][0] run scoreboard players set #determinant.order int -1
-execute unless data storage large_number:math temp1[0] run scoreboard players set #determinant.order int 0
+execute store result score #determinant.order large_number.int run data get storage large_number:math temp1
+scoreboard players operation #temp2 large_number.int = #determinant.order large_number.int
+execute store result score #temp1 large_number.int if data storage large_number:math temp1[][]
+scoreboard players operation #temp2 large_number.int *= #temp2 large_number.int
+execute unless score #temp1 large_number.int = #temp2 large_number.int run scoreboard players set #determinant.order large_number.int -1
+execute unless data storage large_number:math temp1[0][0] run scoreboard players set #determinant.order large_number.int -1
+execute unless data storage large_number:math temp1[0] run scoreboard players set #determinant.order large_number.int 0
 
-execute unless score #determinant.order int matches -1 run function large_number:determinant/evaluate/1
-execute if score #determinant.order int matches -1 run data modify storage large_number:math determinant_evaluate.output set from storage large_number:math buffer_NaN
-execute store result storage large_number:math determinant_evaluate.order int 1 run scoreboard players get #determinant.order int
+execute unless score #determinant.order large_number.int matches -1 run function large_number:determinant/evaluate/1
+execute if score #determinant.order large_number.int matches -1 run data modify storage large_number:math determinant_evaluate.output set from storage large_number:math buffer_NaN
+execute store result storage large_number:math determinant_evaluate.order int 1 run scoreboard players get #determinant.order large_number.int

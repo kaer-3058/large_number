@@ -15,6 +15,4 @@ execute as @e[tag=!large_number.fast_raycast] at @s positioned ~ ~1 ~ \
 tp .0 .0 .0
 
 #这是目前最快的视线追踪！
-#这是巧妙地利用了execute+朝向的精髓，几何学在游戏中的精彩应用！
-
 #发明人：Ethan

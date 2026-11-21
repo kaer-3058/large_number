@@ -97,35 +97,35 @@ data modify storage large_number:math cubic_equation.delta set from storage larg
 
 
 #浮点数近似判断  1E-6精度近似为0
-execute store result score #sstempu int run data get storage large_number:math cubic_equation.A 1000000
-execute if score #sstempu int matches -5..4 run data modify storage large_number:math cubic_equation.A set value 0.0
+execute store result score #sstempu large_number.int run data get storage large_number:math cubic_equation.A 1000000
+execute if score #sstempu large_number.int matches -5..4 run data modify storage large_number:math cubic_equation.A set value 0.0
 
-execute store result score #sstempu int run data get storage large_number:math cubic_equation.B 1000000
-execute if score #sstempu int matches -5..4 run data modify storage large_number:math cubic_equation.B set value 0.0
+execute store result score #sstempu large_number.int run data get storage large_number:math cubic_equation.B 1000000
+execute if score #sstempu large_number.int matches -5..4 run data modify storage large_number:math cubic_equation.B set value 0.0
 
-execute store result score #sstempu int run data get storage large_number:math cubic_equation.delta 1000000
-execute if score #sstempu int matches -5..4 run data modify storage large_number:math cubic_equation.delta set value 0.0
+execute store result score #sstempu large_number.int run data get storage large_number:math cubic_equation.delta 1000000
+execute if score #sstempu large_number.int matches -5..4 run data modify storage large_number:math cubic_equation.delta set value 0.0
 
 
 #重根判断
-scoreboard players set #cubic_equation.shengjin_mode int 0
+scoreboard players set #cubic_equation.shengjin_mode large_number.int 0
 
 data modify storage large_number:math temp1 set from storage large_number:math cubic_equation.A
-execute store success score #temp1 int run data modify storage large_number:math temp1 set from storage large_number:math cubic_equation.B
-execute if score #temp1 int matches 0 if data storage large_number:math cubic_equation{A:0.0} run scoreboard players set #cubic_equation.shengjin_mode int 1
+execute store success score #temp1 large_number.int run data modify storage large_number:math temp1 set from storage large_number:math cubic_equation.B
+execute if score #temp1 large_number.int matches 0 if data storage large_number:math cubic_equation{A:0.0} run scoreboard players set #cubic_equation.shengjin_mode large_number.int 1
 
 data modify storage large_number:math temp2 set string storage large_number:math cubic_equation.delta 0 1
-execute unless data storage large_number:math {temp2:"-"} unless data storage large_number:math cubic_equation{delta:0.0} run scoreboard players set #cubic_equation.shengjin_mode int 2
+execute unless data storage large_number:math {temp2:"-"} unless data storage large_number:math cubic_equation{delta:0.0} run scoreboard players set #cubic_equation.shengjin_mode large_number.int 2
 
-execute unless score #cubic_equation.shengjin_mode int matches 1 if data storage large_number:math cubic_equation{delta:0.0} run scoreboard players set #cubic_equation.shengjin_mode int 3
+execute unless score #cubic_equation.shengjin_mode large_number.int matches 1 if data storage large_number:math cubic_equation{delta:0.0} run scoreboard players set #cubic_equation.shengjin_mode large_number.int 3
 
-execute if data storage large_number:math {temp2:"-"} run scoreboard players set #cubic_equation.shengjin_mode int 4
+execute if data storage large_number:math {temp2:"-"} run scoreboard players set #cubic_equation.shengjin_mode large_number.int 4
 
 
 #根据模式启用不同的公式
-execute if score #cubic_equation.shengjin_mode int matches 1 run function large_number:cubic_equation/formula1
-execute if score #cubic_equation.shengjin_mode int matches 2 run function large_number:cubic_equation/formula2
-execute if score #cubic_equation.shengjin_mode int matches 3 run function large_number:cubic_equation/formula3
-execute if score #cubic_equation.shengjin_mode int matches 4 run function large_number:cubic_equation/formula4
+execute if score #cubic_equation.shengjin_mode large_number.int matches 1 run function large_number:cubic_equation/formula1
+execute if score #cubic_equation.shengjin_mode large_number.int matches 2 run function large_number:cubic_equation/formula2
+execute if score #cubic_equation.shengjin_mode large_number.int matches 3 run function large_number:cubic_equation/formula3
+execute if score #cubic_equation.shengjin_mode large_number.int matches 4 run function large_number:cubic_equation/formula4
 
 function large_number:cubic_equation/tell

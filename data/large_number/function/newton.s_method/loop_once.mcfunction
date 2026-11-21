@@ -1,17 +1,23 @@
 #单次迭代
 
-#f(x0) 解析逆波兰式
+#f(x0) 解析逆波兰式 - 实函数
 data modify storage large_number:math expression_evaluation_variables."ｘ" set from storage large_number:math newton.s_method.output
+
 data modify storage large_number:math temp_expression_s1 set value []
 data modify storage large_number:math temp_expression_s2 set from storage large_number:math expression_evaluation.rev_polish_notation
+scoreboard players set #temp_expression_evaluation_error large_number.int -1
 execute if data storage large_number:math temp_expression_s2[0] run function large_number:expression_evaluation_scientific/ope_of_float/loop1
 data modify storage large_number:math temp1 set from storage large_number:math temp_expression_s1[0]
 function large_number:expression_evaluation_scientific/macro4.output with storage large_number:math
+execute store result storage large_number:math expression_evaluation.error_type int 1 run scoreboard players get #temp_expression_evaluation_error large_number.int
+execute if score #temp_expression_evaluation_error large_number.int matches 1.. run return run data modify storage large_number:math newton.s_method.output set value "NaNd"
+
 data modify storage large_number:math temp_fx set from storage large_number:math expression_evaluation.output
 
 #f'(x0)
 data modify storage large_number:math expression_evaluation.differential.input set from storage large_number:math newton.s_method.output
 function large_number:differential/difference_quotient_method/1/start
+execute if score #temp_expression_evaluation_error large_number.int matches 1.. run return run data modify storage large_number:math newton.s_method.output set value "NaNd"
 
 #f(x0)/f'(x0)
 data modify storage large_number:math float_division.input1 set from storage large_number:math temp_fx

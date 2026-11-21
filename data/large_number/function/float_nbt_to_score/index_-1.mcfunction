@@ -1,0 +1,1 @@
+$function large_number:float_nbt_to_score/tree/-1/$(temp)

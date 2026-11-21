@@ -1,0 +1,1 @@
+$execute store result storage large_number:math complex_operation.output.i double $(output) run return 2

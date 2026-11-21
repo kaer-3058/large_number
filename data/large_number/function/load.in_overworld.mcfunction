@@ -9,7 +9,8 @@ setblock -29999982 -64 22022222 minecraft:oak_wall_sign
 
 
 #世界实体 UUID：b09e-44-fded-6-efa5ffffef64
-execute unless entity b09e-44-fded-6-efa5ffffef64 run summon minecraft:marker .0 .0 .0 {UUID:[I;45214,4521453,454565,-4252],CustomName:'{"text":"large_number.world_entity"}'}
+summon minecraft:marker .0 .0 .0 {UUID:[I;45214,4521453,454565,-4252],CustomName:{"text":"large_number.world_entity"}}
+data modify entity b09e-44-fded-6-efa5ffffef64 CustomName set value {"text":"large_number.world_entity"}
 execute as b09e-44-fded-6-efa5ffffef64 run function ntre:randomize
 
 #利用矩阵进行计算的方块展示实体 UUID: 28529-0-3d00-0-2c4200ee8401
@@ -33,6 +34,6 @@ setblock -29999983 -60 22022222 minecraft:stone
 setblock -29999984 -60 22022222 minecraft:stone
 setblock -29999983 -60 22022222 minecraft:observer[facing=east]
 setblock -29999984 -60 22022222 minecraft:command_block[facing=up]{Command:'\
-execute if score #cb_run_func:"timestamp/cb_start" int matches 1 if data block -29999982 -60 22022222 profile.properties[0].value run function large_number:timestamp/cb_start\
-',UpdateLastExecution:1b,TrackOutput:1b,CustomName:'{"text":"large_number.timestamp"}'}
+execute if score #cb_run_func:"timestamp/cb_start" large_number.int matches 1 if data block -29999982 -60 22022222 profile.properties[0].value run function large_number:timestamp/cb_start\
+',UpdateLastExecution:1b,TrackOutput:1b,CustomName:{"text":"large_number.timestamp"}}
 

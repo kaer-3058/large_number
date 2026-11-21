@@ -8,29 +8,26 @@
 #浮点加法
 data modify storage large_number:math temp1 set from storage large_number:math expression_evaluation.differential.input
 data modify storage large_number:math temp2 set from storage large_number:math expression_evaluation.differential.dx
-execute store result score #temp_test.float_add_sub_a2 int run data get storage large_number:math temp1
-execute store result score #temp_test.float_add_sub_b2 int run data get storage large_number:math temp2
-scoreboard players operation #temp_test.float_add_sub_a int = #temp_test.float_add_sub_a2 int
-scoreboard players operation #temp_test.float_add_sub_b int = #temp_test.float_add_sub_b2 int
-execute if score #temp_test.float_add_sub_a int matches ..-1 store result score #temp_test.float_add_sub_a int run data get storage large_number:math temp1 -1
-execute if score #temp_test.float_add_sub_b int matches ..-1 store result score #temp_test.float_add_sub_b int run data get storage large_number:math temp2 -1
-scoreboard players set #temp_test.float_add_sub.number_is_large int 0
-execute if score #temp_test.float_add_sub_a int matches 20000000.. run scoreboard players set #temp_test.float_add_sub.number_is_large int 1
-execute if score #temp_test.float_add_sub_b int matches 20000000.. run scoreboard players set #temp_test.float_add_sub.number_is_large int 1
-scoreboard players operation #temp_test.float_add_sub_a2 int += #temp_test.float_add_sub_b2 int
-execute if score #temp_test.float_add_sub.number_is_large int matches 0 if score #temp_test.float_add_sub_a int matches 20000000.. run scoreboard players set #temp_test.float_add_sub.number_is_large int 1
-execute if score #temp_test.float_add_sub.number_is_large int matches 0 as b09e-44-fded-6-efa5ffffef64 run function large_number:fourier_series_numerical/ope/macro3.5 with storage large_number:math
-execute if score #temp_test.float_add_sub.number_is_large int matches 1 run function large_number:fourier_series_numerical/ope/macro3 with storage large_number:math
-execute if score #temp_test.float_add_sub.number_is_large int matches 1 as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
+execute store result score #temp_test.float_add_sub_a2 large_number.int run data get storage large_number:math temp1
+execute store result score #temp_test.float_add_sub_b2 large_number.int run data get storage large_number:math temp2
+scoreboard players operation #temp_test.float_add_sub_a large_number.int = #temp_test.float_add_sub_a2 large_number.int
+scoreboard players operation #temp_test.float_add_sub_b large_number.int = #temp_test.float_add_sub_b2 large_number.int
+execute if score #temp_test.float_add_sub_a large_number.int matches ..-1 store result score #temp_test.float_add_sub_a large_number.int run data get storage large_number:math temp1 -1
+execute if score #temp_test.float_add_sub_b large_number.int matches ..-1 store result score #temp_test.float_add_sub_b large_number.int run data get storage large_number:math temp2 -1
+scoreboard players set #temp_test.float_add_sub.number_is_large large_number.int 0
+execute if score #temp_test.float_add_sub_a large_number.int matches 20000000.. run scoreboard players set #temp_test.float_add_sub.number_is_large large_number.int 1
+execute if score #temp_test.float_add_sub_b large_number.int matches 20000000.. run scoreboard players set #temp_test.float_add_sub.number_is_large large_number.int 1
+scoreboard players operation #temp_test.float_add_sub_a2 large_number.int += #temp_test.float_add_sub_b2 large_number.int
+execute if score #temp_test.float_add_sub.number_is_large large_number.int matches 0 if score #temp_test.float_add_sub_a large_number.int matches 20000000.. run scoreboard players set #temp_test.float_add_sub.number_is_large large_number.int 1
+execute if score #temp_test.float_add_sub.number_is_large large_number.int matches 0 as b09e-44-fded-6-efa5ffffef64 run function large_number:fourier_series_numerical/ope/macro3.5 with storage large_number:math
+execute if score #temp_test.float_add_sub.number_is_large large_number.int matches 1 run function large_number:fourier_series_numerical/ope/macro3 with storage large_number:math
+execute if score #temp_test.float_add_sub.number_is_large large_number.int matches 1 as @e[type=minecraft:item,distance=.0..] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
 
 data modify storage large_number:math expression_evaluation_variables."ｘ" set from storage large_number:math temp1
 
-#解析逆波兰式
-data modify storage large_number:math temp_expression_s1 set value []
-data modify storage large_number:math temp_expression_s2 set from storage large_number:math expression_evaluation.rev_polish_notation
-execute if data storage large_number:math temp_expression_s2[0] run function large_number:expression_evaluation_scientific/ope_of_float/loop1
-data modify storage large_number:math temp1 set from storage large_number:math temp_expression_s1[0]
-function large_number:expression_evaluation_scientific/macro4.output with storage large_number:math
+#解析逆波兰式 - 实函数
+function large_number:expression_evaluation_scientific/ope_no_tell
+execute if score #temp_expression_evaluation_error large_number.int matches 1.. run return run data modify storage large_number:math expression_evaluation.differential.2output set value "NaNd"
 data modify storage large_number:math stempu set from storage large_number:math expression_evaluation.output
 
 #浮点减法
@@ -42,41 +39,35 @@ execute unless data storage large_number:math {stemp1:"-"} run function large_nu
 
 data modify storage large_number:math expression_evaluation_variables."ｘ" set from storage large_number:math temp1
 
-#解析逆波兰式
-data modify storage large_number:math temp_expression_s1 set value []
-data modify storage large_number:math temp_expression_s2 set from storage large_number:math expression_evaluation.rev_polish_notation
-execute if data storage large_number:math temp_expression_s2[0] run function large_number:expression_evaluation_scientific/ope_of_float/loop1
-data modify storage large_number:math temp1 set from storage large_number:math temp_expression_s1[0]
-function large_number:expression_evaluation_scientific/macro4.output with storage large_number:math
+#解析逆波兰式 - 实函数
+function large_number:expression_evaluation_scientific/ope_no_tell
+execute if score #temp_expression_evaluation_error large_number.int matches 1.. run return run data modify storage large_number:math expression_evaluation.differential.2output set value "NaNd"
 data modify storage large_number:math temp2 set from storage large_number:math expression_evaluation.output
 
 #浮点加法
 data modify storage large_number:math temp1 set from storage large_number:math stempu
-execute store result score #temp_test.float_add_sub_a2 int run data get storage large_number:math temp1
-execute store result score #temp_test.float_add_sub_b2 int run data get storage large_number:math temp2
-scoreboard players operation #temp_test.float_add_sub_a int = #temp_test.float_add_sub_a2 int
-scoreboard players operation #temp_test.float_add_sub_b int = #temp_test.float_add_sub_b2 int
-execute if score #temp_test.float_add_sub_a int matches ..-1 store result score #temp_test.float_add_sub_a int run data get storage large_number:math temp1 -1
-execute if score #temp_test.float_add_sub_b int matches ..-1 store result score #temp_test.float_add_sub_b int run data get storage large_number:math temp2 -1
-scoreboard players set #temp_test.float_add_sub.number_is_large int 0
-execute if score #temp_test.float_add_sub_a int matches 20000000.. run scoreboard players set #temp_test.float_add_sub.number_is_large int 1
-execute if score #temp_test.float_add_sub_b int matches 20000000.. run scoreboard players set #temp_test.float_add_sub.number_is_large int 1
-scoreboard players operation #temp_test.float_add_sub_a2 int += #temp_test.float_add_sub_b2 int
-execute if score #temp_test.float_add_sub.number_is_large int matches 0 if score #temp_test.float_add_sub_a int matches 20000000.. run scoreboard players set #temp_test.float_add_sub.number_is_large int 1
-execute if score #temp_test.float_add_sub.number_is_large int matches 0 as b09e-44-fded-6-efa5ffffef64 run function large_number:fourier_series_numerical/ope/macro3.5 with storage large_number:math
-execute if score #temp_test.float_add_sub.number_is_large int matches 1 run function large_number:fourier_series_numerical/ope/macro3 with storage large_number:math
-execute if score #temp_test.float_add_sub.number_is_large int matches 1 as @e[type=minecraft:item] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
+execute store result score #temp_test.float_add_sub_a2 large_number.int run data get storage large_number:math temp1
+execute store result score #temp_test.float_add_sub_b2 large_number.int run data get storage large_number:math temp2
+scoreboard players operation #temp_test.float_add_sub_a large_number.int = #temp_test.float_add_sub_a2 large_number.int
+scoreboard players operation #temp_test.float_add_sub_b large_number.int = #temp_test.float_add_sub_b2 large_number.int
+execute if score #temp_test.float_add_sub_a large_number.int matches ..-1 store result score #temp_test.float_add_sub_a large_number.int run data get storage large_number:math temp1 -1
+execute if score #temp_test.float_add_sub_b large_number.int matches ..-1 store result score #temp_test.float_add_sub_b large_number.int run data get storage large_number:math temp2 -1
+scoreboard players set #temp_test.float_add_sub.number_is_large large_number.int 0
+execute if score #temp_test.float_add_sub_a large_number.int matches 20000000.. run scoreboard players set #temp_test.float_add_sub.number_is_large large_number.int 1
+execute if score #temp_test.float_add_sub_b large_number.int matches 20000000.. run scoreboard players set #temp_test.float_add_sub.number_is_large large_number.int 1
+scoreboard players operation #temp_test.float_add_sub_a2 large_number.int += #temp_test.float_add_sub_b2 large_number.int
+execute if score #temp_test.float_add_sub.number_is_large large_number.int matches 0 if score #temp_test.float_add_sub_a large_number.int matches 20000000.. run scoreboard players set #temp_test.float_add_sub.number_is_large large_number.int 1
+execute if score #temp_test.float_add_sub.number_is_large large_number.int matches 0 as b09e-44-fded-6-efa5ffffef64 run function large_number:fourier_series_numerical/ope/macro3.5 with storage large_number:math
+execute if score #temp_test.float_add_sub.number_is_large large_number.int matches 1 run function large_number:fourier_series_numerical/ope/macro3 with storage large_number:math
+execute if score #temp_test.float_add_sub.number_is_large large_number.int matches 1 as @e[type=minecraft:item,distance=.0..] if items entity @s container.0 minecraft:stone[minecraft:custom_data={"large_number:loot_spawn":1b}] run function large_number:curve_length/univariate_function/float_subtra
 
 data modify storage large_number:math stempv set from storage large_number:math temp1
 
 data modify storage large_number:math expression_evaluation_variables."ｘ" set from storage large_number:math expression_evaluation.differential.input
 
-#解析逆波兰式
-data modify storage large_number:math temp_expression_s1 set value []
-data modify storage large_number:math temp_expression_s2 set from storage large_number:math expression_evaluation.rev_polish_notation
-execute if data storage large_number:math temp_expression_s2[0] run function large_number:expression_evaluation_scientific/ope_of_float/loop1
-data modify storage large_number:math temp1 set from storage large_number:math temp_expression_s1[0]
-function large_number:expression_evaluation_scientific/macro4.output with storage large_number:math
+#解析逆波兰式 - 实函数
+function large_number:expression_evaluation_scientific/ope_no_tell
+execute if score #temp_expression_evaluation_error large_number.int matches 1.. run return run data modify storage large_number:math expression_evaluation.differential.2output set value "NaNd"
 
 function large_number:differential/difference_quotient_method/2/macro1 with storage large_number:math expression_evaluation
 
@@ -87,12 +78,16 @@ execute if data storage large_number:math {stemp1:"-"} run function large_number
 execute unless data storage large_number:math {stemp1:"-"} run function large_number:float_comparison_sizes/float_sub_ope.2
 
 #h^2
-execute store result storage large_number:math temp2 double 0.000000000000000001 store result score #temp1 int run data get storage large_number:math expression_evaluation.differential.dx 1000000000
+execute store result storage large_number:math temp2 double 0.000000000000000001 store result score #temp1 large_number.int run data get storage large_number:math expression_evaluation.differential.dx 1000000000
 function large_number:differential/difference_quotient_method/2/macro2 with storage large_number:math
 
 #结果
-execute store result score #temp1 int run data get storage large_number:math temp2 1000000000
-scoreboard players set #temp2 int 1000000000
-scoreboard players operation #temp2 int /= #temp1 int
+execute store result score #temp1 large_number.int run data get storage large_number:math temp2 1000000000
+scoreboard players set #temp2 large_number.int 1000000000
+scoreboard players operation #temp2 large_number.int /= #temp1 large_number.int
 function large_number:differential/difference_quotient_method/1/macro1 with storage large_number:math
 data modify storage large_number:math expression_evaluation.differential.2output set from storage large_number:math temp4
+
+#报错
+execute store result storage large_number:math differential_error_type int 1 run scoreboard players get #temp_expression_evaluation_error large_number.int
+execute if score #temp_expression_evaluation_error large_number.int matches 1.. run data modify storage large_number:math expression_evaluation.differential.2output set value "NaNd"

@@ -1,3 +1,5 @@
+execute if score #temp_expression_evaluation_error large_number.int matches 1.. run return 0
+
 #浮点减法
 data modify storage large_number:math temp1 set from storage large_number:math sstempr[1][0]
 data modify storage large_number:math temp2 set from storage large_number:math sstempr[0][0]

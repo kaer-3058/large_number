@@ -6,9 +6,9 @@
 #输入搜索模式：data modify storage large_number:math double_extrema.mode set value "max"
 #输入值为字符串，"max"是找最大值，"min"是找最小值
 
-data modify storage large_number:math stempd set from storage large_number:math double_extrema.input
-data modify storage large_number:math stempu set from storage large_number:math double_extrema.mode
-data modify storage large_number:math float_comparison_sizes.B set from storage large_number:math stempd[0]
+data modify storage large_number:math temp_double_extrema_stempd set from storage large_number:math double_extrema.input
+data modify storage large_number:math temp_double_extrema_stempu set from storage large_number:math double_extrema.mode
+data modify storage large_number:math float_comparison_sizes.B set from storage large_number:math temp_double_extrema_stempd[0]
 
-execute if data storage large_number:math stempd[1] run function large_number:list_operation/double_extrema/loop
+execute if data storage large_number:math temp_double_extrema_stempd[1] run function large_number:list_operation/double_extrema/loop
 data modify storage large_number:math double_extrema.output set from storage large_number:math float_comparison_sizes.B

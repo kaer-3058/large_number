@@ -1,7 +1,7 @@
 ##快速估计浮点数的倒数
 
 #输入[double]：data modify storage large_number:math fast_float_reciprocal.input set value 7.12
-#精度：scoreboard players set #fast_float_reciprocal.1Ea int -1
+#精度：scoreboard players set #fast_float_reciprocal.1Ea large_number.int -1
 #范围：-6~0
 
 #执行：execute as b09e-44-fded-6-efa5ffffef64 run function large_number:division/fast_float_reciprocal/start

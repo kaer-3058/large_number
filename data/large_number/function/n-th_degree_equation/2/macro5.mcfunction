@@ -1,0 +1,1 @@
+$execute store result storage large_number:math temp_in09.i double $(output) run return -1

@@ -10,7 +10,7 @@ data modify storage large_number:math sstemp2[2] set from storage large_number:m
 data modify storage large_number:math u set from storage large_number:math sstemp2[0]
 data modify storage large_number:math w set from storage large_number:math sstemp2[2]
 
-execute store result entity @s Rotation[0] float .001 run scoreboard players get #3d.ellipse.roll.θ int
+execute store result entity @s Rotation[0] float .001 run scoreboard players get #3d.ellipse.roll.θ large_number.int
 execute positioned .0 .0 .0 rotated as @s run function large_number:particle/3d_ar_ellipse/uvwtoxyz_2 with storage large_number:math
 data modify storage large_number:math sstemp2 set from entity @s Pos
 data remove storage large_number:math sstemp2[1]
@@ -18,5 +18,5 @@ data remove storage large_number:math sstemp2[1]
 data modify storage large_number:math 3d_ar_ellipse_pos append from storage large_number:math sstemp2
 
 #递归
-execute store result entity @s Rotation[0] float -0.1 run scoreboard players operation #loop int -= #3d.circle.angle int
-execute if score #loop int matches 1.. run function large_number:particle/3d_ar_ellipse/loop
+execute store result entity @s Rotation[0] float -0.1 run scoreboard players operation #loop large_number.int -= #3d.circle.angle large_number.int
+execute if score #loop large_number.int matches 1.. run function large_number:particle/3d_ar_ellipse/loop

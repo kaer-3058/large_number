@@ -1,0 +1,1 @@
+$execute store result storage large_number:math int_mul_4 long $(temp_sin_inte) run return $(temp_sin_deci_12)

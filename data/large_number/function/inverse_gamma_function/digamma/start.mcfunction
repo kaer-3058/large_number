@@ -14,7 +14,7 @@ function large_number:digamma_function/macro1 with storage large_number:math dig
 
 #1/(2x)
 data modify storage large_number:math float_reciprocal.input set from storage large_number:math temp1
-function large_number:division/float_reciprocal/start
+function large_number:division/float_reciprocal_8_dici/start
 
 #ln(x)+1/(2x)
 execute as b09e-44-fded-6-efa5ffffef64 run function large_number:inverse_gamma_function/digamma/as_entity1

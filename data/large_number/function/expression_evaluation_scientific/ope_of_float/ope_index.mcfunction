@@ -1,0 +1,1 @@
+$function large_number:expression_evaluation_scientific/ope_of_float/ope_$(stemp_expression2)

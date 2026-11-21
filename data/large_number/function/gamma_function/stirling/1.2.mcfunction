@@ -1,0 +1,73 @@
+##伽玛函数 - 斯特林公式
+#输入范围为区间：[0.5, 170.6271]
+
+#斯特林公式：Γ(x+1) ~ sqrt(2πx)·(x/e)^x·(1+0.0845072303119/x) x≥0.2216
+
+#data modify storage large_number:math gamma_function.input set value 73.2074d
+
+#sqrt(x)
+data remove storage large_number:math double_sqrt
+data modify storage large_number:math double_sqrt.input set from storage large_number:math store_gamma_function_inp
+scoreboard players set #New_double_sqrt.decimal_add large_number.int 1
+function large_number:new_double_ope/double_sqrt
+
+#sqrt(2πx)
+data modify storage large_number:math float_multiply.input1 set from storage large_number:math double_sqrt.output
+function large_number:gamma_function/stirling/mul_sqrt_2pi
+data modify storage large_number:math temp_sqrt_2pix set from storage large_number:math float_multiply.output
+
+#x/e
+data modify storage large_number:math float_multiply.input1 set from storage large_number:math store_gamma_function_inp
+function large_number:gamma_function/robert_h_windschitl/mul_1_euler_e
+
+#(x/e)^x
+data modify storage large_number:math exp_any.input.base set from storage large_number:math float_multiply.output
+data modify storage large_number:math exp_any.input.expon set from storage large_number:math store_gamma_function_inp
+function large_number:exp_any/start
+data modify storage large_number:math temp_(x/e)^x set from storage large_number:math exp_any.output
+
+
+#级数展开
+
+function large_number:gamma_function/stirling_of_large_number/macro2 with storage large_number:math
+function large_number:division/float_reciprocal_8_dici/start
+data modify storage large_number:math temp_stirling_series_times_2 set from storage large_number:math float_reciprocal.output
+
+data modify storage large_number:math float_multiply.input1 set from storage large_number:math store_gamma_function_inp
+function large_number:float_mul.high_precision/squ/start
+data modify storage large_number:math temp_x^2 set from storage large_number:math float_multiply.output
+function large_number:gamma_function/stirling_of_large_number/macro3 with storage large_number:math float_multiply
+function large_number:division/float_reciprocal_8_dici/start
+data modify storage large_number:math temp_stirling_series_times_3 set from storage large_number:math float_reciprocal.output
+
+data modify storage large_number:math float_multiply.input1 set from storage large_number:math store_gamma_function_inp
+function large_number:float_mul.high_precision/cube/start
+function large_number:gamma_function/stirling_of_large_number/macro4 with storage large_number:math float_multiply
+function large_number:gamma_function/stirling_of_large_number/float_reciprocal_8_dici
+data modify storage large_number:math temp_stirling_series_times_4 set from storage large_number:math float_reciprocal.output
+
+data modify storage large_number:math float_multiply.input1 set from storage large_number:math temp_x^2
+function large_number:float_mul.high_precision/squ/start
+function large_number:gamma_function/stirling_of_large_number/macro5 with storage large_number:math float_multiply
+function large_number:gamma_function/stirling_of_large_number/float_reciprocal_8_dici_2
+data modify storage large_number:math temp_stirling_series_times_5 set from storage large_number:math float_reciprocal.output
+
+data modify storage large_number:math float_multiply.input1 set from storage large_number:math float_multiply.output
+data modify storage large_number:math float_multiply.input2 set from storage large_number:math store_gamma_function_inp
+function large_number:float_mul.high_precision/start
+function large_number:gamma_function/stirling_of_large_number/macro6 with storage large_number:math float_multiply
+function large_number:gamma_function/stirling_of_large_number/float_reciprocal_8_dici_3
+data modify storage large_number:math temp_stirling_series_times_6 set from storage large_number:math float_reciprocal.output
+
+#级数的各项相加
+execute as b09e-44-fded-6-efa5ffffef64 run function large_number:gamma_function/stirling_of_large_number/as_entity_3
+
+
+#三个部分相乘
+data modify storage large_number:math float_multiply.input1 set from storage large_number:math temp_sqrt_2pix
+data modify storage large_number:math float_multiply.input2 set from storage large_number:math temp_(x/e)^x
+function large_number:float_mul.high_precision/start
+data modify storage large_number:math float_multiply.input1 set from storage large_number:math float_multiply.output
+data modify storage large_number:math float_multiply.input2 set from storage large_number:math temp_stirling_series
+function large_number:float_mul.high_precision/start
+data modify storage large_number:math gamma_function.output set from storage large_number:math float_multiply.output

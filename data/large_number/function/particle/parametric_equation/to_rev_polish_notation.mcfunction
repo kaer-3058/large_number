@@ -22,4 +22,4 @@ execute if data storage large_number:math temp_s1[-1] run function large_number:
 
 data modify storage large_number:math parametric_equation_particle.rev_polish_notation_Y set from storage large_number:math temp_s2
 
-execute unless score #large_number.all_tellraw_set int matches 1 run tellraw @a {"translate":"large_number.parametric_equation_particle.to_rev_polish_notation.end","fallback": "\u00A77\u00A7o参数方程：表达式转换完成"}
+execute unless score #large_number.all_tellraw_set large_number.int matches 1 run tellraw @a {"translate":"large_number.parametric_equation_particle.to_rev_polish_notation.end","fallback": "\u00A77\u00A7o参数方程：表达式转换完成"}

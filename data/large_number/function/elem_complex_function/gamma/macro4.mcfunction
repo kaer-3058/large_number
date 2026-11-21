@@ -1,0 +1,1 @@
+$execute store result storage large_number:math temp_x_6_expon_out.x double $(x) run return 810

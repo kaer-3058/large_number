@@ -1,7 +1,7 @@
 ##load
 
 scoreboard objectives add const dummy
-scoreboard objectives add int dummy
+scoreboard objectives add large_number.int dummy
 scoreboard objectives add ln_const dummy
 scoreboard objectives add sin_cos_const dummy
 scoreboard objectives add lan.pi_information dummy
@@ -131,10 +131,10 @@ data modify storage large_number:const double_abs_min set value 4.9E-324d
 
 data modify storage large_number:math buffer_NaN set value "NaNd"
 
+#版本号更改的位置有：数学库load函数、数学库文件夹名、Wiki里的标题、Wiki里的标识符、更新日志的大标题、Wiki索引的标题
+data modify storage large_number:const version set value "large_number v.2.01"
 
-data modify storage large_number:const version set value "large_number v.1.19"
-
-scoreboard players set #k.la.version const 1019
+scoreboard players set #k.la.version const 2001
 
 #large_number:math q0 系列专门用于优化函数宏
 
@@ -151,9 +151,67 @@ execute unless data storage large_number:math xyzw[3] run data modify storage la
 execute unless data storage large_number:math unit_vector[2] run data modify storage large_number:math unit_vector set value [0f,0f,0f]
 
 #base64解析
-scoreboard players set #cb_run_func:"timestamp/cb_start" int 0
+scoreboard players set #cb_run_func:"timestamp/cb_start" large_number.int 0
 
-#运算符号集
-data modify storage large_number:math buffer_expression_evaluation_sign set value \
-["+","-","*","·","/","^","²","exp","log","ln","sin","cos","tan","arcsin","arccos","arctan","atan","√","Γ","┕","ºLambertW","¹LambertW","||","sgn","[]","[0]","—","ψ","Σ[1/n]n→","eunorm₂","eunorm₃",">=","<=","==","≈≈",">/<",">-<",">>","<<","≥≥","≤≤","nroot","ºsinh","ºcosh","ºtanh","hign┕","hignºW","hign¹W","erf"]
+#函数表格
+scoreboard players set #buffer_expre_sign_+ large_number.int 1
+scoreboard players set #buffer_expre_sign_- large_number.int 2
+scoreboard players set #buffer_expre_sign_* large_number.int 3
+scoreboard players set #buffer_expre_sign_· large_number.int 3
+scoreboard players set #buffer_expre_sign_² large_number.int 27
+scoreboard players set #buffer_expre_sign_/ large_number.int 4
+scoreboard players set #buffer_expre_sign_^ large_number.int 5
+scoreboard players set #buffer_expre_sign_exp large_number.int 6
+scoreboard players set #buffer_expre_sign_log large_number.int 7
+scoreboard players set #buffer_expre_sign_sin large_number.int 8
+scoreboard players set #buffer_expre_sign_cos large_number.int 9
+scoreboard players set #buffer_expre_sign_tan large_number.int 44
+scoreboard players set #buffer_expre_sign_arcsin large_number.int 10
+scoreboard players set #buffer_expre_sign_arccos large_number.int 11
+scoreboard players set #buffer_expre_sign_ln large_number.int 12
+scoreboard players set #buffer_expre_sign_√ large_number.int 13
+scoreboard players set #buffer_expre_sign_Γ large_number.int 14
+scoreboard players set #buffer_expre_sign_gamma large_number.int 14
+scoreboard players set #buffer_expre_sign_┕ large_number.int 15
+scoreboard players set #buffer_expre_sign_$┕ large_number.int 45
+scoreboard players set #buffer_expre_sign_LambertW large_number.int 16
+scoreboard players set #buffer_expre_sign_$LambertW large_number.int 46
+scoreboard players set #buffer_expre_sign_|| large_number.int 18
+scoreboard players set #buffer_expre_sign_abs large_number.int 18
+scoreboard players set #buffer_expre_sign_sgn large_number.int 19
+scoreboard players set #buffer_expre_sign_[] large_number.int 20
+scoreboard players set #buffer_expre_sign_floor large_number.int 20
+scoreboard players set #buffer_expre_sign_[c] large_number.int 49
+scoreboard players set #buffer_expre_sign_ceil large_number.int 49
+scoreboard players set #buffer_expre_sign_[0] large_number.int 29
+scoreboard players set #buffer_expre_sign_— large_number.int 21
+scoreboard players set #buffer_expre_sign_atan large_number.int 22
+scoreboard players set #buffer_expre_sign_ψ large_number.int 23
+scoreboard players set #buffer_expre_sign_Σ[1/n]n→ large_number.int 24
+scoreboard players set #buffer_expre_sign_eunorm₂ large_number.int 25
+scoreboard players set #buffer_expre_sign_eunorm₃ large_number.int 26
+scoreboard players set #buffer_expre_sign_arctan large_number.int 28
+scoreboard players set #buffer_expre_sign_<= large_number.int 30
+scoreboard players set #buffer_expre_sign_>= large_number.int 31
+scoreboard players set #buffer_expre_sign_== large_number.int 32
+scoreboard players set #buffer_expre_sign_≈≈ large_number.int 33
+scoreboard players set #buffer_expre_sign_>/< large_number.int 34
+scoreboard players set #buffer_expre_sign_>-< large_number.int 35
+scoreboard players set #buffer_expre_sign_>> large_number.int 36
+scoreboard players set #buffer_expre_sign_<< large_number.int 37
+scoreboard players set #buffer_expre_sign_≥≥ large_number.int 38
+scoreboard players set #buffer_expre_sign_≤≤ large_number.int 39
+scoreboard players set #buffer_expre_sign_nroot large_number.int 40
+scoreboard players set #buffer_expre_sign_sinh large_number.int 41
+scoreboard players set #buffer_expre_sign_cosh large_number.int 42
+scoreboard players set #buffer_expre_sign_tanh large_number.int 43
+scoreboard players set #buffer_expre_sign_erf large_number.int 48
+scoreboard players set #buffer_expre_sign_ζ large_number.int 50
+scoreboard players set #buffer_expre_sign_lnΓ large_number.int 51
+scoreboard players set #buffer_expre_sign_beta large_number.int 52
 
+#复数计算器专属函数
+scoreboard players set #buffer_expre_sign_conju large_number.int 53
+scoreboard players set #buffer_expre_sign_arg large_number.int 54
+scoreboard players set #buffer_expre_sign_re large_number.int 55
+scoreboard players set #buffer_expre_sign_im large_number.int 56

@@ -1,0 +1,1 @@
+$execute store result storage large_number:math stempu double $(stempu) run return -1

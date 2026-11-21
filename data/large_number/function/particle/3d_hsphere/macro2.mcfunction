@@ -1,1 +1,1 @@
-$tp ^ ^ ^$(3d_hsphere_pos_R)
+$execute positioned ^ ^ ^$(3d_hsphere_pos_R) run function large_number:macro_operation/tp_here

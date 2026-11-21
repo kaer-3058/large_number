@@ -9999,4 +9999,4 @@ data modify storage large_number:math gamma_databse."9997" set value 1.000173253
 data modify storage large_number:math gamma_databse."9998" set value 1.000115482702480E00d
 data modify storage large_number:math gamma_databse."9999" set value 1.000057731457960E00d
 data modify storage large_number:math gamma_databse."10000" set value 1.000000000000000E00d
-execute unless score #large_number.all_tellraw_set int matches 1 run tellraw @a {"translate":"large_number.gamma_function_recursion_database.command_times","fallback": "已执行函数large_number:gamma_function/recursion/database里的10002条命令，录入了\u00A7e10001\u00A7f条数据"}
+execute unless score #large_number.all_tellraw_set large_number.int matches 1 run tellraw @a {"translate":"large_number.gamma_function_recursion_database.command_times","fallback": "已执行函数large_number:gamma_function/recursion/database里的10002条命令，录入了\u00A7e10001\u00A7f条数据"}

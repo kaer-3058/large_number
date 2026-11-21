@@ -1,2 +1,2 @@
 function ntre:next
-scoreboard players operation #sstemp1 int = @s ntre_output
+scoreboard players operation #sstemp1 large_number.int = @s ntre_output

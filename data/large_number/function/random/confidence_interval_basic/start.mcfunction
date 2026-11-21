@@ -16,18 +16,18 @@ function large_number:random/normal_distribution_critical_value/start
 execute store result storage large_number:math temp1 int -1 run data get storage large_number:math normal_distribution_critical_value.output -100000000
 function large_number:random/normal_distribution_critical_value/macro1 with storage large_number:math
 
-execute store result storage large_number:math temp1 int 1 store result score #temp2 int run data get storage large_number:math confidence_interval_of_p.p 1000000000
-scoreboard players operation #temp2 int *= -1 const
-execute store result storage large_number:math temp2 int 1 run scoreboard players add #temp2 int 1000000000
+execute store result storage large_number:math temp1 int 1 store result score #temp2 large_number.int run data get storage large_number:math confidence_interval_of_p.p 1000000000
+scoreboard players operation #temp2 large_number.int *= -1 const
+execute store result storage large_number:math temp2 int 1 run scoreboard players add #temp2 large_number.int 1000000000
 function large_number:int_mul2/macro1 with storage large_number:math
 
 execute store result storage large_number:math temp1 int 1 run data get storage large_number:math q0 .00000001
 execute store result storage large_number:math temp2 int 1 run data get storage large_number:math int_mult2_out .000000001
 function large_number:int_mul2/macro1 with storage large_number:math
-execute store result score #int_+decimal.input1 int run data get storage large_number:math int_mult2_out .0000000001
+execute store result score #int_+decimal.input1 large_number.int run data get storage large_number:math int_mult2_out .0000000001
 
 execute store result storage large_number:math temp1 int 1 run data get storage large_number:math confidence_interval_of_p.ϵ 100000000
 function large_number:random/normal_distribution_critical_value/macro1 with storage large_number:math
-execute store result score #int_+decimal.input2 int run data get storage large_number:math q0 .000000001
+execute store result score #int_+decimal.input2 large_number.int run data get storage large_number:math q0 .000000001
 function large_number:division/int_8decimal/start
 execute store result storage large_number:math confidence_interval_of_p.output int -1 run data get storage large_number:math int_more_decimal_out -1

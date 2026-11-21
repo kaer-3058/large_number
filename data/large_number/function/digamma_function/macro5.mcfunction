@@ -1,0 +1,1 @@
+$execute store result storage large_number:math temp_digamma_function_inp double $(temp_digamma_function_inp) run return -1

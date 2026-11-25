@@ -12,7 +12,6 @@ execute if score #temp_expression_evaluation_error large_number.int matches 1.. 
 
 data modify storage large_number:math gamma_function.input set from storage large_number:math _expressionss2
 scoreboard players set #temp_exp_out_so_large large_number.int 0
-scoreboard players set #gamma_function.robert_h.correct large_number.int 1
 function large_number:gamma_function/robert_h_windschitl/start
 data modify storage large_number:math _expressionss3 set from storage large_number:math gamma_function.output
 

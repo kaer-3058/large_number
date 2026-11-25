@@ -11,7 +11,7 @@ function large_number:division/float_reciprocal_8_dici/start
 data modify storage large_number:math float_multiply.input1 set from storage large_number:math float_reciprocal.output
 
 #1/(810x^6)
-function large_number:gamma_function/s_robert_h_w_of_large_number/mul_1_810
+function large_number:gamma_function/robert_h_windschitl/mul_1_810
 
 #浮点加法
 data modify storage large_number:math temp1 set from storage large_number:math float_multiply.output

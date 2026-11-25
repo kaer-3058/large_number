@@ -3,8 +3,6 @@
 
 #data modify storage large_number:math gamma_function.input set value 73.2074d
 
-#使用校正项：scoreboard players set #gamma_function.robert_h.correct large_number.int 1
-
 data modify storage large_number:math stemp_gamma_function_inp2 set from storage large_number:math stemp_gamma_function_inp
 
 #1-x

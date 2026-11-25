@@ -3,8 +3,6 @@
 
 #data modify storage large_number:math gamma_function.input set value 73.2074d
 
-#使用校正项：scoreboard players set #gamma_function.robert_h.correct large_number.int 1
-
 #2π/x
 function large_number:gamma_function/s_robert_h_w_of_large_number/float_reciprocal
 
@@ -31,7 +29,7 @@ data modify storage large_number:math temp_x_sinh1/x set from storage large_numb
 
 #校正项
 data modify storage large_number:math temp1 set from storage large_number:math temp_x_sinh1/x
-execute if score #gamma_function.robert_h.correct large_number.int matches 1 run function large_number:gamma_function/s_robert_h_w_of_large_number/correct
+function large_number:gamma_function/s_robert_h_w_of_large_number/correct
 
 #sqrt(x)
 data modify storage large_number:math double_sqrt.input set from storage large_number:math temp1
